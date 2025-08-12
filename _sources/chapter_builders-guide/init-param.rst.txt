@@ -1,0 +1,242 @@
+
+Parameter Initialization
+========================
+
+Now that we know how to access the parameters, let’s look at how to
+initialize them properly. We discussed the need for proper
+initialization in :numref:`sec_numerical_stability`. The deep learning
+framework provides default random initializations to its layers.
+However, we often want to initialize our weights according to various
+other protocols. The framework provides most commonly used protocols,
+and also allows to create a custom initializer.
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    import mlx.core as mx
+    import mlx.nn as nn
+
+By default, MLX initializes weight and bias matrices uniformly within a
+range calculated based on the input and output dimensions. The MLX
+nn.init module provides various preset initialization methods.
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    net = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))
+    X = mx.random.uniform(shape=(2, 4))
+    net(X).shape
+
+
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    (2, 1)
+
+
+
+Built-in Initialization
+-----------------------
+
+Let’s begin by calling on built-in initializers. The code below
+initializes all weight parameters as Gaussian random variables with
+standard deviation 0.01, while bias parameters are cleared to zero.
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    weight_fn = nn.init.normal(mean=0.0, std=0.01)
+    bias_fn = nn.init.constant(0.0)
+    for layer in net.layers:
+        if type(layer) == nn.Linear:
+            layer.weight = weight_fn(layer.weight)
+            layer.bias = bias_fn(layer.bias)
+    
+    net.layers[0].weight[0], net.layers[0].bias[0]
+
+
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    (array([-0.00366156, -0.00131906, 0.00550299, 0.00708594], dtype=float32),
+     array(0, dtype=float32))
+
+
+
+We can also initialize all the parameters to a given constant value
+(say, 1).
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    weight_fn = nn.init.constant(1.0)
+    bias_fn = nn.init.constant(0.0)
+    for layer in net.layers:
+        if type(layer) == nn.Linear:
+            layer.weight = weight_fn(layer.weight)
+            layer.bias = bias_fn(layer.bias)
+    
+    net.layers[0].weight[0], net.layers[0].bias[0]
+
+
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    (array([1, 1, 1, 1], dtype=float32), array(0, dtype=float32))
+
+
+
+We can also apply different initializers for certain blocks. For
+example, below we initialize the first layer with the Xavier initializer
+and initialize the second layer to a constant value of 42.
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    uniform_fn = nn.init.glorot_uniform()
+    const_fn = nn.init.constant(42.0)
+    net.layers[0].weight = uniform_fn(net.layers[0].weight)
+    net.layers[2].weight = const_fn(net.layers[2].weight)
+    print(net.layers[0].weight[0])
+    print(net.layers[2].weight)
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    array([-0.42661, 0.115258, 0.213216, 0.670142], dtype=float32)
+    array([[42, 42, 42, ..., 42, 42, 42]], dtype=float32)
+
+
+Custom Initialization
+~~~~~~~~~~~~~~~~~~~~~
+
+Sometimes, the initialization methods we need are not provided by the
+deep learning framework. In the example below, we define an initializer
+for any weight parameter :math:`w` using the following strange
+distribution:
+
+.. math::
+
+
+   \begin{aligned}
+       w \sim \begin{cases}
+           U(5, 10) & \textrm{ with probability } \frac{1}{4} \\
+               0    & \textrm{ with probability } \frac{1}{2} \\
+           U(-10, -5) & \textrm{ with probability } \frac{1}{4}
+       \end{cases}
+   \end{aligned}
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    for name, layer in net.named_modules()[::-1]:
+        if type(layer) == nn.Linear:
+            for param in layer.parameters():
+                print("Init", param, layer[param].shape)
+                break
+            weight_fn = nn.init.uniform(low=-10, high=10)
+            layer.weight = weight_fn(layer.weight)
+            layer.weight *= mx.abs(layer.weight) >= 5
+    
+    net.layers[0].weight[:2]
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    Init weight (8, 4)
+    Init weight (1, 8)
+
+
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    array([[6.68279, 0, -0, 5.98607],
+           [0, 0, 0, -8.97283]], dtype=float32)
+
+
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    net.layers[0].weight[:] += 1
+    net.layers[0].weight[0, 0] = 42
+    net.layers[0].weight[0]
+
+
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    array([42, 1, 1, 6.98607], dtype=float32)
+
+
+
+Summary
+-------
+
+We can initialize parameters using built-in and custom initializers.
+
+Exercises
+---------
+
+Look up the online documentation for more built-in initializers.

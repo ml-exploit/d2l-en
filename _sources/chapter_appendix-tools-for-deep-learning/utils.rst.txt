@@ -1,0 +1,1386 @@
+
+.. _sec_utils:
+
+Utility Functions and Classes
+=============================
+
+
+This section contains the implementations of utility functions and
+classes used in this book.
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    import collections
+    import inspect
+    from typing import Any, Dict, List, Optional, Tuple, TypeVar, Union
+    import mlx
+    import mlx.core as mx
+    import mlx.nn as nn
+    from IPython import display
+    from d2l import mlx as d2l
+
+Hyperparameters.
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    @d2l.add_to_class(d2l.HyperParameters)  #@save
+    def save_hyperparameters(self, ignore=[]):
+        """Save function arguments into class attributes."""
+        frame = inspect.currentframe().f_back
+        _, _, _, local_vars = inspect.getargvalues(frame)
+        self.hparams = {k:v for k, v in local_vars.items()
+                        if k not in set(ignore+['self']) and not k.startswith('_')}
+        for k, v in self.hparams.items():
+            setattr(self, k, v)
+
+Progress bar.
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    @d2l.add_to_class(d2l.ProgressBoard)  #@save
+    def draw(self, x, y, label, every_n=1):
+        Point = collections.namedtuple('Point', ['x', 'y'])
+        if not hasattr(self, 'raw_points'):
+            self.raw_points = collections.OrderedDict()
+            self.data = collections.OrderedDict()
+        if label not in self.raw_points:
+            self.raw_points[label] = []
+            self.data[label] = []
+        points = self.raw_points[label]
+        line = self.data[label]
+        points.append(Point(x, y))
+        if len(points) != every_n:
+            return
+        mean = lambda x: sum(x) / len(x)
+        line.append(Point(mean([p.x for p in points]),
+                          mean([p.y for p in points])))
+        points.clear()
+        if not self.display:
+            return
+        d2l.use_svg_display()
+        if self.fig is None:
+            self.fig = d2l.plt.figure(figsize=self.figsize)
+        plt_lines, labels = [], []
+        for (k, v), ls, color in zip(self.data.items(), self.ls, self.colors):
+            plt_lines.append(d2l.plt.plot([p.x for p in v], [p.y for p in v],
+                                          linestyle=ls, color=color)[0])
+            labels.append(k)
+        axes = self.axes if self.axes else d2l.plt.gca()
+        if self.xlim: axes.set_xlim(self.xlim)
+        if self.ylim: axes.set_ylim(self.ylim)
+        if not self.xlabel: self.xlabel = self.x
+        axes.set_xlabel(self.xlabel)
+        axes.set_ylabel(self.ylabel)
+        axes.set_xscale(self.xscale)
+        axes.set_yscale(self.yscale)
+        axes.legend(plt_lines, labels)
+        display.display(self.fig)
+        display.clear_output(wait=True)
+
+Add FrozenLake enviroment
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def frozen_lake(seed): #@save
+        # See https://www.gymlibrary.dev/environments/toy_text/frozen_lake/ to learn more about this env
+        # How to process env.P.items is adpated from https://sites.google.com/view/deep-rl-bootcamp/labs
+        import gym
+    
+        env = gym.make('FrozenLake-v1', is_slippery=False)
+        env.seed(seed)
+        env.action_space.np_random.seed(seed)
+        env.action_space.seed(seed)
+        env_info = {}
+        env_info['desc'] = env.desc  # 2D array specifying what each grid item means
+        env_info['num_states'] = env.nS  # Number of observations/states or obs/state dim
+        env_info['num_actions'] = env.nA  # Number of actions or action dim
+        # Define indices for (transition probability, nextstate, reward, done) tuple
+        env_info['trans_prob_idx'] = 0  # Index of transition probability entry
+        env_info['nextstate_idx'] = 1  # Index of next state entry
+        env_info['reward_idx'] = 2  # Index of reward entry
+        env_info['done_idx'] = 3  # Index of done entry
+        env_info['mdp'] = {}
+        env_info['env'] = env
+    
+        for (s, others) in env.P.items():
+            # others(s) = {a0: [ (p(s'|s,a0), s', reward, done),...], a1:[...], ...}
+    
+            for (a, pxrds) in others.items():
+                # pxrds is [(p1,next1,r1,d1),(p2,next2,r2,d2),..].
+                # e.g. [(0.3, 0, 0, False), (0.3, 0, 0, False), (0.3, 4, 1, False)]
+                env_info['mdp'][(s,a)] = pxrds
+    
+        return env_info
+
+Create enviroment
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def make_env(name ='', seed=0): #@save
+        # Input parameters:
+        # name: specifies a gym environment.
+        # For Value iteration, only FrozenLake-v1 is supported.
+        if name == 'FrozenLake-v1':
+            return frozen_lake(seed)
+    
+        else:
+            raise ValueError("%s env is not supported in this Notebook")
+
+Show value function
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def show_value_function_progress(env_desc, V, pi): #@save
+        # This function visualizes how value and policy changes over time.
+        # V: [num_iters, num_states]
+        # pi: [num_iters, num_states]
+        # How to visualize value function is adapted (but changed) from: https://sites.google.com/view/deep-rl-bootcamp/labs
+    
+        num_iters = V.shape[0]
+        fig, ax  = plt.subplots(figsize=(15, 15))
+    
+        for k in range(V.shape[0]):
+            plt.subplot(4, 4, k + 1)
+            plt.imshow(V[k].reshape(4,4), cmap="bone")
+            ax = plt.gca()
+            ax.set_xticks(np.arange(0, 5)-.5, minor=True)
+            ax.set_yticks(np.arange(0, 5)-.5, minor=True)
+            ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
+            ax.tick_params(which="minor", bottom=False, left=False)
+            ax.set_xticks([])
+            ax.set_yticks([])
+    
+            # LEFT action: 0, DOWN action: 1
+            # RIGHT action: 2, UP action: 3
+            action2dxdy = {0:(-.25, 0),1: (0, .25),
+                           2:(0.25, 0),3: (-.25, 0)}
+    
+            for y in range(4):
+                for x in range(4):
+                    action = pi[k].reshape(4,4)[y, x]
+                    dx, dy = action2dxdy[action]
+    
+                    if env_desc[y,x].decode() == 'H':
+                        ax.text(x, y, str(env_desc[y,x].decode()),
+                           ha="center", va="center", color="y",
+                             size=20, fontweight='bold')
+    
+                    elif env_desc[y,x].decode() == 'G':
+                        ax.text(x, y, str(env_desc[y,x].decode()),
+                           ha="center", va="center", color="w",
+                             size=20, fontweight='bold')
+    
+                    else:
+                        ax.text(x, y, str(env_desc[y,x].decode()),
+                           ha="center", va="center", color="g",
+                             size=15, fontweight='bold')
+    
+                    # No arrow for cells with G and H labels
+                    if env_desc[y,x].decode() != 'G' and env_desc[y,x].decode() != 'H':
+                        ax.arrow(x, y, dx, dy, color='r', head_width=0.2, head_length=0.15)
+    
+            ax.set_title("Step = "  + str(k + 1), fontsize=20)
+    
+        fig.tight_layout()
+        plt.show()
+
+Show Q function
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def show_Q_function_progress(env_desc, V_all, pi_all): #@save
+        # This function visualizes how value and policy changes over time.
+        # V: [num_iters, num_states]
+        # pi: [num_iters, num_states]
+    
+        # We want to only shows few values
+        num_iters_all = V_all.shape[0]
+        num_iters = num_iters_all // 10
+    
+        vis_indx = np.arange(0, num_iters_all, num_iters).tolist()
+        vis_indx.append(num_iters_all - 1)
+        V = np.zeros((len(vis_indx), V_all.shape[1]))
+        pi = np.zeros((len(vis_indx), V_all.shape[1]))
+    
+        for c, i in enumerate(vis_indx):
+            V[c]  = V_all[i]
+            pi[c] = pi_all[i]
+    
+        num_iters = V.shape[0]
+        fig, ax = plt.subplots(figsize=(15, 15))
+    
+        for k in range(V.shape[0]):
+            plt.subplot(4, 4, k + 1)
+            plt.imshow(V[k].reshape(4,4), cmap="bone")
+            ax = plt.gca()
+            ax.set_xticks(np.arange(0, 5)-.5, minor=True)
+            ax.set_yticks(np.arange(0, 5)-.5, minor=True)
+            ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
+            ax.tick_params(which="minor", bottom=False, left=False)
+            ax.set_xticks([])
+            ax.set_yticks([])
+    
+            # LEFT action: 0, DOWN action: 1
+            # RIGHT action: 2, UP action: 3
+            action2dxdy = {0:(-.25, 0),1:(0, .25),
+                           2:(0.25, 0),3:(-.25, 0)}
+    
+            for y in range(4):
+                for x in range(4):
+                    action = pi[k].reshape(4,4)[y, x]
+                    dx, dy = action2dxdy[action]
+    
+                    if env_desc[y,x].decode() == 'H':
+                        ax.text(x, y, str(env_desc[y,x].decode()),
+                           ha="center", va="center", color="y",
+                             size=20, fontweight='bold')
+    
+                    elif env_desc[y,x].decode() == 'G':
+                        ax.text(x, y, str(env_desc[y,x].decode()),
+                           ha="center", va="center", color="w",
+                             size=20, fontweight='bold')
+    
+                    else:
+                        ax.text(x, y, str(env_desc[y,x].decode()),
+                           ha="center", va="center", color="g",
+                             size=15, fontweight='bold')
+    
+                    # No arrow for cells with G and H labels
+                    if env_desc[y,x].decode() != 'G' and env_desc[y,x].decode() != 'H':
+                        ax.arrow(x, y, dx, dy, color='r', head_width=0.2, head_length=0.15)
+    
+            ax.set_title("Step = "  + str(vis_indx[k] + 1), fontsize=20)
+    
+        fig.tight_layout()
+        plt.show()
+
+Trainer
+
+A bunch of functions that will be deprecated:
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def load_array(data_arrays, batch_size, is_train=True):#@save
+        """Construct a data iterator."""
+        X = data_arrays[0]
+        Y = data_arrays[1]
+    
+        dset = dx.buffer_from_vector([{"X": x, "y": y} for x, y in zip(X, Y)])
+        dset = (
+            dset
+            .shuffle_if(is_train)
+            .to_stream()
+            .batch(batch_size)
+        )
+        return dset
+    
+    def synthetic_data(w, b, num_examples):#@save
+        """Generate y = Xw + b + noise."""
+        X = mx.random.normal(shape=(num_examples, len(w)), loc=0.0, scale=1.0)
+        y = mx.matmul(X, w) + b
+        y += mx.random.normal(shape=y.shape, loc=0.0, scale=0.01)
+        return X, y.reshape((-1, 1))
+    
+    
+    def sgd(params, grads, lr, batch_size):#@save
+        """Minibatch stochastic gradient descent."""
+        for i in range(len(params)):
+            params[i] -= lr * grads[i] / batch_size
+    
+    def load_data_fashion_mnist(batch_size, resize=None):#@save
+        """Download the Fashion-MNIST dataset and then load it into memory."""
+    
+        mnist_train = dx.datasets.load_fashion_mnist(root="../data", train=True)
+        mnist_test  = dx.datasets.load_fashion_mnist(root="../data", train=False)
+    
+        is_resize_enabled = resize is not None and resize > 0
+        resize = 0 if not is_resize_enabled else resize
+    
+        mnist_train_iter = (
+            mnist_train
+            .shuffle()
+            .image_resize_if(is_resize_enabled, "image", resize, resize)
+            .key_transform("image", lambda x: x.astype("float32") / 255)
+            .key_transform("label", lambda x: x.astype("int64"))
+            .rename_key("image", "X")
+            .rename_key("label", "y")
+            .to_stream()
+            .batch(batch_size)
+        )
+    
+        mnist_test_iter = (
+            mnist_test
+            .image_resize_if(is_resize_enabled, "image", resize, resize)
+            .key_transform("image", lambda x: x.astype("float32") / 255)
+            .key_transform("label", lambda x: x.astype("int64"))
+            .rename_key("image", "X")
+            .rename_key("label", "y")
+            .to_stream()
+            .batch(batch_size)
+        )
+    
+        return (mnist_train_iter, mnist_test_iter)
+    
+    def evaluate_accuracy_gpu(net, data_iter):#@save
+        """Compute the accuracy for a model on a dataset using a GPU."""
+        if isinstance(net, nn.Module):
+            net.train(False)
+        metric = d2l.Accumulator(2)
+        for samples in data_iter:
+            X, y = mx.array(samples["X"]), mx.array(samples["y"])
+            metric.add(d2l.accuracy(net(X), y), y.size)
+        data_iter.reset()
+        return metric[0] / metric[1]
+    
+    #@save
+    def train_ch6(net, train_iter, test_iter, num_epochs, lr):
+        """Train a model with a GPU (defined in Chapter 6)."""
+        def get_num_batch(iter):
+            num_batches = 0
+            for sample in iter:
+                num_batches += 1
+            iter.reset()
+            return num_batches
+    
+        def init_weights(array):
+            if array.ndim > 1:
+                weight_fn = nn.init.glorot_uniform()
+                array = weight_fn(array)
+            return array
+        for module in net.modules():
+            if isinstance(module, nn.Linear) or isinstance(module, nn.Conv2d):
+                module.update(mlx.utils.tree_map(lambda x: init_weights(x), module.parameters()))
+    
+        optimizer = optim.SGD(learning_rate=lr)
+        loss = nn.losses.cross_entropy
+        animator = d2l.Animator(xlabel='epoch', xlim=[1, num_epochs],
+                                legend=['train loss', 'train acc', 'test acc'])
+        timer, num_batches = d2l.Timer(), get_num_batch(train_iter)
+        for epoch in range(num_epochs):
+            metric = d2l.Accumulator(3)
+            if isinstance(net, nn.Module):
+                net.train(True)
+            for i, samples in enumerate(train_iter):
+                X,y = mx.array(samples["X"]),mx.array(samples["y"])
+                def loss_fn(net, X, y):
+                    y_hat = net(X)
+                    return loss(y_hat, y, reduction="none").mean()
+                loss_and_grad_fn = nn.value_and_grad(net, loss_fn)
+                l, grad = loss_and_grad_fn(net, X, y)
+                optimizer.update(net, grad)
+                mx.eval(net.parameters())
+                y_hat = net(X)
+                metric.add(l.item() * X.shape[0], d2l.accuracy(y_hat, y), X.shape[0])
+                timer.stop()
+                train_l = metric[0] / metric[2]
+                train_acc = metric[1] / metric[2]
+                if (i + 1) % (num_batches // 5) == 0 or i == num_batches - 1:
+                    animator.add(epoch + (i + 1) / num_batches, (train_l, train_acc, None))
+            train_iter.reset()
+            test_acc = evaluate_accuracy_gpu(net, test_iter)
+            animator.add(epoch + 1, (None, None, test_acc))
+            print(f'loss {train_l:.3f}, train acc {train_acc:.3f}, '
+                f'test acc {test_acc:.3f}')
+            print(f'{metric[2] * num_epochs / timer.sum():.1f} examples/sec ')
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def get_num_batch(iter):  #@save
+        num_batches = 0
+        for sample in iter:
+            num_batches += 1
+        iter.reset()
+        return num_batches
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def evaluate_accuracy(net, data_iter, params): #@save
+        """Compute the accuracy for a model on a dataset."""
+        if isinstance(net, nn.Module):
+            net.eval()
+        metric = Accumulator(2)  # No. of correct predictions, no. of predictions
+        for samples in data_iter:
+            X, y = mx.array(samples["X"]), mx.array(samples["y"])
+            if isinstance(net, nn.Module):
+                metric.add(accuracy(net(X), y), y.size)
+            else:
+                metric.add(accuracy(net(X, params), y), y.size)
+        data_iter.reset()
+        return metric[0] / metric[1]
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def show_images(imgs, num_rows, num_cols, titles=None, scale=1.5):  #@save
+        """Plot a list of images."""
+        figsize = (num_cols * scale, num_rows * scale)
+        _, axes = d2l.plt.subplots(num_rows, num_cols, figsize=figsize)
+        axes = axes.flatten()
+        for i, (ax, img) in enumerate(zip(axes, imgs)):
+            try:
+                img = d2l.numpy(img)
+            except:
+                pass
+            ax.imshow(img)
+            ax.axes.get_xaxis().set_visible(False)
+            ax.axes.get_yaxis().set_visible(False)
+            if titles:
+                ax.set_title(titles[i])
+        return axes
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+   %%tab pytorch, mxnet, tensorflow
+
+   def linreg(X, w, b):  #@save
+       """The linear regression model."""
+       return d2l.matmul(X, w) + b
+
+   def squared_loss(y_hat, y):  #@save
+       """Squared loss."""
+       return (y_hat - d2l.reshape(y, y_hat.shape)) ** 2 / 2
+
+   def get_fashion_mnist_labels(labels):  #@save
+       """Return text labels for the Fashion-MNIST dataset."""
+       text_labels = ['t-shirt', 'trouser', 'pullover', 'dress', 'coat',
+                      'sandal', 'shirt', 'sneaker', 'bag', 'ankle boot']
+       return [text_labels[int(i)] for i in labels]
+
+   #@tab pytorch, mxnet, tensorflow
+   class Animator:  #@save
+       """For plotting data in animation."""
+       def __init__(self, xlabel=None, ylabel=None, legend=None, xlim=None,
+                    ylim=None, xscale='linear', yscale='linear',
+                    fmts=('-', 'm--', 'g-.', 'r:'), nrows=1, ncols=1,
+                    figsize=(3.5, 2.5)):
+           # Incrementally plot multiple lines
+           if legend is None:
+               legend = []
+           d2l.use_svg_display()
+           self.fig, self.axes = d2l.plt.subplots(nrows, ncols, figsize=figsize)
+           if nrows * ncols == 1:
+               self.axes = [self.axes, ]
+           # Use a lambda function to capture arguments
+           self.config_axes = lambda: d2l.set_axes(
+               self.axes[0], xlabel, ylabel, xlim, ylim, xscale, yscale, legend)
+           self.X, self.Y, self.fmts = None, None, fmts
+
+       def add(self, x, y):
+           # Add multiple data points into the figure
+           if not hasattr(y, "__len__"):
+               y = [y]
+           n = len(y)
+           if not hasattr(x, "__len__"):
+               x = [x] * n
+           if not self.X:
+               self.X = [[] for _ in range(n)]
+           if not self.Y:
+               self.Y = [[] for _ in range(n)]
+           for i, (a, b) in enumerate(zip(x, y)):
+               if a is not None and b is not None:
+                   self.X[i].append(a)
+                   self.Y[i].append(b)
+           self.axes[0].cla()
+           for x, y, fmt in zip(self.X, self.Y, self.fmts):
+               self.axes[0].plot(x, y, fmt)
+           self.config_axes()
+           display.display(self.fig)
+           display.clear_output(wait=True)
+
+   #@tab pytorch, mxnet, tensorflow
+   class Accumulator:  #@save
+       """For accumulating sums over `n` variables."""
+       def __init__(self, n):
+           self.data = [0.0] * n
+
+       def add(self, *args):
+           self.data = [a + float(b) for a, b in zip(self.data, args)]
+
+       def reset(self):
+           self.data = [0.0] * len(self.data)
+
+       def __getitem__(self, idx):
+           return self.data[idx]
+
+
+   #@tab pytorch, mxnet, tensorflow
+   def accuracy(y_hat, y):  #@save
+       """Compute the number of correct predictions."""
+       if len(y_hat.shape) > 1 and y_hat.shape[1] > 1:
+           y_hat = d2l.argmax(y_hat, axis=1)
+       cmp = d2l.astype(y_hat, y.dtype) == y
+       return float(d2l.reduce_sum(d2l.astype(cmp, y.dtype)))
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def linreg(X, params): #@save
+        """The linear regression model."""
+        return mx.matmul(X, params[0]) + params[1]
+    
+    
+    def squared_loss(y_hat, y):  #@save
+        """Squared loss."""
+        return (y_hat - y.reshape(y_hat.shape)) ** 2 / 2
+    
+    
+    def get_fashion_mnist_labels(labels): #@save
+        """Return text labels for the Fashion-MNIST dataset."""
+        text_labels = ['t-shirt', 'trouser', 'pullover', 'dress', 'coat',
+                       'sandal', 'shirt', 'sneaker', 'bag', 'ankle boot']
+        return [text_labels[int(i.item())] for i in labels]
+    
+    class Animator: #@save
+        """For plotting data in animation."""
+        def __init__(self, xlabel=None, ylabel=None, legend=None, xlim=None,
+                     ylim=None, xscale='linear', yscale='linear',
+                     fmts=('-', 'm--', 'g-.', 'r:'), nrows=1, ncols=1,
+                     figsize=(3.5, 2.5)):
+            # Incrementally plot multiple lines
+            if legend is None:
+                legend = []
+            d2l.use_svg_display()
+            self.fig, self.axes = d2l.plt.subplots(nrows, ncols, figsize=figsize)
+            if nrows * ncols == 1:
+                self.axes = [self.axes, ]
+            # Use a lambda function to capture arguments
+            self.config_axes = lambda: d2l.set_axes(
+                self.axes[0], xlabel, ylabel, xlim, ylim, xscale, yscale, legend)
+            self.X, self.Y, self.fmts = None, None, fmts
+    
+        def add(self, x, y):
+            # Add multiple data points into the figure
+            if not hasattr(y, "__len__"):
+                y = [y]
+            n = len(y)
+            if not hasattr(x, "__len__"):
+                x = [x] * n
+            if not self.X:
+                self.X = [[] for _ in range(n)]
+            if not self.Y:
+                self.Y = [[] for _ in range(n)]
+            for i, (a, b) in enumerate(zip(x, y)):
+                if a is not None and b is not None:
+                    self.X[i].append(a)
+                    self.Y[i].append(b)
+            self.axes[0].cla()
+            for x, y, fmt in zip(self.X, self.Y, self.fmts):
+                self.axes[0].plot(x, y, fmt)
+            self.config_axes()
+            display.display(self.fig)
+            display.clear_output(wait=True)
+    
+    class Accumulator: #@save
+        """For accumulating sums over `n` variables."""
+        def __init__(self, n):
+            self.data = [0.0] * n
+    
+        def add(self, *args):
+            self.data = [a + float(b) for a, b in zip(self.data, args)]
+    
+        def reset(self):
+            self.data = [0.0] * len(self.data)
+    
+        def __getitem__(self, idx):
+            return self.data[idx]
+    
+    def accuracy(y_hat, y): #@save
+        """Compute the number of correct predictions."""
+        if len(y_hat.shape) > 1 and y_hat.shape[1] > 1:
+            y_hat = y_hat.argmax(axis=-1)
+        cmp = y_hat.astype(y.dtype) == y
+        return float(cmp.astype(y.dtype).sum())
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    import hashlib
+    import os
+    import tarfile
+    import zipfile
+    import requests
+    
+    
+    def download(url, folder='../data', sha1_hash=None):  #@save
+        """Download a file to folder and return the local filepath."""
+        if not url.startswith('http'):
+            # For back compatability
+            url, sha1_hash = DATA_HUB[url]
+        os.makedirs(folder, exist_ok=True)
+        fname = os.path.join(folder, url.split('/')[-1])
+        # Check if hit cache
+        if os.path.exists(fname) and sha1_hash:
+            sha1 = hashlib.sha1()
+            with open(fname, 'rb') as f:
+                while True:
+                    data = f.read(1048576)
+                    if not data:
+                        break
+                    sha1.update(data)
+            if sha1.hexdigest() == sha1_hash:
+                return fname
+        # Download
+        print(f'Downloading {fname} from {url}...')
+        r = requests.get(url, stream=True, verify=True)
+        with open(fname, 'wb') as f:
+            f.write(r.content)
+        return fname
+    
+    def extract(filename, folder=None):  #@save
+        """Extract a zip/tar file into folder."""
+        base_dir = os.path.dirname(filename)
+        _, ext = os.path.splitext(filename)
+        assert ext in ('.zip', '.tar', '.gz'), 'Only support zip/tar files.'
+        if ext == '.zip':
+            fp = zipfile.ZipFile(filename, 'r')
+        else:
+            fp = tarfile.open(filename, 'r')
+        if folder is None:
+            folder = base_dir
+        fp.extractall(folder)
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def download_extract(name, folder=None): #@save
+        """Download and extract a zip/tar file."""
+        fname = download(name)
+        base_dir = os.path.dirname(fname)
+        data_dir, ext = os.path.splitext(fname)
+        if ext == '.zip':
+            fp = zipfile.ZipFile(fname, 'r')
+        elif ext in ('.tar', '.gz'):
+            fp = tarfile.open(fname, 'r')
+        else:
+            assert False, 'Only zip/tar files can be extracted.'
+        fp.extractall(base_dir)
+        return os.path.join(base_dir, folder) if folder else data_dir
+    
+    def tokenize(lines, token='word'): #@save
+        """Split text lines into word or character tokens."""
+        if token == 'word':
+            return [line.split() for line in lines]
+        elif token == 'char':
+            return [list(line) for line in lines]
+        else:
+            print('Unknown token type:' + token)
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def evaluate_loss(net, data_iter, loss, params): #@save
+        """Evaluate the loss of a model on the given dataset."""
+        if isinstance(net, nn.Module):
+            net.eval()
+        metric = d2l.Accumulator(2)  # Sum of losses, no. of examples
+        for sample in data_iter:
+            X, y = mx.array(sample["X"]), mx.array(sample["y"])
+            if isinstance(net, nn.Module):
+                out = net(X)
+                y = y.reshape(out.shape) #
+                l = loss(out, y)
+                metric.add(l.sum().item(), l.size)
+            else:
+                out = net(X, params)
+                y = y.reshape(out.shape)
+                l = loss(out, y)
+                metric.add(l.sum().item(), l.size)
+        data_iter.reset()
+        return metric[0] / metric[1]
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    def grad_clipping(net, grads, theta):
+        """Clip the gradient."""
+        if isinstance(net, nn.Module):
+            clipped_grads, _ = optim.clip_grad_norm(grads, max_norm=theta)
+            return clipped_grads
+        else:
+            norm_squared = tree_reduce(lambda acc, g: acc + g.square().sum(), grads, 0.0)
+            total_norm = mx.sqrt(norm_squared)
+            normalizer = theta / (total_norm + 1e-6)
+    
+            def clipper(g):
+                return mx.where(total_norm < theta, g, g * normalizer)
+    
+            clipped_grads = tree_map(clipper, grads)
+            return clipped_grads, total_norm
+
+More for the attention chapter.
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    d2l.DATA_HUB['fra-eng'] = (d2l.DATA_URL + 'fra-eng.zip',
+                               '94646ad1522d915e7b0f9296181140edcf86a4f5')
+    
+    #@save
+    def read_data_nmt():
+        """Load the English-French dataset."""
+        data_dir = d2l.download_extract('fra-eng')
+        with open(os.path.join(data_dir, 'fra.txt'), 'r', encoding='utf-8') as f:
+            return f.read()
+    
+    #@save
+    def preprocess_nmt(text):
+        """Preprocess the English-French dataset."""
+        def no_space(char, prev_char):
+            return char in set(',.!?') and prev_char != ' '
+    
+        # Replace non-breaking space with space, and convert uppercase letters to
+        # lowercase ones
+        text = text.replace('\u202f', ' ').replace('\xa0', ' ').lower()
+        # Insert space between words and punctuation marks
+        out = [' ' + char if i > 0 and no_space(char, text[i - 1]) else char
+               for i, char in enumerate(text)]
+        return ''.join(out)
+    
+    #@save
+    def tokenize_nmt(text, num_examples=None):
+        """Tokenize the English-French dataset."""
+        source, target = [], []
+        for i, line in enumerate(text.split('\n')):
+            if num_examples and i > num_examples:
+                break
+            parts = line.split('\t')
+            if len(parts) == 2:
+                source.append(parts[0].split(' '))
+                target.append(parts[1].split(' '))
+        return source, target
+    
+    
+    #@save
+    def truncate_pad(line, num_steps, padding_token):
+        """Truncate or pad sequences."""
+        if len(line) > num_steps:
+            return line[:num_steps]  # Truncate
+        return line + [padding_token] * (num_steps - len(line))  # Pad
+    
+    
+    #@save
+    def build_array_nmt(lines, vocab, num_steps):
+        """Transform text sequences of machine translation into minibatches."""
+        lines = [vocab[l] for l in lines]
+        lines = [l + [vocab['<eos>']] for l in lines]
+        array = mx.array([truncate_pad(
+            l, num_steps, vocab['<pad>']) for l in lines])
+        valid_len = (array != vocab['<pad>']).astype(mx.int32).sum(1)
+        return array, valid_len
+    
+    
+    #@save
+    def load_data_nmt(batch_size, num_steps, num_examples=600):
+        """Return the iterator and the vocabularies of the translation dataset."""
+        text = preprocess_nmt(read_data_nmt())
+        source, target = tokenize_nmt(text, num_examples)
+        src_vocab = d2l.Vocab(source, min_freq=2,
+                              reserved_tokens=['<pad>', '<bos>', '<eos>'])
+        tgt_vocab = d2l.Vocab(target, min_freq=2,
+                              reserved_tokens=['<pad>', '<bos>', '<eos>'])
+        src_array, src_valid_len = build_array_nmt(source, src_vocab, num_steps)
+        tgt_array, tgt_valid_len = build_array_nmt(target, tgt_vocab, num_steps)
+        data_arrays = (src_array, src_valid_len, tgt_array, tgt_valid_len)
+        data_iter = d2l.load_array(data_arrays, batch_size)
+        return data_iter, src_vocab, tgt_vocab
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    def create_model(
+        model_name: str,
+        weights: Union[bool, str] = True,
+        num_classes: int = 1000,
+        strict: bool = False,
+        verbose: bool = False,
+        **kwargs: Dict[str, Any],
+    ) -> nn.Module:
+        """Create an image model.
+    
+        Example:
+    
+        <!-- ```
+        >>> from mlxim.model import create_model
+    
+        >>> # Create a resnet model with no pretrained weights.
+        >>> model = create_model('resnet18')
+    
+        >>> # Create a resnet18 model with pretrained weights from HF.
+        >>> model = create_model('resnet18', weights=True)
+    
+        >>> # Create a resnet18 model with custom weights.
+        >>> model = create_model('resnet18', weights="path/to/weights.npz")
+        ``` -->
+    
+        Args:
+            model_name (str): model name
+            weights (Union[bool, str], optional): if True, downloads weights from HF. If starts with "hf://", downloads weights from HF. If str, loads weights from the given path. Defaults to True.
+            num_classes (int, optional): number of classes. Defaults to 1000.
+            strict (bool, optional): if True, raises an error if some weights are not loaded. Defaults to False.
+            verbose (bool, optional): if True, prints information during loading. Defaults to False.
+    
+        Raises:
+            ValueError: if model_name is not available
+    
+        Returns:
+            nn.Module: model
+        """
+    
+        model = VGG(make_layers(cfgs["vgg19"]))
+    
+        if isinstance(weights, bool) and weights is True:
+            # weights_path = download_from_hf(model_name)
+            weights_path = download_from_hf(
+                model_name=model_name,
+                repo_id=f"d2l-mlx/{model_name}",
+                filename=f"model.safetensors",
+            )
+            print("> Loading weights from :", weights_path)
+            model = load_weights(model, weights_path, strict=strict, verbose=verbose)  # type: ignore
+        elif isinstance(weights, bool) and weights is False:
+            pass
+        # "hf://d2l-mlx/vgg19"
+        elif isinstance(weights, str) and weights.startswith("hf://"):
+            hf_weights_split = weights.replace("hf://", "").split("/")
+            repo_id = "/".join(hf_weights_split[:-1])
+            filename = hf_weights_split[-1]
+    
+            weights_path = download_from_hf(
+                model_name=model_name,
+                repo_id=repo_id,
+                filename=filename,
+            )
+    
+            model = load_weights(model, weights_path, strict=strict, verbose=verbose)  # type: ignore
+        elif isinstance(weights, str):
+            model = load_weights(model, weights, strict=strict, verbose=verbose)  # type: ignore
+        else:
+            raise ValueError(f"Invalid weights type: {type(weights)}")
+    
+        return model
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    class resnet18(nn.Module):
+        """ResNet-18"""
+        def __init__(self, num_classes, in_channels=1):
+            super(resnet18, self).__init__()
+            def resnet_block(in_channels, out_channels, num_residuals,
+                            first_block=False):
+                blk = []
+                for i in range(num_residuals):
+                    if i == 0 and not first_block:
+                        blk.append(d2l.Residual(in_channels, out_channels,
+                                                use_1x1conv=True, strides=2))
+                    else:
+                        blk.append(d2l.Residual(out_channels, out_channels))
+                #return nn.Sequential(*blk)
+                return blk
+    
+            b1 = nn.Sequential(nn.Conv2d(in_channels, 64, kernel_size=7, stride=2,padding=3),
+                nn.BatchNorm(64), nn.ReLU(),
+                nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+    
+            b2 = nn.Sequential(*resnet_block(64, 64, 2, first_block=True))
+            b3 = nn.Sequential(*resnet_block(64, 128, 2))
+            b4 = nn.Sequential(*resnet_block(128, 256, 2))
+            b5 = nn.Sequential(*resnet_block(256, 512, 2))
+    
+            self.layers = nn.Sequential(b1, b2, b3, b4, b5,
+                # nn.AvgPool2d((3,3)),
+                d2l.AdaptiveAvgPool2d((1, 1)),
+                d2l.Flatten(),
+                nn.Linear(512, num_classes))
+    
+        def __call__(self, x):
+            x = self.layers(x)
+            return x
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    class Residual(nn.Module): #@save
+        def __init__(self, input_channels, num_channels,
+                     use_1x1conv=False, strides=1):
+            super().__init__()
+            self.conv1 = nn.Conv2d(input_channels, num_channels,
+                                   kernel_size=3, padding=1, stride=strides)
+            self.conv2 = nn.Conv2d(num_channels, num_channels,
+                                   kernel_size=3, padding=1)
+            if use_1x1conv:
+                self.conv3 = nn.Conv2d(input_channels, num_channels,
+                                       kernel_size=1, stride=strides)
+            else:
+                self.conv3 = None
+            self.bn1 = nn.BatchNorm(num_channels)
+            self.bn2 = nn.BatchNorm(num_channels)
+    
+        def __call__(self, X):
+            Y = nn.relu(self.bn1(self.conv1(X)))
+            Y = self.bn2(self.conv2(Y))
+            if self.conv3:
+                X = self.conv3(X)
+            Y += X
+            return nn.relu(Y)
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    class AdaptiveAvgPool2d(nn.Module): #@save
+        """Applies a 2D adaptive average pooling over an input signal.
+    
+        The output spatial dimensions are specified by `output_size`.
+        This implementation uses a standard `mlx.nn.AvgPool2d` layer with
+        dynamically calculated kernel size and stride to achieve the target
+        output size. It is primarily designed for downsampling (input size >= output size).
+    
+        Args:
+            output_size (int or tuple): The target output size of the image
+                of the form H x W. Can be a single integer H to specify H x H,
+                or a tuple of two integers (H, W).
+        """
+        def __init__(self, output_size):
+            super().__init__()
+            if isinstance(output_size, int):
+                self.output_h = output_size
+                self.output_w = output_size
+            elif isinstance(output_size, tuple) and len(output_size) == 2 and \
+                 isinstance(output_size[0], int) and isinstance(output_size[1], int):
+                self.output_h = output_size[0]
+                self.output_w = output_size[1]
+            else:
+                raise ValueError(
+                    "output_size must be an int or a tuple of two positive ints"
+                )
+    
+            if self.output_h <= 0 or self.output_w <= 0:
+                raise ValueError("output_size dimensions must be positive")
+    
+        def __call__(self, x: mx.array) -> mx.array:
+            """
+            Forward pass for AdaptiveAvgPool2d.
+    
+            Args:
+                x (mx.array): Input tensor of shape (N, H_in, W_in, C).
+                              MLX typically uses channels-last format.
+    
+            Returns:
+                mx.array: Output tensor of shape (N, H_out, W_out, C).
+            """
+            input_h = x.shape[1]
+            input_w = x.shape[2]
+    
+            if self.output_h == input_h and self.output_w == input_w:
+                return x
+    
+            # Handle the common Global Average Pooling case efficiently
+            if self.output_h == 1 and self.output_w == 1:
+                return mx.mean(x, axis=(1, 2), keepdims=True)
+    
+            # This implementation relies on nn.AvgPool2d and is suited for downsampling.
+            if input_h < self.output_h or input_w < self.output_w:
+                raise ValueError(
+                    f"Input spatial size ({input_h}x{input_w}) is smaller than target output size "
+                    f"({self.output_h}x{self.output_w}) in at least one dimension. "
+                    "This AdaptiveAvgPool2d implementation using nn.AvgPool2d "
+                    "requires input dimensions to be greater than or equal to output dimensions."
+                )
+    
+            # Calculate stride
+            # stride_h = math.floor(input_h / self.output_h) # floor is implicit with // for positive
+            stride_h = input_h // self.output_h
+            stride_w = input_w // self.output_w
+    
+            # Calculate kernel size using the formula: K = I - (O - 1) * S
+            # This ensures that an AvgPool2d operation with this kernel and stride
+            # will produce an output of the target size O.
+            kernel_h = input_h - (self.output_h - 1) * stride_h
+            kernel_w = input_w - (self.output_w - 1) * stride_w
+    
+            # Ensure kernel and stride are valid (should be if input_h >= output_h etc.)
+            if kernel_h <= 0 or kernel_w <= 0 or stride_h <= 0 or stride_w <= 0:
+                # This case should ideally be caught by the input_h < self.output_h checks,
+                # or if output_h/output_w are non-positive (checked in __init__).
+                raise RuntimeError(
+                    f"Calculated invalid pooling parameters: "
+                    f"kernel=({kernel_h},{kernel_w}), stride=({stride_h},{stride_w}). "
+                    f"Input: ({input_h},{input_w}), Output: ({self.output_h},{self.output_w})"
+                )
+    
+            pool_layer = nn.AvgPool2d(
+                kernel_size=(kernel_h, kernel_w),
+                stride=(stride_h, stride_w),
+                padding=0  # Adaptive pooling typically does not involve explicit padding
+            )
+            return pool_layer(x)
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    class Flatten(nn.Module):
+        """Defined in :numref:`sec_softmax_concise`"""
+        def __init__(self, start_axis=1, end_axis=-1):
+            super().__init__()
+            self.start_axis = start_axis
+            self.end_axis = end_axis
+    
+        def __call__(self, x):
+            return mx.flatten(x, start_axis=self.start_axis, end_axis=self.end_axis)
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    class VGG(nn.Module):
+        def __init__(
+            self, features: nn.Module, num_classes: int = 1000, init_weights: bool = False, dropout: float = 0.5
+        ) -> None:
+            super().__init__()
+            self.features = features
+            self.avgpool = AdaptiveAvgPool2d((7, 7))
+    
+            self.classifier = nn.Sequential(
+                nn.Linear(512 * 7 * 7, 4096),
+                nn.ReLU(),
+                nn.Dropout(p=dropout),
+                nn.Linear(4096, 4096),
+                nn.ReLU(),
+                nn.Dropout(p=dropout),
+                nn.Linear(4096, num_classes),
+            )
+    
+            if init_weights:
+                self._initialize_weights()
+    
+        def _initialize_weights(self):
+            pass
+        def __call__(self, x):
+            x = self.features(x)
+            x = self.avgpool(x)
+            x = Flatten()(x, 1)
+            # x = mx.reshape(x, (b, -1))
+            x = self.classifier(x)
+            return x
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    def make_layers(cfg: List[Union[str, int]]) -> nn.Sequential:
+        layers = []
+        in_channels = 3
+        for v in cfg:
+            if v == "M":
+                layers.append(nn.MaxPool2d(kernel_size=2, stride=2))
+            else:
+                v = int(v)
+                conv2d = nn.Conv2d(in_channels, v, kernel_size=3, padding=1)
+                layers.append(conv2d)
+                layers.append(nn.ReLU())
+                in_channels = v
+        return nn.Sequential(*layers)
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    cfgs = {
+        "vgg19": [64, 64, "M", 128, 128, "M", 256, 256, 256, 256, "M", 512, 512, 512, 512, "M", 512, 512, 512, 512, "M"],
+    }
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    def download_from_hf(model_name: str, repo_id: Optional[str] = None, filename: Optional[str] = None) -> str:
+        if repo_id is None and filename is None:
+            # repo_id = MODEL_CONFIG[model_name].weights.repo_id
+            # filename = MODEL_CONFIG[model_name].weights.filename
+            print("[ERROR] HuggingFace Hub weights not available yet.")
+        print(f"Downloading weights for {model_name} from HuggingFace Hub.")
+        try:
+            weights_path = hf_hub_download(repo_id=repo_id, repo_type="model", filename=filename)
+        except Exception as e:
+            print(f"[ERROR] Downloading weights from HuggingFace Hub failed for {model_name}: {e}.")
+            quit()
+    
+        return weights_path
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    def load_weights(model: nn.Module, weights: str, strict: bool = True, verbose: bool = False) -> nn.Module:
+    #    '''Load weights from a given path.
+    #
+    #    Args:
+    #        model (nn.Module): a LLM model
+    #        weights (str): path to weights
+    #        strict (bool, optional): whether to strictly enforce that the keys in weights match the keys of the model. Defaults to True.
+    #        verbose (bool, optional): whether to print information during loading. Defaults to False.
+    #
+    #    Returns:
+    #        nn.Module: an nn.Module with loaded weights
+    #    '''"
+    
+        assert os.path.exists(weights), f"Weights path {weights} does not exist."
+    
+        if verbose:
+            print(f"\n> Loading weights from {weights}")
+        # pytorch weights
+        torch_weights = dict(list(mx.load(weights).items()))
+        pretrained_weights = dict()
+        for key, value in torch_weights.items():
+            if key.startswith("features."):
+                feat = key.split(".")
+                feat[1] = "layers." + feat[1]
+                new_key = ".".join(feat)
+                if feat[2] == "weight":
+                    value = value.transpose(0, 2, 3, 1)
+                pretrained_weights[new_key] = value
+            elif key.startswith("classifier."):
+                feat = key.split(".")
+                feat[1] = "layers." + feat[1]
+                new_key = ".".join(feat)
+                pretrained_weights[key] = value
+            else:
+                pretrained_weights[key] = value
+    
+    
+        # create a torch-like state dict { layer_name: weights }
+        model_weights = dict(tree_flatten(model.parameters()))
+        # check if pretrained_weights does not have more keys
+        extras = set(pretrained_weights.keys()) - set(model_weights.keys())
+        if extras:
+            extras = " ".join(list(extras))  # type: ignore
+            if strict:
+                raise ValueError(f"Found extra keys in weights file: {extras}")
+            else:
+                if verbose:
+                    print(f"\t- [WARNING] Found extra keys in weights file: {extras}")
+    
+        # check if pretrained_weights does not have less keys
+        missing = set(model_weights.keys()) - set(pretrained_weights.keys())
+        if missing:
+            missing = " ".join(list(missing))  # type: ignore
+            if strict:
+                raise ValueError(f"Missing keys in weights file: {missing}")
+            else:
+                if verbose:
+                    print(f"\t- [WARNING] Missing keys in weights file: {missing}")
+    
+        for k, w in model_weights.items():
+            if k not in pretrained_weights:
+                if strict:
+                    raise KeyError(f"Missing key {k} in weights file")
+                else:
+                    if verbose:
+                        print(f"> [WARNING] Missing key {k} in weights file")
+                continue
+            else:
+                pretrained_w = pretrained_weights[k]
+                # checking if pretrained_w has the same shape as w
+                if pretrained_w.shape != w.shape:
+                    if strict:
+                        raise ValueError(f"Expected shape {w.shape} for key {k}, got {pretrained_w.shape}")
+                    else:
+                        if verbose:
+                            print(f"> [WARNING] Expected shape {w.shape} for key {k}, got {pretrained_w.shape}")
+                        pretrained_w = w
+                model_weights[k] = pretrained_w
+    
+        model.update(tree_unflatten(list(model_weights.items())))
+        return model
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    def count_corpus(tokens):
+        """Statistic word frequency"""
+        if len(tokens) == 0 or isinstance(tokens[0], list):
+            #Flatten the list of tokens into a list
+            tokens = [token for line in tokens for token in line]
+        return collections.Counter(tokens)
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    #@save
+    class AdaptiveAvgPool1d(nn.Module):
+        """Defined in :numref:`sec_utils`"""
+        """Args:
+            output_size (int): The target output size of the signal.
+                              Must be a positive integer.
+        Applies a 1D adaptive average pooling over an input signal.
+        The output length is specified by `output_size`.
+        This implementation uses a standard `mlx.nn.AvgPool1d` layer with
+        dynamically calculated kernel size and stride to achieve the target
+        output size. It is primarily designed for downsampling (input size >= output size).
+        """
+        def __init__(self, output_size):
+            super().__init__()
+            if not isinstance(output_size, int) or output_size <= 0:
+                raise ValueError("output_size must be a positive integer")
+            self.output_size = output_size
+        def __call__(self, x: mx.array) -> mx.array:
+            """
+            Forward pass for AdaptiveAvgPool1d.
+            Args:
+                x (mx.array): Input tensor of shape (N, L, C) or (N, C, L).
+                              MLX typically uses channels-last format (N, L, C).
+            Returns:
+                mx.array: Output tensor of shape (N, output_size, C) or (N, C, output_size).
+            """
+            x = mx.array(x)
+            # Determine if input is channels-first or channels-last
+            # MLX convention is typically channels-last (N, L, C)
+            # But we'll handle both cases
+            if len(x.shape) != 3:
+                raise ValueError(f"Expected 3D input (N, L, C) or (N, C, L), got {x.shape}")
+            # Assume channels-last format (N, L, C) by default
+            # If you need channels-first, you can transpose before and after
+            input_length = x.shape[1]
+            if self.output_size == input_length:
+                return x
+            # Handle the common Global Average Pooling case efficiently
+            if self.output_size == 1:
+                return mx.mean(x, axis=1, keepdims=True)
+            # For downsampling case
+            if input_length < self.output_size:
+                raise ValueError(
+                    f"Input length ({input_length}) is smaller than target output size "
+                    f"({self.output_size}). This AdaptiveAvgPool1d implementation "
+                    "requires input length to be greater than or equal to output size."
+                )
+            # Calculate stride and kernel size
+            stride = input_length // self.output_size
+            kernel_size = input_length - (self.output_size - 1) * stride
+            # Ensure kernel and stride are valid
+            if kernel_size <= 0 or stride <= 0:
+                raise RuntimeError(
+                    f"Calculated invalid pooling parameters: "
+                    f"kernel_size={kernel_size}, stride={stride}. "
+                    f"Input length: {input_length}, Output size: {self.output_size}"
+                )
+            # Apply 1D average pooling
+            # Note: MLX's AvgPool1d expects input in (N, C, L) format
+            # So we need to transpose if input is in (N, L, C) format
+            # Transpose from (N, L, C) to (N, C, L)
+            x_transposed = x.transpose(0, 2, 1)
+            # Apply pooling
+            pool_layer = nn.AvgPool1d(
+                kernel_size=kernel_size,
+                stride=stride,
+                padding=0
+            )
+            pooled = pool_layer(x_transposed)
+            # Transpose back to (N, L, C)
+            result = pooled.transpose(0, 2, 1)
+            return result

@@ -1,0 +1,126 @@
+
+Documentation
+=============
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    import mlx.core
+
+Functions and Classes in a Module
+---------------------------------
+
+To know which functions and classes can be called in a module, we invoke
+the ``dir`` function. For instance, we can query all properties in the
+module for generating random numbers:
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    print(dir(mlx.core.random))
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    ['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'bernoulli', 'categorical', 'gumbel', 'key', 'laplace', 'multivariate_normal', 'normal', 'permutation', 'randint', 'seed', 'split', 'state', 'truncated_normal', 'uniform']
+
+
+Generally, we can ignore functions that start and end with ``__``
+(special objects in Python) or functions that start with a single
+``_``\ (usually internal functions). Based on the remaining function or
+attribute names, we might hazard a guess that this module offers various
+methods for generating random numbers, including sampling from the
+uniform distribution (``uniform``), normal distribution (``normal``),
+and multinomial distribution (``multinomial``).
+
+Specific Functions and Classes
+------------------------------
+
+For specific instructions on how to use a given function or class, we
+can invoke the ``help`` function. As an example, let’s explore the usage
+instructions for tensors’ ``ones`` function.
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    help(mlx.core.ones)
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    Help on nb_func in module mlx.core:
+    
+    ones = <nanobind.nb_func object>
+        ones(shape: Union[int, Sequence[int]], dtype: Optional[Dtype] = float32, *, stream: Union[None, Stream, Device] = None) -> array
+        
+        Construct an array of ones.
+        
+        Args:
+            shape (int or list(int)): The shape of the output array.
+            dtype (Dtype, optional): Data type of the output array. If
+              unspecified the output type defaults to ``float32``.
+        
+        Returns:
+            array: The array of ones with the specified shape.
+    
+
+
+From the documentation, we can see that the ``ones`` function creates a
+new tensor with the specified shape and sets all the elements to the
+value of 1. Whenever possible, you should run a quick test to confirm
+your interpretation:
+
+.. raw:: latex
+
+   \diilbookstyleinputcell
+
+.. code:: python
+
+    mlx.core.ones(4)
+
+
+
+
+.. raw:: latex
+
+   \diilbookstyleoutputcell
+
+.. parsed-literal::
+    :class: output
+
+    array([1, 1, 1, 1], dtype=float32)
+
+
+
+In the Jupyter notebook, we can use ``?`` to display the document in
+another window. For example, ``list?`` will create content that is
+almost identical to ``help(list)``, displaying it in a new browser
+window. In addition, if we use two question marks, such as ``list??``,
+the Python code implementing the function will also be displayed.
+
+The official documentation provides plenty of descriptions and examples
+that are beyond this book. We emphasize important use cases that will
+get you started quickly with practical problems, rather than
+completeness of coverage. We also encourage you to study the source code
+of the libraries to see examples of high-quality implementations of
+production code. By doing this you will become a better engineer in
+addition to becoming a better scientist.

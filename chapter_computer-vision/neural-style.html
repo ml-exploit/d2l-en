@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>13.12. Neural Style Transfer &#8212; Dive into Deep Learning 1.0.3 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-deep_orange.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
+    <script src="../_static/documentation_options.js?v=baaebd52"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/d2l.js?v=e720e058"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="13.13. Image Classification (CIFAR-10) on Kaggle" href="kaggle-cifar10.html" />
+    <link rel="prev" title="13.11. Fully Convolutional Networks" href="fcn.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html"><span class="section-number">13. </span>Computer Vision</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active"><span class="section-number">13.12. </span>Neural Style Transfer</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/chapter_computer-vision/neural-style.rst.txt" rel="nofollow">
+  <i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          
+              <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
+                  <i class="fas fa-book"></i>
+                  ###_ALTERNATE_VERSION_###
+              </a>
+          
+              <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  PyTorch
+              </a>
+          
+              <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en-mxnet.pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  MXNet
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://d2l.ai/d2l-en.zip">
+                  <i class="fab fa-python"></i>
+                  Notebooks
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://courses.d2l.ai">
+                  <i class="fas fa-user-graduate"></i>
+                  Courses
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://github.com/d2l-ai/d2l-en">
+                  <i class="fab fa-github"></i>
+                  GitHub
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://zh.d2l.ai">
+                  <i class="fas fa-external-link-alt"></i>
+                  中文版
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  Dive into Deep Learning
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_notation/index.html">Notation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_introduction/index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_preliminaries/index.html">2. Preliminaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/ndarray.html">2.1. Data Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/pandas.html">2.2. Data Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/linear-algebra.html">2.3. Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/calculus.html">2.4. Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/autograd.html">2.5. Automatic Differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/probability.html">2.6. Probability and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/lookup-api.html">2.7. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_linear-regression/index.html">3. Linear Neural Networks for Regression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression.html">3.1. Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/oo-design.html">3.2. Object-Oriented Design for Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/synthetic-regression-data.html">3.3. Synthetic Regression Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html">3.4. Linear Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression-concise.html">3.5. Concise Implementation of Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/generalization.html">3.6. Generalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/weight-decay.html">3.7. Weight Decay</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html">5.1. Multilayer Perceptrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/mlp-implementation.html">5.2. Implementation of Multilayer Perceptrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html">5.3. Forward Propagation, Backward Propagation, and Computational Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/numerical-stability-and-init.html">5.4. Numerical Stability and Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/generalization-deep.html">5.5. Generalization in Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html">5.6. Dropout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/kaggle-house-price.html">5.7. Predicting House Prices on Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_builders-guide/index.html">6. Builders’ Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/model-construction.html">6.1. Layers and Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/parameters.html">6.2. Parameter Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/init-param.html">6.3. Parameter Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/custom-layer.html">6.4. Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/read-write.html">6.5. File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/use-gpu.html">6.6. GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_convolutional-neural-networks/index.html">7. Convolutional Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/why-conv.html">7.1. From Fully Connected Layers to Convolutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/conv-layer.html">7.2. Convolutions for Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/padding-and-strides.html">7.3. Padding and Stride</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/channels.html">7.4. Multiple Input and Multiple Output Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/pooling.html">7.5. Pooling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/lenet.html">7.6. Convolutional Neural Networks (LeNet)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_convolutional-modern/index.html">8. Modern Convolutional Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/alexnet.html">8.1. Deep Convolutional Neural Networks (AlexNet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/googlenet.html">8.2. Multi-Branch Networks (GoogLeNet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/batch-norm.html">8.3. Batch Normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/resnet.html">8.4. Residual Networks (ResNet) and ResNeXt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/densenet.html">8.5. Densely Connected Networks (DenseNet)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_recurrent-neural-networks/index.html">9. Recurrent Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/sequence.html">9.1. Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/text-sequence.html">9.2. Converting Raw Text into Sequence Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html">9.3. Language Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn.html">9.4. Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html">9.5. Recurrent Neural Network Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-concise.html">9.6. Concise Implementation of Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/bptt.html">9.7. Backpropagation Through Time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_recurrent-modern/index.html">10. Modern Recurrent Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/lstm.html">10.1. Long Short-Term Memory (LSTM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/gru.html">10.2. Gated Recurrent Units (GRU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/deep-rnn.html">10.3. Deep Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/machine-translation-and-dataset.html">10.4. Machine Translation and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/encoder-decoder.html">10.5. The Encoder–Decoder Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/seq2seq.html">10.6. Sequence-to-Sequence Learning for Machine Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/beam-search.html">10.7. Beam Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/index.html">11. Attention Mechanisms and Transformers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/queries-keys-values.html">11.1. Queries, Keys, and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-pooling.html">11.2. Attention Pooling by Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-scoring-functions.html">11.3. Attention Scoring Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/bahdanau-attention.html">11.4. The Bahdanau Attention Mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/multihead-attention.html">11.5. Multi-Head Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/self-attention-and-positional-encoding.html">11.6. Self-Attention and Positional Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/transformer.html">11.7. The Transformer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/vision-transformer.html">11.8. Transformers for Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/large-pretraining-transformers.html">11.9. Large-Scale Pretraining with Transformers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_optimization/index.html">12. Optimization Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/optimization-intro.html">12.1. Optimization and Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/convexity.html">12.2. Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/gd.html">12.3. Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/sgd.html">12.4. Stochastic Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/minibatch-sgd.html">12.5. Minibatch Stochastic Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/momentum.html">12.6. Momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adagrad.html">12.7. Adagrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/rmsprop.html">12.8. RMSProp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adadelta.html">12.9. Adadelta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adam.html">12.10. Adam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/lr-scheduler.html">12.11. Learning Rate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">13. Computer Vision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="image-augmentation.html">13.1. Image Augmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fine-tuning.html">13.2. Fine-Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bounding-box.html">13.3. Object Detection and Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anchor.html">13.4. Anchor Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiscale-object-detection.html">13.5. Multiscale Object Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-detection-dataset.html">13.6. The Object Detection Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssd.html">13.7. Single Shot Multibox Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rcnn.html">13.8. Region-based CNNs (R-CNNs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="semantic-segmentation-and-dataset.html">13.9. Semantic Segmentation and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transposed-conv.html">13.10. Transposed Convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fcn.html">13.11. Fully Convolutional Networks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">13.12. Neural Style Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kaggle-cifar10.html">13.13. Image Classification (CIFAR-10) on Kaggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kaggle-dog.html">13.14. Dog Breed Identification (ImageNet Dogs) on Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/index.html">14. Natural Language Processing: Pretraining</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word2vec.html">14.1. Word Embedding (word2vec)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/approx-training.html">14.2. Approximate Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word-embedding-dataset.html">14.3. The Dataset for Pretraining Word Embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word2vec-pretraining.html">14.4. Pretraining word2vec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/glove.html">14.5. Word Embedding with Global Vectors (GloVe)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/subword-embedding.html">14.6. Subword Embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/similarity-analogy.html">14.7. Word Similarity and Analogy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert.html">14.8. Bidirectional Encoder Representations from Transformers (BERT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert-dataset.html">14.9. The Dataset for Pretraining BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert-pretraining.html">14.10. Pretraining BERT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_natural-language-processing-applications/index.html">15. Natural Language Processing: Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/sentiment-analysis-and-dataset.html">15.1. Sentiment Analysis and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/sentiment-analysis-cnn.html">15.2. Sentiment Analysis: Using Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/natural-language-inference-and-dataset.html">15.3. Natural Language Inference and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/natural-language-inference-attention.html">15.4. Natural Language Inference: Using Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/finetuning-bert.html">15.5. Fine-Tuning BERT for Sequence-Level and Token-Level Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_reinforcement-learning/index.html">16. Reinforcement Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/mdp.html">16.1. Markov Decision Process (MDP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/value-iter.html">16.2. Value Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/qlearning.html">16.3. Q-Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_gaussian-processes/index.html">17. Gaussian Processes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-intro.html">17.1. Introduction to Gaussian Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-priors.html">17.2. Gaussian Process Priors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-inference.html">17.3. Gaussian Process Inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_hyperparameter-optimization/index.html">18. Hyperparameter Optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/utils.html">19.1. Utility Functions and Classes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js "></script>
+    <header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  Dive into Deep Learning
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_notation/index.html">Notation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_introduction/index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_preliminaries/index.html">2. Preliminaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/ndarray.html">2.1. Data Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/pandas.html">2.2. Data Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/linear-algebra.html">2.3. Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/calculus.html">2.4. Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/autograd.html">2.5. Automatic Differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/probability.html">2.6. Probability and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/lookup-api.html">2.7. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_linear-regression/index.html">3. Linear Neural Networks for Regression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression.html">3.1. Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/oo-design.html">3.2. Object-Oriented Design for Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/synthetic-regression-data.html">3.3. Synthetic Regression Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html">3.4. Linear Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression-concise.html">3.5. Concise Implementation of Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/generalization.html">3.6. Generalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/weight-decay.html">3.7. Weight Decay</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html">5.1. Multilayer Perceptrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/mlp-implementation.html">5.2. Implementation of Multilayer Perceptrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html">5.3. Forward Propagation, Backward Propagation, and Computational Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/numerical-stability-and-init.html">5.4. Numerical Stability and Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/generalization-deep.html">5.5. Generalization in Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html">5.6. Dropout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/kaggle-house-price.html">5.7. Predicting House Prices on Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_builders-guide/index.html">6. Builders’ Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/model-construction.html">6.1. Layers and Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/parameters.html">6.2. Parameter Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/init-param.html">6.3. Parameter Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/custom-layer.html">6.4. Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/read-write.html">6.5. File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/use-gpu.html">6.6. GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_convolutional-neural-networks/index.html">7. Convolutional Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/why-conv.html">7.1. From Fully Connected Layers to Convolutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/conv-layer.html">7.2. Convolutions for Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/padding-and-strides.html">7.3. Padding and Stride</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/channels.html">7.4. Multiple Input and Multiple Output Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/pooling.html">7.5. Pooling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/lenet.html">7.6. Convolutional Neural Networks (LeNet)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_convolutional-modern/index.html">8. Modern Convolutional Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/alexnet.html">8.1. Deep Convolutional Neural Networks (AlexNet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/googlenet.html">8.2. Multi-Branch Networks (GoogLeNet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/batch-norm.html">8.3. Batch Normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/resnet.html">8.4. Residual Networks (ResNet) and ResNeXt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-modern/densenet.html">8.5. Densely Connected Networks (DenseNet)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_recurrent-neural-networks/index.html">9. Recurrent Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/sequence.html">9.1. Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/text-sequence.html">9.2. Converting Raw Text into Sequence Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html">9.3. Language Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn.html">9.4. Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html">9.5. Recurrent Neural Network Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-concise.html">9.6. Concise Implementation of Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/bptt.html">9.7. Backpropagation Through Time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_recurrent-modern/index.html">10. Modern Recurrent Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/lstm.html">10.1. Long Short-Term Memory (LSTM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/gru.html">10.2. Gated Recurrent Units (GRU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/deep-rnn.html">10.3. Deep Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/machine-translation-and-dataset.html">10.4. Machine Translation and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/encoder-decoder.html">10.5. The Encoder–Decoder Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/seq2seq.html">10.6. Sequence-to-Sequence Learning for Machine Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/beam-search.html">10.7. Beam Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/index.html">11. Attention Mechanisms and Transformers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/queries-keys-values.html">11.1. Queries, Keys, and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-pooling.html">11.2. Attention Pooling by Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-scoring-functions.html">11.3. Attention Scoring Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/bahdanau-attention.html">11.4. The Bahdanau Attention Mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/multihead-attention.html">11.5. Multi-Head Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/self-attention-and-positional-encoding.html">11.6. Self-Attention and Positional Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/transformer.html">11.7. The Transformer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/vision-transformer.html">11.8. Transformers for Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/large-pretraining-transformers.html">11.9. Large-Scale Pretraining with Transformers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_optimization/index.html">12. Optimization Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/optimization-intro.html">12.1. Optimization and Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/convexity.html">12.2. Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/gd.html">12.3. Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/sgd.html">12.4. Stochastic Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/minibatch-sgd.html">12.5. Minibatch Stochastic Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/momentum.html">12.6. Momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adagrad.html">12.7. Adagrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/rmsprop.html">12.8. RMSProp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adadelta.html">12.9. Adadelta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adam.html">12.10. Adam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/lr-scheduler.html">12.11. Learning Rate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">13. Computer Vision</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="image-augmentation.html">13.1. Image Augmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fine-tuning.html">13.2. Fine-Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bounding-box.html">13.3. Object Detection and Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anchor.html">13.4. Anchor Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiscale-object-detection.html">13.5. Multiscale Object Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="object-detection-dataset.html">13.6. The Object Detection Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssd.html">13.7. Single Shot Multibox Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rcnn.html">13.8. Region-based CNNs (R-CNNs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="semantic-segmentation-and-dataset.html">13.9. Semantic Segmentation and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transposed-conv.html">13.10. Transposed Convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fcn.html">13.11. Fully Convolutional Networks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">13.12. Neural Style Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kaggle-cifar10.html">13.13. Image Classification (CIFAR-10) on Kaggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kaggle-dog.html">13.14. Dog Breed Identification (ImageNet Dogs) on Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/index.html">14. Natural Language Processing: Pretraining</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word2vec.html">14.1. Word Embedding (word2vec)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/approx-training.html">14.2. Approximate Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word-embedding-dataset.html">14.3. The Dataset for Pretraining Word Embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word2vec-pretraining.html">14.4. Pretraining word2vec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/glove.html">14.5. Word Embedding with Global Vectors (GloVe)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/subword-embedding.html">14.6. Subword Embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/similarity-analogy.html">14.7. Word Similarity and Analogy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert.html">14.8. Bidirectional Encoder Representations from Transformers (BERT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert-dataset.html">14.9. The Dataset for Pretraining BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert-pretraining.html">14.10. Pretraining BERT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_natural-language-processing-applications/index.html">15. Natural Language Processing: Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/sentiment-analysis-and-dataset.html">15.1. Sentiment Analysis and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/sentiment-analysis-cnn.html">15.2. Sentiment Analysis: Using Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/natural-language-inference-and-dataset.html">15.3. Natural Language Inference and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/natural-language-inference-attention.html">15.4. Natural Language Inference: Using Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/finetuning-bert.html">15.5. Fine-Tuning BERT for Sequence-Level and Token-Level Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_reinforcement-learning/index.html">16. Reinforcement Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/mdp.html">16.1. Markov Decision Process (MDP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/value-iter.html">16.2. Value Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/qlearning.html">16.3. Q-Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_gaussian-processes/index.html">17. Gaussian Processes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-intro.html">17.1. Introduction to Gaussian Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-priors.html">17.2. Gaussian Process Priors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-inference.html">17.3. Gaussian Process Inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_hyperparameter-optimization/index.html">18. Hyperparameter Optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/utils.html">19.1. Utility Functions and Classes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content" role="main">
+        
+  <section id="neural-style-transfer">
+<h1><span class="section-number">13.12. </span>Neural Style Transfer<a class="headerlink" href="#neural-style-transfer" title="Link to this heading">¶</a></h1>
+<p>If you are a photography enthusiast, you may be familiar with the
+filter. It can change the color style of photos so that landscape photos
+become sharper or portrait photos have whitened skins. However, one
+filter usually only changes one aspect of the photo. To apply an ideal
+style to a photo, you probably need to try many different filter
+combinations. This process is as complex as tuning the hyperparameters
+of a model.</p>
+<p>In this section, we will leverage layerwise representations of a CNN to
+automatically apply the style of one image to another image, i.e.,
+<em>style transfer</em> <span id="id1">()</span>. This task needs two
+input images: one is the <em>content image</em> and the other is the <em>style
+image</em>. We will use neural networks to modify the content image to make
+it close to the style image in style. For example, the content image in
+<a class="reference internal" href="#fig-style-transfer"><span class="std std-numref">figure13.12.1</span></a> is a landscape photo taken by us in Mount
+Rainier National Park in the suburbs of Seattle, while the style image
+is an oil painting with the theme of autumn oak trees. In the output
+synthesized image, the oil brush strokes of the style image are applied,
+leading to more vivid colors, while preserving the main shape of the
+objects in the content image.</p>
+<figure class="align-default" id="id4">
+<span id="fig-style-transfer"></span><img alt="../_images/style-transfer.svg" src="../_images/style-transfer.svg" />
+<figcaption>
+<p><span class="caption-number">figure13.12.1 </span><span class="caption-text">Given content and style images, style transfer outputs a synthesized
+image.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="method">
+<h2><span class="section-number">13.12.1. </span>Method<a class="headerlink" href="#method" title="Link to this heading">¶</a></h2>
+<p><a class="reference internal" href="#fig-style-transfer-model"><span class="std std-numref">figure13.12.2</span></a> illustrates the CNN-based style
+transfer method with a simplified example. First, we initialize the
+synthesized image, for example, into the content image. This synthesized
+image is the only variable that needs to be updated during the style
+transfer process, i.e., the model parameters to be updated during
+training. Then we choose a pretrained CNN to extract image features and
+freeze its model parameters during training. This deep CNN uses multiple
+layers to extract hierarchical features for images. We can choose the
+output of some of these layers as content features or style features.
+Take <a class="reference internal" href="#fig-style-transfer-model"><span class="std std-numref">figure13.12.2</span></a> as an example. The pretrained
+neural network here has 3 convolutional layers, where the second layer
+outputs the content features, and the first and third layers output the
+style features.</p>
+<figure class="align-default" id="id5">
+<span id="fig-style-transfer-model"></span><img alt="../_images/neural-style.svg" src="../_images/neural-style.svg" />
+<figcaption>
+<p><span class="caption-number">figure13.12.2 </span><span class="caption-text">CNN-based style transfer process. Solid lines show the direction of
+forward propagation and dotted lines show backward propagation.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Next, we calculate the loss function of style transfer through forward
+propagation (direction of solid arrows), and update the model parameters
+(the synthesized image for output) through backpropagation (direction of
+dashed arrows). The loss function commonly used in style transfer
+consists of three parts: (i) <em>content loss</em> makes the synthesized image
+and the content image close in content features; (ii) <em>style loss</em> makes
+the synthesized image and style image close in style features; and (iii)
+<em>total variation loss</em> helps to reduce the noise in the synthesized
+image. Finally, when the model training is over, we output the model
+parameters of the style transfer to generate the final synthesized
+image.</p>
+<p>In the following, we will explain the technical details of style
+transfer via a concrete experiment.</p>
+</section>
+<section id="reading-the-content-and-style-images">
+<h2><span class="section-number">13.12.2. </span>Reading the Content and Style Images<a class="headerlink" href="#reading-the-content-and-style-images" title="Link to this heading">¶</a></h2>
+<p>First, we read the content and style images. From their printed
+coordinate axes, we can tell that these images have different sizes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">albumentations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">A</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlx.data</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlx.optimizers</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mlx</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mlx</span> <span class="k">as</span> <span class="n">d2l</span>
+
+<span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
+<span class="n">content_img</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;../img/rainier.jpg&#39;</span><span class="p">)</span>
+<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">content_img</span><span class="p">);</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/output_neural-style_05634c_1_0.svg" src="../_images/output_neural-style_05634c_1_0.svg" />
+</figure>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">style_img</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;../img/autumn-oak.jpg&#39;</span><span class="p">)</span>
+<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">style_img</span><span class="p">);</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/output_neural-style_05634c_2_0.svg" src="../_images/output_neural-style_05634c_2_0.svg" />
+</figure>
+</section>
+<section id="preprocessing-and-postprocessing">
+<h2><span class="section-number">13.12.3. </span>Preprocessing and Postprocessing<a class="headerlink" href="#preprocessing-and-postprocessing" title="Link to this heading">¶</a></h2>
+<p>Below, we define two functions for preprocessing and postprocessing
+images. The <code class="docutils literal notranslate"><span class="pre">preprocess</span></code> function standardizes each of the three RGB
+channels of the input image and transforms the results into the CNN
+input format. The <code class="docutils literal notranslate"><span class="pre">postprocess</span></code> function restores the pixel values in
+the output image to their original values before standardization. Since
+the image printing function requires that each pixel has a floating
+point value from 0 to 1, we replace any value smaller than 0 or greater
+than 1 with 0 or 1, respectively.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rgb_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">])</span>
+<span class="n">rgb_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">image_shape</span><span class="p">):</span>
+    <span class="n">transforms</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+        <span class="n">A</span><span class="o">.</span><span class="n">Resize</span><span class="p">(</span><span class="n">image_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">A</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="n">rgb_mean</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="n">rgb_std</span><span class="p">,</span> <span class="n">max_pixel_value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),])</span>
+    <span class="k">return</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">transforms</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">/</span><span class="mf">255.0</span><span class="p">)[</span><span class="s2">&quot;image&quot;</span><span class="p">][</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">img</span> <span class="o">*</span> <span class="n">rgb_std</span> <span class="o">+</span> <span class="n">rgb_mean</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">((</span><span class="n">img</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="extracting-features">
+<h2><span class="section-number">13.12.4. </span>Extracting Features<a class="headerlink" href="#extracting-features" title="Link to this heading">¶</a></h2>
+<p>We use the VGG-19 model pretrained on the ImageNet dataset to extract
+image features <span id="id2">()</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_net</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="s1">&#39;vgg19&#39;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="n">weights</span> <span class="k">for</span> <span class="n">vgg19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">HuggingFace</span> <span class="n">Hub</span><span class="o">.</span>
+<span class="o">&gt;</span> <span class="n">Loading</span> <span class="n">weights</span> <span class="kn">from</span><span class="w"> </span><span class="p">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">fangkeqiu</span><span class="o">/.</span><span class="n">cache</span><span class="o">/</span><span class="n">huggingface</span><span class="o">/</span><span class="n">hub</span><span class="o">/</span><span class="n">models</span><span class="o">--</span><span class="n">d2l</span><span class="o">-</span><span class="n">mlx</span><span class="o">--</span><span class="n">vgg19</span><span class="o">/</span><span class="n">snapshots</span><span class="o">/</span><span class="n">c795ba47163d06ce5c6c89f6062abe763c9e03ea</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">safetensors</span>
+</pre></div>
+</div>
+<p>In order to extract the content features and style features of the
+image, we can select the output of certain layers in the VGG network.
+Generally speaking, the closer to the input layer, the easier to extract
+details of the image, and vice versa, the easier to extract the global
+information of the image. In order to avoid excessively retaining the
+details of the content image in the synthesized image, we choose a VGG
+layer that is closer to the output as the <em>content layer</em> to output the
+content features of the image. We also select the output of different
+VGG layers for extracting local and global style features. These layers
+are also called <em>style layers</em>. As mentioned in <code class="xref std std-numref docutils literal notranslate"><span class="pre">sec_vgg</span></code>, the
+VGG network uses 5 convolutional blocks. In the experiment, we choose
+the last convolutional layer of the fourth convolutional block as the
+content layer, and the first convolutional layer of each convolutional
+block as the style layer. The indices of these layers can be obtained by
+printing the <code class="docutils literal notranslate"><span class="pre">pretrained_net</span></code> instance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">style_layers</span><span class="p">,</span> <span class="n">content_layers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span> <span class="p">[</span><span class="mi">25</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>When extracting features using VGG layers, we only need to use all those
+from the input layer to the content layer or style layer that is closest
+to the output layer. Let’s construct a new network instance <code class="docutils literal notranslate"><span class="pre">net</span></code>,
+which only retains all the VGG layers to be used for feature extraction.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature_list</span> <span class="o">=</span> <span class="n">pretrained_net</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">][</span><span class="s2">&quot;layers&quot;</span><span class="p">]</span>
+<span class="n">net</span><span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">feature_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>
+                      <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">content_layers</span> <span class="o">+</span> <span class="n">style_layers</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>Given the input <code class="docutils literal notranslate"><span class="pre">X</span></code>, if we simply invoke the forward propagation
+<code class="docutils literal notranslate"><span class="pre">net(X)</span></code>, we can only get the output of the last layer. Since we also
+need the outputs of intermediate layers, we need to perform
+layer-by-layer computation and keep the content and style layer outputs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">content_layers</span><span class="p">,</span> <span class="n">style_layers</span><span class="p">):</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">styles</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">net_layers</span> <span class="o">=</span> <span class="n">net</span><span class="p">[</span><span class="s2">&quot;layers&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">net_layers</span><span class="p">)):</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">net_layers</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">style_layers</span><span class="p">:</span>
+            <span class="n">styles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">content_layers</span><span class="p">:</span>
+            <span class="n">contents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">contents</span><span class="p">,</span> <span class="n">styles</span>
+</pre></div>
+</div>
+<p>Two functions are defined below: the <code class="docutils literal notranslate"><span class="pre">get_contents</span></code> function extracts
+content features from the content image, and the <code class="docutils literal notranslate"><span class="pre">get_styles</span></code> function
+extracts style features from the style image. Since there is no need to
+update the model parameters of the pretrained VGG during training, we
+can extract the content and the style features even before the training
+starts. Since the synthesized image is a set of model parameters to be
+updated for style transfer, we can only extract the content and style
+features of the synthesized image by calling the <code class="docutils literal notranslate"><span class="pre">extract_features</span></code>
+function during training.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_contents</span><span class="p">(</span><span class="n">image_shape</span><span class="p">):</span>
+    <span class="n">content_X</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">content_img</span><span class="p">,</span> <span class="n">image_shape</span><span class="p">)</span>
+    <span class="n">contents_Y</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">content_X</span><span class="p">,</span> <span class="n">content_layers</span><span class="p">,</span> <span class="n">style_layers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">content_X</span><span class="p">,</span> <span class="n">contents_Y</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_styles</span><span class="p">(</span><span class="n">image_shape</span><span class="p">):</span>
+    <span class="n">style_X</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">style_img</span><span class="p">,</span> <span class="n">image_shape</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">styles_Y</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span><span class="n">style_X</span><span class="p">,</span> <span class="n">content_layers</span><span class="p">,</span> <span class="n">style_layers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">style_X</span><span class="p">,</span> <span class="n">styles_Y</span>
+</pre></div>
+</div>
+</section>
+<section id="defining-the-loss-function">
+<h2><span class="section-number">13.12.5. </span>Defining the Loss Function<a class="headerlink" href="#defining-the-loss-function" title="Link to this heading">¶</a></h2>
+<p>Now we will describe the loss function for style transfer. The loss
+function consists of the content loss, style loss, and total variation
+loss.</p>
+<section id="content-loss">
+<h3><span class="section-number">13.12.5.1. </span>Content Loss<a class="headerlink" href="#content-loss" title="Link to this heading">¶</a></h3>
+<p>Similar to the loss function in linear regression, the content loss
+measures the difference in content features between the synthesized
+image and the content image via the squared loss function. The two
+inputs of the squared loss function are both outputs of the content
+layer computed by the <code class="docutils literal notranslate"><span class="pre">extract_features</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">content_loss</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">mx</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">Y_hat</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="style-loss">
+<h3><span class="section-number">13.12.5.2. </span>Style Loss<a class="headerlink" href="#style-loss" title="Link to this heading">¶</a></h3>
+<p>Style loss, similar to content loss, also uses the squared loss function
+to measure the difference in style between the synthesized image and the
+style image. To express the style output of any style layer, we first
+use the <code class="docutils literal notranslate"><span class="pre">extract_features</span></code> function to compute the style layer output.
+Suppose that the output has 1 example, <span class="math notranslate nohighlight">\(c\)</span> channels, height
+<span class="math notranslate nohighlight">\(h\)</span>, and width <span class="math notranslate nohighlight">\(w\)</span>, we can transform this output into matrix
+<span class="math notranslate nohighlight">\(\mathbf{X}\)</span> with <span class="math notranslate nohighlight">\(c\)</span> rows and <span class="math notranslate nohighlight">\(hw\)</span> columns. This
+matrix can be thought of as the concatenation of <span class="math notranslate nohighlight">\(c\)</span> vectors
+<span class="math notranslate nohighlight">\(\mathbf{x}_1, \ldots, \mathbf{x}_c\)</span>, each of which has a length
+of <span class="math notranslate nohighlight">\(hw\)</span>. Here, vector <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span> represents the style
+feature of channel <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>In the <em>Gram matrix</em> of these vectors
+<span class="math notranslate nohighlight">\(\mathbf{X}\mathbf{X}^\top \in \mathbb{R}^{c \times c}\)</span>, element
+<span class="math notranslate nohighlight">\(x_{ij}\)</span> in row <span class="math notranslate nohighlight">\(i\)</span> and column <span class="math notranslate nohighlight">\(j\)</span> is the dot product
+of vectors <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}_j\)</span>. It represents
+the correlation of the style features of channels <span class="math notranslate nohighlight">\(i\)</span> and
+<span class="math notranslate nohighlight">\(j\)</span>. We use this Gram matrix to represent the style output of any
+style layer. Note that when the value of <span class="math notranslate nohighlight">\(hw\)</span> is larger, it likely
+leads to larger values in the Gram matrix. Note also that the height and
+width of the Gram matrix are both the number of channels <span class="math notranslate nohighlight">\(c\)</span>. To
+allow style loss not to be affected by these values, the <code class="docutils literal notranslate"><span class="pre">gram</span></code>
+function below divides the Gram matrix by the number of its elements,
+i.e., <span class="math notranslate nohighlight">\(chw\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gram</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">num_channels</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">num_channels</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">mx</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">num_channels</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Obviously, the two Gram matrix inputs of the squared loss function for
+style loss are based on the style layer outputs for the synthesized
+image and the style image. It is assumed here that the Gram matrix
+<code class="docutils literal notranslate"><span class="pre">gram_Y</span></code> based on the style image has been precomputed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">style_loss</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">,</span> <span class="n">gram_Y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">mx</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">gram</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">)</span> <span class="o">-</span> <span class="n">gram_Y</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="total-variation-loss">
+<h3><span class="section-number">13.12.5.3. </span>Total Variation Loss<a class="headerlink" href="#total-variation-loss" title="Link to this heading">¶</a></h3>
+<p>Sometimes, the learned synthesized image has a lot of high-frequency
+noise, i.e., particularly bright or dark pixels. One common noise
+reduction method is <em>total variation denoising</em>. Denote by
+<span class="math notranslate nohighlight">\(x_{i, j}\)</span> the pixel value at coordinate <span class="math notranslate nohighlight">\((i, j)\)</span>. Reducing
+total variation loss</p>
+<div class="math notranslate nohighlight" id="equation-chapter-computer-vision-neural-style-0">
+<span class="eqno">(13.12.1)<a class="headerlink" href="#equation-chapter-computer-vision-neural-style-0" title="Link to this equation">¶</a></span>\[\sum_{i, j} \left|x_{i, j} - x_{i+1, j}\right| + \left|x_{i, j} - x_{i, j+1}\right|\]</div>
+<p>makes values of neighboring pixels on the synthesized image closer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tv_loss</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">Y_hat</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">+</span>
+                  <span class="n">mx</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">Y_hat</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="loss-function">
+<h3><span class="section-number">13.12.5.4. </span>Loss Function<a class="headerlink" href="#loss-function" title="Link to this heading">¶</a></h3>
+<p>The loss function of style transfer is the weighted sum of content loss,
+style loss, and total variation loss. By adjusting these weight
+hyperparameters, we can balance among content retention, style transfer,
+and noise reduction on the synthesized image.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">content_weight</span><span class="p">,</span> <span class="n">style_weight</span><span class="p">,</span> <span class="n">tv_weight</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">,</span> <span class="mi">10</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_loss</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">contents_Y_hat</span><span class="p">,</span> <span class="n">styles_Y_hat</span><span class="p">,</span> <span class="n">contents_Y</span><span class="p">,</span> <span class="n">styles_Y_gram</span><span class="p">):</span>
+    <span class="c1"># Calculate the content, style, and total variance losses respectively</span>
+    <span class="n">contents_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">content_loss</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">content_weight</span> <span class="k">for</span> <span class="n">Y_hat</span><span class="p">,</span> <span class="n">Y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="n">contents_Y_hat</span><span class="p">,</span> <span class="n">contents_Y</span><span class="p">)]</span>
+    <span class="n">styles_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">style_loss</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">style_weight</span> <span class="k">for</span> <span class="n">Y_hat</span><span class="p">,</span> <span class="n">Y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="n">styles_Y_hat</span><span class="p">,</span> <span class="n">styles_Y_gram</span><span class="p">)]</span>
+    <span class="n">tv_l</span> <span class="o">=</span> <span class="n">tv_loss</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">tv_weight</span>
+    <span class="c1"># Add up all the losses</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">styles_l</span> <span class="o">+</span> <span class="n">contents_l</span> <span class="o">+</span> <span class="p">[</span><span class="n">tv_l</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">l</span><span class="p">,</span> <span class="n">contents_l</span><span class="p">,</span> <span class="n">styles_l</span><span class="p">,</span> <span class="n">tv_l</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="initializing-the-synthesized-image">
+<h2><span class="section-number">13.12.6. </span>Initializing the Synthesized Image<a class="headerlink" href="#initializing-the-synthesized-image" title="Link to this heading">¶</a></h2>
+<p>In style transfer, the synthesized image is the only variable that needs
+to be updated during training. Thus, we can define a simple model,
+<code class="docutils literal notranslate"><span class="pre">SynthesizedImage</span></code>, and treat the synthesized image as the model
+parameters. In this model, forward propagation just returns the model
+parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SynthesizedImage</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_shape</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SynthesizedImage</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">img_shape</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span>
+</pre></div>
+</div>
+<p>Next, we define the <code class="docutils literal notranslate"><span class="pre">get_inits</span></code> function. This function creates a
+synthesized image model instance and initializes it to the image <code class="docutils literal notranslate"><span class="pre">X</span></code>.
+Gram matrices for the style image at various style layers,
+<code class="docutils literal notranslate"><span class="pre">styles_Y_gram</span></code>, are computed prior to training.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_inits</span><span class="p">(</span><span class="n">synthesized_net</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">styles_Y</span><span class="p">):</span>
+    <span class="n">gen_img</span> <span class="o">=</span> <span class="n">synthesized_net</span>
+    <span class="n">gen_img</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">styles_Y_gram</span> <span class="o">=</span> <span class="p">[</span><span class="n">gram</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="k">for</span> <span class="n">Y</span> <span class="ow">in</span> <span class="n">styles_Y</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">gen_img</span><span class="p">(),</span> <span class="n">styles_Y_gram</span>
+</pre></div>
+</div>
+</section>
+<section id="training">
+<h2><span class="section-number">13.12.7. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<p>When training the model for style transfer, we continuously extract
+content features and style features of the synthesized image, and
+calculate the loss function. Below defines the training loop.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">synthesized_net</span><span class="p">,</span> <span class="n">content_X</span><span class="p">,</span> <span class="n">contents_Y</span><span class="p">,</span> <span class="n">styles_Y</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">lr_decay_epoch</span><span class="p">):</span>
+    <span class="n">scheduler</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">step_decay</span><span class="p">(</span><span class="n">lr</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">lr_decay_epoch</span><span class="p">)</span>
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">scheduler</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">styles_Y_gram</span> <span class="o">=</span> <span class="n">get_inits</span><span class="p">(</span><span class="n">synthesized_net</span><span class="p">,</span> <span class="n">content_X</span><span class="p">,</span> <span class="n">styles_Y</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">loss_fn</span><span class="p">(</span><span class="n">synthesized_net</span><span class="p">,</span> <span class="n">contents_Y</span><span class="p">,</span> <span class="n">styles_Y_gram</span><span class="p">):</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">synthesized_net</span><span class="p">()</span>
+        <span class="n">contents_Y_hat</span><span class="p">,</span> <span class="n">styles_Y_hat</span> <span class="o">=</span> <span class="n">extract_features</span><span class="p">(</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">content_layers</span><span class="p">,</span> <span class="n">style_layers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">compute_loss</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">contents_Y_hat</span><span class="p">,</span> <span class="n">styles_Y_hat</span><span class="p">,</span> <span class="n">contents_Y</span><span class="p">,</span> <span class="n">styles_Y_gram</span><span class="p">)</span>
+
+    <span class="n">animator</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Animator</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;epoch&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span>
+                            <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">],</span>
+                            <span class="n">legend</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;TV&#39;</span><span class="p">],</span>
+                            <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+        <span class="n">loss_and_grad_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">value_and_grad</span><span class="p">(</span><span class="n">synthesized_net</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">contents_l</span><span class="p">,</span> <span class="n">styles_l</span><span class="p">,</span> <span class="n">tv_l</span><span class="p">),</span> <span class="n">grads</span> <span class="o">=</span> <span class="n">loss_and_grad_fn</span><span class="p">(</span>
+            <span class="n">synthesized_net</span><span class="p">,</span> <span class="n">contents_Y</span><span class="p">,</span> <span class="n">styles_Y_gram</span><span class="p">)</span>
+
+        <span class="n">trainer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">synthesized_net</span><span class="p">,</span> <span class="n">grads</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">animator</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">postprocess</span><span class="p">(</span><span class="n">synthesized_net</span><span class="p">()))</span>
+            <span class="n">animator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">contents_l</span><span class="p">)),</span>
+                                     <span class="nb">float</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">styles_l</span><span class="p">)),</span> <span class="nb">float</span><span class="p">(</span><span class="n">tv_l</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">X</span>
+</pre></div>
+</div>
+<p>Now we start to train the model. We rescale the height and width of the
+content and style images to 300 by 450 pixels. We use the content image
+to initialize the synthesized image.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">content_img</span><span class="p">,</span> <span class="n">style_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">content_img</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">style_img</span><span class="p">)</span>
+<span class="n">image_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">450</span><span class="p">)</span>
+<span class="n">content_X</span><span class="p">,</span> <span class="n">contents_Y</span> <span class="o">=</span> <span class="n">get_contents</span><span class="p">(</span><span class="n">image_shape</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">styles_Y</span> <span class="o">=</span> <span class="n">get_styles</span><span class="p">(</span><span class="n">image_shape</span><span class="p">)</span>
+<span class="n">synthesized_net</span> <span class="o">=</span> <span class="n">SynthesizedImage</span><span class="p">(</span><span class="n">content_X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">synthesized_net</span><span class="p">,</span> <span class="n">content_X</span><span class="p">,</span> <span class="n">contents_Y</span><span class="p">,</span> <span class="n">styles_Y</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/output_neural-style_05634c_32_0.svg" src="../_images/output_neural-style_05634c_32_0.svg" />
+</figure>
+<p>We can see that the synthesized image retains the scenery and objects of
+the content image, and transfers the color of the style image at the
+same time. For example, the synthesized image has blocks of color like
+those in the style image. Some of these blocks even have the subtle
+texture of brush strokes.</p>
+</section>
+<section id="summary">
+<h2><span class="section-number">13.12.8. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The loss function commonly used in style transfer consists of three
+parts: (i) content loss makes the synthesized image and the content
+image close in content features; (ii) style loss makes the
+synthesized image and style image close in style features; and (iii)
+total variation loss helps to reduce the noise in the synthesized
+image.</p></li>
+<li><p>We can use a pretrained CNN to extract image features and minimize
+the loss function to continuously update the synthesized image as
+model parameters during training.</p></li>
+<li><p>We use Gram matrices to represent the style outputs from the style
+layers.</p></li>
+</ul>
+</section>
+<section id="exercises">
+<h2><span class="section-number">13.12.9. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>How does the output change when you select different content and
+style layers?</p></li>
+<li><p>Adjust the weight hyperparameters in the loss function. Does the
+output retain more content or have less noise?</p></li>
+<li><p>Use different content and style images. Can you create more
+interesting synthesized images?</p></li>
+<li><p>Can we apply style transfer for text? Hint: you may refer to the
+survey paper by <span id="id3"></span>.</p></li>
+</ol>
+</section>
+</section>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">13.12. Neural Style Transfer</a><ul>
+<li><a class="reference internal" href="#method">13.12.1. Method</a></li>
+<li><a class="reference internal" href="#reading-the-content-and-style-images">13.12.2. Reading the Content and Style Images</a></li>
+<li><a class="reference internal" href="#preprocessing-and-postprocessing">13.12.3. Preprocessing and Postprocessing</a></li>
+<li><a class="reference internal" href="#extracting-features">13.12.4. Extracting Features</a></li>
+<li><a class="reference internal" href="#defining-the-loss-function">13.12.5. Defining the Loss Function</a><ul>
+<li><a class="reference internal" href="#content-loss">13.12.5.1. Content Loss</a></li>
+<li><a class="reference internal" href="#style-loss">13.12.5.2. Style Loss</a></li>
+<li><a class="reference internal" href="#total-variation-loss">13.12.5.3. Total Variation Loss</a></li>
+<li><a class="reference internal" href="#loss-function">13.12.5.4. Loss Function</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#initializing-the-synthesized-image">13.12.6. Initializing the Synthesized Image</a></li>
+<li><a class="reference internal" href="#training">13.12.7. Training</a></li>
+<li><a class="reference internal" href="#summary">13.12.8. Summary</a></li>
+<li><a class="reference internal" href="#exercises">13.12.9. Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="fcn.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>13.11. Fully Convolutional Networks</div>
+         </div>
+     </a>
+     <a id="button-next" href="kaggle-cifar10.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>13.13. Image Classification (CIFAR-10) on Kaggle</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>

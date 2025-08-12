@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+    <title>8.1. Deep Convolutional Neural Networks (AlexNet) &#8212; Dive into Deep Learning 1.0.3 documentation</title>
+
+    <link rel="stylesheet" href="../_static/material-design-lite-1.3.0/material.blue-deep_orange.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
+    <script src="../_static/documentation_options.js?v=baaebd52"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/d2l.js?v=e720e058"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.2. Multi-Branch Networks (GoogLeNet)" href="googlenet.html" />
+    <link rel="prev" title="8. Modern Convolutional Neural Networks" href="index.html" /> 
+  </head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"><header class="mdl-layout__header mdl-layout__header--waterfall ">
+    <div class="mdl-layout__header-row">
+        
+        <nav class="mdl-navigation breadcrumb">
+            <a class="mdl-navigation__link" href="index.html"><span class="section-number">8. </span>Modern Convolutional Neural Networks</a><i class="material-icons">navigate_next</i>
+            <a class="mdl-navigation__link is-active"><span class="section-number">8.1. </span>Deep Convolutional Neural Networks (AlexNet)</a>
+        </nav>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+        
+<form class="form-inline pull-sm-right" action="../search.html" method="get">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <label id="quick-search-icon" class="mdl-button mdl-js-button mdl-button--icon"  for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="q"  id="waterfall-exp" placeholder="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </div>
+      </div>
+      <div class="mdl-tooltip" data-mdl-for="quick-search-icon">
+      Quick search
+      </div>
+</form>
+        
+<a id="button-show-source"
+    class="mdl-button mdl-js-button mdl-button--icon"
+    href="../_sources/chapter_convolutional-modern/alexnet.rst.txt" rel="nofollow">
+  <i class="material-icons">code</i>
+</a>
+<div class="mdl-tooltip" data-mdl-for="button-show-source">
+Show Source
+</div>
+        </nav>
+    </div>
+    <div class="mdl-layout__header-row header-links">
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+          
+              <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
+                  <i class="fas fa-book"></i>
+                  ###_ALTERNATE_VERSION_###
+              </a>
+          
+              <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  PyTorch
+              </a>
+          
+              <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en-mxnet.pdf">
+                  <i class="fas fa-file-pdf"></i>
+                  MXNet
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://d2l.ai/d2l-en.zip">
+                  <i class="fab fa-python"></i>
+                  Notebooks
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://courses.d2l.ai">
+                  <i class="fas fa-user-graduate"></i>
+                  Courses
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://github.com/d2l-ai/d2l-en">
+                  <i class="fab fa-github"></i>
+                  GitHub
+              </a>
+          
+              <a  class="mdl-navigation__link" href="https://zh.d2l.ai">
+                  <i class="fas fa-external-link-alt"></i>
+                  中文版
+              </a>
+      </nav>
+    </div>
+</header><header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  Dive into Deep Learning
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_notation/index.html">Notation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_introduction/index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_preliminaries/index.html">2. Preliminaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/ndarray.html">2.1. Data Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/pandas.html">2.2. Data Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/linear-algebra.html">2.3. Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/calculus.html">2.4. Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/autograd.html">2.5. Automatic Differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/probability.html">2.6. Probability and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/lookup-api.html">2.7. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_linear-regression/index.html">3. Linear Neural Networks for Regression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression.html">3.1. Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/oo-design.html">3.2. Object-Oriented Design for Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/synthetic-regression-data.html">3.3. Synthetic Regression Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html">3.4. Linear Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression-concise.html">3.5. Concise Implementation of Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/generalization.html">3.6. Generalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/weight-decay.html">3.7. Weight Decay</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html">5.1. Multilayer Perceptrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/mlp-implementation.html">5.2. Implementation of Multilayer Perceptrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html">5.3. Forward Propagation, Backward Propagation, and Computational Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/numerical-stability-and-init.html">5.4. Numerical Stability and Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/generalization-deep.html">5.5. Generalization in Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html">5.6. Dropout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/kaggle-house-price.html">5.7. Predicting House Prices on Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_builders-guide/index.html">6. Builders’ Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/model-construction.html">6.1. Layers and Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/parameters.html">6.2. Parameter Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/init-param.html">6.3. Parameter Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/custom-layer.html">6.4. Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/read-write.html">6.5. File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/use-gpu.html">6.6. GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_convolutional-neural-networks/index.html">7. Convolutional Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/why-conv.html">7.1. From Fully Connected Layers to Convolutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/conv-layer.html">7.2. Convolutions for Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/padding-and-strides.html">7.3. Padding and Stride</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/channels.html">7.4. Multiple Input and Multiple Output Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/pooling.html">7.5. Pooling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/lenet.html">7.6. Convolutional Neural Networks (LeNet)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">8. Modern Convolutional Neural Networks</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.1. Deep Convolutional Neural Networks (AlexNet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="googlenet.html">8.2. Multi-Branch Networks (GoogLeNet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-norm.html">8.3. Batch Normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resnet.html">8.4. Residual Networks (ResNet) and ResNeXt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="densenet.html">8.5. Densely Connected Networks (DenseNet)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_recurrent-neural-networks/index.html">9. Recurrent Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/sequence.html">9.1. Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/text-sequence.html">9.2. Converting Raw Text into Sequence Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html">9.3. Language Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn.html">9.4. Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html">9.5. Recurrent Neural Network Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-concise.html">9.6. Concise Implementation of Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/bptt.html">9.7. Backpropagation Through Time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_recurrent-modern/index.html">10. Modern Recurrent Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/lstm.html">10.1. Long Short-Term Memory (LSTM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/gru.html">10.2. Gated Recurrent Units (GRU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/deep-rnn.html">10.3. Deep Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/machine-translation-and-dataset.html">10.4. Machine Translation and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/encoder-decoder.html">10.5. The Encoder–Decoder Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/seq2seq.html">10.6. Sequence-to-Sequence Learning for Machine Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/beam-search.html">10.7. Beam Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/index.html">11. Attention Mechanisms and Transformers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/queries-keys-values.html">11.1. Queries, Keys, and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-pooling.html">11.2. Attention Pooling by Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-scoring-functions.html">11.3. Attention Scoring Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/bahdanau-attention.html">11.4. The Bahdanau Attention Mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/multihead-attention.html">11.5. Multi-Head Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/self-attention-and-positional-encoding.html">11.6. Self-Attention and Positional Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/transformer.html">11.7. The Transformer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/vision-transformer.html">11.8. Transformers for Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/large-pretraining-transformers.html">11.9. Large-Scale Pretraining with Transformers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_optimization/index.html">12. Optimization Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/optimization-intro.html">12.1. Optimization and Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/convexity.html">12.2. Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/gd.html">12.3. Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/sgd.html">12.4. Stochastic Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/minibatch-sgd.html">12.5. Minibatch Stochastic Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/momentum.html">12.6. Momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adagrad.html">12.7. Adagrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/rmsprop.html">12.8. RMSProp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adadelta.html">12.9. Adadelta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adam.html">12.10. Adam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/lr-scheduler.html">12.11. Learning Rate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_computer-vision/index.html">13. Computer Vision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/image-augmentation.html">13.1. Image Augmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/fine-tuning.html">13.2. Fine-Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/bounding-box.html">13.3. Object Detection and Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/anchor.html">13.4. Anchor Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/multiscale-object-detection.html">13.5. Multiscale Object Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/object-detection-dataset.html">13.6. The Object Detection Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/ssd.html">13.7. Single Shot Multibox Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/rcnn.html">13.8. Region-based CNNs (R-CNNs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/semantic-segmentation-and-dataset.html">13.9. Semantic Segmentation and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/transposed-conv.html">13.10. Transposed Convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/fcn.html">13.11. Fully Convolutional Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/neural-style.html">13.12. Neural Style Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/kaggle-cifar10.html">13.13. Image Classification (CIFAR-10) on Kaggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/kaggle-dog.html">13.14. Dog Breed Identification (ImageNet Dogs) on Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/index.html">14. Natural Language Processing: Pretraining</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word2vec.html">14.1. Word Embedding (word2vec)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/approx-training.html">14.2. Approximate Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word-embedding-dataset.html">14.3. The Dataset for Pretraining Word Embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word2vec-pretraining.html">14.4. Pretraining word2vec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/glove.html">14.5. Word Embedding with Global Vectors (GloVe)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/subword-embedding.html">14.6. Subword Embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/similarity-analogy.html">14.7. Word Similarity and Analogy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert.html">14.8. Bidirectional Encoder Representations from Transformers (BERT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert-dataset.html">14.9. The Dataset for Pretraining BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert-pretraining.html">14.10. Pretraining BERT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_natural-language-processing-applications/index.html">15. Natural Language Processing: Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/sentiment-analysis-and-dataset.html">15.1. Sentiment Analysis and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/sentiment-analysis-cnn.html">15.2. Sentiment Analysis: Using Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/natural-language-inference-and-dataset.html">15.3. Natural Language Inference and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/natural-language-inference-attention.html">15.4. Natural Language Inference: Using Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/finetuning-bert.html">15.5. Fine-Tuning BERT for Sequence-Level and Token-Level Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_reinforcement-learning/index.html">16. Reinforcement Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/mdp.html">16.1. Markov Decision Process (MDP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/value-iter.html">16.2. Value Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/qlearning.html">16.3. Q-Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_gaussian-processes/index.html">17. Gaussian Processes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-intro.html">17.1. Introduction to Gaussian Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-priors.html">17.2. Gaussian Process Priors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-inference.html">17.3. Gaussian Process Inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_hyperparameter-optimization/index.html">18. Hyperparameter Optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/utils.html">19.1. Utility Functions and Classes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+        <main class="mdl-layout__content" tabIndex="0">
+
+	<script type="text/javascript" src="../_static/sphinx_materialdesign_theme.js "></script>
+    <header class="mdl-layout__drawer">
+    
+          <!-- Title -->
+      <span class="mdl-layout-title">
+          <a class="title" href="../index.html">
+              <span class="title-text">
+                  Dive into Deep Learning
+              </span>
+          </a>
+      </span>
+    
+    
+      <div class="globaltoc">
+        <span class="mdl-layout-title toc">Table Of Contents</span>
+        
+        
+            
+            <nav class="mdl-navigation">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_preface/index.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_notation/index.html">Notation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_introduction/index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_preliminaries/index.html">2. Preliminaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/ndarray.html">2.1. Data Manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/pandas.html">2.2. Data Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/linear-algebra.html">2.3. Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/calculus.html">2.4. Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/autograd.html">2.5. Automatic Differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/probability.html">2.6. Probability and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_preliminaries/lookup-api.html">2.7. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_linear-regression/index.html">3. Linear Neural Networks for Regression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression.html">3.1. Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/oo-design.html">3.2. Object-Oriented Design for Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/synthetic-regression-data.html">3.3. Synthetic Regression Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html">3.4. Linear Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/linear-regression-concise.html">3.5. Concise Implementation of Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/generalization.html">3.6. Generalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-regression/weight-decay.html">3.7. Weight Decay</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html">5.1. Multilayer Perceptrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/mlp-implementation.html">5.2. Implementation of Multilayer Perceptrons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html">5.3. Forward Propagation, Backward Propagation, and Computational Graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/numerical-stability-and-init.html">5.4. Numerical Stability and Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/generalization-deep.html">5.5. Generalization in Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html">5.6. Dropout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_multilayer-perceptrons/kaggle-house-price.html">5.7. Predicting House Prices on Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_builders-guide/index.html">6. Builders’ Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/model-construction.html">6.1. Layers and Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/parameters.html">6.2. Parameter Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/init-param.html">6.3. Parameter Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/custom-layer.html">6.4. Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/read-write.html">6.5. File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_builders-guide/use-gpu.html">6.6. GPUs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_convolutional-neural-networks/index.html">7. Convolutional Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/why-conv.html">7.1. From Fully Connected Layers to Convolutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/conv-layer.html">7.2. Convolutions for Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/padding-and-strides.html">7.3. Padding and Stride</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/channels.html">7.4. Multiple Input and Multiple Output Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/pooling.html">7.5. Pooling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_convolutional-neural-networks/lenet.html">7.6. Convolutional Neural Networks (LeNet)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">8. Modern Convolutional Neural Networks</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">8.1. Deep Convolutional Neural Networks (AlexNet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="googlenet.html">8.2. Multi-Branch Networks (GoogLeNet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-norm.html">8.3. Batch Normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resnet.html">8.4. Residual Networks (ResNet) and ResNeXt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="densenet.html">8.5. Densely Connected Networks (DenseNet)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_recurrent-neural-networks/index.html">9. Recurrent Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/sequence.html">9.1. Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/text-sequence.html">9.2. Converting Raw Text into Sequence Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html">9.3. Language Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn.html">9.4. Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html">9.5. Recurrent Neural Network Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-concise.html">9.6. Concise Implementation of Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-neural-networks/bptt.html">9.7. Backpropagation Through Time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_recurrent-modern/index.html">10. Modern Recurrent Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/lstm.html">10.1. Long Short-Term Memory (LSTM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/gru.html">10.2. Gated Recurrent Units (GRU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/deep-rnn.html">10.3. Deep Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/machine-translation-and-dataset.html">10.4. Machine Translation and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/encoder-decoder.html">10.5. The Encoder–Decoder Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/seq2seq.html">10.6. Sequence-to-Sequence Learning for Machine Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_recurrent-modern/beam-search.html">10.7. Beam Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/index.html">11. Attention Mechanisms and Transformers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/queries-keys-values.html">11.1. Queries, Keys, and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-pooling.html">11.2. Attention Pooling by Similarity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-scoring-functions.html">11.3. Attention Scoring Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/bahdanau-attention.html">11.4. The Bahdanau Attention Mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/multihead-attention.html">11.5. Multi-Head Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/self-attention-and-positional-encoding.html">11.6. Self-Attention and Positional Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/transformer.html">11.7. The Transformer Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/vision-transformer.html">11.8. Transformers for Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/large-pretraining-transformers.html">11.9. Large-Scale Pretraining with Transformers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_optimization/index.html">12. Optimization Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/optimization-intro.html">12.1. Optimization and Deep Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/convexity.html">12.2. Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/gd.html">12.3. Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/sgd.html">12.4. Stochastic Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/minibatch-sgd.html">12.5. Minibatch Stochastic Gradient Descent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/momentum.html">12.6. Momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adagrad.html">12.7. Adagrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/rmsprop.html">12.8. RMSProp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adadelta.html">12.9. Adadelta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/adam.html">12.10. Adam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_optimization/lr-scheduler.html">12.11. Learning Rate Scheduling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_computer-vision/index.html">13. Computer Vision</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/image-augmentation.html">13.1. Image Augmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/fine-tuning.html">13.2. Fine-Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/bounding-box.html">13.3. Object Detection and Bounding Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/anchor.html">13.4. Anchor Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/multiscale-object-detection.html">13.5. Multiscale Object Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/object-detection-dataset.html">13.6. The Object Detection Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/ssd.html">13.7. Single Shot Multibox Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/rcnn.html">13.8. Region-based CNNs (R-CNNs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/semantic-segmentation-and-dataset.html">13.9. Semantic Segmentation and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/transposed-conv.html">13.10. Transposed Convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/fcn.html">13.11. Fully Convolutional Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/neural-style.html">13.12. Neural Style Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/kaggle-cifar10.html">13.13. Image Classification (CIFAR-10) on Kaggle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_computer-vision/kaggle-dog.html">13.14. Dog Breed Identification (ImageNet Dogs) on Kaggle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/index.html">14. Natural Language Processing: Pretraining</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word2vec.html">14.1. Word Embedding (word2vec)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/approx-training.html">14.2. Approximate Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word-embedding-dataset.html">14.3. The Dataset for Pretraining Word Embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/word2vec-pretraining.html">14.4. Pretraining word2vec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/glove.html">14.5. Word Embedding with Global Vectors (GloVe)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/subword-embedding.html">14.6. Subword Embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/similarity-analogy.html">14.7. Word Similarity and Analogy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert.html">14.8. Bidirectional Encoder Representations from Transformers (BERT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert-dataset.html">14.9. The Dataset for Pretraining BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert-pretraining.html">14.10. Pretraining BERT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_natural-language-processing-applications/index.html">15. Natural Language Processing: Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/sentiment-analysis-and-dataset.html">15.1. Sentiment Analysis and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/sentiment-analysis-cnn.html">15.2. Sentiment Analysis: Using Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/natural-language-inference-and-dataset.html">15.3. Natural Language Inference and the Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/natural-language-inference-attention.html">15.4. Natural Language Inference: Using Attention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_natural-language-processing-applications/finetuning-bert.html">15.5. Fine-Tuning BERT for Sequence-Level and Token-Level Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_reinforcement-learning/index.html">16. Reinforcement Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/mdp.html">16.1. Markov Decision Process (MDP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/value-iter.html">16.2. Value Iteration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_reinforcement-learning/qlearning.html">16.3. Q-Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_gaussian-processes/index.html">17. Gaussian Processes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-intro.html">17.1. Introduction to Gaussian Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-priors.html">17.2. Gaussian Process Priors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_gaussian-processes/gp-inference.html">17.3. Gaussian Process Inference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_hyperparameter-optimization/index.html">18. Hyperparameter Optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/utils.html">19.1. Utility Functions and Classes</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        
+        </div>
+    
+</header>
+
+    <div class="document">
+        <div class="page-content" role="main">
+        
+  <section id="deep-convolutional-neural-networks-alexnet">
+<span id="sec-alexnet"></span><h1><span class="section-number">8.1. </span>Deep Convolutional Neural Networks (AlexNet)<a class="headerlink" href="#deep-convolutional-neural-networks-alexnet" title="Link to this heading">¶</a></h1>
+<p>Although CNNs were well known in the computer vision and machine
+learning communities following the introduction of LeNet
+<span id="id1">()</span>, they did not immediately dominate
+the field. Although LeNet achieved good results on early small datasets,
+the performance and feasibility of training CNNs on larger, more
+realistic datasets had yet to be established. In fact, for much of the
+intervening time between the early 1990s and the watershed results of
+2012 <span id="id2">()</span>, neural networks were
+often surpassed by other machine learning methods, such as kernel
+methods <span id="id3">()</span>, ensemble methods
+<span id="id4">()</span>, and structured estimation
+<span id="id5">()</span>.</p>
+<p>For computer vision, this comparison is perhaps not entirely accurate.
+That is, although the inputs to convolutional networks consist of raw or
+lightly-processed (e.g., by centering) pixel values, practitioners would
+never feed raw pixels into traditional models. Instead, typical computer
+vision pipelines consisted of manually engineering feature extraction
+pipelines, such as SIFT <span id="id6">()</span>, SURF
+<span id="id7">()</span>, and bags of visual words
+<span id="id8">()</span>. Rather than <em>learning</em> the features, the
+features were <em>crafted</em>. Most of the progress came from having more
+clever ideas for feature extraction on the one hand and deep insight
+into geometry <span id="id9">()</span> on the other. The
+learning algorithm was often considered an afterthought.</p>
+<p>Although some neural network accelerators were available in the 1990s,
+they were not yet sufficiently powerful to make deep multichannel,
+multilayer CNNs with a large number of parameters. For instance,
+NVIDIA’s GeForce 256 from 1999 was able to process at most 480 million
+floating-point operations, such as additions and multiplications, per
+second (MFLOPS), without any meaningful programming framework for
+operations beyond games. Today’s accelerators are able to perform in
+excess of 1000 TFLOPs per device. Moreover, datasets were still
+relatively small: OCR on 60,000 low-resolution <span class="math notranslate nohighlight">\(28 \times 28\)</span>
+pixel images was considered a highly challenging task. Added to these
+obstacles, key tricks for training neural networks including parameter
+initialization heuristics <span id="id10">()</span>, clever variants
+of stochastic gradient descent <span id="id11">()</span>, non-squashing
+activation functions <span id="id12">()</span>, and effective
+regularization techniques <span id="id13">()</span>
+were still missing.</p>
+<p>Thus, rather than training <em>end-to-end</em> (pixel to classification)
+systems, classical pipelines looked more like this:</p>
+<ol class="arabic simple">
+<li><p>Obtain an interesting dataset. In the early days, these datasets
+required expensive sensors. For instance, the <a class="reference external" href="https://en.wikipedia.org/wiki/Apple_QuickTake">Apple QuickTake
+100</a> of 1994
+sported a whopping 0.3 megapixel (VGA) resolution, capable of storing
+up to 8 images, all for the price of $1000.</p></li>
+<li><p>Preprocess the dataset with hand-crafted features based on some
+knowledge of optics, geometry, other analytic tools, and occasionally
+on the serendipitous discoveries by lucky graduate students.</p></li>
+<li><p>Feed the data through a standard set of feature extractors such as
+the SIFT (scale-invariant feature transform) <span id="id14">()</span>, the
+SURF (speeded up robust features)
+<span id="id15">()</span>, or any number of other
+hand-tuned pipelines. OpenCV still provides SIFT extractors to this
+day!</p></li>
+<li><p>Dump the resulting representations into your favorite classifier,
+likely a linear model or kernel method, to train a classifier.</p></li>
+</ol>
+<p>If you spoke to machine learning researchers, they would reply that
+machine learning was both important and beautiful. Elegant theories
+proved the properties of various classifiers
+<span id="id16">()</span> and convex optimization
+<span id="id17">()</span> had become the mainstay for obtaining
+them. The field of machine learning was thriving, rigorous, and
+eminently useful. However, if you spoke to a computer vision researcher,
+you would hear a very different story. The dirty truth of image
+recognition, they would tell you, is that features, geometry
+<span id="id18">()</span>, and engineering,
+rather than novel learning algorithms, drove progress. Computer vision
+researchers justifiably believed that a slightly bigger or cleaner
+dataset or a slightly improved feature-extraction pipeline mattered far
+more to the final accuracy than any learning algorithm.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mlx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mlx.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mlx</span> <span class="k">as</span> <span class="n">d2l</span>
+</pre></div>
+</div>
+<section id="representation-learning">
+<h2><span class="section-number">8.1.1. </span>Representation Learning<a class="headerlink" href="#representation-learning" title="Link to this heading">¶</a></h2>
+<p>Another way to cast the state of affairs is that the most important part
+of the pipeline was the representation. And up until 2012 the
+representation was calculated mostly mechanically. In fact, engineering
+a new set of feature functions, improving results, and writing up the
+method all featured prominently in papers. SIFT <span id="id19">()</span>,
+SURF <span id="id20">()</span>, HOG (histograms of oriented
+gradient) <span id="id21">()</span>, bags of visual words
+<span id="id22">()</span>, and similar feature extractors ruled the
+roost.</p>
+<p>Another group of researchers, including Yann LeCun, Geoff Hinton, Yoshua
+Bengio, Andrew Ng, Shun-ichi Amari, and Juergen Schmidhuber, had
+different plans. They believed that features themselves ought to be
+learned. Moreover, they believed that to be reasonably complex, the
+features ought to be hierarchically composed with multiple jointly
+learned layers, each with learnable parameters. In the case of an image,
+the lowest layers might come to detect edges, colors, and textures, by
+analogy with how the visual system in animals processes its input. In
+particular, the automatic design of visual features such as those
+obtained by sparse coding <span id="id23">()</span> remained an
+open challenge until the advent of modern CNNs. It was not until
+<span id="id24"></span> that the idea of
+generating features from image data automatically gained significant
+traction.</p>
+<p>The first modern CNN <span id="id25">()</span>, named
+<em>AlexNet</em> after one of its inventors, Alex Krizhevsky, is largely an
+evolutionary improvement over LeNet. It achieved excellent performance
+in the 2012 ImageNet challenge.</p>
+<figure class="align-default" id="id40">
+<span id="fig-filters"></span><a class="reference internal image-reference" href="../_images/filters.png"><img alt="../_images/filters.png" src="../_images/filters.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">figure8.1.1 </span><span class="caption-text">Image filters learned by the first layer of AlexNet. Reproduction
+courtesy of <span id="id26"></span>.</span><a class="headerlink" href="#id40" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Interestingly, in the lowest layers of the network, the model learned
+feature extractors that resembled some traditional filters.
+<a class="reference internal" href="#fig-filters"><span class="std std-numref">figure8.1.1</span></a> shows lower-level image descriptors. Higher
+layers in the network might build upon these representations to
+represent larger structures, like eyes, noses, blades of grass, and so
+on. Even higher layers might represent whole objects like people,
+airplanes, dogs, or frisbees. Ultimately, the final hidden state learns
+a compact representation of the image that summarizes its contents such
+that data belonging to different categories can be easily separated.</p>
+<p>AlexNet (2012) and its precursor LeNet (1995) share many architectural
+elements. This begs the question: why did it take so long? A key
+difference was that, over the previous two decades, the amount of data
+and the computing power available had increased significantly. As such
+AlexNet was much larger: it was trained on much more data, and on much
+faster GPUs compared to the CPUs available in 1995.</p>
+<section id="missing-ingredient-data">
+<h3><span class="section-number">8.1.1.1. </span>Missing Ingredient: Data<a class="headerlink" href="#missing-ingredient-data" title="Link to this heading">¶</a></h3>
+<p>Deep models with many layers require large amounts of data in order to
+enter the regime where they significantly outperform traditional methods
+based on convex optimizations (e.g., linear and kernel methods).
+However, given the limited storage capacity of computers, the relative
+expense of (imaging) sensors, and the comparatively tighter research
+budgets in the 1990s, most research relied on tiny datasets. Numerous
+papers relied on the UCI collection of datasets, many of which contained
+only hundreds or (a few) thousands of images captured in low resolution
+and often with an artificially clean background.</p>
+<p>In 2009, the ImageNet dataset was released
+<span id="id27">()</span>, challenging researchers to learn
+models from 1 million examples, 1000 each from 1000 distinct categories
+of objects. The categories themselves were based on the most popular
+noun nodes in WordNet <span id="id28">()</span>. The ImageNet team used
+Google Image Search to prefilter large candidate sets for each category
+and employed the Amazon Mechanical Turk crowdsourcing pipeline to
+confirm for each image whether it belonged to the associated category.
+This scale was unprecedented, exceeding others by over an order of
+magnitude (e.g., CIFAR-100 has 60,000 images). Another aspect was that
+the images were at relatively high resolution of <span class="math notranslate nohighlight">\(224 \times 224\)</span>
+pixels, unlike the 80 million-sized TinyImages dataset
+<span id="id29">()</span>, consisting of
+<span class="math notranslate nohighlight">\(32 \times 32\)</span> pixel thumbnails. This allowed for the formation of
+higher-level features. The associated competition, dubbed the ImageNet
+Large Scale Visual Recognition Challenge
+<span id="id30">()</span>, pushed computer vision and machine
+learning research forward, challenging researchers to identify which
+models performed best at a greater scale than academics had previously
+considered. The largest vision datasets, such as LAION-5B
+<span id="id31">()</span> contain billions of images with additional
+metadata.</p>
+</section>
+<section id="missing-ingredient-hardware">
+<h3><span class="section-number">8.1.1.2. </span>Missing Ingredient: Hardware<a class="headerlink" href="#missing-ingredient-hardware" title="Link to this heading">¶</a></h3>
+<p>Deep learning models are voracious consumers of compute cycles. Training
+can take hundreds of epochs, and each iteration requires passing data
+through many layers of computationally expensive linear algebra
+operations. This is one of the main reasons why in the 1990s and early
+2000s, simple algorithms based on the more-efficiently optimized convex
+objectives were preferred.</p>
+<p><em>Graphical processing units</em> (GPUs) proved to be a game changer in
+making deep learning feasible. These chips had earlier been developed
+for accelerating graphics processing to benefit computer games. In
+particular, they were optimized for high throughput <span class="math notranslate nohighlight">\(4 \times 4\)</span>
+matrix–vector products, which are needed for many computer graphics
+tasks. Fortunately, the math is strikingly similar to that required for
+calculating convolutional layers. Around that time, NVIDIA and ATI had
+begun optimizing GPUs for general computing operations
+<span id="id32">()</span>, going as far as to market them as
+<em>general-purpose GPUs</em> (GPGPUs).</p>
+<p>To provide some intuition, consider the cores of a modern microprocessor
+(CPU). Each of the cores is fairly powerful running at a high clock
+frequency and sporting large caches (up to several megabytes of L3).
+Each core is well-suited to executing a wide range of instructions, with
+branch predictors, a deep pipeline, specialized execution units,
+speculative execution, and many other bells and whistles that enable it
+to run a large variety of programs with sophisticated control flow. This
+apparent strength, however, is also its Achilles heel: general-purpose
+cores are very expensive to build. They excel at general-purpose code
+with lots of control flow. This requires lots of chip area, not just for
+the actual ALU (arithmetic logical unit) where computation happens, but
+also for all the aforementioned bells and whistles, plus memory
+interfaces, caching logic between cores, high-speed interconnects, and
+so on. CPUs are comparatively bad at any single task when compared with
+dedicated hardware. Modern laptops have 4–8 cores, and even high-end
+servers rarely exceed 64 cores per socket, simply because it is not
+cost-effective.</p>
+<p>By comparison, GPUs can consist of thousands of small processing
+elements (NIVIDA’s latest Ampere chips have up to 6912 CUDA cores),
+often grouped into larger groups (NVIDIA calls them warps). The details
+differ somewhat between NVIDIA, AMD, ARM and other chip vendors. While
+each core is relatively weak, running at about 1GHz clock frequency, it
+is the total number of such cores that makes GPUs orders of magnitude
+faster than CPUs. For instance, NVIDIA’s recent Ampere A100 GPU offers
+over 300 TFLOPs per chip for specialized 16-bit precision (BFLOAT16)
+matrix-matrix multiplications, and up to 20 TFLOPs for more
+general-purpose floating point operations (FP32). At the same time,
+floating point performance of CPUs rarely exceeds 1 TFLOPs. For
+instance, Amazon’s Graviton 3 reaches 2 TFLOPs peak performance for
+16-bit precision operations, a number similar to the GPU performance of
+Apple’s M1 processor.</p>
+<p>There are many reasons why GPUs are much faster than CPUs in terms of
+FLOPs. First, power consumption tends to grow <em>quadratically</em> with clock
+frequency. Hence, for the power budget of a CPU core that runs four
+times faster (a typical number), you can use 16 GPU cores at
+<span class="math notranslate nohighlight">\(\frac{1}{4}\)</span> the speed, which yields
+<span class="math notranslate nohighlight">\(16 \times \frac{1}{4} = 4\)</span> times the performance. Second, GPU
+cores are much simpler (in fact, for a long time they were not even
+<em>able</em> to execute general-purpose code), which makes them more energy
+efficient. For instance, (i) they tend not to support speculative
+evaluation, (ii) it typically is not possible to program each processing
+element individually, and (iii) the caches per core tend to be much
+smaller. Last, many operations in deep learning require high memory
+bandwidth. Again, GPUs shine here with buses that are at least 10 times
+as wide as many CPUs.</p>
+<p>Back to 2012. A major breakthrough came when Alex Krizhevsky and Ilya
+Sutskever implemented a deep CNN that could run on GPUs. They realized
+that the computational bottlenecks in CNNs, convolutions and matrix
+multiplications, are all operations that could be parallelized in
+hardware. Using two NVIDIA GTX 580s with 3GB of memory, either of which
+was capable of 1.5 TFLOPs (still a challenge for most CPUs a decade
+later), they implemented fast convolutions. The
+<a class="reference external" href="https://code.google.com/archive/p/cuda-convnet/">cuda-convnet</a> code
+was good enough that for several years it was the industry standard and
+powered the first couple of years of the deep learning boom.</p>
+</section>
+</section>
+<section id="alexnet">
+<h2><span class="section-number">8.1.2. </span>AlexNet<a class="headerlink" href="#alexnet" title="Link to this heading">¶</a></h2>
+<p>AlexNet, which employed an 8-layer CNN, won the ImageNet Large Scale
+Visual Recognition Challenge 2012 by a large margin
+<span id="id33">()</span>. This network showed, for the
+first time, that the features obtained by learning can transcend
+manually-designed features, breaking the previous paradigm in computer
+vision.</p>
+<p>The architectures of AlexNet and LeNet are strikingly similar, as
+<a class="reference internal" href="#fig-alexnet"><span class="std std-numref">figure8.1.2</span></a> illustrates. Note that we provide a slightly
+streamlined version of AlexNet removing some of the design quirks that
+were needed in 2012 to make the model fit on two small GPUs.</p>
+<figure class="align-default" id="id41">
+<span id="fig-alexnet"></span><img alt="../_images/alexnet.svg" src="../_images/alexnet.svg" />
+<figcaption>
+<p><span class="caption-number">figure8.1.2 </span><span class="caption-text">From LeNet (left) to AlexNet (right).</span><a class="headerlink" href="#id41" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>There are also significant differences between AlexNet and LeNet. First,
+AlexNet is much deeper than the comparatively small LeNet-5. AlexNet
+consists of eight layers: five convolutional layers, two fully connected
+hidden layers, and one fully connected output layer. Second, AlexNet
+used the ReLU instead of the sigmoid as its activation function. Let’s
+delve into the details below.</p>
+<section id="architecture">
+<h3><span class="section-number">8.1.2.1. </span>Architecture<a class="headerlink" href="#architecture" title="Link to this heading">¶</a></h3>
+<p>In AlexNet’s first layer, the convolution window shape is
+<span class="math notranslate nohighlight">\(11\times11\)</span>. Since the images in ImageNet are eight times taller
+and wider than the MNIST images, objects in ImageNet data tend to occupy
+more pixels with more visual detail. Consequently, a larger convolution
+window is needed to capture the object. The convolution window shape in
+the second layer is reduced to <span class="math notranslate nohighlight">\(5\times5\)</span>, followed by
+<span class="math notranslate nohighlight">\(3\times3\)</span>. In addition, after the first, second, and fifth
+convolutional layers, the network adds max-pooling layers with a window
+shape of <span class="math notranslate nohighlight">\(3\times3\)</span> and a stride of 2. Moreover, AlexNet has ten
+times more convolution channels than LeNet.</p>
+<p>After the final convolutional layer, there are two huge fully connected
+layers with 4096 outputs. These layers require nearly 1GB model
+parameters. Because of the limited memory in early GPUs, the original
+AlexNet used a dual data stream design, so that each of their two GPUs
+could be responsible for storing and computing only its half of the
+model. Fortunately, GPU memory is comparatively abundant now, so we
+rarely need to break up models across GPUs these days (our version of
+the AlexNet model deviates from the original paper in this aspect).</p>
+</section>
+<section id="activation-functions">
+<h3><span class="section-number">8.1.2.2. </span>Activation Functions<a class="headerlink" href="#activation-functions" title="Link to this heading">¶</a></h3>
+<p>Furthermore, AlexNet changed the sigmoid activation function to a
+simpler ReLU activation function. On the one hand, the computation of
+the ReLU activation function is simpler. For example, it does not have
+the exponentiation operation found in the sigmoid activation function.
+On the other hand, the ReLU activation function makes model training
+easier when using different parameter initialization methods. This is
+because, when the output of the sigmoid activation function is very
+close to 0 or 1, the gradient of these regions is almost 0, so that
+backpropagation cannot continue to update some of the model parameters.
+By contrast, the gradient of the ReLU activation function in the
+positive interval is always 1 (<a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html#subsec-activation-functions"><span class="std std-numref">5.1.2section</span></a>).
+Therefore, if the model parameters are not properly initialized, the
+sigmoid function may obtain a gradient of almost 0 in the positive
+interval, meaning that the model cannot be effectively trained.</p>
+</section>
+<section id="capacity-control-and-preprocessing">
+<h3><span class="section-number">8.1.2.3. </span>Capacity Control and Preprocessing<a class="headerlink" href="#capacity-control-and-preprocessing" title="Link to this heading">¶</a></h3>
+<p>AlexNet controls the model complexity of the fully connected layer by
+dropout (<a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html#sec-dropout"><span class="std std-numref">5.6section</span></a>), while LeNet only uses weight decay.
+To augment the data even further, the training loop of AlexNet added a
+great deal of image augmentation, such as flipping, clipping, and color
+changes. This makes the model more robust and the larger sample size
+effectively reduces overfitting. See
+<span id="id34"></span> for an in-depth review
+of such preprocessing steps.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_init_cnn</span><span class="p">(</span><span class="n">net</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">modules</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">):</span>
+            <span class="n">module</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mlx</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">tree_map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">d2l</span><span class="o">.</span><span class="n">init_cnn</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">module</span><span class="o">.</span><span class="n">parameters</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">AlexNet</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Classifier</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_hyperparameters</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">384</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">384</span><span class="p">,</span> <span class="mi">384</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">384</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">mx</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">start_axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">6400</span><span class="p">,</span> <span class="mi">4096</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="mi">4096</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">4096</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">))</span>
+
+        <span class="n">apply_init_cnn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We construct a single-channel data example with both height and width of
+224 to observe the output shape of each layer. It matches the AlexNet
+architecture in <a class="reference internal" href="#fig-alexnet"><span class="std std-numref">figure8.1.2</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AlexNet</span><span class="p">()</span><span class="o">.</span><span class="n">layer_summary</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Conv2d</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>         <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">96</span><span class="p">)</span>
+<span class="n">ReLU</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>   <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">96</span><span class="p">)</span>
+<span class="n">MaxPool2d</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>      <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">96</span><span class="p">)</span>
+<span class="n">Conv2d</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>         <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">ReLU</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>   <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">MaxPool2d</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>      <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">Conv2d</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>         <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">384</span><span class="p">)</span>
+<span class="n">ReLU</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>   <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">384</span><span class="p">)</span>
+<span class="n">Conv2d</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>         <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">384</span><span class="p">)</span>
+<span class="n">ReLU</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>   <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">384</span><span class="p">)</span>
+<span class="n">Conv2d</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>         <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">ReLU</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>   <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">MaxPool2d</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>      <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">Sequential</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6400</span><span class="p">)</span>
+<span class="n">Linear</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>         <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+<span class="n">ReLU</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>   <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+<span class="n">Dropout</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+<span class="n">Linear</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>         <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+<span class="n">ReLU</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>   <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+<span class="n">Dropout</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+<span class="n">Linear</span> <span class="n">output</span> <span class="n">shape</span><span class="p">:</span>         <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="training">
+<h2><span class="section-number">8.1.3. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<p>Although AlexNet was trained on ImageNet in
+<span id="id35"></span>, we use Fashion-MNIST here
+since training an ImageNet model to convergence could take hours or days
+even on a modern GPU. One of the problems with applying AlexNet directly
+on Fashion-MNIST is that its images have lower resolution
+(<span class="math notranslate nohighlight">\(28 \times 28\)</span> pixels) than ImageNet images. To make things work,
+we upsample them to <span class="math notranslate nohighlight">\(224 \times 224\)</span>. This is generally not a
+smart practice, as it simply increases the computational complexity
+without adding information. Nonetheless, we do it here to be faithful to
+the AlexNet architecture. We perform this resizing with the <code class="docutils literal notranslate"><span class="pre">resize</span></code>
+argument in the <code class="docutils literal notranslate"><span class="pre">d2l.FashionMNIST</span></code> constructor.</p>
+<p>Now, we can start training AlexNet. Compared to LeNet in
+<a class="reference internal" href="../chapter_convolutional-neural-networks/lenet.html#sec-lenet"><span class="std std-numref">7.6section</span></a>, the main change here is the use of a smaller
+learning rate and much slower training due to the deeper and wider
+network, the higher image resolution, and the more costly convolutions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">AlexNet</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">FashionMNIST</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">resize</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">max_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_gpus</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/output_alexnet_c8ed91_8_0.svg" src="../_images/output_alexnet_c8ed91_8_0.svg" />
+</figure>
+</section>
+<section id="discussion">
+<h2><span class="section-number">8.1.4. </span>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">¶</a></h2>
+<p>AlexNet’s structure bears a striking resemblance to LeNet, with a number
+of critical improvements, both for accuracy (dropout) and for ease of
+training (ReLU). What is equally striking is the amount of progress that
+has been made in terms of deep learning tooling. What was several months
+of work in 2012 can now be accomplished in a dozen lines of code using
+any modern framework.</p>
+<p>Reviewing the architecture, we see that AlexNet has an Achilles heel
+when it comes to efficiency: the last two hidden layers require matrices
+of size <span class="math notranslate nohighlight">\(6400 \times 4096\)</span> and <span class="math notranslate nohighlight">\(4096 \times 4096\)</span>,
+respectively. This corresponds to 164 MB of memory and 81 MFLOPs of
+computation, both of which are a nontrivial outlay, especially on
+smaller devices, such as mobile phones. This is one of the reasons why
+AlexNet has been surpassed by much more effective architectures that we
+will cover in the following sections. Nonetheless, it is a key step from
+shallow to deep networks that are used nowadays. Note that even though
+the number of parameters exceeds by far the amount of training data in
+our experiments (the last two layers have more than 40 million
+parameters, trained on a datasets of 60 thousand images), there is
+hardly any overfitting: training and validation loss are virtually
+identical throughout training. This is due to the improved
+regularization, such as dropout, inherent in modern deep network
+designs.</p>
+<p>Although it seems that there are only a few more lines in AlexNet’s
+implementation than in LeNet’s, it took the academic community many
+years to embrace this conceptual change and take advantage of its
+excellent experimental results. This was also due to the lack of
+efficient computational tools. At the time neither DistBelief
+<span id="id36">()</span> nor Caffe
+<span id="id37">()</span> existed, and Theano
+<span id="id38">()</span> still lacked many
+distinguishing features. It was the availability of TensorFlow
+<span id="id39">()</span> that dramatically changed the
+situation.</p>
+</section>
+<section id="exercises">
+<h2><span class="section-number">8.1.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Following up on the discussion above, analyze the computational
+properties of AlexNet.</p>
+<ol class="arabic simple">
+<li><p>Compute the memory footprint for convolutions and fully connected
+layers, respectively. Which one dominates?</p></li>
+<li><p>Calculate the computational cost for the convolutions and the
+fully connected layers.</p></li>
+<li><p>How does the memory (read and write bandwidth, latency, size)
+affect computation? Is there any difference in its effects for
+training and inference?</p></li>
+</ol>
+</li>
+<li><p>You are a chip designer and need to trade off computation and memory
+bandwidth. For example, a faster chip requires more power and
+possibly a larger chip area. More memory bandwidth requires more pins
+and control logic, thus also more area. How do you optimize?</p></li>
+<li><p>Why do engineers no longer report performance benchmarks on AlexNet?</p></li>
+<li><p>Try increasing the number of epochs when training AlexNet. Compared
+with LeNet, how do the results differ? Why?</p></li>
+<li><p>AlexNet may be too complex for the Fashion-MNIST dataset, in
+particular due to the low resolution of the initial images.</p>
+<ol class="arabic simple">
+<li><p>Try simplifying the model to make the training faster, while
+ensuring that the accuracy does not drop significantly.</p></li>
+<li><p>Design a better model that works directly on <span class="math notranslate nohighlight">\(28 \times 28\)</span>
+images.</p></li>
+</ol>
+</li>
+<li><p>Modify the batch size, and observe the changes in throughput
+(images/s), accuracy, and GPU memory.</p></li>
+<li><p>Apply dropout and ReLU to LeNet-5. Does it improve? Can you improve
+things further by preprocessing to take advantage of the invariances
+inherent in the images?</p></li>
+<li><p>Can you make AlexNet overfit? Which feature do you need to remove or
+change to break training?</p></li>
+</ol>
+</section>
+</section>
+
+
+        </div>
+        <div class="side-doc-outline">
+            <div class="side-doc-outline--content"> 
+<div class="localtoc">
+    <p class="caption">
+      <span class="caption-text">Table Of Contents</span>
+    </p>
+    <ul>
+<li><a class="reference internal" href="#">8.1. Deep Convolutional Neural Networks (AlexNet)</a><ul>
+<li><a class="reference internal" href="#representation-learning">8.1.1. Representation Learning</a><ul>
+<li><a class="reference internal" href="#missing-ingredient-data">8.1.1.1. Missing Ingredient: Data</a></li>
+<li><a class="reference internal" href="#missing-ingredient-hardware">8.1.1.2. Missing Ingredient: Hardware</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#alexnet">8.1.2. AlexNet</a><ul>
+<li><a class="reference internal" href="#architecture">8.1.2.1. Architecture</a></li>
+<li><a class="reference internal" href="#activation-functions">8.1.2.2. Activation Functions</a></li>
+<li><a class="reference internal" href="#capacity-control-and-preprocessing">8.1.2.3. Capacity Control and Preprocessing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#training">8.1.3. Training</a></li>
+<li><a class="reference internal" href="#discussion">8.1.4. Discussion</a></li>
+<li><a class="reference internal" href="#exercises">8.1.5. Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+            </div>
+        </div>
+
+      <div class="clearer"></div>
+    </div><div class="pagenation">
+     <a id="button-prev" href="index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="P">
+         <i class="pagenation-arrow-L fas fa-arrow-left fa-lg"></i>
+         <div class="pagenation-text">
+            <span class="pagenation-direction">Previous</span>
+            <div>8. Modern Convolutional Neural Networks</div>
+         </div>
+     </a>
+     <a id="button-next" href="googlenet.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+         <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
+        <div class="pagenation-text">
+            <span class="pagenation-direction">Next</span>
+            <div>8.2. Multi-Branch Networks (GoogLeNet)</div>
+        </div>
+     </a>
+  </div>
+        
+        </main>
+    </div>
+  </body>
+</html>
