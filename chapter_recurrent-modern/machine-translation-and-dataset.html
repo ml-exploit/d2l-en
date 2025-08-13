@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10.5. The Encoder–Decoder Architecture" href="encoder-decoder.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="machine-translation-and-the-dataset">
-<span id="sec-machine-translation"></span><h1><span class="section-number">10.4. </span>Machine Translation and the Dataset<a class="headerlink" href="#machine-translation-and-the-dataset" title="Link to this heading">¶</a></h1>
+<span id="sec-machine-translation"></span><h1><span class="section-number">10.4. </span>Machine Translation and the Dataset<a class="headerlink" href="#machine-translation-and-the-dataset" title="Permalink to this heading">¶</a></h1>
 <p>Among the major breakthroughs that prompted widespread interest in
 modern RNNs was a major advance in the applied field of statistical
 <em>machine translation</em>. Here, the model is presented with a sentence in
@@ -535,7 +538,7 @@ sequences. Examples include mapping from dialog prompts to replies or
 from questions to answers. Broadly, such problems are called
 <em>sequence-to-sequence</em> (seq2seq) problems and they are our focus for
 both the remainder of this chapter and much of
-<a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/index.html#chap-attention-and-transformers"><span class="std std-numref">11section</span></a>.</p>
+<a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/index.html#chap-attention-and-transformers"><span class="std std-numref">Section 11</span></a>.</p>
 <p>In this section, we introduce the machine translation problem and an
 example dataset that we will use in the subsequent examples. For
 decades, statistical formulations of translation between languages had
@@ -544,7 +547,7 @@ been popular
 even before researchers got neural network approaches working (methods
 were often lumped together under the term <em>neural machine translation</em>).</p>
 <p>First we will need some new code to process our data. Unlike the
-language modeling that we saw in <a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">9.3section</span></a>, here
+language modeling that we saw in <a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">Section 9.3</span></a>, here
 each example consists of two separate text sequences, one in the source
 language and another (the translation) in the target language. The
 following code snippets will show how to load the preprocessed data into
@@ -555,7 +558,7 @@ minibatches for training.</p>
 </pre></div>
 </div>
 <section id="downloading-and-preprocessing-the-dataset">
-<h2><span class="section-number">10.4.1. </span>Downloading and Preprocessing the Dataset<a class="headerlink" href="#downloading-and-preprocessing-the-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.4.1. </span>Downloading and Preprocessing the Dataset<a class="headerlink" href="#downloading-and-preprocessing-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>To begin, we download an English–French dataset that consists of
 <a class="reference external" href="http://www.manythings.org/anki/">bilingual sentence pairs from the Tatoeba
 Project</a>. Each line in the dataset
@@ -615,9 +618,9 @@ wow !       ça alors !
 </div>
 </section>
 <section id="tokenization">
-<h2><span class="section-number">10.4.2. </span>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.4.2. </span>Tokenization<a class="headerlink" href="#tokenization" title="Permalink to this heading">¶</a></h2>
 <p>Unlike the character-level tokenization in
-<a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">9.3section</span></a>, for machine translation we prefer
+<a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">Section 9.3</span></a>, for machine translation we prefer
 word-level tokenization here (today’s state-of-the-art models use more
 complex tokenization techniques). The following <code class="docutils literal notranslate"><span class="pre">_tokenize</span></code> method
 tokenizes the first <code class="docutils literal notranslate"><span class="pre">max_examples</span></code> text sequence pairs, where each
@@ -682,15 +685,14 @@ fewer than 20 tokens.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_machine-translation-and-dataset_a58745_13_0.svg" src="../_images/output_machine-translation-and-dataset_a58745_13_0.svg" />
-</figure>
+<img alt="../_images/output_machine-translation-and-dataset_a58745_13_0.svg" src="../_images/output_machine-translation-and-dataset_a58745_13_0.svg" /></figure>
 </section>
 <section id="loading-sequences-of-fixed-length">
-<span id="subsec-loading-seq-fixed-len"></span><h2><span class="section-number">10.4.3. </span>Loading Sequences of Fixed Length<a class="headerlink" href="#loading-sequences-of-fixed-length" title="Link to this heading">¶</a></h2>
+<span id="subsec-loading-seq-fixed-len"></span><h2><span class="section-number">10.4.3. </span>Loading Sequences of Fixed Length<a class="headerlink" href="#loading-sequences-of-fixed-length" title="Permalink to this heading">¶</a></h2>
 <p>Recall that in language modeling each example sequence, either a segment
 of one sentence or a span over multiple sentences, had a fixed length.
 This was specified by the <code class="docutils literal notranslate"><span class="pre">num_steps</span></code> (number of time steps or tokens)
-argument from <a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">9.3section</span></a>. In machine translation,
+argument from <a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">Section 9.3</span></a>. In machine translation,
 each example is a pair of source and target text sequences, where the
 two text sequences may have different lengths.</p>
 <p>For computational efficiency, we can still process a minibatch of text
@@ -710,12 +712,12 @@ language separately. With word-level tokenization, the vocabulary size
 will be significantly larger than that using character-level
 tokenization. To alleviate this, here we treat infrequent tokens that
 appear less than twice as the same unknown (“&lt;unk&gt;”) token. As we will
-explain later (<a class="reference internal" href="seq2seq.html#fig-seq2seq"><span class="std std-numref">figure10.6.1</span></a>), when training with target
+explain later (<a class="reference internal" href="seq2seq.html#fig-seq2seq"><span class="std std-numref">Fig. 10.6.1</span></a>), when training with target
 sequences, the decoder output (label tokens) can be the same decoder
 input (target tokens), shifted by one token; and the special
 beginning-of-sequence “&lt;bos&gt;” token will be used as the first input
 token for predicting the target sequence
-(<a class="reference internal" href="seq2seq.html#fig-seq2seq-predict"><span class="std std-numref">figure10.6.3</span></a>).</p>
+(<a class="reference internal" href="seq2seq.html#fig-seq2seq-predict"><span class="std std-numref">Fig. 10.6.3</span></a>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@d2l</span><span class="o">.</span><span class="n">add_to_class</span><span class="p">(</span><span class="n">MTFraEng</span><span class="p">)</span>  <span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">num_train</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">num_val</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
     <span class="nb">super</span><span class="p">(</span><span class="n">MTFraEng</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -747,7 +749,7 @@ token for predicting the target sequence
 </div>
 </section>
 <section id="reading-the-dataset">
-<h2><span class="section-number">10.4.4. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.4.4. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>Finally, we define the <code class="docutils literal notranslate"><span class="pre">get_dataloader</span></code> method to return the data
 iterator.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@d2l</span><span class="o">.</span><span class="n">add_to_class</span><span class="p">(</span><span class="n">MTFraEng</span><span class="p">)</span>  <span class="c1">#@save</span>
@@ -799,7 +801,7 @@ iterator.</p>
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">10.4.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.4.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>In natural language processing, <em>machine translation</em> refers to the task
 of automatically mapping from a sequence representing a string of text
 in a <em>source</em> language to a string representing a plausible translation
@@ -813,7 +815,7 @@ implementations often bucket sequences with similar lengths to avoid
 wasting excessive computation on padding.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">10.4.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.4.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Try different values of the <code class="docutils literal notranslate"><span class="pre">max_examples</span></code> argument in the
 <code class="docutils literal notranslate"><span class="pre">_tokenize</span></code> method. How does this affect the vocabulary sizes of

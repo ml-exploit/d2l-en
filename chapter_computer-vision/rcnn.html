@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="13.9. Semantic Segmentation and the Dataset" href="semantic-segmentation-and-dataset.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="region-based-cnns-r-cnns">
-<span id="sec-rcnn"></span><h1><span class="section-number">13.8. </span>Region-based CNNs (R-CNNs)<a class="headerlink" href="#region-based-cnns-r-cnns" title="Link to this heading">¶</a></h1>
-<p>Besides single shot multibox detection described in <a class="reference internal" href="ssd.html#sec-ssd"><span class="std std-numref">13.7section</span></a>,
+<span id="sec-rcnn"></span><h1><span class="section-number">13.8. </span>Region-based CNNs (R-CNNs)<a class="headerlink" href="#region-based-cnns-r-cnns" title="Permalink to this heading">¶</a></h1>
+<p>Besides single shot multibox detection described in <a class="reference internal" href="ssd.html#sec-ssd"><span class="std std-numref">Section 13.7</span></a>,
 region-based CNNs or regions with CNN features (R-CNNs) are also among
 many pioneering approaches of applying deep learning to object detection
 <span id="id1">()</span>. In this section, we will
@@ -533,7 +536,7 @@ introduce the R-CNN and its series of improvements: the fast R-CNN
 <span id="id4">()</span>. Due to limited space, we will only
 focus on the design of these models.</p>
 <section id="r-cnns">
-<h2><span class="section-number">13.8.1. </span>R-CNNs<a class="headerlink" href="#r-cnns" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.8.1. </span>R-CNNs<a class="headerlink" href="#r-cnns" title="Permalink to this heading">¶</a></h2>
 <p>The <em>R-CNN</em> first extracts many (e.g., 2000) <em>region proposals</em> from the
 input image (e.g., anchor boxes can also be considered as region
 proposals), labeling their classes and bounding boxes (e.g., offsets).</p>
@@ -543,12 +546,11 @@ proposal to extract its features. Next, features of each region proposal
 are used for predicting the class and bounding box of this region
 proposal.</p>
 <figure class="align-default" id="id12">
-<span id="fig-r-cnn"></span><img alt="../_images/r-cnn.svg" src="../_images/r-cnn.svg" />
-<figcaption>
-<p><span class="caption-number">figure13.8.1 </span><span class="caption-text">The R-CNN model.</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+<span id="fig-r-cnn"></span><img alt="../_images/r-cnn.svg" src="../_images/r-cnn.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13.8.1 </span><span class="caption-text">The R-CNN model.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#fig-r-cnn"><span class="std std-numref">figure13.8.1</span></a> shows the R-CNN model. More concretely, the R-CNN
+<p><a class="reference internal" href="#fig-r-cnn"><span class="std std-numref">Fig. 13.8.1</span></a> shows the R-CNN model. More concretely, the R-CNN
 consists of the following four steps:</p>
 <ol class="arabic simple">
 <li><p>Perform <em>selective search</em> to extract multiple high-quality region
@@ -577,7 +579,7 @@ load makes it infeasible to widely use R-CNNs in real-world
 applications.</p>
 </section>
 <section id="fast-r-cnn">
-<h2><span class="section-number">13.8.2. </span>Fast R-CNN<a class="headerlink" href="#fast-r-cnn" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.8.2. </span>Fast R-CNN<a class="headerlink" href="#fast-r-cnn" title="Permalink to this heading">¶</a></h2>
 <p>The main performance bottleneck of an R-CNN lies in the independent CNN
 forward propagation for each region proposal, without sharing
 computation. Since these regions usually have overlaps, independent
@@ -586,12 +588,11 @@ improvements of the <em>fast R-CNN</em> from the R-CNN is that the CNN forward
 propagation is only performed on the entire image
 <span id="id7">()</span>.</p>
 <figure class="align-default" id="id13">
-<span id="fig-fast-r-cnn"></span><img alt="../_images/fast-rcnn.svg" src="../_images/fast-rcnn.svg" />
-<figcaption>
-<p><span class="caption-number">figure13.8.2 </span><span class="caption-text">The fast R-CNN model.</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+<span id="fig-fast-r-cnn"></span><img alt="../_images/fast-rcnn.svg" src="../_images/fast-rcnn.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13.8.2 </span><span class="caption-text">The fast R-CNN model.</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#fig-fast-r-cnn"><span class="std std-numref">figure13.8.2</span></a> describes the fast R-CNN model. Its major
+<p><a class="reference internal" href="#fig-fast-r-cnn"><span class="std std-numref">Fig. 13.8.2</span></a> describes the fast R-CNN model. Its major
 computations are as follows:</p>
 <ol class="arabic simple">
 <li><p>Compared with the R-CNN, in the fast R-CNN the input of the CNN for
@@ -620,7 +621,7 @@ of shape <span class="math notranslate nohighlight">\(n \times 4\)</span>, respe
 softmax regression.</p></li>
 </ol>
 <p>The region of interest pooling layer proposed in the fast R-CNN is
-different from the pooling layer introduced in <a class="reference internal" href="../chapter_convolutional-neural-networks/pooling.html#sec-pooling"><span class="std std-numref">7.5section</span></a>.
+different from the pooling layer introduced in <a class="reference internal" href="../chapter_convolutional-neural-networks/pooling.html#sec-pooling"><span class="std std-numref">Section 7.5</span></a>.
 In the pooling layer, we indirectly control the output shape by
 specifying sizes of the pooling window, padding, and stride. In
 contrast, we can directly specify the output shape in the region of
@@ -634,7 +635,7 @@ the height and width of any subwindow shall be rounded up, and the
 largest element shall be used as output of the subwindow. Therefore, the
 region of interest pooling layer can extract features of the same shape
 even when regions of interest have different shapes.</p>
-<p>As an illustrative example, in <a class="reference internal" href="#fig-roi"><span class="std std-numref">figure13.8.3</span></a>, the upper-left
+<p>As an illustrative example, in <a class="reference internal" href="#fig-roi"><span class="std std-numref">Fig. 13.8.3</span></a>, the upper-left
 <span class="math notranslate nohighlight">\(3\times 3\)</span> region of interest is selected on a <span class="math notranslate nohighlight">\(4 \times 4\)</span>
 input. For this region of interest, we use a <span class="math notranslate nohighlight">\(2\times 2\)</span> region of
 interest pooling layer to obtain a <span class="math notranslate nohighlight">\(2\times 2\)</span> output. Note that
@@ -642,9 +643,8 @@ each of the four divided subwindows contains elements 0, 1, 4, and 5 (5
 is the maximum); 2 and 6 (6 is the maximum); 8 and 9 (9 is the maximum);
 and 10.</p>
 <figure class="align-default" id="id14">
-<span id="fig-roi"></span><img alt="../_images/roi.svg" src="../_images/roi.svg" />
-<figcaption>
-<p><span class="caption-number">figure13.8.3 </span><span class="caption-text">A <span class="math notranslate nohighlight">\(2\times 2\)</span> region of interest pooling layer.</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+<span id="fig-roi"></span><img alt="../_images/roi.svg" src="../_images/roi.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13.8.3 </span><span class="caption-text">A <span class="math notranslate nohighlight">\(2\times 2\)</span> region of interest pooling layer.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Below we demonstrate the computation of the region of interest pooling
@@ -774,19 +774,18 @@ features of the same shape <span class="math notranslate nohighlight">\(2\times 
 </div>
 </section>
 <section id="faster-r-cnn">
-<h2><span class="section-number">13.8.3. </span>Faster R-CNN<a class="headerlink" href="#faster-r-cnn" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.8.3. </span>Faster R-CNN<a class="headerlink" href="#faster-r-cnn" title="Permalink to this heading">¶</a></h2>
 <p>To be more accurate in object detection, the fast R-CNN model usually
 has to generate a lot of region proposals in selective search. To reduce
 region proposals without loss of accuracy, the <em>faster R-CNN</em> proposes
 to replace selective search with a <em>region proposal network</em>
 <span id="id8">()</span>.</p>
 <figure class="align-default" id="id15">
-<span id="fig-faster-r-cnn"></span><img alt="../_images/faster-rcnn.svg" src="../_images/faster-rcnn.svg" />
-<figcaption>
-<p><span class="caption-number">figure13.8.4 </span><span class="caption-text">The faster R-CNN model.</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+<span id="fig-faster-r-cnn"></span><img alt="../_images/faster-rcnn.svg" src="../_images/faster-rcnn.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13.8.4 </span><span class="caption-text">The faster R-CNN model.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#fig-faster-r-cnn"><span class="std std-numref">figure13.8.4</span></a> shows the faster R-CNN model. Compared with
+<p><a class="reference internal" href="#fig-faster-r-cnn"><span class="std std-numref">Fig. 13.8.4</span></a> shows the faster R-CNN model. Compared with
 the fast R-CNN, the faster R-CNN only changes the region proposal method
 from selective search to a region proposal network. The rest of the
 model remain unchanged. The region proposal network works in the
@@ -817,18 +816,17 @@ so as to stay accurate in object detection with a reduced number of
 region proposals that are learned from data.</p>
 </section>
 <section id="mask-r-cnn">
-<h2><span class="section-number">13.8.4. </span>Mask R-CNN<a class="headerlink" href="#mask-r-cnn" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.8.4. </span>Mask R-CNN<a class="headerlink" href="#mask-r-cnn" title="Permalink to this heading">¶</a></h2>
 <p>In the training dataset, if pixel-level positions of object are also
 labeled on images, the <em>mask R-CNN</em> can effectively leverage such
 detailed labels to further improve the accuracy of object detection
 <span id="id9">()</span>.</p>
 <figure class="align-default" id="id16">
-<span id="fig-mask-r-cnn"></span><img alt="../_images/mask-rcnn.svg" src="../_images/mask-rcnn.svg" />
-<figcaption>
-<p><span class="caption-number">figure13.8.5 </span><span class="caption-text">The mask R-CNN model.</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+<span id="fig-mask-r-cnn"></span><img alt="../_images/mask-rcnn.svg" src="../_images/mask-rcnn.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13.8.5 </span><span class="caption-text">The mask R-CNN model.</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>As shown in <a class="reference internal" href="#fig-mask-r-cnn"><span class="std std-numref">figure13.8.5</span></a>, the mask R-CNN is modified based
+<p>As shown in <a class="reference internal" href="#fig-mask-r-cnn"><span class="std std-numref">Fig. 13.8.5</span></a>, the mask R-CNN is modified based
 on the faster R-CNN. Specifically, the mask R-CNN replaces the region of
 interest pooling layer with the <em>region of interest (RoI) alignment</em>
 layer. This region of interest alignment layer uses bilinear
@@ -842,7 +840,7 @@ on using a fully convolutional network to predict pixel-level semantics
 of an image will be provided in subsequent sections of this chapter.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">13.8.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.8.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>The R-CNN extracts many region proposals from the input image, uses a
 CNN to perform forward propagation on each region proposal to extract
@@ -863,7 +861,7 @@ further improve the accuracy of object detection.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">13.8.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.8.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Can we frame object detection as a single regression problem, such as
 predicting bounding boxes and class probabilities? You may refer to

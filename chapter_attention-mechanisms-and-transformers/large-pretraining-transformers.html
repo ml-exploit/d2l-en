@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,14 +15,17 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="12. Optimization Algorithms" href="../chapter_optimization/index.html" />
@@ -110,9 +113,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -152,11 +153,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -295,7 +297,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -317,9 +320,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -359,11 +360,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -502,7 +504,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -521,15 +524,15 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="large-scale-pretraining-with-transformers">
-<span id="sec-large-pretraining-transformers"></span><h1><span class="section-number">11.9. </span>Large-Scale Pretraining with Transformers<a class="headerlink" href="#large-scale-pretraining-with-transformers" title="Link to this heading">¶</a></h1>
+<span id="sec-large-pretraining-transformers"></span><h1><span class="section-number">11.9. </span>Large-Scale Pretraining with Transformers<a class="headerlink" href="#large-scale-pretraining-with-transformers" title="Permalink to this heading">¶</a></h1>
 <p>So far in our image classification and machine translation experiments,
 models have been trained on datasets with input–output examples <em>from
 scratch</em> to perform specific tasks. For example, a Transformer was
-trained with English–French pairs (<a class="reference internal" href="transformer.html#sec-transformer"><span class="std std-numref">11.7section</span></a>) so that
+trained with English–French pairs (<a class="reference internal" href="transformer.html#sec-transformer"><span class="std std-numref">Section 11.7</span></a>) so that
 this model can translate input English text into French. As a result,
 each model becomes a <em>specific expert</em> that is sensitive to even a
 slight shift in data distribution
-(<a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html#sec-environment-and-distribution-shift"><span class="std std-numref">4.6section</span></a>). For better
+(<a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html#sec-environment-and-distribution-shift"><span class="std std-numref">Section 4.7</span></a>). For better
 generalized models, or even more competent <em>generalists</em> that can
 perform multiple tasks with or without adaptation, <em>pretraining</em> models
 on large data has been increasingly common.</p>
@@ -541,30 +544,30 @@ of model parameters, training tokens, and training compute
 <span id="id1">()</span>. The scalability of Transformers is also
 evidenced by the significantly boosted performance from larger vision
 Transformers trained on larger data (discussed in
-<a class="reference internal" href="vision-transformer.html#sec-vision-transformer"><span class="std std-numref">11.8section</span></a>). More recent success stories include
+<a class="reference internal" href="vision-transformer.html#sec-vision-transformer"><span class="std std-numref">Section 11.8</span></a>). More recent success stories include
 Gato, a <em>generalist</em> model that can play Atari, caption images, chat,
 and act as a robot <span id="id2">()</span>. Gato is a single
 Transformer that scales well when pretrained on diverse modalities,
 including text, images, joint torques, and button presses. Notably, all
 such multimodal data is serialized into a flat sequence of tokens, which
-can be processed akin to text tokens (<a class="reference internal" href="transformer.html#sec-transformer"><span class="std std-numref">11.7section</span></a>) or
-image patches (<a class="reference internal" href="vision-transformer.html#sec-vision-transformer"><span class="std std-numref">11.8section</span></a>) by Transformers.</p>
+can be processed akin to text tokens (<a class="reference internal" href="transformer.html#sec-transformer"><span class="std std-numref">Section 11.7</span></a>) or
+image patches (<a class="reference internal" href="vision-transformer.html#sec-vision-transformer"><span class="std std-numref">Section 11.8</span></a>) by Transformers.</p>
 <p>Prior to the compelling success of pretraining Transformers for
 multimodal data, Transformers were extensively pretrained with a wealth
 of text. Originally proposed for machine translation, the Transformer
-architecture in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">figure11.7.1</span></a> consists of an encoder for
+architecture in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">Fig. 11.7.1</span></a> consists of an encoder for
 representing input sequences and a decoder for generating target
 sequences. Primarily, Transformers can be used in three different modes:
 <em>encoder-only</em>, <em>encoder–decoder</em>, and <em>decoder-only</em>. To conclude this
 chapter, we will review these three modes and explain the scalability in
 pretraining Transformers.</p>
 <section id="encoder-only">
-<h2><span class="section-number">11.9.1. </span>Encoder-Only<a class="headerlink" href="#encoder-only" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.9.1. </span>Encoder-Only<a class="headerlink" href="#encoder-only" title="Permalink to this heading">¶</a></h2>
 <p>When only the Transformer encoder is used, a sequence of input tokens is
 converted into the same number of representations that can be further
 projected into output (e.g., classification). A Transformer encoder
 consists of self-attention layers, where all input tokens attend to each
-other. For example, vision Transformers depicted in <a class="reference internal" href="vision-transformer.html#fig-vit"><span class="std std-numref">figure11.8.1</span></a>
+other. For example, vision Transformers depicted in <a class="reference internal" href="vision-transformer.html#fig-vit"><span class="std std-numref">Fig. 11.8.1</span></a>
 are encoder-only, converting a sequence of input image patches into the
 representation of a special “&lt;cls&gt;” token. Since this representation
 depends on all input tokens, it is further projected into classification
@@ -572,46 +575,44 @@ labels. This design was inspired by an earlier encoder-only Transformer
 pretrained on text: BERT (Bidirectional Encoder Representations from
 Transformers) <span id="id3">()</span>.</p>
 <section id="pretraining-bert">
-<h3><span class="section-number">11.9.1.1. </span>Pretraining BERT<a class="headerlink" href="#pretraining-bert" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.9.1.1. </span>Pretraining BERT<a class="headerlink" href="#pretraining-bert" title="Permalink to this heading">¶</a></h3>
 <figure class="align-default" id="id63">
-<span id="fig-bert-encoder-only"></span><img alt="../_images/bert-encoder-only.svg" src="../_images/bert-encoder-only.svg" />
-<figcaption>
-<p><span class="caption-number">figure11.9.1 </span><span class="caption-text">Left: Pretraining BERT with masked language modeling. Prediction of
+<span id="fig-bert-encoder-only"></span><img alt="../_images/bert-encoder-only.svg" src="../_images/bert-encoder-only.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.9.1 </span><span class="caption-text">Left: Pretraining BERT with masked language modeling. Prediction of
 the masked “love” token depends on all input tokens before and after
 “love”. Right: Attention pattern in the Transformer encoder. Each
 token along the vertical axis attends to all input tokens along the
-horizontal axis.</span><a class="headerlink" href="#id63" title="Link to this image">¶</a></p>
+horizontal axis.</span><a class="headerlink" href="#id63" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>BERT is pretrained on text sequences using <em>masked language modeling</em>:
 input text with randomly masked tokens is fed into a Transformer encoder
 to predict the masked tokens. As illustrated in
-<a class="reference internal" href="#fig-bert-encoder-only"><span class="std std-numref">figure11.9.1</span></a>, an original text sequence “I”,
+<a class="reference internal" href="#fig-bert-encoder-only"><span class="std std-numref">Fig. 11.9.1</span></a>, an original text sequence “I”,
 “love”, “this”, “red”, “car” is prepended with the “&lt;cls&gt;” token, and
 the “&lt;mask&gt;” token randomly replaces “love”; then the cross-entropy loss
 between the masked token “love” and its prediction is to be minimized
 during pretraining. Note that there is no constraint in the attention
 pattern of Transformer encoders (right of
-<a class="reference internal" href="#fig-bert-encoder-only"><span class="std std-numref">figure11.9.1</span></a>) so all tokens can attend to each
+<a class="reference internal" href="#fig-bert-encoder-only"><span class="std std-numref">Fig. 11.9.1</span></a>) so all tokens can attend to each
 other. Thus, prediction of “love” depends on input tokens before and
 after it in the sequence. This is why BERT is a “bidirectional encoder”.
 Without need for manual labeling, large-scale text data from books and
 Wikipedia can be used for pretraining BERT.</p>
 </section>
 <section id="fine-tuning-bert">
-<h3><span class="section-number">11.9.1.2. </span>Fine-Tuning BERT<a class="headerlink" href="#fine-tuning-bert" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.9.1.2. </span>Fine-Tuning BERT<a class="headerlink" href="#fine-tuning-bert" title="Permalink to this heading">¶</a></h3>
 <p>The pretrained BERT can be <em>fine-tuned</em> to downstream encoding tasks
 involving single text or text pairs. During fine-tuning, additional
 layers can be added to BERT with randomized parameters: these parameters
 and those pretrained BERT parameters will be <em>updated</em> to fit training
 data of downstream tasks.</p>
 <figure class="align-default" id="id64">
-<span id="fig-bert-finetune-classification"></span><img alt="../_images/bert-finetune-classification.svg" src="../_images/bert-finetune-classification.svg" />
-<figcaption>
-<p><span class="caption-number">figure11.9.2 </span><span class="caption-text">Fine-tuning BERT for sentiment analysis.</span><a class="headerlink" href="#id64" title="Link to this image">¶</a></p>
+<span id="fig-bert-finetune-classification"></span><img alt="../_images/bert-finetune-classification.svg" src="../_images/bert-finetune-classification.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.9.2 </span><span class="caption-text">Fine-tuning BERT for sentiment analysis.</span><a class="headerlink" href="#id64" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#fig-bert-finetune-classification"><span class="std std-numref">figure11.9.2</span></a> illustrates fine-tuning of
+<p><a class="reference internal" href="#fig-bert-finetune-classification"><span class="std std-numref">Fig. 11.9.2</span></a> illustrates fine-tuning of
 BERT for sentiment analysis. The Transformer encoder is a pretrained
 BERT, which takes a text sequence as input and feeds the “&lt;cls&gt;”
 representation (global representation of the input) into an additional
@@ -642,7 +643,7 @@ Transformers <span id="id10">()</span>, and MAE (masked autoencoders)
 </section>
 </section>
 <section id="encoderdecoder">
-<h2><span class="section-number">11.9.2. </span>Encoder–Decoder<a class="headerlink" href="#encoderdecoder" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.9.2. </span>Encoder–Decoder<a class="headerlink" href="#encoderdecoder" title="Permalink to this heading">¶</a></h2>
 <p>Since a Transformer encoder converts a sequence of input tokens into the
 same number of output representations, the encoder-only mode cannot
 generate a sequence of arbitrary length as in machine translation. As
@@ -651,12 +652,12 @@ architecture can be outfitted with a decoder that autoregressively
 predicts the target sequence of arbitrary length, token by token,
 conditional on both encoder output and decoder output: (i) for
 conditioning on encoder output, encoder–decoder cross-attention
-(multi-head attention of decoder in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">figure11.7.1</span></a>) allows
+(multi-head attention of decoder in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">Fig. 11.7.1</span></a>) allows
 target tokens to attend to <em>all</em> input tokens; (ii) conditioning on
 decoder output is achieved by a so-called <em>causal</em> attention (this name
 is common in the literature but is misleading as it has little
 connection to the proper study of causality) pattern (masked multi-head
-attention of decoder in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">figure11.7.1</span></a>), where any target
+attention of decoder in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">Fig. 11.7.1</span></a>), where any target
 token can only attend to <em>past</em> and <em>present</em> tokens in the target
 sequence.</p>
 <p>To pretrain encoder–decoder Transformers beyond human-labeled machine
@@ -668,7 +669,7 @@ objectives, while the former emphasizes noising input (e.g., masking,
 deletion, permutation, and rotation) and the latter highlights multitask
 unification with comprehensive ablation studies.</p>
 <section id="pretraining-t5">
-<h3><span class="section-number">11.9.2.1. </span>Pretraining T5<a class="headerlink" href="#pretraining-t5" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.9.2.1. </span>Pretraining T5<a class="headerlink" href="#pretraining-t5" title="Permalink to this heading">¶</a></h3>
 <p>As an example of the pretrained Transformer encoder–decoder, T5
 (Text-to-Text Transfer Transformer) unifies many tasks as the same
 text-to-text problem: for any task, the input of the encoder is a task
@@ -678,9 +679,8 @@ output (e.g., a sequence of tokens summarizing the input article). To
 perform as text-to-text, T5 is trained to generate some target text
 conditional on input text.</p>
 <figure class="align-default" id="id65">
-<span id="fig-t5-encoder-decoder"></span><img alt="../_images/t5-encoder-decoder.svg" src="../_images/t5-encoder-decoder.svg" />
-<figcaption>
-<p><span class="caption-number">figure11.9.3 </span><span class="caption-text">Left: Pretraining T5 by predicting consecutive spans. The original
+<span id="fig-t5-encoder-decoder"></span><img alt="../_images/t5-encoder-decoder.svg" src="../_images/t5-encoder-decoder.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.9.3 </span><span class="caption-text">Left: Pretraining T5 by predicting consecutive spans. The original
 sentence is “I”, “love”, “this”, “red”, “car”, where “love” is
 replaced by a special “&lt;X&gt;” token, and consecutive “red”, “car” are
 replaced by a special “&lt;Y&gt;” token. The target sequence ends with a
@@ -689,21 +689,21 @@ encoder–decoder. In the encoder self-attention (lower square), all
 input tokens attend to each other; In the encoder–decoder
 cross-attention (upper rectangle), each target token attends to all
 input tokens; In the decoder self-attention (upper triangle), each
-target token attends to present and past target tokens only (causal).</span><a class="headerlink" href="#id65" title="Link to this image">¶</a></p>
+target token attends to present and past target tokens only (causal).</span><a class="headerlink" href="#id65" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>To obtain input and output from any original text, T5 is pretrained to
 predict consecutive spans. Specifically, tokens from text are randomly
 replaced by special tokens where each consecutive span is replaced by
 the same special token. Consider the example in
-<a class="reference internal" href="#fig-t5-encoder-decoder"><span class="std std-numref">figure11.9.3</span></a>, where the original text is “I”,
+<a class="reference internal" href="#fig-t5-encoder-decoder"><span class="std std-numref">Fig. 11.9.3</span></a>, where the original text is “I”,
 “love”, “this”, “red”, “car”. Tokens “love”, “red”, “car” are randomly
 replaced by special tokens. Since “red” and “car” are a consecutive
 span, they are replaced by the same special token. As a result, the
 input sequence is “I”, “&lt;X&gt;”, “this”, “&lt;Y&gt;”, and the target sequence is
 “&lt;X&gt;”, “love”, “&lt;Y&gt;”, “red”, “car”, “&lt;Z&gt;”, where “&lt;Z&gt;” is another
 special token marking the end. As shown in
-<a class="reference internal" href="#fig-t5-encoder-decoder"><span class="std std-numref">figure11.9.3</span></a>, the decoder has a causal attention
+<a class="reference internal" href="#fig-t5-encoder-decoder"><span class="std std-numref">Fig. 11.9.3</span></a>, the decoder has a causal attention
 pattern to prevent itself from attending to future tokens during
 sequence prediction.</p>
 <p>In T5, predicting consecutive span is also referred to as reconstructing
@@ -712,21 +712,20 @@ tokens from the C4 (Colossal Clean Crawled Corpus) data, which consists
 of clean English text from the web <span id="id14">()</span>.</p>
 </section>
 <section id="fine-tuning-t5">
-<h3><span class="section-number">11.9.2.2. </span>Fine-Tuning T5<a class="headerlink" href="#fine-tuning-t5" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.9.2.2. </span>Fine-Tuning T5<a class="headerlink" href="#fine-tuning-t5" title="Permalink to this heading">¶</a></h3>
 <p>Similar to BERT, T5 needs to be fine-tuned (updating T5 parameters) on
 task-specific training data to perform this task. Major differences from
 BERT fine-tuning include: (i) T5 input includes task descriptions; (ii)
 T5 can generate sequences with arbitrary length with its Transformer
 decoder; (iii) No additional layers are required.</p>
 <figure class="align-default" id="id66">
-<span id="fig-t5-finetune-summarization"></span><img alt="../_images/t5-finetune-summarization.svg" src="../_images/t5-finetune-summarization.svg" />
-<figcaption>
-<p><span class="caption-number">figure11.9.4 </span><span class="caption-text">Fine-tuning T5 for text summarization. Both the task description and
+<span id="fig-t5-finetune-summarization"></span><img alt="../_images/t5-finetune-summarization.svg" src="../_images/t5-finetune-summarization.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.9.4 </span><span class="caption-text">Fine-tuning T5 for text summarization. Both the task description and
 article tokens are fed into the Transformer encoder for predicting
-the summary.</span><a class="headerlink" href="#id66" title="Link to this image">¶</a></p>
+the summary.</span><a class="headerlink" href="#id66" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#fig-t5-finetune-summarization"><span class="std std-numref">figure11.9.4</span></a> explains fine-tuning T5 using
+<p><a class="reference internal" href="#fig-t5-finetune-summarization"><span class="std std-numref">Fig. 11.9.4</span></a> explains fine-tuning T5 using
 text summarization as an example. In this downstream task, the task
 description tokens “Summarize”, “:” followed by the article tokens are
 input to the encoder.</p>
@@ -738,47 +737,45 @@ designed based on T5 to activate a subset of the parameters for better
 computational efficiency <span id="id15">()</span>. In a text-to-image
 model called Imagen, text is input to a frozen T5 encoder (T5-XXL) with
 4.6 billion parameters <span id="id16">()</span>. The
-photorealistic text-to-image examples in <a class="reference internal" href="#fig-imagen"><span class="std std-numref">figure11.9.5</span></a> suggest
+photorealistic text-to-image examples in <a class="reference internal" href="#fig-imagen"><span class="std std-numref">Fig. 11.9.5</span></a> suggest
 that the T5 encoder alone may effectively represent text even without
 fine-tuning.</p>
 <figure class="align-default" id="id67">
-<span id="fig-imagen"></span><a class="reference internal image-reference" href="../_images/imagen.png"><img alt="../_images/imagen.png" src="../_images/imagen.png" style="width: 700px;" />
-</a>
+<span id="fig-imagen"></span><a class="reference internal image-reference" href="../_images/imagen.png"><img alt="../_images/imagen.png" src="../_images/imagen.png" style="width: 700px;" /></a>
 <figcaption>
-<p><span class="caption-number">figure11.9.5 </span><span class="caption-text">Text-to-image examples by the Imagen model, whose text encoder is
-from T5 (figures taken from <span id="id17"></span>).</span><a class="headerlink" href="#id67" title="Link to this image">¶</a></p>
+<p><span class="caption-number">Fig. 11.9.5 </span><span class="caption-text">Text-to-image examples by the Imagen model, whose text encoder is
+from T5 (figures taken from <span id="id17"></span>).</span><a class="headerlink" href="#id67" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="decoder-only">
-<h2><span class="section-number">11.9.3. </span>Decoder-Only<a class="headerlink" href="#decoder-only" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.9.3. </span>Decoder-Only<a class="headerlink" href="#decoder-only" title="Permalink to this heading">¶</a></h2>
 <p>We have reviewed encoder-only and encoder–decoder Transformers.
 Alternatively, decoder-only Transformers remove the entire encoder and
 the decoder sublayer with the encoder–decoder cross-attention from the
 original encoder–decoder architecture depicted in
-<a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">figure11.7.1</span></a>. Nowadays, decoder-only Transformers have
+<a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">Fig. 11.7.1</span></a>. Nowadays, decoder-only Transformers have
 been the <em>de facto</em> architecture in large-scale language modeling
-(<a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">9.3section</span></a>), which leverages the world’s abundant
+(<a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">Section 9.3</span></a>), which leverages the world’s abundant
 unlabeled text corpora via self-supervised learning.</p>
 <section id="gpt-and-gpt-2">
-<h3><span class="section-number">11.9.3.1. </span>GPT and GPT-2<a class="headerlink" href="#gpt-and-gpt-2" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.9.3.1. </span>GPT and GPT-2<a class="headerlink" href="#gpt-and-gpt-2" title="Permalink to this heading">¶</a></h3>
 <p>Using language modeling as the training objective, the GPT (generative
 pre-training) model chooses a Transformer decoder as its backbone
 <span id="id18">()</span>.</p>
 <figure class="align-default" id="id68">
-<span id="fig-gpt-decoder-only"></span><img alt="../_images/gpt-decoder-only.svg" src="../_images/gpt-decoder-only.svg" />
-<figcaption>
-<p><span class="caption-number">figure11.9.6 </span><span class="caption-text">Left: Pretraining GPT with language modeling. The target sequence is
+<span id="fig-gpt-decoder-only"></span><img alt="../_images/gpt-decoder-only.svg" src="../_images/gpt-decoder-only.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.9.6 </span><span class="caption-text">Left: Pretraining GPT with language modeling. The target sequence is
 the input sequence shifted by one token. Both “&lt;bos&gt;” and “&lt;eos&gt;” are
 special tokens marking the beginning and end of sequences,
 respectively. Right: Attention pattern in the Transformer decoder.
 Each token along the vertical axis attends to only its past tokens
-along the horizontal axis (causal).</span><a class="headerlink" href="#id68" title="Link to this image">¶</a></p>
+along the horizontal axis (causal).</span><a class="headerlink" href="#id68" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Following the autoregressive language model training as described in
-<a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#subsec-partitioning-seqs"><span class="std std-numref">9.3.3section</span></a>, <a class="reference internal" href="#fig-gpt-decoder-only"><span class="std std-numref">figure11.9.6</span></a>
+<a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#subsec-partitioning-seqs"><span class="std std-numref">Section 9.3.3</span></a>, <a class="reference internal" href="#fig-gpt-decoder-only"><span class="std std-numref">Fig. 11.9.6</span></a>
 illustrates GPT pretraining with a Transformer encoder, where the target
 sequence is the input sequence shifted by one token. Note that the
 attention pattern in the Transformer decoder enforces that each token
@@ -788,7 +785,7 @@ because they have not yet been chosen).</p>
 downstream tasks. A much larger Transformer-decoder language model,
 GPT-2, was introduced one year later <span id="id19">()</span>.
 Compared with the original Transformer decoder in GPT, pre-normalization
-(discussed in <a class="reference internal" href="vision-transformer.html#subsec-vit-encoder"><span class="std std-numref">11.8.3section</span></a>) and improved
+(discussed in <a class="reference internal" href="vision-transformer.html#subsec-vit-encoder"><span class="std std-numref">Section 11.8.3</span></a>) and improved
 initialization and weight-scaling were adopted in GPT-2. Pretrained on
 40 GB of text, the 1.5-billion-parameter GPT-2 obtained the
 state-of-the-art results on language modeling benchmarks and promising
@@ -796,20 +793,19 @@ results on multiple other tasks <em>without updating the parameters or
 architecture</em>.</p>
 </section>
 <section id="gpt-3-and-beyond">
-<h3><span class="section-number">11.9.3.2. </span>GPT-3 and Beyond<a class="headerlink" href="#gpt-3-and-beyond" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.9.3.2. </span>GPT-3 and Beyond<a class="headerlink" href="#gpt-3-and-beyond" title="Permalink to this heading">¶</a></h3>
 <p>GPT-2 demonstrated potential of using the same language model for
 multiple tasks without updating the model. This is more computationally
 efficient than fine-tuning, which requires model updates via gradient
 computation.</p>
 <figure class="align-default" id="id69">
-<span id="fig-gpt-3-xshot"></span><img alt="../_images/gpt-3-xshot.svg" src="../_images/gpt-3-xshot.svg" />
-<figcaption>
-<p><span class="caption-number">figure11.9.7 </span><span class="caption-text">Zero-shot, one-shot, few-shot in-context learning with language
-models (Transformer decoders). No parameter update is needed.</span><a class="headerlink" href="#id69" title="Link to this image">¶</a></p>
+<span id="fig-gpt-3-xshot"></span><img alt="../_images/gpt-3-xshot.svg" src="../_images/gpt-3-xshot.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.9.7 </span><span class="caption-text">Zero-shot, one-shot, few-shot in-context learning with language
+models (Transformer decoders). No parameter update is needed.</span><a class="headerlink" href="#id69" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Before explaining the more computationally efficient use of language
-models without parameter update, recall <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">9.5section</span></a> that
+models without parameter update, recall <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">Section 9.5</span></a> that
 a language model can be trained to generate a text sequence conditional
 on some prefix text sequence. Thus, a pretrained language model may
 generate the task output as a sequence <em>without parameter update</em>,
@@ -818,24 +814,23 @@ task-specific input–output examples, and a prompt (task input). This
 learning paradigm is called <em>in-context learning</em>
 <span id="id20">()</span>, which can be further categorized into
 <em>zero-shot</em>, <em>one-shot</em>, and <em>few-shot</em>, when there is no, one, and a
-few task-specific input–output examples (<a class="reference internal" href="#fig-gpt-3-xshot"><span class="std std-numref">figure11.9.7</span></a>).</p>
+few task-specific input–output examples (<a class="reference internal" href="#fig-gpt-3-xshot"><span class="std std-numref">Fig. 11.9.7</span></a>).</p>
 <figure class="align-default" id="id70">
-<span id="fig-gpt3-xshot-scaling"></span><a class="reference internal image-reference" href="../_images/gpt3-xshot-scaling.png"><img alt="../_images/gpt3-xshot-scaling.png" src="../_images/gpt3-xshot-scaling.png" style="width: 400px;" />
-</a>
+<span id="fig-gpt3-xshot-scaling"></span><a class="reference internal image-reference" href="../_images/gpt3-xshot-scaling.png"><img alt="../_images/gpt3-xshot-scaling.png" src="../_images/gpt3-xshot-scaling.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">figure11.9.8 </span><span class="caption-text">Aggregate performance of GPT-3 for all 42 accuracy-denominated
+<p><span class="caption-number">Fig. 11.9.8 </span><span class="caption-text">Aggregate performance of GPT-3 for all 42 accuracy-denominated
 benchmarks (caption adapted and figure taken from
-<span id="id21"></span>).</span><a class="headerlink" href="#id70" title="Link to this image">¶</a></p>
+<span id="id21"></span>).</span><a class="headerlink" href="#id70" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>These three settings were tested in GPT-3 <span id="id22">()</span>,
 whose largest version uses data and model size about two orders of
 magnitude larger than those in GPT-2. GPT-3 uses the same Transformer
 decoder architecture as its direct predecessor GPT-2 except that
-attention patterns (at the right in <a class="reference internal" href="#fig-gpt-decoder-only"><span class="std std-numref">figure11.9.6</span></a>)
+attention patterns (at the right in <a class="reference internal" href="#fig-gpt-decoder-only"><span class="std std-numref">Fig. 11.9.6</span></a>)
 are sparser at alternating layers. Pretrained with 300 billion tokens,
 GPT-3 performs better with larger model size, where few-shot performance
-increases most rapidly (<a class="reference internal" href="#fig-gpt3-xshot-scaling"><span class="std std-numref">figure11.9.8</span></a>).</p>
+increases most rapidly (<a class="reference internal" href="#fig-gpt3-xshot-scaling"><span class="std std-numref">Fig. 11.9.8</span></a>).</p>
 <p>The subsequent GPT-4 model did not fully disclose technical details in
 its report <span id="id23">()</span>. By contrast with its predecessors,
 GPT-4 is a large-scale, multimodal model that can take both text and
@@ -843,25 +838,24 @@ images as input and generate text output.</p>
 </section>
 </section>
 <section id="scalability">
-<h2><span class="section-number">11.9.4. </span>Scalability<a class="headerlink" href="#scalability" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="#fig-gpt3-xshot-scaling"><span class="std std-numref">figure11.9.8</span></a> empirically demonstrates scalability
+<h2><span class="section-number">11.9.4. </span>Scalability<a class="headerlink" href="#scalability" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="#fig-gpt3-xshot-scaling"><span class="std std-numref">Fig. 11.9.8</span></a> empirically demonstrates scalability
 of Transformers in the GPT-3 language model. For language modeling, more
 comprehensive empirical studies on the scalability of Transformers have
 led researchers to see promise in training larger Transformers with more
 data and compute <span id="id24">()</span>.</p>
 <figure class="align-default" id="id71">
-<span id="fig-scaling-power-law3"></span><a class="reference internal image-reference" href="../_images/scaling-power-law.png"><img alt="../_images/scaling-power-law.png" src="../_images/scaling-power-law.png" style="width: 700px;" />
-</a>
+<span id="fig-scaling-power-law3"></span><a class="reference internal image-reference" href="../_images/scaling-power-law.png"><img alt="../_images/scaling-power-law.png" src="../_images/scaling-power-law.png" style="width: 700px;" /></a>
 <figcaption>
-<p><span class="caption-number">figure11.9.9 </span><span class="caption-text">Transformer language model performance improves smoothly as we
+<p><span class="caption-number">Fig. 11.9.9 </span><span class="caption-text">Transformer language model performance improves smoothly as we
 increase the model size, dataset size, and amount of compute used for
 training. For optimal performance all three factors must be scaled up
 in tandem. Empirical performance has a power-law relationship with
 each individual factor when not bottlenecked by the other two
-(caption adapted and figure taken from <span id="id25"></span>).</span><a class="headerlink" href="#id71" title="Link to this image">¶</a></p>
+(caption adapted and figure taken from <span id="id25"></span>).</span><a class="headerlink" href="#id71" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>As shown in <a class="reference internal" href="#fig-scaling-power-law3"><span class="std std-numref">figure11.9.9</span></a>, <em>power-law scaling</em> can
+<p>As shown in <a class="reference internal" href="#fig-scaling-power-law3"><span class="std std-numref">Fig. 11.9.9</span></a>, <em>power-law scaling</em> can
 be observed in the performance with respect to the model size (number of
 parameters, excluding embedding layers), dataset size (number of
 training tokens), and amount of training compute (PetaFLOP/s-days,
@@ -870,38 +864,36 @@ factors in tandem leads to better performance. However, <em>how</em> to
 increase them in tandem still remains a matter of debate
 <span id="id26">()</span>.</p>
 <figure class="align-default" id="id72">
-<span id="fig-scaling-sample-conv"></span><a class="reference internal image-reference" href="../_images/scaling-sample-conv.png"><img alt="../_images/scaling-sample-conv.png" src="../_images/scaling-sample-conv.png" style="width: 700px;" />
-</a>
+<span id="fig-scaling-sample-conv"></span><a class="reference internal image-reference" href="../_images/scaling-sample-conv.png"><img alt="../_images/scaling-sample-conv.png" src="../_images/scaling-sample-conv.png" style="width: 700px;" /></a>
 <figcaption>
-<p><span class="caption-number">figure11.9.10 </span><span class="caption-text">Transformer language model training runs (figure taken from
-<span id="id27"></span>).</span><a class="headerlink" href="#id72" title="Link to this image">¶</a></p>
+<p><span class="caption-number">Fig. 11.9.10 </span><span class="caption-text">Transformer language model training runs (figure taken from
+<span id="id27"></span>).</span><a class="headerlink" href="#id72" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>As well as increased performance, large models also enjoy better sample
-efficiency than small models. <a class="reference internal" href="#fig-scaling-sample-conv"><span class="std std-numref">figure11.9.10</span></a> shows
+efficiency than small models. <a class="reference internal" href="#fig-scaling-sample-conv"><span class="std std-numref">Fig. 11.9.10</span></a> shows
 that large models need fewer training samples (tokens processed) to
 perform at the same level achieved by small models, and performance is
 scaled smoothly with compute.</p>
 <figure class="align-default" id="id73">
-<span id="fig-scaling-gpt3"></span><a class="reference internal image-reference" href="../_images/scaling-gpt3.png"><img alt="../_images/scaling-gpt3.png" src="../_images/scaling-gpt3.png" style="width: 250px;" />
-</a>
+<span id="fig-scaling-gpt3"></span><a class="reference internal image-reference" href="../_images/scaling-gpt3.png"><img alt="../_images/scaling-gpt3.png" src="../_images/scaling-gpt3.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">figure11.9.11 </span><span class="caption-text">GPT-3 performance (cross-entropy validation loss) follows a power-law
+<p><span class="caption-number">Fig. 11.9.11 </span><span class="caption-text">GPT-3 performance (cross-entropy validation loss) follows a power-law
 trend with the amount of compute used for training. The power-law
 behavior observed in <span id="id28"></span> continues for an
 additional two orders of magnitude with only small deviations from
 the predicted curve. Embedding parameters are excluded from compute
 and parameter counts (caption adapted and figure taken from
-<span id="id29"></span>).</span><a class="headerlink" href="#id73" title="Link to this image">¶</a></p>
+<span id="id29"></span>).</span><a class="headerlink" href="#id73" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>The empirical scaling behaviors in <span id="id30"></span> have
 been tested in subsequent large Transformer models. For example, GPT-3
 supported this hypothesis with two more orders of magnitude in
-<a class="reference internal" href="#fig-scaling-gpt3"><span class="std std-numref">figure11.9.11</span></a>.</p>
+<a class="reference internal" href="#fig-scaling-gpt3"><span class="std std-numref">Fig. 11.9.11</span></a>.</p>
 </section>
 <section id="large-language-models">
-<h2><span class="section-number">11.9.5. </span>Large Language Models<a class="headerlink" href="#large-language-models" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.9.5. </span>Large Language Models<a class="headerlink" href="#large-language-models" title="Permalink to this heading">¶</a></h2>
 <p>The scalability of Transformers in the GPT series has inspired
 subsequent large language models. The GPT-2 Transformer decoder was used
 for training the 530-billion-parameter Megatron-Turing NLG
@@ -972,7 +964,7 @@ reasoning with higher accuracy than using text input only
 <span id="id55">()</span>.</p>
 </section>
 <section id="summary-and-discussion">
-<h2><span class="section-number">11.9.6. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.9.6. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Permalink to this heading">¶</a></h2>
 <p>Transformers have been pretrained as encoder-only (e.g., BERT),
 encoder–decoder (e.g., T5), and decoder-only (e.g., GPT series).
 Pretrained models may be adapted to perform different tasks with model
@@ -994,19 +986,18 @@ studies on Transformer scalability in multimodal pretraining yet, an
 all-Transformer text-to-image model called Parti <span id="id61">()</span>
 shows potential of scalability across modalities: a larger Parti is more
 capable of high-fidelity image generation and content-rich text
-understanding (<a class="reference internal" href="#fig-parti"><span class="std std-numref">figure11.9.12</span></a>).</p>
+understanding (<a class="reference internal" href="#fig-parti"><span class="std std-numref">Fig. 11.9.12</span></a>).</p>
 <figure class="align-default" id="id74">
-<span id="fig-parti"></span><a class="reference internal image-reference" href="../_images/parti.png"><img alt="../_images/parti.png" src="../_images/parti.png" style="width: 700px;" />
-</a>
+<span id="fig-parti"></span><a class="reference internal image-reference" href="../_images/parti.png"><img alt="../_images/parti.png" src="../_images/parti.png" style="width: 700px;" /></a>
 <figcaption>
-<p><span class="caption-number">figure11.9.12 </span><span class="caption-text">Image examples generated from the same text by the Parti model of
+<p><span class="caption-number">Fig. 11.9.12 </span><span class="caption-text">Image examples generated from the same text by the Parti model of
 increasing sizes (350M, 750M, 3B, 20B) (examples taken from
-<span id="id62"></span>).</span><a class="headerlink" href="#id74" title="Link to this image">¶</a></p>
+<span id="id62"></span>).</span><a class="headerlink" href="#id74" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="exercises">
-<h2><span class="section-number">11.9.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.9.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Is it possible to fine-tune T5 using a minibatch consisting of
 different tasks? Why or why not? How about for GPT-2?</p></li>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7. Convolutional Neural Networks" href="../chapter_convolutional-neural-networks/index.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="gpus">
-<span id="sec-use-gpu"></span><h1><span class="section-number">6.6. </span>GPUs<a class="headerlink" href="#gpus" title="Link to this heading">¶</a></h1>
+<span id="sec-use-gpu"></span><h1><span class="section-number">6.6. </span>GPUs<a class="headerlink" href="#gpus" title="Permalink to this heading">¶</a></h1>
 <p>In <code class="xref std std-numref docutils literal notranslate"><span class="pre">tab_intro_decade</span></code>, we illustrated the rapid growth of
 computation over the past two decades. In a nutshell, GPU performance
 has increased by a factor of 1000 every decade since 2000. This offers
@@ -551,7 +554,7 @@ here we simply wish to illustrate data flow between different devices.</p>
 </pre></div>
 </div>
 <section id="computing-devices">
-<h2><span class="section-number">6.6.1. </span>Computing Devices<a class="headerlink" href="#computing-devices" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">6.6.1. </span>Computing Devices<a class="headerlink" href="#computing-devices" title="Permalink to this heading">¶</a></h2>
 <p>We can specify devices, such as CPUs and GPUs, for storage and
 calculation. By default, tensors are created in the main memory and then
 the CPU is used for calculations.</p>
@@ -600,7 +603,7 @@ the requested GPUs do not exist.</p>
 </div>
 </section>
 <section id="tensors-and-gpus">
-<h2><span class="section-number">6.6.2. </span>Tensors and GPUs<a class="headerlink" href="#tensors-and-gpus" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">6.6.2. </span>Tensors and GPUs<a class="headerlink" href="#tensors-and-gpus" title="Permalink to this heading">¶</a></h2>
 <p>By default, tensors are created on the GPU/TPU if they are available,
 else CPU is used if not available. We can query the device where the
 tensor is located.</p>
@@ -617,7 +620,7 @@ tensors, we need to make sure that both arguments live on the same
 device—otherwise the framework would not know where to store the result
 or even how to decide where to perform the computation.</p>
 <section id="storage-on-the-gpu">
-<h3><span class="section-number">6.6.2.1. </span>Storage on the GPU<a class="headerlink" href="#storage-on-the-gpu" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">6.6.2.1. </span>Storage on the GPU<a class="headerlink" href="#storage-on-the-gpu" title="Permalink to this heading">¶</a></h3>
 <p>There are several ways to store a tensor on the GPU. For example, we can
 specify a storage device when creating a tensor. Next, we create the
 tensor variable <code class="docutils literal notranslate"><span class="pre">X</span></code> on the first <code class="docutils literal notranslate"><span class="pre">gpu</span></code>. The tensor created on a GPU
@@ -646,26 +649,25 @@ a random tensor, <code class="docutils literal notranslate"><span class="pre">Y<
 </div>
 </section>
 <section id="copying">
-<h3><span class="section-number">6.6.2.2. </span>Copying<a class="headerlink" href="#copying" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">6.6.2.2. </span>Copying<a class="headerlink" href="#copying" title="Permalink to this heading">¶</a></h3>
 <p>There is no copying in mlx</p>
 <p>If we want to compute <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">+</span> <span class="pre">Y</span></code>, we need to decide where to perform this
-operation. For instance, as shown in <a class="reference internal" href="#fig-copyto"><span class="std std-numref">figure6.6.1</span></a>, we can
+operation. For instance, as shown in <a class="reference internal" href="#fig-copyto"><span class="std std-numref">Fig. 6.6.1</span></a>, we can
 transfer <code class="docutils literal notranslate"><span class="pre">X</span></code> to the second GPU and perform the operation there. <em>Do
 not</em> simply add <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code>, since this will result in an exception.
 The runtime engine would not know what to do: it cannot find data on the
 same device and it fails. Since <code class="docutils literal notranslate"><span class="pre">Y</span></code> lives on the second GPU, we need
 to move <code class="docutils literal notranslate"><span class="pre">X</span></code> there before we can add the two.</p>
 <figure class="align-default" id="id1">
-<span id="fig-copyto"></span><img alt="../_images/copyto.svg" src="../_images/copyto.svg" />
-<figcaption>
-<p><span class="caption-number">figure6.6.1 </span><span class="caption-text">Copy data to perform an operation on the same device.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<span id="fig-copyto"></span><img alt="../_images/copyto.svg" src="../_images/copyto.svg" /><figcaption>
+<p><span class="caption-number">Fig. 6.6.1 </span><span class="caption-text">Copy data to perform an operation on the same device.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Now that the data (both <code class="docutils literal notranslate"><span class="pre">Z</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code>) are on the same GPU), we can
 add them up.</p>
 </section>
 <section id="side-notes">
-<h3><span class="section-number">6.6.2.3. </span>Side Notes<a class="headerlink" href="#side-notes" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">6.6.2.3. </span>Side Notes<a class="headerlink" href="#side-notes" title="Permalink to this heading">¶</a></h3>
 <p>People use GPUs to do machine learning because they expect them to be
 fast. But transferring variables between devices is slow: much slower
 than computation. So we want you to be 100% certain that you want to do
@@ -691,7 +693,7 @@ makes everything wait for Python to complete.</p>
 </section>
 </section>
 <section id="neural-networks-and-gpus">
-<h2><span class="section-number">6.6.3. </span>Neural Networks and GPUs<a class="headerlink" href="#neural-networks-and-gpus" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">6.6.3. </span>Neural Networks and GPUs<a class="headerlink" href="#neural-networks-and-gpus" title="Permalink to this heading">¶</a></h2>
 <p>Similarly, a neural network model can specify devices. The following
 code puts the model parameters on the GPU.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -745,7 +747,7 @@ can learn models efficiently. In the following chapters we will see
 several such examples.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">6.6.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">6.6.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>We can specify devices for storage and calculation, such as the CPU or
 GPU. By default, data is created in the main memory and then uses the
 CPU for calculations. The deep learning framework requires all input
@@ -758,7 +760,7 @@ lock which stalls all GPUs. It is much better to allocate memory for
 logging inside the GPU and only move larger logs.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">6.6.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">6.6.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Try a larger computation task, such as the multiplication of large
 matrices, and see the difference in speed between the CPU and GPU.

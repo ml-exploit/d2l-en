@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="14.10. Pretraining BERT" href="bert-pretraining.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,13 +525,13 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="the-dataset-for-pretraining-bert">
-<span id="sec-bert-dataset"></span><h1><span class="section-number">14.9. </span>The Dataset for Pretraining BERT<a class="headerlink" href="#the-dataset-for-pretraining-bert" title="Link to this heading">¶</a></h1>
-<p>To pretrain the BERT model as implemented in <a class="reference internal" href="bert.html#sec-bert"><span class="std std-numref">14.8section</span></a>, we
+<span id="sec-bert-dataset"></span><h1><span class="section-number">14.9. </span>The Dataset for Pretraining BERT<a class="headerlink" href="#the-dataset-for-pretraining-bert" title="Permalink to this heading">¶</a></h1>
+<p>To pretrain the BERT model as implemented in <a class="reference internal" href="bert.html#sec-bert"><span class="std std-numref">Section 14.8</span></a>, we
 need to generate the dataset in the ideal format to facilitate the two
 pretraining tasks: masked language modeling and next sentence
 prediction. On the one hand, the original BERT model is pretrained on
 the concatenation of two huge corpora BookCorpus and English Wikipedia
-(see <a class="reference internal" href="bert.html#subsec-bert-pretraining-tasks"><span class="std std-numref">14.8.5section</span></a>), making it hard to run
+(see <a class="reference internal" href="bert.html#subsec-bert-pretraining-tasks"><span class="std std-numref">Section 14.8.5</span></a>), making it hard to run
 for most readers of this book. On the other hand, the off-the-shelf
 pretrained BERT model may not fit for applications from specific domains
 like medicine. Thus, it is getting popular to pretrain BERT on a
@@ -536,7 +539,7 @@ customized dataset. To facilitate the demonstration of BERT pretraining,
 we use a smaller corpus WikiText-2
 <span id="id1">()</span>.</p>
 <p>Comparing with the PTB dataset used for pretraining word2vec in
-<a class="reference internal" href="word-embedding-dataset.html#sec-word2vec-data"><span class="std std-numref">14.3section</span></a>, WikiText-2 (i) retains the original
+<a class="reference internal" href="word-embedding-dataset.html#sec-word2vec-data"><span class="std std-numref">Section 14.3</span></a>, WikiText-2 (i) retains the original
 punctuation, making it suitable for next sentence prediction; (ii)
 retains the original case and numbers; (iii) is over twice larger.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
@@ -603,15 +606,15 @@ of this section.</p>
 </pre></div>
 </div>
 <section id="defining-helper-functions-for-pretraining-tasks">
-<h2><span class="section-number">14.9.1. </span>Defining Helper Functions for Pretraining Tasks<a class="headerlink" href="#defining-helper-functions-for-pretraining-tasks" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.9.1. </span>Defining Helper Functions for Pretraining Tasks<a class="headerlink" href="#defining-helper-functions-for-pretraining-tasks" title="Permalink to this heading">¶</a></h2>
 <p>In the following, we begin by implementing helper functions for the two
 BERT pretraining tasks: next sentence prediction and masked language
 modeling. These helper functions will be invoked later when transforming
 the raw text corpus into the dataset of the ideal format to pretrain
 BERT.</p>
 <section id="generating-the-next-sentence-prediction-task">
-<h3><span class="section-number">14.9.1.1. </span>Generating the Next Sentence Prediction Task<a class="headerlink" href="#generating-the-next-sentence-prediction-task" title="Link to this heading">¶</a></h3>
-<p>According to descriptions of <a class="reference internal" href="bert.html#subsec-nsp"><span class="std std-numref">14.8.5.2section</span></a>, the
+<h3><span class="section-number">14.9.1.1. </span>Generating the Next Sentence Prediction Task<a class="headerlink" href="#generating-the-next-sentence-prediction-task" title="Permalink to this heading">¶</a></h3>
+<p>According to descriptions of <a class="reference internal" href="bert.html#subsec-nsp"><span class="std std-numref">Section 14.8.5.2</span></a>, the
 <code class="docutils literal notranslate"><span class="pre">_get_next_sentence</span></code> function generates a training example for the
 binary classification task.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
@@ -647,7 +650,7 @@ pretraining.</p>
 </div>
 </section>
 <section id="generating-the-masked-language-modeling-task">
-<span id="subsec-prepare-mlm-data"></span><h3><span class="section-number">14.9.1.2. </span>Generating the Masked Language Modeling Task<a class="headerlink" href="#generating-the-masked-language-modeling-task" title="Link to this heading">¶</a></h3>
+<span id="subsec-prepare-mlm-data"></span><h3><span class="section-number">14.9.1.2. </span>Generating the Masked Language Modeling Task<a class="headerlink" href="#generating-the-masked-language-modeling-task" title="Permalink to this heading">¶</a></h3>
 <p>In order to generate training examples for the masked language modeling
 task from a BERT input sequence, we define the following
 <code class="docutils literal notranslate"><span class="pre">_replace_mlm_tokens</span></code> function. In its inputs, <code class="docutils literal notranslate"><span class="pre">tokens</span></code> is a list of
@@ -657,7 +660,7 @@ special tokens (special tokens are not predicted in the masked language
 modeling task), and <code class="docutils literal notranslate"><span class="pre">num_mlm_preds</span></code> indicates the number of
 predictions (recall 15% random tokens to predict). Following the
 definition of the masked language modeling task in
-<a class="reference internal" href="bert.html#subsec-mlm"><span class="std std-numref">14.8.5.1section</span></a>, at each prediction position, the input may be
+<a class="reference internal" href="bert.html#subsec-mlm"><span class="std std-numref">Section 14.8.5.1</span></a>, at each prediction position, the input may be
 replaced by a special “&lt;mask&gt;” token or a random token, or remain
 unchanged. In the end, the function returns the input tokens after
 possible replacement, the token indices where predictions take place and
@@ -695,7 +698,7 @@ labels for these predictions.</p>
 <p>By invoking the aforementioned <code class="docutils literal notranslate"><span class="pre">_replace_mlm_tokens</span></code> function, the
 following function takes a BERT input sequence (<code class="docutils literal notranslate"><span class="pre">tokens</span></code>) as an input
 and returns indices of the input tokens (after possible token
-replacement as described in <a class="reference internal" href="bert.html#subsec-mlm"><span class="std std-numref">14.8.5.1section</span></a>), the token indices
+replacement as described in <a class="reference internal" href="bert.html#subsec-mlm"><span class="std std-numref">Section 14.8.5.1</span></a>), the token indices
 where predictions take place, and label indices for these predictions.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">_get_mlm_data_from_tokens</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
@@ -721,7 +724,7 @@ where predictions take place, and label indices for these predictions.</p>
 </section>
 </section>
 <section id="transforming-text-into-the-pretraining-dataset">
-<h2><span class="section-number">14.9.2. </span>Transforming Text into the Pretraining Dataset<a class="headerlink" href="#transforming-text-into-the-pretraining-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.9.2. </span>Transforming Text into the Pretraining Dataset<a class="headerlink" href="#transforming-text-into-the-pretraining-dataset" title="Permalink to this heading">¶</a></h2>
 <p>Now we are almost ready to customize a <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> class for pretraining
 BERT. Before that, we still need to define a helper function
 <code class="docutils literal notranslate"><span class="pre">_pad_bert_inputs</span></code> to append the special “&lt;pad&gt;” tokens to the inputs.
@@ -826,7 +829,7 @@ generated from a pair of sentences from the WikiText-2 corpus.</p>
 <p>The original BERT model uses WordPiece embeddings whose vocabulary size
 is 30000 <span id="id2">()</span>. The tokenization method of
 WordPiece is a slight modification of the original byte pair encoding
-algorithm in <a class="reference internal" href="subword-embedding.html#subsec-byte-pair-encoding"><span class="std std-numref">14.6.2section</span></a>. For simplicity, we
+algorithm in <a class="reference internal" href="subword-embedding.html#subsec-byte-pair-encoding"><span class="std std-numref">Section 14.6.2</span></a>. For simplicity, we
 use the <code class="docutils literal notranslate"><span class="pre">d2l.tokenize</span></code> function for tokenization. Infrequent tokens
 that appear less than five times are filtered out.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
@@ -1065,7 +1068,7 @@ of the PTB dataset.</p>
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">14.9.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.9.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Comparing with the PTB dataset, the WikiText-2 dateset retains the
 original punctuation, case and numbers, and is over twice larger.</p></li>
@@ -1075,7 +1078,7 @@ sentences from the WikiText-2 corpus.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">14.9.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.9.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>For simplicity, the period is used as the only delimiter for
 splitting sentences. Try other sentence splitting techniques, such as

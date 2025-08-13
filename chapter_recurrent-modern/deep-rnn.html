@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10.4. Machine Translation and the Dataset" href="machine-translation-and-dataset.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="deep-recurrent-neural-networks">
-<span id="sec-deep-rnn"></span><h1><span class="section-number">10.3. </span>Deep Recurrent Neural Networks<a class="headerlink" href="#deep-recurrent-neural-networks" title="Link to this heading">¶</a></h1>
+<span id="sec-deep-rnn"></span><h1><span class="section-number">10.3. </span>Deep Recurrent Neural Networks<a class="headerlink" href="#deep-recurrent-neural-networks" title="Permalink to this heading">¶</a></h1>
 <p>Up until now, we have focused on defining networks consisting of a
 sequence input, a single hidden RNN layer, and an output layer. Despite
 having just one hidden layer between the input at any time step and the
@@ -543,16 +546,15 @@ length <span class="math notranslate nohighlight">\(T\)</span>, the first RNN pr
 length <span class="math notranslate nohighlight">\(T\)</span>. These, in turn, constitute the inputs to the next RNN
 layer. In this short section, we illustrate this design pattern and
 present a simple example for how to code up such stacked RNNs. Below, in
-<a class="reference internal" href="#fig-deep-rnn"><span class="std std-numref">figure10.3.1</span></a>, we illustrate a deep RNN with <span class="math notranslate nohighlight">\(L\)</span> hidden
+<a class="reference internal" href="#fig-deep-rnn"><span class="std std-numref">Fig. 10.3.1</span></a>, we illustrate a deep RNN with <span class="math notranslate nohighlight">\(L\)</span> hidden
 layers. Each hidden state operates on a sequential input and produces a
 sequential output. Moreover, any RNN cell (white box in
-<a class="reference internal" href="#fig-deep-rnn"><span class="std std-numref">figure10.3.1</span></a>) at each time step depends on both the same
+<a class="reference internal" href="#fig-deep-rnn"><span class="std std-numref">Fig. 10.3.1</span></a>) at each time step depends on both the same
 layer’s value at the previous time step and the previous layer’s value
 at the same time step.</p>
 <figure class="align-default" id="id1">
-<span id="fig-deep-rnn"></span><img alt="../_images/deep-rnn.svg" src="../_images/deep-rnn.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.3.1 </span><span class="caption-text">Architecture of a deep RNN.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<span id="fig-deep-rnn"></span><img alt="../_images/deep-rnn.svg" src="../_images/deep-rnn.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.3.1 </span><span class="caption-text">Architecture of a deep RNN.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Formally, suppose that we have a minibatch input
@@ -567,7 +569,7 @@ units <span class="math notranslate nohighlight">\(=h\)</span>) and the output l
 hidden state of the <span class="math notranslate nohighlight">\(l^\textrm{th}\)</span> hidden layer that uses the
 activation function <span class="math notranslate nohighlight">\(\phi_l\)</span> is calculated as follows:</p>
 <div class="math notranslate nohighlight" id="equation-eq-deep-rnn-h">
-<span class="eqno">(10.3.1)<a class="headerlink" href="#equation-eq-deep-rnn-h" title="Link to this equation">¶</a></span>\[\mathbf{H}_t^{(l)} = \phi_l(\mathbf{H}_t^{(l-1)} \mathbf{W}_{\textrm{xh}}^{(l)} + \mathbf{H}_{t-1}^{(l)} \mathbf{W}_{\textrm{hh}}^{(l)}  + \mathbf{b}_\textrm{h}^{(l)}),\]</div>
+<span class="eqno">(10.3.1)<a class="headerlink" href="#equation-eq-deep-rnn-h" title="Permalink to this equation">¶</a></span>\[\mathbf{H}_t^{(l)} = \phi_l(\mathbf{H}_t^{(l-1)} \mathbf{W}_{\textrm{xh}}^{(l)} + \mathbf{H}_{t-1}^{(l)} \mathbf{W}_{\textrm{hh}}^{(l)}  + \mathbf{b}_\textrm{h}^{(l)}),\]</div>
 <p>where the weights
 <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{xh}}^{(l)} \in \mathbb{R}^{h \times h}\)</span> and
 <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{hh}}^{(l)} \in \mathbb{R}^{h \times h}\)</span>,
@@ -577,7 +579,7 @@ model parameters of the <span class="math notranslate nohighlight">\(l^\textrm{t
 <p>At the end, the calculation of the output layer is only based on the
 hidden state of the final <span class="math notranslate nohighlight">\(L^\textrm{th}\)</span> hidden layer:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-deep-rnn-0">
-<span class="eqno">(10.3.2)<a class="headerlink" href="#equation-chapter-recurrent-modern-deep-rnn-0" title="Link to this equation">¶</a></span>\[\mathbf{O}_t = \mathbf{H}_t^{(L)} \mathbf{W}_{\textrm{hq}} + \mathbf{b}_\textrm{q},\]</div>
+<span class="eqno">(10.3.2)<a class="headerlink" href="#equation-chapter-recurrent-modern-deep-rnn-0" title="Permalink to this equation">¶</a></span>\[\mathbf{O}_t = \mathbf{H}_t^{(L)} \mathbf{W}_{\textrm{hq}} + \mathbf{b}_\textrm{q},\]</div>
 <p>where the weight
 <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{hq}} \in \mathbb{R}^{h \times q}\)</span> and the
 bias <span class="math notranslate nohighlight">\(\mathbf{b}_\textrm{q} \in \mathbb{R}^{1 \times q}\)</span> are the
@@ -594,7 +596,7 @@ computation in <a class="reference internal" href="#equation-eq-deep-rnn-h">(10.
 </pre></div>
 </div>
 <section id="implementation-from-scratch">
-<h2><span class="section-number">10.3.1. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.3.1. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Permalink to this heading">¶</a></h2>
 <p>To implement a multilayer RNN from scratch, we can treat each layer as
 an <code class="docutils literal notranslate"><span class="pre">RNNScratch</span></code> instance with its own learnable parameters.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">StackedRNNScratch</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -619,7 +621,7 @@ layer by layer.</p>
 </pre></div>
 </div>
 <p>As an example, we train a deep GRU model on <em>The Time Machine</em> dataset
-(same as in <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">9.5section</span></a>). To keep things simple we set
+(same as in <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">Section 9.5</span></a>). To keep things simple we set
 the number of layers to 2.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">TimeMachine</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 <span class="n">rnn_block</span> <span class="o">=</span> <span class="n">StackedRNNScratch</span><span class="p">(</span><span class="n">num_inputs</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="p">),</span>
@@ -630,11 +632,10 @@ the number of layers to 2.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_deep-rnn_b82d34_7_0.svg" src="../_images/output_deep-rnn_b82d34_7_0.svg" />
-</figure>
+<img alt="../_images/output_deep-rnn_b82d34_7_0.svg" src="../_images/output_deep-rnn_b82d34_7_0.svg" /></figure>
 </section>
 <section id="concise-implementation">
-<h2><span class="section-number">10.3.2. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.3.2. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Permalink to this heading">¶</a></h2>
 <p>Currently, there is no fully-functional GRU layer in mlx. Thus we define
 a StackedGRU and use it.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">StackedGRUScratch</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span> <span class="c1">#@save</span>
@@ -663,7 +664,7 @@ a StackedGRU and use it.</p>
 </pre></div>
 </div>
 <p>The architectural decisions such as choosing hyperparameters are very
-similar to those of <a class="reference internal" href="gru.html#sec-gru"><span class="std std-numref">10.2section</span></a>. We pick the same number of
+similar to those of <a class="reference internal" href="gru.html#sec-gru"><span class="std std-numref">Section 10.2</span></a>. We pick the same number of
 inputs and outputs as we have distinct tokens, i.e., <code class="docutils literal notranslate"><span class="pre">vocab_size</span></code>. The
 number of hidden units is still 32. The only difference is that we now
 select a nontrivial number of hidden layers by specifying the value of
@@ -674,8 +675,7 @@ select a nontrivial number of hidden layers by specifying the value of
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_deep-rnn_b82d34_13_0.svg" src="../_images/output_deep-rnn_b82d34_13_0.svg" />
-</figure>
+<img alt="../_images/output_deep-rnn_b82d34_13_0.svg" src="../_images/output_deep-rnn_b82d34_13_0.svg" /></figure>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">&#39;it has&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_gpu</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -684,7 +684,7 @@ select a nontrivial number of hidden layers by specifying the value of
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">10.3.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.3.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>In deep RNNs, the hidden state information is passed to the next time
 step of the current layer and the current time step of the next layer.
 There exist many different flavors of deep RNNs, such as LSTMs, GRUs, or
@@ -694,7 +694,7 @@ models requires care. Overall, deep RNNs require considerable amount of
 work (such as learning rate and clipping) to ensure proper convergence.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">10.3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Replace the GRU by an LSTM and compare the accuracy and training
 speed.</p></li>

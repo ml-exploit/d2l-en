@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.2. Implementation of Multilayer Perceptrons" href="mlp-implementation.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Multilayer Perceptrons</a><ul class="current">
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Multilayer Perceptrons</a><ul class="current">
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,11 +525,11 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="multilayer-perceptrons">
-<span id="sec-mlp"></span><h1><span class="section-number">5.1. </span>Multilayer Perceptrons<a class="headerlink" href="#multilayer-perceptrons" title="Link to this heading">¶</a></h1>
-<p>In <a class="reference internal" href="../chapter_linear-classification/softmax-regression.html#sec-softmax"><span class="std std-numref">4.1section</span></a>, we introduced softmax regression,
+<span id="sec-mlp"></span><h1><span class="section-number">5.1. </span>Multilayer Perceptrons<a class="headerlink" href="#multilayer-perceptrons" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="../chapter_linear-classification/softmax-regression.html#sec-softmax"><span class="std std-numref">Section 4.1</span></a>, we introduced softmax regression,
 implementing the algorithm from scratch
-(<a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html#sec-softmax-scratch"><span class="std std-numref">4.3section</span></a>) and using high-level APIs
-(<a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html#sec-softmax-concise"><span class="std std-numref">4.4section</span></a>). This allowed us to train classifiers
+(<a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html#sec-softmax-scratch"><span class="std std-numref">Section 4.4</span></a>) and using high-level APIs
+(<a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html#sec-softmax-concise"><span class="std std-numref">Section 4.5</span></a>). This allowed us to train classifiers
 capable of recognizing 10 categories of clothing from low-resolution
 images. Along the way, we learned how to wrangle data, coerce our
 outputs into a valid probability distribution, apply an appropriate loss
@@ -542,17 +545,17 @@ concerned.</p>
 </pre></div>
 </div>
 <section id="hidden-layers">
-<h2><span class="section-number">5.1.1. </span>Hidden Layers<a class="headerlink" href="#hidden-layers" title="Link to this heading">¶</a></h2>
-<p>We described affine transformations in <a class="reference internal" href="../chapter_linear-regression/linear-regression.html#subsec-linear-model"><span class="std std-numref">3.1.1.1section</span></a>
+<h2><span class="section-number">5.1.1. </span>Hidden Layers<a class="headerlink" href="#hidden-layers" title="Permalink to this heading">¶</a></h2>
+<p>We described affine transformations in <a class="reference internal" href="../chapter_linear-regression/linear-regression.html#subsec-linear-model"><span class="std std-numref">Section 3.1.1.1</span></a>
 as linear transformations with added bias. To begin, recall the model
 architecture corresponding to our softmax regression example,
-illustrated in <a class="reference internal" href="../chapter_linear-classification/softmax-regression.html#fig-softmaxreg"><span class="std std-numref">figure4.1.1</span></a>. This model maps inputs
+illustrated in <a class="reference internal" href="../chapter_linear-classification/softmax-regression.html#fig-softmaxreg"><span class="std std-numref">Fig. 4.1.1</span></a>. This model maps inputs
 directly to outputs via a single affine transformation, followed by a
 softmax operation. If our labels truly were related to the input data by
 a simple affine transformation, then this approach would be sufficient.
 However, linearity (in affine transformations) is a <em>strong</em> assumption.</p>
 <section id="limitations-of-linear-models">
-<h3><span class="section-number">5.1.1.1. </span>Limitations of Linear Models<a class="headerlink" href="#limitations-of-linear-models" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.1.1. </span>Limitations of Linear Models<a class="headerlink" href="#limitations-of-linear-models" title="Permalink to this heading">¶</a></h3>
 <p>For example, linearity implies the <em>weaker</em> assumption of
 <em>monotonicity</em>, i.e., that any increase in our feature must either
 always cause an increase in our model’s output (if the corresponding
@@ -606,18 +609,17 @@ again <span id="id6">()</span>. Consequently we have a sequence of
 relatively simple transformations.</p>
 </section>
 <section id="incorporating-hidden-layers">
-<h3><span class="section-number">5.1.1.2. </span>Incorporating Hidden Layers<a class="headerlink" href="#incorporating-hidden-layers" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.1.2. </span>Incorporating Hidden Layers<a class="headerlink" href="#incorporating-hidden-layers" title="Permalink to this heading">¶</a></h3>
 <p>We can overcome the limitations of linear models by incorporating one or
 more hidden layers. The easiest way to do this is to stack many fully
 connected layers on top of one another. Each layer feeds into the layer
 above it, until we generate outputs. We can think of the first
 <span class="math notranslate nohighlight">\(L-1\)</span> layers as our representation and the final layer as our
 linear predictor. This architecture is commonly called a <em>multilayer
-perceptron</em>, often abbreviated as <em>MLP</em> (<a class="reference internal" href="#fig-mlp"><span class="std std-numref">figure5.1.1</span></a>).</p>
+perceptron</em>, often abbreviated as <em>MLP</em> (<a class="reference internal" href="#fig-mlp"><span class="std std-numref">Fig. 5.1.1</span></a>).</p>
 <figure class="align-default" id="id21">
-<span id="fig-mlp"></span><img alt="../_images/mlp.svg" src="../_images/mlp.svg" />
-<figcaption>
-<p><span class="caption-number">figure5.1.1 </span><span class="caption-text">An MLP with a hidden layer of five hidden units.</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+<span id="fig-mlp"></span><img alt="../_images/mlp.svg" src="../_images/mlp.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.1.1 </span><span class="caption-text">An MLP with a hidden layer of five hidden units.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>This MLP has four inputs, three outputs, and its hidden layer contains
@@ -630,7 +632,7 @@ these in turn influences every neuron in the output layer. Alas, we are
 not quite done yet.</p>
 </section>
 <section id="from-linear-to-nonlinear">
-<h3><span class="section-number">5.1.1.3. </span>From Linear to Nonlinear<a class="headerlink" href="#from-linear-to-nonlinear" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.1.3. </span>From Linear to Nonlinear<a class="headerlink" href="#from-linear-to-nonlinear" title="Permalink to this heading">¶</a></h3>
 <p>As before, we denote by the matrix
 <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> a minibatch of <span class="math notranslate nohighlight">\(n\)</span>
 examples where each example has <span class="math notranslate nohighlight">\(d\)</span> inputs (features). For a
@@ -645,7 +647,7 @@ weights <span class="math notranslate nohighlight">\(\mathbf{W}^{(2)} \in \mathb
 calculate the outputs <span class="math notranslate nohighlight">\(\mathbf{O} \in \mathbb{R}^{n \times q}\)</span> of
 the one-hidden-layer MLP as follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-mlp-0">
-<span class="eqno">(5.1.1)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-0" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(5.1.1)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
     \mathbf{H} &amp; = \mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)}, \\
     \mathbf{O} &amp; = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}.
 \end{aligned}\end{split}\]</div>
@@ -663,7 +665,7 @@ above definition, yielding an equivalent single-layer model with
 parameters <span class="math notranslate nohighlight">\(\mathbf{W} = \mathbf{W}^{(1)}\mathbf{W}^{(2)}\)</span> and
 <span class="math notranslate nohighlight">\(\mathbf{b} = \mathbf{b}^{(1)} \mathbf{W}^{(2)} + \mathbf{b}^{(2)}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-mlp-1">
-<span class="eqno">(5.1.2)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-1" title="Link to this equation">¶</a></span>\[\mathbf{O} = (\mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)})\mathbf{W}^{(2)} + \mathbf{b}^{(2)} = \mathbf{X} \mathbf{W}^{(1)}\mathbf{W}^{(2)} + \mathbf{b}^{(1)} \mathbf{W}^{(2)} + \mathbf{b}^{(2)} = \mathbf{X} \mathbf{W} + \mathbf{b}.\]</div>
+<span class="eqno">(5.1.2)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-1" title="Permalink to this equation">¶</a></span>\[\mathbf{O} = (\mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)})\mathbf{W}^{(2)} + \mathbf{b}^{(2)} = \mathbf{X} \mathbf{W}^{(1)}\mathbf{W}^{(2)} + \mathbf{b}^{(1)} \mathbf{W}^{(2)} + \mathbf{b}^{(2)} = \mathbf{X} \mathbf{W} + \mathbf{b}.\]</div>
 <p>In order to realize the potential of multilayer architectures, we need
 one more key ingredient: a nonlinear <em>activation function</em>
 <span class="math notranslate nohighlight">\(\sigma\)</span> to be applied to each hidden unit following the affine
@@ -674,7 +676,7 @@ elementwise. The outputs of activation functions <span class="math notranslate n
 are called <em>activations</em>. In general, with activation functions in
 place, it is no longer possible to collapse our MLP into a linear model:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-mlp-2">
-<span class="eqno">(5.1.3)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-2" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(5.1.3)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-2" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
     \mathbf{H} &amp; = \sigma(\mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)}), \\
     \mathbf{O} &amp; = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}.\\
 \end{aligned}\end{split}\]</div>
@@ -683,7 +685,7 @@ minibatch, with some abuse of notation, we define the nonlinearity
 <span class="math notranslate nohighlight">\(\sigma\)</span> to apply to its inputs in a rowwise fashion, i.e., one
 example at a time. Note that we used the same notation for softmax when
 we denoted a rowwise operation in
-<a class="reference internal" href="../chapter_linear-classification/softmax-regression.html#subsec-softmax-vectorization"><span class="std std-numref">4.1.1.3section</span></a>. Quite frequently the
+<a class="reference internal" href="../chapter_linear-classification/softmax-regression.html#subsec-softmax-vectorization"><span class="std std-numref">Section 4.1.1.3</span></a>. Quite frequently the
 activation functions we use apply not merely rowwise but elementwise.
 That means that after computing the linear portion of the layer, we can
 calculate each activation without looking at the values taken by the
@@ -696,7 +698,7 @@ and
 one atop another, yielding ever more expressive models.</p>
 </section>
 <section id="universal-approximators">
-<h3><span class="section-number">5.1.1.4. </span>Universal Approximators<a class="headerlink" href="#universal-approximators" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.1.4. </span>Universal Approximators<a class="headerlink" href="#universal-approximators" title="Permalink to this heading">¶</a></h3>
 <p>We know that the brain is capable of very sophisticated statistical
 analysis. As such, it is worth asking, just <em>how powerful</em> a deep
 network could be. This question has been answered multiple times, e.g.,
@@ -724,21 +726,21 @@ touch upon more rigorous arguments in subsequent chapters.</p>
 </section>
 </section>
 <section id="activation-functions">
-<span id="subsec-activation-functions"></span><h2><span class="section-number">5.1.2. </span>Activation Functions<a class="headerlink" href="#activation-functions" title="Link to this heading">¶</a></h2>
+<span id="subsec-activation-functions"></span><h2><span class="section-number">5.1.2. </span>Activation Functions<a class="headerlink" href="#activation-functions" title="Permalink to this heading">¶</a></h2>
 <p>Activation functions decide whether a neuron should be activated or not
 by calculating the weighted sum and further adding bias to it. They are
 differentiable operators for transforming input signals to outputs,
 while most of them add nonlinearity. Because activation functions are
 fundamental to deep learning, let’s briefly survey some common ones.</p>
 <section id="relu-function">
-<h3><span class="section-number">5.1.2.1. </span>ReLU Function<a class="headerlink" href="#relu-function" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.2.1. </span>ReLU Function<a class="headerlink" href="#relu-function" title="Permalink to this heading">¶</a></h3>
 <p>The most popular choice, due to both simplicity of implementation and
 its good performance on a variety of predictive tasks, is the <em>rectified
 linear unit</em> (<em>ReLU</em>) <span id="id12">()</span>. ReLU provides a very
 simple nonlinear transformation. Given an element <span class="math notranslate nohighlight">\(x\)</span>, the
 function is defined as the maximum of that element and <span class="math notranslate nohighlight">\(0\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-mlp-3">
-<span class="eqno">(5.1.4)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-3" title="Link to this equation">¶</a></span>\[\operatorname{ReLU}(x) = \max(x, 0).\]</div>
+<span class="eqno">(5.1.4)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-3" title="Permalink to this equation">¶</a></span>\[\operatorname{ReLU}(x) = \max(x, 0).\]</div>
 <p>Informally, the ReLU function retains only positive elements and
 discards all negative elements by setting the corresponding activations
 to 0. To gain some intuition, we can plot the function. As you can see,
@@ -749,8 +751,7 @@ the activation function is piecewise linear.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_mlp_699d0d_3_0.svg" src="../_images/output_mlp_699d0d_3_0.svg" />
-</figure>
+<img alt="../_images/output_mlp_699d0d_3_0.svg" src="../_images/output_mlp_699d0d_3_0.svg" /></figure>
 <p>When the input is negative, the derivative of the ReLU function is 0,
 and when the input is positive, the derivative of the ReLU function is
 1. Note that the ReLU function is not differentiable when the input
@@ -769,8 +770,7 @@ the ReLU function below.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_mlp_699d0d_5_0.svg" src="../_images/output_mlp_699d0d_5_0.svg" />
-</figure>
+<img alt="../_images/output_mlp_699d0d_5_0.svg" src="../_images/output_mlp_699d0d_5_0.svg" /></figure>
 <p>The reason for using ReLU is that its derivatives are particularly well
 behaved: either they vanish or they just let the argument through. This
 makes optimization better behaved and it mitigated the well-documented
@@ -781,17 +781,17 @@ networks (more on this later).</p>
 This variation adds a linear term to ReLU, so some information still
 gets through, even when the argument is negative:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-mlp-4">
-<span class="eqno">(5.1.5)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-4" title="Link to this equation">¶</a></span>\[\operatorname{pReLU}(x) = \max(0, x) + \alpha \min(0, x).\]</div>
+<span class="eqno">(5.1.5)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-4" title="Permalink to this equation">¶</a></span>\[\operatorname{pReLU}(x) = \max(0, x) + \alpha \min(0, x).\]</div>
 </section>
 <section id="sigmoid-function">
-<h3><span class="section-number">5.1.2.2. </span>Sigmoid Function<a class="headerlink" href="#sigmoid-function" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.2.2. </span>Sigmoid Function<a class="headerlink" href="#sigmoid-function" title="Permalink to this heading">¶</a></h3>
 <p>The <em>sigmoid function</em> transforms those inputs whose values lie in the
 domain <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, to outputs that lie on the interval (0, 1).
 For that reason, the sigmoid is often called a <em>squashing function</em>: it
 squashes any input in the range (-inf, inf) to some value in the range
 (0, 1):</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-mlp-5">
-<span class="eqno">(5.1.6)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-5" title="Link to this equation">¶</a></span>\[\operatorname{sigmoid}(x) = \frac{1}{1 + \exp(-x)}.\]</div>
+<span class="eqno">(5.1.6)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-5" title="Permalink to this equation">¶</a></span>\[\operatorname{sigmoid}(x) = \frac{1}{1 + \exp(-x)}.\]</div>
 <p>In the earliest neural networks, scientists were interested in modeling
 biological neurons that either <em>fire</em> or <em>do not fire</em>. Thus the
 pioneers of this field, going all the way back to McCulloch and Pitts,
@@ -811,7 +811,7 @@ with the fact that the sigmoid poses challenges for optimization
 <span id="id16">()</span> since its gradient vanishes for large
 positive <em>and</em> negative arguments. This can lead to plateaus that are
 difficult to escape from. Nonetheless sigmoids are important. In later
-chapters (e.g., <a class="reference internal" href="../chapter_recurrent-modern/lstm.html#sec-lstm"><span class="std std-numref">10.1section</span></a>) on recurrent neural networks, we
+chapters (e.g., <a class="reference internal" href="../chapter_recurrent-modern/lstm.html#sec-lstm"><span class="std std-numref">Section 10.1</span></a>) on recurrent neural networks, we
 will describe architectures that leverage sigmoid units to control the
 flow of information across time.</p>
 <p>Below, we plot the sigmoid function. Note that when the input is close
@@ -821,12 +821,11 @@ to 0, the sigmoid function approaches a linear transformation.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_mlp_699d0d_7_0.svg" src="../_images/output_mlp_699d0d_7_0.svg" />
-</figure>
+<img alt="../_images/output_mlp_699d0d_7_0.svg" src="../_images/output_mlp_699d0d_7_0.svg" /></figure>
 <p>The derivative of the sigmoid function is given by the following
 equation:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-mlp-6">
-<span class="eqno">(5.1.7)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-6" title="Link to this equation">¶</a></span>\[\frac{d}{dx} \operatorname{sigmoid}(x) = \frac{\exp(-x)}{(1 + \exp(-x))^2} = \operatorname{sigmoid}(x)\left(1-\operatorname{sigmoid}(x)\right).\]</div>
+<span class="eqno">(5.1.7)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-6" title="Permalink to this equation">¶</a></span>\[\frac{d}{dx} \operatorname{sigmoid}(x) = \frac{\exp(-x)}{(1 + \exp(-x))^2} = \operatorname{sigmoid}(x)\left(1-\operatorname{sigmoid}(x)\right).\]</div>
 <p>The derivative of the sigmoid function is plotted below. Note that when
 the input is 0, the derivative of the sigmoid function reaches a maximum
 of 0.25. As the input diverges from 0 in either direction, the
@@ -837,16 +836,15 @@ derivative approaches 0.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_mlp_699d0d_9_0.svg" src="../_images/output_mlp_699d0d_9_0.svg" />
-</figure>
+<img alt="../_images/output_mlp_699d0d_9_0.svg" src="../_images/output_mlp_699d0d_9_0.svg" /></figure>
 </section>
 <section id="tanh-function">
-<span id="subsec-tanh"></span><h3><span class="section-number">5.1.2.3. </span>Tanh Function<a class="headerlink" href="#tanh-function" title="Link to this heading">¶</a></h3>
+<span id="subsec-tanh"></span><h3><span class="section-number">5.1.2.3. </span>Tanh Function<a class="headerlink" href="#tanh-function" title="Permalink to this heading">¶</a></h3>
 <p>Like the sigmoid function, the tanh (hyperbolic tangent) function also
 squashes its inputs, transforming them into elements on the interval
 between <span class="math notranslate nohighlight">\(-1\)</span> and <span class="math notranslate nohighlight">\(1\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-mlp-7">
-<span class="eqno">(5.1.8)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-7" title="Link to this equation">¶</a></span>\[\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}.\]</div>
+<span class="eqno">(5.1.8)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-7" title="Permalink to this equation">¶</a></span>\[\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}.\]</div>
 <p>We plot the tanh function below. Note that as input nears 0, the tanh
 function approaches a linear transformation. Although the shape of the
 function is similar to that of the sigmoid function, the tanh function
@@ -857,11 +855,10 @@ exhibits point symmetry about the origin of the coordinate system
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_mlp_699d0d_11_0.svg" src="../_images/output_mlp_699d0d_11_0.svg" />
-</figure>
+<img alt="../_images/output_mlp_699d0d_11_0.svg" src="../_images/output_mlp_699d0d_11_0.svg" /></figure>
 <p>The derivative of the tanh function is:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-mlp-8">
-<span class="eqno">(5.1.9)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-8" title="Link to this equation">¶</a></span>\[\frac{d}{dx} \operatorname{tanh}(x) = 1 - \operatorname{tanh}^2(x).\]</div>
+<span class="eqno">(5.1.9)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-mlp-8" title="Permalink to this equation">¶</a></span>\[\frac{d}{dx} \operatorname{tanh}(x) = 1 - \operatorname{tanh}^2(x).\]</div>
 <p>It is plotted below. As the input nears 0, the derivative of the tanh
 function approaches a maximum of 1. And as we saw with the sigmoid
 function, as input moves away from 0 in either direction, the derivative
@@ -872,12 +869,11 @@ of the tanh function approaches 0.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_mlp_699d0d_13_0.svg" src="../_images/output_mlp_699d0d_13_0.svg" />
-</figure>
+<img alt="../_images/output_mlp_699d0d_13_0.svg" src="../_images/output_mlp_699d0d_13_0.svg" /></figure>
 </section>
 </section>
 <section id="summary-and-discussion">
-<h2><span class="section-number">5.1.3. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">5.1.3. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Permalink to this heading">¶</a></h2>
 <p>We now know how to incorporate nonlinearities to build expressive
 multilayer neural network architectures. As a side note, your knowledge
 already puts you in command of a similar toolkit to a practitioner circa
@@ -900,7 +896,7 @@ proposed in <span id="id19"></span> can yield better
 accuracy in many cases.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">5.1.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">5.1.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Show that adding layers to a <em>linear</em> deep network, i.e., a network
 without nonlinearity <span class="math notranslate nohighlight">\(\sigma\)</span> can never increase the expressive

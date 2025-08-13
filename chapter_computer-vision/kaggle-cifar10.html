@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="13.14. Dog Breed Identification (ImageNet Dogs) on Kaggle" href="kaggle-dog.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,27 +525,26 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="image-classification-cifar-10-on-kaggle">
-<span id="sec-kaggle-cifar10"></span><h1><span class="section-number">13.13. </span>Image Classification (CIFAR-10) on Kaggle<a class="headerlink" href="#image-classification-cifar-10-on-kaggle" title="Link to this heading">¶</a></h1>
+<span id="sec-kaggle-cifar10"></span><h1><span class="section-number">13.13. </span>Image Classification (CIFAR-10) on Kaggle<a class="headerlink" href="#image-classification-cifar-10-on-kaggle" title="Permalink to this heading">¶</a></h1>
 <p>So far, we have been using high-level APIs of deep learning frameworks
 to directly obtain image datasets in tensor format. However, custom
 image datasets often come in the form of image files. In this section,
 we will start from raw image files, and organize, read, then transform
 them into tensor format step by step.</p>
 <p>We experimented with the CIFAR-10 dataset in
-<a class="reference internal" href="image-augmentation.html#sec-image-augmentation"><span class="std std-numref">13.1section</span></a>, which is an important dataset in
+<a class="reference internal" href="image-augmentation.html#sec-image-augmentation"><span class="std std-numref">Section 13.1</span></a>, which is an important dataset in
 computer vision. In this section, we will apply the knowledge we learned
 in previous sections to practice the Kaggle competition of CIFAR-10
 image classification. The web address of the competition is
 <a class="reference external" href="https://www.kaggle.com/c/cifar-10">https://www.kaggle.com/c/cifar-10</a></p>
-<p><a class="reference internal" href="#fig-kaggle-cifar10"><span class="std std-numref">figure13.13.1</span></a> shows the information on the
+<p><a class="reference internal" href="#fig-kaggle-cifar10"><span class="std std-numref">Fig. 13.13.1</span></a> shows the information on the
 competition’s webpage. In order to submit the results, you need to
 register a Kaggle account.</p>
 <figure class="align-default" id="id1">
-<span id="fig-kaggle-cifar10"></span><a class="reference internal image-reference" href="../_images/kaggle-cifar10.png"><img alt="../_images/kaggle-cifar10.png" src="../_images/kaggle-cifar10.png" style="width: 600px;" />
-</a>
+<span id="fig-kaggle-cifar10"></span><a class="reference internal image-reference" href="../_images/kaggle-cifar10.png"><img alt="../_images/kaggle-cifar10.png" src="../_images/kaggle-cifar10.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">figure13.13.1 </span><span class="caption-text">CIFAR-10 image classification competition webpage information. The
-competition dataset can be obtained by clicking the “Data” tab.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<p><span class="caption-number">Fig. 13.13.1 </span><span class="caption-text">CIFAR-10 image classification competition webpage information. The
+competition dataset can be obtained by clicking the “Data” tab.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
@@ -561,7 +563,7 @@ competition dataset can be obtained by clicking the “Data” tab.</span><a cla
 </pre></div>
 </div>
 <section id="obtaining-and-organizing-the-dataset">
-<h2><span class="section-number">13.13.1. </span>Obtaining and Organizing the Dataset<a class="headerlink" href="#obtaining-and-organizing-the-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.13.1. </span>Obtaining and Organizing the Dataset<a class="headerlink" href="#obtaining-and-organizing-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>The competition dataset is divided into a training set and a test set,
 which contain 50000 and 300000 images, respectively. In the test set,
 10000 images will be used for evaluation, while the remaining 290000
@@ -570,13 +572,13 @@ cheat with <em>manually</em> labeled results of the test set. The images in
 this dataset are all png color (RGB channels) image files, whose height
 and width are both 32 pixels. The images cover a total of 10 categories,
 namely airplanes, cars, birds, cats, deer, dogs, frogs, horses, boats,
-and trucks. The upper-left corner of <a class="reference internal" href="#fig-kaggle-cifar10"><span class="std std-numref">figure13.13.1</span></a>
+and trucks. The upper-left corner of <a class="reference internal" href="#fig-kaggle-cifar10"><span class="std std-numref">Fig. 13.13.1</span></a>
 shows some images of airplanes, cars, and birds in the dataset.</p>
 <section id="downloading-the-dataset">
-<h3><span class="section-number">13.13.1.1. </span>Downloading the Dataset<a class="headerlink" href="#downloading-the-dataset" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.13.1.1. </span>Downloading the Dataset<a class="headerlink" href="#downloading-the-dataset" title="Permalink to this heading">¶</a></h3>
 <p>After logging in to Kaggle, we can click the “Data” tab on the CIFAR-10
 image classification competition webpage shown in
-<a class="reference internal" href="#fig-kaggle-cifar10"><span class="std std-numref">figure13.13.1</span></a> and download the dataset by clicking the
+<a class="reference internal" href="#fig-kaggle-cifar10"><span class="std std-numref">Fig. 13.13.1</span></a> and download the dataset by clicking the
 “Download All” button. After unzipping the downloaded file in
 <code class="docutils literal notranslate"><span class="pre">../data</span></code>, and unzipping <code class="docutils literal notranslate"><span class="pre">train.7z</span></code> and <code class="docutils literal notranslate"><span class="pre">test.7z</span></code> inside it, you
 will find the entire dataset in the following paths:</p>
@@ -613,7 +615,7 @@ need to set the following <code class="docutils literal notranslate"><span class
 </div>
 </section>
 <section id="organizing-the-dataset">
-<h3><span class="section-number">13.13.1.2. </span>Organizing the Dataset<a class="headerlink" href="#organizing-the-dataset" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.13.1.2. </span>Organizing the Dataset<a class="headerlink" href="#organizing-the-dataset" title="Permalink to this heading">¶</a></h3>
 <p>We need to organize datasets to facilitate model training and testing.
 Let’s first read the labels from the csv file. The following function
 returns a dictionary that maps the non-extension part of the filename to
@@ -711,7 +713,7 @@ tuning hyperparameters.</p>
 </section>
 </section>
 <section id="image-augmentation">
-<h2><span class="section-number">13.13.2. </span>Image Augmentation<a class="headerlink" href="#image-augmentation" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.13.2. </span>Image Augmentation<a class="headerlink" href="#image-augmentation" title="Permalink to this heading">¶</a></h2>
 <p>We use image augmentation to address overfitting. For example, images
 can be flipped horizontally at random during training. We can also
 perform standardization for the three RGB channels of color images.
@@ -741,7 +743,7 @@ remove randomness in the evaluation results.</p>
 </div>
 </section>
 <section id="reading-the-dataset">
-<h2><span class="section-number">13.13.3. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.13.3. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>Next, we read the organized dataset consisting of raw image files. Each
 example includes an image and a label.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
@@ -830,7 +832,7 @@ of all the labeled data.</p>
 </div>
 </section>
 <section id="defining-the-model">
-<h2><span class="section-number">13.13.4. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.13.4. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_net</span><span class="p">():</span>
     <span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="n">net</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">resnet18</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -841,7 +843,7 @@ of all the labeled data.</p>
 </div>
 </section>
 <section id="defining-the-training-function">
-<h2><span class="section-number">13.13.5. </span>Defining the Training Function<a class="headerlink" href="#defining-the-training-function" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.13.5. </span>Defining the Training Function<a class="headerlink" href="#defining-the-training-function" title="Permalink to this heading">¶</a></h2>
 <p>We will select models and tune hyperparameters according to the model’s
 performance on the validation set. In the following, we define the model
 training function <code class="docutils literal notranslate"><span class="pre">train</span></code>.</p>
@@ -887,7 +889,7 @@ training function <code class="docutils literal notranslate"><span class="pre">t
 </div>
 </section>
 <section id="training-and-validating-the-model">
-<h2><span class="section-number">13.13.6. </span>Training and Validating the Model<a class="headerlink" href="#training-and-validating-the-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.13.6. </span>Training and Validating the Model<a class="headerlink" href="#training-and-validating-the-model" title="Permalink to this heading">¶</a></h2>
 <p>Now, we can train and validate the model. All the following
 hyperparameters can be tuned. For example, we can increase the number of
 epochs. When <code class="docutils literal notranslate"><span class="pre">lr_period</span></code> and <code class="docutils literal notranslate"><span class="pre">lr_decay</span></code> are set to 4 and 0.9,
@@ -905,11 +907,10 @@ we only train 20 epochs here.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_kaggle-cifar10_c0cabc_27_1.svg" src="../_images/output_kaggle-cifar10_c0cabc_27_1.svg" />
-</figure>
+<img alt="../_images/output_kaggle-cifar10_c0cabc_27_1.svg" src="../_images/output_kaggle-cifar10_c0cabc_27_1.svg" /></figure>
 </section>
 <section id="classifying-the-testing-set-and-submitting-results-on-kaggle">
-<h2><span class="section-number">13.13.7. </span>Classifying the Testing Set and Submitting Results on Kaggle<a class="headerlink" href="#classifying-the-testing-set-and-submitting-results-on-kaggle" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.13.7. </span>Classifying the Testing Set and Submitting Results on Kaggle<a class="headerlink" href="#classifying-the-testing-set-and-submitting-results-on-kaggle" title="Permalink to this heading">¶</a></h2>
 <p>After obtaining a promising model with hyperparameters, we use all the
 labeled data (including the validation set) to retrain the model and
 classify the testing set.</p>
@@ -935,22 +936,21 @@ classify the testing set.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_kaggle-cifar10_c0cabc_29_1.svg" src="../_images/output_kaggle-cifar10_c0cabc_29_1.svg" />
-</figure>
+<img alt="../_images/output_kaggle-cifar10_c0cabc_29_1.svg" src="../_images/output_kaggle-cifar10_c0cabc_29_1.svg" /></figure>
 <p>The above code will generate a <code class="docutils literal notranslate"><span class="pre">submission.csv</span></code> file, whose format
 meets the requirement of the Kaggle competition. The method for
 submitting results to Kaggle is similar to that in
-<a class="reference internal" href="../chapter_multilayer-perceptrons/kaggle-house-price.html#sec-kaggle-house"><span class="std std-numref">5.7section</span></a>.</p>
+<a class="reference internal" href="../chapter_multilayer-perceptrons/kaggle-house-price.html#sec-kaggle-house"><span class="std std-numref">Section 5.7</span></a>.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">13.13.8. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.13.8. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>We can read datasets containing raw image files after organizing them
 into the required format.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">13.13.9. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.13.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Use the complete CIFAR-10 dataset for this Kaggle competition. Set
 hyperparameters as <code class="docutils literal notranslate"><span class="pre">batch_size</span> <span class="pre">=</span> <span class="pre">128</span></code>, <code class="docutils literal notranslate"><span class="pre">num_epochs</span> <span class="pre">=</span> <span class="pre">100</span></code>,

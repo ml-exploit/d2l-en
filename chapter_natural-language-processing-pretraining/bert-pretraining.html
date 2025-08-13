@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="15. Natural Language Processing: Applications" href="../chapter_natural-language-processing-applications/index.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,10 +525,10 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="pretraining-bert">
-<span id="sec-bert-pretraining"></span><h1><span class="section-number">14.10. </span>Pretraining BERT<a class="headerlink" href="#pretraining-bert" title="Link to this heading">¶</a></h1>
-<p>With the BERT model implemented in <a class="reference internal" href="bert.html#sec-bert"><span class="std std-numref">14.8section</span></a> and the
+<span id="sec-bert-pretraining"></span><h1><span class="section-number">14.10. </span>Pretraining BERT<a class="headerlink" href="#pretraining-bert" title="Permalink to this heading">¶</a></h1>
+<p>With the BERT model implemented in <a class="reference internal" href="bert.html#sec-bert"><span class="std std-numref">Section 14.8</span></a> and the
 pretraining examples generated from the WikiText-2 dataset in
-<a class="reference internal" href="bert-dataset.html#sec-bert-dataset"><span class="std std-numref">14.9section</span></a>, we will pretrain BERT on the WikiText-2
+<a class="reference internal" href="bert-dataset.html#sec-bert-dataset"><span class="std std-numref">Section 14.9</span></a>, we will pretrain BERT on the WikiText-2
 dataset in this section.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
@@ -563,7 +566,7 @@ Note that in the original BERT model, the maximum length is 512.</p>
 </pre></div>
 </div>
 <section id="id1">
-<h2><span class="section-number">14.10.1. </span>Pretraining BERT<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.10.1. </span>Pretraining BERT<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>The original BERT has two versions of different model sizes
 <span id="id2">()</span>. The base model
 (<span class="math notranslate nohighlight">\(\textrm{BERT}_{\textrm{BASE}}\)</span>) uses 12 layers (Transformer
@@ -682,7 +685,7 @@ and the next sentence prediction loss.</p>
 <code class="docutils literal notranslate"><span class="pre">train_bert</span></code> function defines the procedure to pretrain BERT (<code class="docutils literal notranslate"><span class="pre">net</span></code>)
 on the WikiText-2 (<code class="docutils literal notranslate"><span class="pre">train_iter</span></code>) dataset. Training BERT can take very
 long. Instead of specifying the number of epochs for training as in the
-<code class="docutils literal notranslate"><span class="pre">train_ch13</span></code> function (see <a class="reference internal" href="../chapter_computer-vision/image-augmentation.html#sec-image-augmentation"><span class="std std-numref">13.1section</span></a>), the
+<code class="docutils literal notranslate"><span class="pre">train_ch13</span></code> function (see <a class="reference internal" href="../chapter_computer-vision/image-augmentation.html#sec-image-augmentation"><span class="std std-numref">Section 13.1</span></a>), the
 input <code class="docutils literal notranslate"><span class="pre">num_steps</span></code> of the following function specifies the number of
 iteration steps for training.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
@@ -836,11 +839,10 @@ prediction loss during BERT pretraining.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_bert-pretraining_17f5f5_11_1.svg" src="../_images/output_bert-pretraining_17f5f5_11_1.svg" />
-</figure>
+<img alt="../_images/output_bert-pretraining_17f5f5_11_1.svg" src="../_images/output_bert-pretraining_17f5f5_11_1.svg" /></figure>
 </section>
 <section id="representing-text-with-bert">
-<h2><span class="section-number">14.10.2. </span>Representing Text with BERT<a class="headerlink" href="#representing-text-with-bert" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.10.2. </span>Representing Text with BERT<a class="headerlink" href="#representing-text-with-bert" title="Permalink to this heading">¶</a></h2>
 <p>After pretraining BERT, we can use it to represent single text, text
 pairs, or any token in them. The following function returns the BERT
 (<code class="docutils literal notranslate"><span class="pre">net</span></code>) representations for all tokens in <code class="docutils literal notranslate"><span class="pre">tokens_a</span></code> and
@@ -877,7 +879,7 @@ pairs, or any token in them. The following function returns the BERT
 </div>
 <p>Consider the sentence “a crane is flying”. Recall the input
 representation of BERT as discussed in
-<a class="reference internal" href="bert.html#subsec-bert-input-rep"><span class="std std-numref">14.8.4section</span></a>. After inserting special tokens
+<a class="reference internal" href="bert.html#subsec-bert-input-rep"><span class="std std-numref">Section 14.8.4</span></a>. After inserting special tokens
 “&lt;cls&gt;” (used for classification) and “&lt;sep&gt;” (used for separation), the
 BERT input sequence has a length of six. Since zero is the index of the
 “&lt;cls&gt;” token, <code class="docutils literal notranslate"><span class="pre">encoded_text[:,</span> <span class="pre">0,</span> <span class="pre">:]</span></code> is the BERT representation of
@@ -913,11 +915,11 @@ context-sensitive.</p>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.705484</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.668324</span><span class="p">,</span> <span class="mf">2.06351</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>In <a class="reference internal" href="../chapter_natural-language-processing-applications/index.html#chap-nlp-app"><span class="std std-numref">15section</span></a>, we will fine-tune a pretrained BERT model
+<p>In <a class="reference internal" href="../chapter_natural-language-processing-applications/index.html#chap-nlp-app"><span class="std std-numref">Section 15</span></a>, we will fine-tune a pretrained BERT model
 for downstream natural language processing applications.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">14.10.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.10.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>The original BERT has two versions, where the base model has 110
 million parameters and the large model has 340 million parameters.</p></li>
@@ -929,7 +931,7 @@ representations are context-sensitive.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">14.10.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.10.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>In the experiment, we can see that the masked language modeling loss
 is significantly higher than the next sentence prediction loss. Why?</p></li>

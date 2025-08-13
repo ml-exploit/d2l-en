@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9.6. Concise Implementation of Recurrent Neural Networks" href="rnn-concise.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,12 +525,12 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="recurrent-neural-network-implementation-from-scratch">
-<span id="sec-rnn-scratch"></span><h1><span class="section-number">9.5. </span>Recurrent Neural Network Implementation from Scratch<a class="headerlink" href="#recurrent-neural-network-implementation-from-scratch" title="Link to this heading">¶</a></h1>
+<span id="sec-rnn-scratch"></span><h1><span class="section-number">9.5. </span>Recurrent Neural Network Implementation from Scratch<a class="headerlink" href="#recurrent-neural-network-implementation-from-scratch" title="Permalink to this heading">¶</a></h1>
 <p>We are now ready to implement an RNN from scratch. In particular, we
 will train this RNN to function as a character-level language model (see
-<a class="reference internal" href="rnn.html#sec-rnn"><span class="std std-numref">9.4section</span></a>) and train it on a corpus consisting of the entire
+<a class="reference internal" href="rnn.html#sec-rnn"><span class="std std-numref">Section 9.4</span></a>) and train it on a corpus consisting of the entire
 text of H. G. Wells’ <em>The Time Machine</em>, following the data processing
-steps outlined in <a class="reference internal" href="text-sequence.html#sec-text-sequence"><span class="std std-numref">9.2section</span></a>. We start by loading the
+steps outlined in <a class="reference internal" href="text-sequence.html#sec-text-sequence"><span class="std std-numref">Section 9.2</span></a>. We start by loading the
 dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -538,9 +541,9 @@ dataset.</p>
 </pre></div>
 </div>
 <section id="rnn-model">
-<h2><span class="section-number">9.5.1. </span>RNN Model<a class="headerlink" href="#rnn-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.5.1. </span>RNN Model<a class="headerlink" href="#rnn-model" title="Permalink to this heading">¶</a></h2>
 <p>We begin by defining a class to implement the RNN model
-(<a class="reference internal" href="rnn.html#subsec-rnn-w-hidden-states"><span class="std std-numref">9.4.2section</span></a>). Note that the number of hidden
+(<a class="reference internal" href="rnn.html#subsec-rnn-w-hidden-states"><span class="std std-numref">Section 9.4.2</span></a>). Note that the number of hidden
 units <code class="docutils literal notranslate"><span class="pre">num_hiddens</span></code> is a tunable hyperparameter.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RNNScratch</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>  <span class="c1">#@save</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The RNN model implemented from scratch.&quot;&quot;&quot;</span>
@@ -557,7 +560,7 @@ hidden state at any time step, given the current input and the state of
 the model at the previous time step. Note that the RNN model loops
 through the outermost dimension of <code class="docutils literal notranslate"><span class="pre">inputs</span></code>, updating the hidden state
 one time step at a time. The model here uses a <span class="math notranslate nohighlight">\(\tanh\)</span> activation
-function (<a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html#subsec-tanh"><span class="std std-numref">5.1.2.3section</span></a>).</p>
+function (<a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html#subsec-tanh"><span class="std std-numref">Section 5.1.2.3</span></a>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@d2l</span><span class="o">.</span><span class="n">add_to_class</span><span class="p">(</span><span class="n">RNNScratch</span><span class="p">)</span>  <span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -613,14 +616,14 @@ to ensure that the dimensionality of the hidden state remains unchanged.</p>
 </div>
 </section>
 <section id="rnn-based-language-model">
-<h2><span class="section-number">9.5.2. </span>RNN-Based Language Model<a class="headerlink" href="#rnn-based-language-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.5.2. </span>RNN-Based Language Model<a class="headerlink" href="#rnn-based-language-model" title="Permalink to this heading">¶</a></h2>
 <p>The following <code class="docutils literal notranslate"><span class="pre">RNNLMScratch</span></code> class defines an RNN-based language
 model, where we pass in our RNN via the <code class="docutils literal notranslate"><span class="pre">rnn</span></code> argument of the
 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method. When training language models, the inputs and
 outputs are from the same vocabulary. Hence, they have the same
 dimension, which is equal to the vocabulary size. Note that we use
 perplexity to evaluate the model. As discussed in
-<a class="reference internal" href="language-model.html#subsec-perplexity"><span class="std std-numref">9.3.2section</span></a>, this ensures that sequences of different
+<a class="reference internal" href="language-model.html#subsec-perplexity"><span class="std std-numref">Section 9.3.2</span></a>, this ensures that sequences of different
 length are comparable.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RNNLMScratch</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Classifier</span><span class="p">):</span>  <span class="c1">#@save</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The RNN-based language model implemented from scratch.&quot;&quot;&quot;</span>
@@ -647,7 +650,7 @@ length are comparable.</p>
 </pre></div>
 </div>
 <section id="one-hot-encoding">
-<h3><span class="section-number">9.5.2.1. </span>One-Hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.5.2.1. </span>One-Hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this heading">¶</a></h3>
 <p>Recall that each token is represented by a numerical index indicating
 the position in the vocabulary of the corresponding word/character/word
 piece. You might be tempted to build a neural network with a single
@@ -660,7 +663,7 @@ vocabulary happen to be “their” and “said”, whose meanings are not
 remotely similar.</p>
 <p>When dealing with such categorical data, the most common strategy is to
 represent each item by a <em>one-hot encoding</em> (recall from
-<a class="reference internal" href="../chapter_linear-classification/softmax-regression.html#subsec-classification-problem"><span class="std std-numref">4.1.1section</span></a>). A one-hot encoding is a
+<a class="reference internal" href="../chapter_linear-classification/softmax-regression.html#subsec-classification-problem"><span class="std std-numref">Section 4.1.1</span></a>). A one-hot encoding is a
 vector whose length is given by the size of the vocabulary <span class="math notranslate nohighlight">\(N\)</span>,
 where all entries are set to <span class="math notranslate nohighlight">\(0\)</span>, except for the entry
 corresponding to our token, which is set to <span class="math notranslate nohighlight">\(1\)</span>. For example, if
@@ -693,7 +696,7 @@ by time step (e.g., in the above <code class="docutils literal notranslate"><spa
 </div>
 </section>
 <section id="transforming-rnn-outputs">
-<h3><span class="section-number">9.5.2.2. </span>Transforming RNN Outputs<a class="headerlink" href="#transforming-rnn-outputs" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.5.2.2. </span>Transforming RNN Outputs<a class="headerlink" href="#transforming-rnn-outputs" title="Permalink to this heading">¶</a></h3>
 <p>The language model uses a fully connected output layer to transform RNN
 outputs into token predictions at each time step.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@d2l</span><span class="o">.</span><span class="n">add_to_class</span><span class="p">(</span><span class="n">RNNLMScratch</span><span class="p">)</span>  <span class="c1">#@save</span>
@@ -718,7 +721,7 @@ correct shape.</p>
 </section>
 </section>
 <section id="gradient-clipping">
-<h2><span class="section-number">9.5.3. </span>Gradient Clipping<a class="headerlink" href="#gradient-clipping" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.5.3. </span>Gradient Clipping<a class="headerlink" href="#gradient-clipping" title="Permalink to this heading">¶</a></h2>
 <p>While you are already used to thinking of neural networks as “deep” in
 the sense that many layers separate the input and output even within a
 single time step, the length of the sequence introduces a new notion of
@@ -729,7 +732,7 @@ influence the output of the model at the final time step. Taking the
 backwards view, in each iteration, we backpropagate gradients through
 time, resulting in a chain of matrix-products of length
 <span class="math notranslate nohighlight">\(\mathcal{O}(T)\)</span>. As mentioned in
-<a class="reference internal" href="../chapter_multilayer-perceptrons/numerical-stability-and-init.html#sec-numerical-stability"><span class="std std-numref">5.4section</span></a>, this can result in numerical
+<a class="reference internal" href="../chapter_multilayer-perceptrons/numerical-stability-and-init.html#sec-numerical-stability"><span class="std std-numref">Section 5.4</span></a>, this can result in numerical
 instability, causing the gradients either to explode or vanish,
 depending on the properties of the weight matrices.</p>
 <p>Dealing with vanishing and exploding gradients is a fundamental problem
@@ -752,13 +755,13 @@ Formally, we say that the objective is <em>Lipschitz continuous</em> with
 constant <span class="math notranslate nohighlight">\(L\)</span>, meaning that for any <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and
 <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, we have</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-rnn-scratch-0">
-<span class="eqno">(9.5.1)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-scratch-0" title="Link to this equation">¶</a></span>\[|f(\mathbf{x}) - f(\mathbf{y})| \leq L \|\mathbf{x} - \mathbf{y}\|.\]</div>
+<span class="eqno">(9.5.1)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-scratch-0" title="Permalink to this equation">¶</a></span>\[|f(\mathbf{x}) - f(\mathbf{y})| \leq L \|\mathbf{x} - \mathbf{y}\|.\]</div>
 <p>As you can see, when we update the parameter vector by subtracting
 <span class="math notranslate nohighlight">\(\eta \mathbf{g}\)</span>, the change in the value of the objective
 depends on the learning rate, the norm of the gradient and <span class="math notranslate nohighlight">\(L\)</span> as
 follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-rnn-scratch-1">
-<span class="eqno">(9.5.2)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-scratch-1" title="Link to this equation">¶</a></span>\[|f(\mathbf{x}) - f(\mathbf{x} - \eta\mathbf{g})| \leq L \eta\|\mathbf{g}\|.\]</div>
+<span class="eqno">(9.5.2)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-scratch-1" title="Permalink to this equation">¶</a></span>\[|f(\mathbf{x}) - f(\mathbf{x} - \eta\mathbf{g})| \leq L \eta\|\mathbf{g}\|.\]</div>
 <p>In other words, the objective cannot change by more than
 <span class="math notranslate nohighlight">\(L \eta \|\mathbf{g}\|\)</span>. Having a small value for this upper bound
 might be viewed as good or bad. On the downside, we are limiting the
@@ -781,7 +784,7 @@ is to adopt a <em>gradient clipping</em> heuristic projecting the gradients
 <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> onto a ball of some given radius <span class="math notranslate nohighlight">\(\theta\)</span> as
 follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-rnn-scratch-2">
-<span class="eqno">(9.5.3)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-scratch-2" title="Link to this equation">¶</a></span>\[\mathbf{g} \leftarrow \min\left(1, \frac{\theta}{\|\mathbf{g}\|}\right) \mathbf{g}.\]</div>
+<span class="eqno">(9.5.3)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-scratch-2" title="Permalink to this equation">¶</a></span>\[\mathbf{g} \leftarrow \min\left(1, \frac{\theta}{\|\mathbf{g}\|}\right) \mathbf{g}.\]</div>
 <p>This ensures that the gradient norm never exceeds <span class="math notranslate nohighlight">\(\theta\)</span> and
 that the updated gradient is entirely aligned with the original
 direction of <span class="math notranslate nohighlight">\(\mathbf{g}\)</span>. It also has the desirable side-effect
@@ -794,7 +797,7 @@ very useful hack, and is widely adopted in RNN implementations in most
 deep learning frameworks.</p>
 <p>Below we define a method to clip gradients, which is invoked by the
 <code class="docutils literal notranslate"><span class="pre">fit_epoch</span></code> method of the <code class="docutils literal notranslate"><span class="pre">d2l.Trainer</span></code> class (see
-<a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html#sec-linear-scratch"><span class="std std-numref">3.4section</span></a>). Note that when computing the gradient
+<a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html#sec-linear-scratch"><span class="std std-numref">Section 3.4</span></a>). Note that when computing the gradient
 norm, we are concatenating all model parameters, treating them as a
 single giant parameter vector.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@d2l</span><span class="o">.</span><span class="n">add_to_class</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Trainer</span><span class="p">)</span>  <span class="c1">#@save</span>
@@ -808,7 +811,7 @@ single giant parameter vector.</p>
 </div>
 </section>
 <section id="training">
-<h2><span class="section-number">9.5.4. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.5.4. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h2>
 <p>Using <em>The Time Machine</em> dataset (<code class="docutils literal notranslate"><span class="pre">data</span></code>), we train a character-level
 language model (<code class="docutils literal notranslate"><span class="pre">model</span></code>) based on the RNN (<code class="docutils literal notranslate"><span class="pre">rnn</span></code>) implemented from
 scratch. Note that we first calculate the gradients, then clip them, and
@@ -821,11 +824,10 @@ finally update the model parameters using the clipped gradients.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_rnn-scratch_2cce6c_24_0.svg" src="../_images/output_rnn-scratch_2cce6c_24_0.svg" />
-</figure>
+<img alt="../_images/output_rnn-scratch_2cce6c_24_0.svg" src="../_images/output_rnn-scratch_2cce6c_24_0.svg" /></figure>
 </section>
 <section id="decoding">
-<h2><span class="section-number">9.5.5. </span>Decoding<a class="headerlink" href="#decoding" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.5.5. </span>Decoding<a class="headerlink" href="#decoding" title="Permalink to this heading">¶</a></h2>
 <p>Once a language model has been learned, we can use it not only to
 predict the next token but to continue predicting each subsequent one,
 treating the previously predicted token as though it were the next in
@@ -872,7 +874,7 @@ learning frameworks to whip up RNNs using standard architectures, and to
 reap performance gains by relying on highly optimized library functions.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">9.5.6. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.5.6. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>We can train RNN-based language models to generate text following the
 user-provided text prefix. A simple RNN language model consists of input
 encoding, RNN modeling, and output generation. During training, gradient
@@ -885,7 +887,7 @@ continuations, which proves useful in many applications, e.g.,
 autocomplete features.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">9.5.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.5.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Does the implemented language model predict the next token based on
 all the past tokens up to the very first token in <em>The Time

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,18 +15,21 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.2. The Base Classification Model" href="classification.html" />
+    <link rel="next" title="4.2. The Image Classification Dataset" href="image-classification-dataset.html" />
     <link rel="prev" title="4. Linear Neural Networks for Classification" href="index.html" /> 
   </head>
 <body>
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">4. Linear Neural Networks for Classification</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">4. Linear Neural Networks for Classification</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,11 +525,11 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="softmax-regression">
-<span id="sec-softmax"></span><h1><span class="section-number">4.1. </span>Softmax Regression<a class="headerlink" href="#softmax-regression" title="Link to this heading">¶</a></h1>
-<p>In <a class="reference internal" href="../chapter_linear-regression/linear-regression.html#sec-linear-regression"><span class="std std-numref">3.1section</span></a>, we introduced linear regression,
+<span id="sec-softmax"></span><h1><span class="section-number">4.1. </span>Softmax Regression<a class="headerlink" href="#softmax-regression" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="../chapter_linear-regression/linear-regression.html#sec-linear-regression"><span class="std std-numref">Section 3.1</span></a>, we introduced linear regression,
 working through implementations from scratch in
-<a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html#sec-linear-scratch"><span class="std std-numref">3.4section</span></a> and again using high-level APIs of a deep
-learning framework in <a class="reference internal" href="../chapter_linear-regression/linear-regression-concise.html#sec-linear-concise"><span class="std std-numref">3.5section</span></a> to do the heavy
+<a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html#sec-linear-scratch"><span class="std std-numref">Section 3.4</span></a> and again using high-level APIs of a deep
+learning framework in <a class="reference internal" href="../chapter_linear-regression/linear-regression-concise.html#sec-linear-concise"><span class="std std-numref">Section 3.5</span></a> to do the heavy
 lifting.</p>
 <p>Regression is the hammer we reach for when we want to answer <em>how much?</em>
 or <em>how many?</em> questions. If you want to predict the number of dollars
@@ -575,7 +578,7 @@ See <span id="id1"></span> for an overview and
 <span id="id2"></span> for an effective algorithm when tagging
 images.</p>
 <section id="classification">
-<span id="subsec-classification-problem"></span><h2><span class="section-number">4.1.1. </span>Classification<a class="headerlink" href="#classification" title="Link to this heading">¶</a></h2>
+<span id="subsec-classification-problem"></span><h2><span class="section-number">4.1.1. </span>Classification<a class="headerlink" href="#classification" title="Permalink to this heading">¶</a></h2>
 <p>To get our feet wet, let’s start with a simple image classification
 problem. Here, each input consists of a <span class="math notranslate nohighlight">\(2\times2\)</span> grayscale
 image. We can represent each pixel value with a single scalar, giving us
@@ -607,9 +610,9 @@ would be a three-dimensional vector, with <span class="math notranslate nohighli
 corresponding to “cat”, <span class="math notranslate nohighlight">\((0, 1, 0)\)</span> to “chicken”, and
 <span class="math notranslate nohighlight">\((0, 0, 1)\)</span> to “dog”:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-softmax-regression-0">
-<span class="eqno">(4.1.1)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-0" title="Link to this equation">¶</a></span>\[y \in \{(1, 0, 0), (0, 1, 0), (0, 0, 1)\}.\]</div>
+<span class="eqno">(4.1.1)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-0" title="Permalink to this equation">¶</a></span>\[y \in \{(1, 0, 0), (0, 1, 0), (0, 0, 1)\}.\]</div>
 <section id="linear-model">
-<h3><span class="section-number">4.1.1.1. </span>Linear Model<a class="headerlink" href="#linear-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.1.1. </span>Linear Model<a class="headerlink" href="#linear-model" title="Permalink to this heading">¶</a></h3>
 <p>In order to estimate the conditional probabilities associated with all
 the possible classes, we need a model with multiple outputs, one per
 class. To address classification with linear models, we will need as
@@ -622,21 +625,20 @@ features and 3 possible output categories, we need 12 scalars to
 represent the weights (<span class="math notranslate nohighlight">\(w\)</span> with subscripts), and 3 scalars to
 represent the biases (<span class="math notranslate nohighlight">\(b\)</span> with subscripts). This yields:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-softmax-regression-1">
-<span class="eqno">(4.1.2)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-1" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(4.1.2)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
 o_1 &amp;= x_1 w_{11} + x_2 w_{12} + x_3 w_{13} + x_4 w_{14} + b_1,\\
 o_2 &amp;= x_1 w_{21} + x_2 w_{22} + x_3 w_{23} + x_4 w_{24} + b_2,\\
 o_3 &amp;= x_1 w_{31} + x_2 w_{32} + x_3 w_{33} + x_4 w_{34} + b_3.
 \end{aligned}\end{split}\]</div>
 <p>The corresponding neural network diagram is shown in
-<a class="reference internal" href="#fig-softmaxreg"><span class="std std-numref">figure4.1.1</span></a>. Just as in linear regression, we use a
+<a class="reference internal" href="#fig-softmaxreg"><span class="std std-numref">Fig. 4.1.1</span></a>. Just as in linear regression, we use a
 single-layer neural network. And since the calculation of each output,
 <span class="math notranslate nohighlight">\(o_1, o_2\)</span>, and <span class="math notranslate nohighlight">\(o_3\)</span>, depends on every input, <span class="math notranslate nohighlight">\(x_1\)</span>,
 <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(x_3\)</span>, and <span class="math notranslate nohighlight">\(x_4\)</span>, the output layer can also be
 described as a <em>fully connected layer</em>.</p>
 <figure class="align-default" id="id15">
-<span id="fig-softmaxreg"></span><img alt="../_images/softmaxreg.svg" src="../_images/softmaxreg.svg" />
-<figcaption>
-<p><span class="caption-number">figure4.1.1 </span><span class="caption-text">Softmax regression is a single-layer neural network.</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+<span id="fig-softmaxreg"></span><img alt="../_images/softmaxreg.svg" src="../_images/softmaxreg.svg" /><figcaption>
+<p><span class="caption-number">Fig. 4.1.1 </span><span class="caption-text">Softmax regression is a single-layer neural network.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>For a more concise notation we use vectors and matrices:
@@ -646,7 +648,7 @@ weights into a <span class="math notranslate nohighlight">\(3 \times 4\)</span> 
 <span class="math notranslate nohighlight">\(\mathbf{b} \in \mathbb{R}^3\)</span> in a vector.</p>
 </section>
 <section id="the-softmax">
-<span id="subsec-softmax-operation"></span><h3><span class="section-number">4.1.1.2. </span>The Softmax<a class="headerlink" href="#the-softmax" title="Link to this heading">¶</a></h3>
+<span id="subsec-softmax-operation"></span><h3><span class="section-number">4.1.1.2. </span>The Softmax<a class="headerlink" href="#the-softmax" title="Permalink to this heading">¶</a></h3>
 <p>Assuming a suitable loss function, we could try, directly, to minimize
 the difference between <span class="math notranslate nohighlight">\(\mathbf{o}\)</span> and the labels
 <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>. While it turns out that treating classification as a
@@ -684,14 +686,14 @@ that they add up to <span class="math notranslate nohighlight">\(1\)</span> by d
 process is called <em>normalization</em>. Putting these two pieces together
 gives us the <em>softmax</em> function:</p>
 <div class="math notranslate nohighlight" id="equation-eq-softmax-y-and-o">
-<span class="eqno">(4.1.3)<a class="headerlink" href="#equation-eq-softmax-y-and-o" title="Link to this equation">¶</a></span>\[\hat{\mathbf{y}} = \mathrm{softmax}(\mathbf{o}) \quad \textrm{where}\quad \hat{y}_i = \frac{\exp(o_i)}{\sum_j \exp(o_j)}.\]</div>
+<span class="eqno">(4.1.3)<a class="headerlink" href="#equation-eq-softmax-y-and-o" title="Permalink to this equation">¶</a></span>\[\hat{\mathbf{y}} = \mathrm{softmax}(\mathbf{o}) \quad \textrm{where}\quad \hat{y}_i = \frac{\exp(o_i)}{\sum_j \exp(o_j)}.\]</div>
 <p>Note that the largest coordinate of <span class="math notranslate nohighlight">\(\mathbf{o}\)</span> corresponds to
 the most likely class according to <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span>. Moreover,
 because the softmax operation preserves the ordering among its
 arguments, we do not need to compute the softmax to determine which
 class has been assigned the highest probability. Thus,</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-softmax-regression-2">
-<span class="eqno">(4.1.4)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-2" title="Link to this equation">¶</a></span>\[\operatorname*{argmax}_j \hat y_j = \operatorname*{argmax}_j o_j.\]</div>
+<span class="eqno">(4.1.4)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-2" title="Permalink to this equation">¶</a></span>\[\operatorname*{argmax}_j \hat y_j = \operatorname*{argmax}_j o_j.\]</div>
 <p>The idea of a softmax dates back to <span id="id6"></span>, who adapted
 ideas from physics. Dating even further back, Boltzmann, the father of
 modern statistical physics, used this trick to model a distribution over
@@ -707,7 +709,7 @@ models <span id="id7">()</span> use this point of view
 when describing problems in deep learning.</p>
 </section>
 <section id="vectorization">
-<span id="subsec-softmax-vectorization"></span><h3><span class="section-number">4.1.1.3. </span>Vectorization<a class="headerlink" href="#vectorization" title="Link to this heading">¶</a></h3>
+<span id="subsec-softmax-vectorization"></span><h3><span class="section-number">4.1.1.3. </span>Vectorization<a class="headerlink" href="#vectorization" title="Permalink to this heading">¶</a></h3>
 <p>To improve computational efficiency, we vectorize calculations in
 minibatches of data. Assume that we are given a minibatch
 <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> of <span class="math notranslate nohighlight">\(n\)</span> examples
@@ -716,7 +718,7 @@ we have <span class="math notranslate nohighlight">\(q\)</span> categories in th
 <span class="math notranslate nohighlight">\(\mathbf{W} \in \mathbb{R}^{d \times q}\)</span> and the bias satisfies
 <span class="math notranslate nohighlight">\(\mathbf{b} \in \mathbb{R}^{1\times q}\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-minibatch-softmax-reg">
-<span class="eqno">(4.1.5)<a class="headerlink" href="#equation-eq-minibatch-softmax-reg" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned} \mathbf{O} &amp;= \mathbf{X} \mathbf{W} + \mathbf{b}, \\ \hat{\mathbf{Y}} &amp; = \mathrm{softmax}(\mathbf{O}). \end{aligned}\end{split}\]</div>
+<span class="eqno">(4.1.5)<a class="headerlink" href="#equation-eq-minibatch-softmax-reg" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned} \mathbf{O} &amp;= \mathbf{X} \mathbf{W} + \mathbf{b}, \\ \hat{\mathbf{Y}} &amp; = \mathrm{softmax}(\mathbf{O}). \end{aligned}\end{split}\]</div>
 <p>This accelerates the dominant operation into a matrix–matrix product
 <span class="math notranslate nohighlight">\(\mathbf{X} \mathbf{W}\)</span>. Moreover, since each row in
 <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> represents a data example, the softmax operation
@@ -728,15 +730,15 @@ underflow. Deep learning frameworks take care of this automatically.</p>
 </section>
 </section>
 <section id="loss-function">
-<span id="subsec-softmax-regression-loss-func"></span><h2><span class="section-number">4.1.2. </span>Loss Function<a class="headerlink" href="#loss-function" title="Link to this heading">¶</a></h2>
+<span id="subsec-softmax-regression-loss-func"></span><h2><span class="section-number">4.1.2. </span>Loss Function<a class="headerlink" href="#loss-function" title="Permalink to this heading">¶</a></h2>
 <p>Now that we have a mapping from features <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> to
 probabilities <span class="math notranslate nohighlight">\(\mathbf{\hat{y}}\)</span>, we need a way to optimize the
 accuracy of this mapping. We will rely on maximum likelihood estimation,
 the very same method that we encountered when providing a probabilistic
 justification for the mean squared error loss in
-<a class="reference internal" href="../chapter_linear-regression/linear-regression.html#subsec-normal-distribution-and-squared-loss"><span class="std std-numref">3.1.3section</span></a>.</p>
+<a class="reference internal" href="../chapter_linear-regression/linear-regression.html#subsec-normal-distribution-and-squared-loss"><span class="std std-numref">Section 3.1.3</span></a>.</p>
 <section id="log-likelihood">
-<h3><span class="section-number">4.1.2.1. </span>Log-Likelihood<a class="headerlink" href="#log-likelihood" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.2.1. </span>Log-Likelihood<a class="headerlink" href="#log-likelihood" title="Permalink to this heading">¶</a></h3>
 <p>The softmax function gives us a vector <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span>, which
 we can interpret as the (estimated) conditional probabilities of each
 class, given any input <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, such as <span class="math notranslate nohighlight">\(\hat{y}_1\)</span> =
@@ -747,20 +749,20 @@ vector. We can compare the estimates with reality by checking how
 probable the actual classes are according to our model, given the
 features:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-softmax-regression-3">
-<span class="eqno">(4.1.6)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-3" title="Link to this equation">¶</a></span>\[P(\mathbf{Y} \mid \mathbf{X}) = \prod_{i=1}^n P(\mathbf{y}^{(i)} \mid \mathbf{x}^{(i)}).\]</div>
+<span class="eqno">(4.1.6)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-3" title="Permalink to this equation">¶</a></span>\[P(\mathbf{Y} \mid \mathbf{X}) = \prod_{i=1}^n P(\mathbf{y}^{(i)} \mid \mathbf{x}^{(i)}).\]</div>
 <p>We are allowed to use the factorization since we assume that each label
 is drawn independently from its respective distribution
 <span class="math notranslate nohighlight">\(P(\mathbf{y}\mid\mathbf{x}^{(i)})\)</span>. Since maximizing the product
 of terms is awkward, we take the negative logarithm to obtain the
 equivalent problem of minimizing the negative log-likelihood:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-softmax-regression-4">
-<span class="eqno">(4.1.7)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-4" title="Link to this equation">¶</a></span>\[-\log P(\mathbf{Y} \mid \mathbf{X}) = \sum_{i=1}^n -\log P(\mathbf{y}^{(i)} \mid \mathbf{x}^{(i)})
+<span class="eqno">(4.1.7)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-4" title="Permalink to this equation">¶</a></span>\[-\log P(\mathbf{Y} \mid \mathbf{X}) = \sum_{i=1}^n -\log P(\mathbf{y}^{(i)} \mid \mathbf{x}^{(i)})
 = \sum_{i=1}^n l(\mathbf{y}^{(i)}, \hat{\mathbf{y}}^{(i)}),\]</div>
 <p>where for any pair of label <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> and model prediction
 <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span> over <span class="math notranslate nohighlight">\(q\)</span> classes, the loss function
 <span class="math notranslate nohighlight">\(l\)</span> is</p>
 <div class="math notranslate nohighlight" id="equation-eq-l-cross-entropy">
-<span class="eqno">(4.1.8)<a class="headerlink" href="#equation-eq-l-cross-entropy" title="Link to this equation">¶</a></span>\[l(\mathbf{y}, \hat{\mathbf{y}}) = - \sum_{j=1}^q y_j \log \hat{y}_j.\]</div>
+<span class="eqno">(4.1.8)<a class="headerlink" href="#equation-eq-l-cross-entropy" title="Permalink to this equation">¶</a></span>\[l(\mathbf{y}, \hat{\mathbf{y}}) = - \sum_{j=1}^q y_j \log \hat{y}_j.\]</div>
 <p>For reasons explained later on, the loss function in
 <a class="reference internal" href="#equation-eq-l-cross-entropy">(4.1.8)</a> is commonly called the <em>cross-entropy
 loss</em>. Since <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is a one-hot vector of length <span class="math notranslate nohighlight">\(q\)</span>,
@@ -779,14 +781,14 @@ error made when assigning such high confidence would incur infinite loss
 (<span class="math notranslate nohighlight">\(-\log 0 = \infty\)</span>).</p>
 </section>
 <section id="softmax-and-cross-entropy-loss">
-<span id="subsec-softmax-and-derivatives"></span><h3><span class="section-number">4.1.2.2. </span>Softmax and Cross-Entropy Loss<a class="headerlink" href="#softmax-and-cross-entropy-loss" title="Link to this heading">¶</a></h3>
+<span id="subsec-softmax-and-derivatives"></span><h3><span class="section-number">4.1.2.2. </span>Softmax and Cross-Entropy Loss<a class="headerlink" href="#softmax-and-cross-entropy-loss" title="Permalink to this heading">¶</a></h3>
 <p>Since the softmax function and the corresponding cross-entropy loss are
 so common, it is worth understanding a bit better how they are computed.
 Plugging <a class="reference internal" href="#equation-eq-softmax-y-and-o">(4.1.3)</a> into the definition of the loss
 in <a class="reference internal" href="#equation-eq-l-cross-entropy">(4.1.8)</a> and using the definition of the softmax
 we obtain</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-softmax-regression-5">
-<span class="eqno">(4.1.9)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-5" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(4.1.9)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-5" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
 l(\mathbf{y}, \hat{\mathbf{y}}) &amp;=  - \sum_{j=1}^q y_j \log \frac{\exp(o_j)}{\sum_{k=1}^q \exp(o_k)} \\
 &amp;= \sum_{j=1}^q y_j \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j \\
 &amp;= \log \sum_{k=1}^q \exp(o_k) - \sum_{j=1}^q y_j o_j.
@@ -794,7 +796,7 @@ l(\mathbf{y}, \hat{\mathbf{y}}) &amp;=  - \sum_{j=1}^q y_j \log \frac{\exp(o_j)}
 <p>To understand a bit better what is going on, consider the derivative
 with respect to any logit <span class="math notranslate nohighlight">\(o_j\)</span>. We get</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-softmax-regression-6">
-<span class="eqno">(4.1.10)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-6" title="Link to this equation">¶</a></span>\[\partial_{o_j} l(\mathbf{y}, \hat{\mathbf{y}}) = \frac{\exp(o_j)}{\sum_{k=1}^q \exp(o_k)} - y_j = \mathrm{softmax}(\mathbf{o})_j - y_j.\]</div>
+<span class="eqno">(4.1.10)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-6" title="Permalink to this equation">¶</a></span>\[\partial_{o_j} l(\mathbf{y}, \hat{\mathbf{y}}) = \frac{\exp(o_j)}{\sum_{k=1}^q \exp(o_k)} - y_j = \mathrm{softmax}(\mathbf{o})_j - y_j.\]</div>
 <p>In other words, the derivative is the difference between the probability
 assigned by our model, as expressed by the softmax operation, and what
 actually happened, as expressed by elements in the one-hot label vector.
@@ -823,20 +825,20 @@ following. For further details on information theory see
 </section>
 </section>
 <section id="information-theory-basics">
-<span id="subsec-info-theory-basics"></span><h2><span class="section-number">4.1.3. </span>Information Theory Basics<a class="headerlink" href="#information-theory-basics" title="Link to this heading">¶</a></h2>
+<span id="subsec-info-theory-basics"></span><h2><span class="section-number">4.1.3. </span>Information Theory Basics<a class="headerlink" href="#information-theory-basics" title="Permalink to this heading">¶</a></h2>
 <p>Many deep learning papers use intuition and terms from information
 theory. To make sense of them, we need some common language. This is a
 survival guide. <em>Information theory</em> deals with the problem of encoding,
 decoding, transmitting, and manipulating information (also known as
 data).</p>
 <section id="entropy">
-<h3><span class="section-number">4.1.3.1. </span>Entropy<a class="headerlink" href="#entropy" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.3.1. </span>Entropy<a class="headerlink" href="#entropy" title="Permalink to this heading">¶</a></h3>
 <p>The central idea in information theory is to quantify the amount of
 information contained in data. This places a limit on our ability to
 compress data. For a distribution <span class="math notranslate nohighlight">\(P\)</span> its <em>entropy</em>, <span class="math notranslate nohighlight">\(H[P]\)</span>,
 is defined as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-softmax-reg-entropy">
-<span class="eqno">(4.1.11)<a class="headerlink" href="#equation-eq-softmax-reg-entropy" title="Link to this equation">¶</a></span>\[H[P] = \sum_j - P(j) \log P(j).\]</div>
+<span class="eqno">(4.1.11)<a class="headerlink" href="#equation-eq-softmax-reg-entropy" title="Permalink to this equation">¶</a></span>\[H[P] = \sum_j - P(j) \log P(j).\]</div>
 <p>One of the fundamental theorems of information theory states that in
 order to encode data drawn randomly from the distribution <span class="math notranslate nohighlight">\(P\)</span>, we
 need at least <span class="math notranslate nohighlight">\(H[P]\)</span> “nats” to encode it <span id="id10">()</span>.
@@ -845,7 +847,7 @@ using a code with base <span class="math notranslate nohighlight">\(e\)</span> r
 nat is <span class="math notranslate nohighlight">\(\frac{1}{\log(2)} \approx 1.44\)</span> bit.</p>
 </section>
 <section id="surprisal">
-<h3><span class="section-number">4.1.3.2. </span>Surprisal<a class="headerlink" href="#surprisal" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.3.2. </span>Surprisal<a class="headerlink" href="#surprisal" title="Permalink to this heading">¶</a></h3>
 <p>You might be wondering what compression has to do with prediction.
 Imagine that we have a stream of data that we want to compress. If it is
 always easy for us to predict the next token, then this data is easy to
@@ -866,7 +868,7 @@ one assigned the correct probabilities that truly match the
 data-generating process.</p>
 </section>
 <section id="cross-entropy-revisited">
-<h3><span class="section-number">4.1.3.3. </span>Cross-Entropy Revisited<a class="headerlink" href="#cross-entropy-revisited" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.3.3. </span>Cross-Entropy Revisited<a class="headerlink" href="#cross-entropy-revisited" title="Permalink to this heading">¶</a></h3>
 <p>So if entropy is the level of surprise experienced by someone who knows
 the true probability, then you might be wondering, what is
 cross-entropy? The cross-entropy <em>from</em> <span class="math notranslate nohighlight">\(P\)</span> <em>to</em> <span class="math notranslate nohighlight">\(Q\)</span>,
@@ -884,7 +886,7 @@ to communicate the labels.</p>
 </section>
 </section>
 <section id="summary-and-discussion">
-<h2><span class="section-number">4.1.4. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.4. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Permalink to this heading">¶</a></h2>
 <p>In this section, we encountered the first nontrivial loss function,
 allowing us to optimize over <em>discrete</em> output spaces. Key in its design
 was that we took a probabilistic approach, treating discrete categories
@@ -919,7 +921,7 @@ or the smallest number of floating point operations but rather for the
 solution that can be executed most efficiently on modern GPUs.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">4.1.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.1.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>We can explore the connection between exponential families and
 softmax in some more depth.</p>
@@ -1058,11 +1060,11 @@ temperature? Which choice corresponds to halving it?</p></li>
             <div>4. Linear Neural Networks for Classification</div>
          </div>
      </a>
-     <a id="button-next" href="classification.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
+     <a id="button-next" href="image-classification-dataset.html" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" role="botton" accesskey="N">
          <i class="pagenation-arrow-R fas fa-arrow-right fa-lg"></i>
         <div class="pagenation-text">
             <span class="pagenation-direction">Next</span>
-            <div>4.2. The Base Classification Model</div>
+            <div>4.2. The Image Classification Dataset</div>
         </div>
      </a>
   </div>

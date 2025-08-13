@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,17 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="15.1. Sentiment Analysis and the Dataset" href="sentiment-analysis-and-dataset.html" />
@@ -110,9 +112,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -319,9 +319,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -525,17 +523,17 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="natural-language-processing-applications">
-<span id="chap-nlp-app"></span><h1><span class="section-number">15. </span>Natural Language Processing: Applications<a class="headerlink" href="#natural-language-processing-applications" title="Link to this heading">¶</a></h1>
+<span id="chap-nlp-app"></span><h1><span class="section-number">15. </span>Natural Language Processing: Applications<a class="headerlink" href="#natural-language-processing-applications" title="Permalink to this heading">¶</a></h1>
 <p>We have seen how to represent tokens in text sequences and train their
-representations in <a class="reference internal" href="../chapter_natural-language-processing-pretraining/index.html#chap-nlp-pretrain"><span class="std std-numref">14section</span></a>. Such pretrained text
+representations in <a class="reference internal" href="../chapter_natural-language-processing-pretraining/index.html#chap-nlp-pretrain"><span class="std std-numref">Section 14</span></a>. Such pretrained text
 representations can be fed to various models for different downstream
 natural language processing tasks.</p>
 <p>In fact, earlier chapters have already discussed some natural language
 processing applications <em>without pretraining</em>, just for explaining deep
-learning architectures. For instance, in <a class="reference internal" href="../chapter_recurrent-neural-networks/index.html#chap-rnn"><span class="std std-numref">9section</span></a>, we have
+learning architectures. For instance, in <a class="reference internal" href="../chapter_recurrent-neural-networks/index.html#chap-rnn"><span class="std std-numref">Section 9</span></a>, we have
 relied on RNNs to design language models to generate novella-like text.
-In <a class="reference internal" href="../chapter_recurrent-modern/index.html#chap-modern-rnn"><span class="std std-numref">10section</span></a> and
-<a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/index.html#chap-attention-and-transformers"><span class="std std-numref">11section</span></a>, we have also designed
+In <a class="reference internal" href="../chapter_recurrent-modern/index.html#chap-modern-rnn"><span class="std std-numref">Section 10</span></a> and
+<a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/index.html#chap-attention-and-transformers"><span class="std std-numref">Section 11</span></a>, we have also designed
 models based on RNNs and attention mechanisms for machine translation.</p>
 <p>However, this book does not intend to cover all such applications in a
 comprehensive manner. Instead, our focus is on <em>how to apply (deep)
@@ -546,20 +544,19 @@ language processing tasks: sentiment analysis and natural language
 inference, which analyze single text and relationships of text pairs,
 respectively.</p>
 <figure class="align-default" id="id1">
-<span id="fig-nlp-map-app"></span><img alt="../_images/nlp-map-app.svg" src="../_images/nlp-map-app.svg" />
-<figcaption>
-<p><span class="caption-number">figure15.1 </span><span class="caption-text">Pretrained text representations can be fed to various deep learning
+<span id="fig-nlp-map-app"></span><img alt="../_images/nlp-map-app.svg" src="../_images/nlp-map-app.svg" /><figcaption>
+<p><span class="caption-number">Fig. 15.1 </span><span class="caption-text">Pretrained text representations can be fed to various deep learning
 architectures for different downstream natural language processing
 applications. This chapter focuses on how to design models for
-different downstream natural language processing applications.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+different downstream natural language processing applications.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>As depicted in <a class="reference internal" href="#fig-nlp-map-app"><span class="std std-numref">figure15.1</span></a>, this chapter focuses on
+<p>As depicted in <a class="reference internal" href="#fig-nlp-map-app"><span class="std std-numref">Fig. 15.1</span></a>, this chapter focuses on
 describing the basic ideas of designing natural language processing
 models using different types of deep learning architectures, such as
 MLPs, CNNs, RNNs, and attention. Though it is possible to combine any
 pretrained text representations with any architecture for either
-application in <a class="reference internal" href="#fig-nlp-map-app"><span class="std std-numref">figure15.1</span></a>, we select a few
+application in <a class="reference internal" href="#fig-nlp-map-app"><span class="std std-numref">Fig. 15.1</span></a>, we select a few
 representative combinations. Specifically, we will explore popular
 architectures based on RNNs and CNNs for sentiment analysis. For natural
 language inference, we choose attention and MLPs to demonstrate how to
@@ -569,7 +566,7 @@ applications, such as on a sequence level (single text classification
 and text pair classification) and a token level (text tagging and
 question answering). As a concrete empirical case, we will fine-tune
 BERT for natural language inference.</p>
-<p>As we have introduced in <a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert.html#sec-bert"><span class="std std-numref">14.8section</span></a>, BERT requires minimal
+<p>As we have introduced in <a class="reference internal" href="../chapter_natural-language-processing-pretraining/bert.html#sec-bert"><span class="std std-numref">Section 14.8</span></a>, BERT requires minimal
 architecture changes for a wide range of natural language processing
 applications. However, this benefit comes at the cost of fine-tuning a
 huge number of BERT parameters for the downstream applications. When

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10.3. Deep Recurrent Neural Networks" href="deep-rnn.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="gated-recurrent-units-gru">
-<span id="sec-gru"></span><h1><span class="section-number">10.2. </span>Gated Recurrent Units (GRU)<a class="headerlink" href="#gated-recurrent-units-gru" title="Link to this heading">¶</a></h1>
-<p>As RNNs and particularly the LSTM architecture (<a class="reference internal" href="lstm.html#sec-lstm"><span class="std std-numref">10.1section</span></a>)
+<span id="sec-gru"></span><h1><span class="section-number">10.2. </span>Gated Recurrent Units (GRU)<a class="headerlink" href="#gated-recurrent-units-gru" title="Permalink to this heading">¶</a></h1>
+<p>As RNNs and particularly the LSTM architecture (<a class="reference internal" href="lstm.html#sec-lstm"><span class="std std-numref">Section 10.1</span></a>)
 rapidly gained popularity during the 2010s, a number of researchers
 began to experiment with simplified architectures in hopes of retaining
 the key idea of incorporating an internal state and multiplicative
@@ -538,21 +541,20 @@ to compute <span id="id2">()</span>.</p>
 </pre></div>
 </div>
 <section id="reset-gate-and-update-gate">
-<h2><span class="section-number">10.2.1. </span>Reset Gate and Update Gate<a class="headerlink" href="#reset-gate-and-update-gate" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.2.1. </span>Reset Gate and Update Gate<a class="headerlink" href="#reset-gate-and-update-gate" title="Permalink to this heading">¶</a></h2>
 <p>Here, the LSTM’s three gates are replaced by two: the <em>reset gate</em> and
 the <em>update gate</em>. As with LSTMs, these gates are given sigmoid
 activations, forcing their values to lie in the interval <span class="math notranslate nohighlight">\((0, 1)\)</span>.
 Intuitively, the reset gate controls how much of the previous state we
 might still want to remember. Likewise, an update gate would allow us to
 control how much of the new state is just a copy of the old one.
-<a class="reference internal" href="#fig-gru-1"><span class="std std-numref">figure10.2.1</span></a> illustrates the inputs for both the reset and
+<a class="reference internal" href="#fig-gru-1"><span class="std std-numref">Fig. 10.2.1</span></a> illustrates the inputs for both the reset and
 update gates in a GRU, given the input of the current time step and the
 hidden state of the previous time step. The outputs of the gates are
 given by two fully connected layers with a sigmoid activation function.</p>
 <figure class="align-default" id="id3">
-<span id="fig-gru-1"></span><img alt="../_images/gru-1.svg" src="../_images/gru-1.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.2.1 </span><span class="caption-text">Computing the reset gate and the update gate in a GRU model.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+<span id="fig-gru-1"></span><img alt="../_images/gru-1.svg" src="../_images/gru-1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.2.1 </span><span class="caption-text">Computing the reset gate and the update gate in a GRU model.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Mathematically, for a given time step <span class="math notranslate nohighlight">\(t\)</span>, suppose that the input
@@ -565,7 +567,7 @@ units <span class="math notranslate nohighlight">\(=h\)</span>). Then the reset 
 <span class="math notranslate nohighlight">\(\mathbf{Z}_t \in \mathbb{R}^{n \times h}\)</span> are computed as
 follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-gru-0">
-<span class="eqno">(10.2.1)<a class="headerlink" href="#equation-chapter-recurrent-modern-gru-0" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(10.2.1)<a class="headerlink" href="#equation-chapter-recurrent-modern-gru-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
 \mathbf{R}_t = \sigma(\mathbf{X}_t \mathbf{W}_{\textrm{xr}} + \mathbf{H}_{t-1} \mathbf{W}_{\textrm{hr}} + \mathbf{b}_\textrm{r}),\\
 \mathbf{Z}_t = \sigma(\mathbf{X}_t \mathbf{W}_{\textrm{xz}} + \mathbf{H}_{t-1} \mathbf{W}_{\textrm{hz}} + \mathbf{b}_\textrm{z}),
 \end{aligned}\end{split}\]</div>
@@ -578,14 +580,14 @@ are weight parameters and
 are bias parameters.</p>
 </section>
 <section id="candidate-hidden-state">
-<h2><span class="section-number">10.2.2. </span>Candidate Hidden State<a class="headerlink" href="#candidate-hidden-state" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.2.2. </span>Candidate Hidden State<a class="headerlink" href="#candidate-hidden-state" title="Permalink to this heading">¶</a></h2>
 <p>Next, we integrate the reset gate <span class="math notranslate nohighlight">\(\mathbf{R}_t\)</span> with the regular
 updating mechanism in <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn.html#equation-rnn-h-with-state">(9.4.5)</a>, leading to the
 following <em>candidate hidden state</em>
 <span class="math notranslate nohighlight">\(\tilde{\mathbf{H}}_t \in \mathbb{R}^{n \times h}\)</span> at time step
 <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-gru-tilde-h">
-<span class="eqno">(10.2.2)<a class="headerlink" href="#equation-gru-tilde-h" title="Link to this equation">¶</a></span>\[\tilde{\mathbf{H}}_t = \tanh(\mathbf{X}_t \mathbf{W}_{\textrm{xh}} + \left(\mathbf{R}_t \odot \mathbf{H}_{t-1}\right) \mathbf{W}_{\textrm{hh}} + \mathbf{b}_\textrm{h}),\]</div>
+<span class="eqno">(10.2.2)<a class="headerlink" href="#equation-gru-tilde-h" title="Permalink to this equation">¶</a></span>\[\tilde{\mathbf{H}}_t = \tanh(\mathbf{X}_t \mathbf{W}_{\textrm{xh}} + \left(\mathbf{R}_t \odot \mathbf{H}_{t-1}\right) \mathbf{W}_{\textrm{hh}} + \mathbf{b}_\textrm{h}),\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{xh}} \in \mathbb{R}^{d \times h}\)</span> and
 <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{hh}} \in \mathbb{R}^{h \times h}\)</span> are weight
 parameters, <span class="math notranslate nohighlight">\(\mathbf{b}_\textrm{h} \in \mathbb{R}^{1 \times h}\)</span> is
@@ -601,17 +603,16 @@ vanilla RNN such as that in <a class="reference internal" href="../chapter_recur
 of the reset gate <span class="math notranslate nohighlight">\(\mathbf{R}_t\)</span> that are close to 0, the
 candidate hidden state is the result of an MLP with <span class="math notranslate nohighlight">\(\mathbf{X}_t\)</span>
 as input. Any pre-existing hidden state is thus <em>reset</em> to defaults.</p>
-<p><a class="reference internal" href="#fig-gru-2"><span class="std std-numref">figure10.2.2</span></a> illustrates the computational flow after applying
+<p><a class="reference internal" href="#fig-gru-2"><span class="std std-numref">Fig. 10.2.2</span></a> illustrates the computational flow after applying
 the reset gate.</p>
 <figure class="align-default" id="id4">
-<span id="fig-gru-2"></span><img alt="../_images/gru-2.svg" src="../_images/gru-2.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.2.2 </span><span class="caption-text">Computing the candidate hidden state in a GRU model.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<span id="fig-gru-2"></span><img alt="../_images/gru-2.svg" src="../_images/gru-2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.2.2 </span><span class="caption-text">Computing the candidate hidden state in a GRU model.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="hidden-state">
-<h2><span class="section-number">10.2.3. </span>Hidden State<a class="headerlink" href="#hidden-state" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.2.3. </span>Hidden State<a class="headerlink" href="#hidden-state" title="Permalink to this heading">¶</a></h2>
 <p>Finally, we need to incorporate the effect of the update gate
 <span class="math notranslate nohighlight">\(\mathbf{Z}_t\)</span>. This determines the extent to which the new hidden
 state <span class="math notranslate nohighlight">\(\mathbf{H}_t \in \mathbb{R}^{n \times h}\)</span> matches the old
@@ -622,19 +623,18 @@ elementwise convex combinations of <span class="math notranslate nohighlight">\(
 <span class="math notranslate nohighlight">\(\tilde{\mathbf{H}}_t\)</span>. This leads to the final update equation
 for the GRU:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-gru-1">
-<span class="eqno">(10.2.3)<a class="headerlink" href="#equation-chapter-recurrent-modern-gru-1" title="Link to this equation">¶</a></span>\[\mathbf{H}_t = \mathbf{Z}_t \odot \mathbf{H}_{t-1}  + (1 - \mathbf{Z}_t) \odot \tilde{\mathbf{H}}_t.\]</div>
+<span class="eqno">(10.2.3)<a class="headerlink" href="#equation-chapter-recurrent-modern-gru-1" title="Permalink to this equation">¶</a></span>\[\mathbf{H}_t = \mathbf{Z}_t \odot \mathbf{H}_{t-1}  + (1 - \mathbf{Z}_t) \odot \tilde{\mathbf{H}}_t.\]</div>
 <p>Whenever the update gate <span class="math notranslate nohighlight">\(\mathbf{Z}_t\)</span> is close to 1, we simply
 retain the old state. In this case the information from
 <span class="math notranslate nohighlight">\(\mathbf{X}_t\)</span> is ignored, effectively skipping time step
 <span class="math notranslate nohighlight">\(t\)</span> in the dependency chain. By contrast, whenever
 <span class="math notranslate nohighlight">\(\mathbf{Z}_t\)</span> is close to 0, the new latent state
 <span class="math notranslate nohighlight">\(\mathbf{H}_t\)</span> approaches the candidate latent state
-<span class="math notranslate nohighlight">\(\tilde{\mathbf{H}}_t\)</span>. <a class="reference internal" href="#fig-gru-3"><span class="std std-numref">figure10.2.3</span></a> shows the
+<span class="math notranslate nohighlight">\(\tilde{\mathbf{H}}_t\)</span>. <a class="reference internal" href="#fig-gru-3"><span class="std std-numref">Fig. 10.2.3</span></a> shows the
 computational flow after the update gate is in action.</p>
 <figure class="align-default" id="id5">
-<span id="fig-gru-3"></span><img alt="../_images/gru-3.svg" src="../_images/gru-3.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.2.3 </span><span class="caption-text">Computing the hidden state in a GRU model.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<span id="fig-gru-3"></span><img alt="../_images/gru-3.svg" src="../_images/gru-3.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.2.3 </span><span class="caption-text">Computing the hidden state in a GRU model.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>In summary, GRUs have the following two distinguishing features:</p>
@@ -644,11 +644,11 @@ computational flow after the update gate is in action.</p>
 </ul>
 </section>
 <section id="implementation-from-scratch">
-<h2><span class="section-number">10.2.4. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.2.4. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Permalink to this heading">¶</a></h2>
 <p>To gain a better understanding of the GRU model, let’s implement it from
 scratch.</p>
 <section id="initializing-model-parameters">
-<h3><span class="section-number">10.2.4.1. </span>Initializing Model Parameters<a class="headerlink" href="#initializing-model-parameters" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.2.4.1. </span>Initializing Model Parameters<a class="headerlink" href="#initializing-model-parameters" title="Permalink to this heading">¶</a></h3>
 <p>The first step is to initialize the model parameters. We draw the
 weights from a Gaussian distribution with standard deviation to be
 <code class="docutils literal notranslate"><span class="pre">sigma</span></code> and set the bias to 0. The hyperparameter <code class="docutils literal notranslate"><span class="pre">num_hiddens</span></code>
@@ -670,7 +670,7 @@ hidden state.</p>
 </div>
 </section>
 <section id="defining-the-model">
-<h3><span class="section-number">10.2.4.2. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.2.4.2. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Permalink to this heading">¶</a></h3>
 <p>Now we are ready to define the GRU forward computation. Its structure is
 the same as that of the basic RNN cell, except that the update equations
 are more complex.</p>
@@ -695,9 +695,9 @@ are more complex.</p>
 </div>
 </section>
 <section id="training">
-<h3><span class="section-number">10.2.4.3. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.2.4.3. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h3>
 <p>Training a language model on <em>The Time Machine</em> dataset works in exactly
-the same manner as in <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">9.5section</span></a>.</p>
+the same manner as in <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">Section 9.5</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">TimeMachine</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 <span class="n">gru</span> <span class="o">=</span> <span class="n">GRUScratch</span><span class="p">(</span><span class="n">num_inputs</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="p">),</span> <span class="n">num_hiddens</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">RNNLMScratch</span><span class="p">(</span><span class="n">gru</span><span class="p">,</span> <span class="n">num_inputs</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">vocab_size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="p">),</span> <span class="n">lr</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -706,12 +706,11 @@ the same manner as in <a class="reference internal" href="../chapter_recurrent-n
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gru_7692a0_7_0.svg" src="../_images/output_gru_7692a0_7_0.svg" />
-</figure>
+<img alt="../_images/output_gru_7692a0_7_0.svg" src="../_images/output_gru_7692a0_7_0.svg" /></figure>
 </section>
 </section>
 <section id="concise-implementation">
-<h2><span class="section-number">10.2.5. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.2.5. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Permalink to this heading">¶</a></h2>
 <p>In high-level APIs, we can directly instantiate a GRU model. This
 encapsulates all the configuration detail that we made explicit above.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">GRU</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">RNN</span><span class="p">):</span>
@@ -727,8 +726,7 @@ encapsulates all the configuration detail that we made explicit above.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gru_7692a0_10_0.svg" src="../_images/output_gru_7692a0_10_0.svg" />
-</figure>
+<img alt="../_images/output_gru_7692a0_10_0.svg" src="../_images/output_gru_7692a0_10_0.svg" /></figure>
 <p>After training, we print out the perplexity on the training set and the
 predicted sequence following the provided prefix.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">&#39;it has&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_gpu</span><span class="p">())</span>
@@ -739,7 +737,7 @@ predicted sequence following the provided prefix.</p>
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">10.2.6. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.2.6. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>Compared with LSTMs, GRUs achieve similar performance but tend to be
 lighter computationally. Generally, compared with simple RNNs, gated
 RNNS, just like LSTMs and GRUs, can better capture dependencies for
@@ -748,7 +746,7 @@ their extreme case whenever the reset gate is switched on. They can also
 skip subsequences by turning on the update gate.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">10.2.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.2.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Assume that we only want to use the input at time step <span class="math notranslate nohighlight">\(t'\)</span> to
 predict the output at time step <span class="math notranslate nohighlight">\(t &gt; t'\)</span>. What are the best

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10.2. Gated Recurrent Units (GRU)" href="gru.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="long-short-term-memory-lstm">
-<span id="sec-lstm"></span><h1><span class="section-number">10.1. </span>Long Short-Term Memory (LSTM)<a class="headerlink" href="#long-short-term-memory-lstm" title="Link to this heading">¶</a></h1>
+<span id="sec-lstm"></span><h1><span class="section-number">10.1. </span>Long Short-Term Memory (LSTM)<a class="headerlink" href="#long-short-term-memory-lstm" title="Permalink to this heading">¶</a></h1>
 <p>Shortly after the first Elman-style RNNs were trained using
 backpropagation <span id="id1">()</span>, the problems of learning
 long-term dependencies (owing to vanishing and exploding gradients)
@@ -555,7 +558,7 @@ multiplicative nodes.</p>
 </pre></div>
 </div>
 <section id="gated-memory-cell">
-<h2><span class="section-number">10.1.1. </span>Gated Memory Cell<a class="headerlink" href="#gated-memory-cell" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.1.1. </span>Gated Memory Cell<a class="headerlink" href="#gated-memory-cell" title="Permalink to this heading">¶</a></h2>
 <p>Each memory cell is equipped with an <em>internal state</em> and a number of
 multiplicative gates that determine whether (i) a given input should
 impact the internal state (the <em>input gate</em>), (ii) the internal state
@@ -563,7 +566,7 @@ should be flushed to <span class="math notranslate nohighlight">\(0\)</span> (th
 internal state of a given neuron should be allowed to impact the cell’s
 output (the <em>output</em> gate).</p>
 <section id="gated-hidden-state">
-<h3><span class="section-number">10.1.1.1. </span>Gated Hidden State<a class="headerlink" href="#gated-hidden-state" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.1.1.1. </span>Gated Hidden State<a class="headerlink" href="#gated-hidden-state" title="Permalink to this heading">¶</a></h3>
 <p>The key distinction between vanilla RNNs and LSTMs is that the latter
 support gating of the hidden state. This means that we have dedicated
 mechanisms for when a hidden state should be <em>updated</em> and also for when
@@ -575,10 +578,10 @@ observations. Last, we will learn to reset the latent state whenever
 needed. We discuss this in detail below.</p>
 </section>
 <section id="input-gate-forget-gate-and-output-gate">
-<h3><span class="section-number">10.1.1.2. </span>Input Gate, Forget Gate, and Output Gate<a class="headerlink" href="#input-gate-forget-gate-and-output-gate" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.1.1.2. </span>Input Gate, Forget Gate, and Output Gate<a class="headerlink" href="#input-gate-forget-gate-and-output-gate" title="Permalink to this heading">¶</a></h3>
 <p>The data feeding into the LSTM gates are the input at the current time
 step and the hidden state of the previous time step, as illustrated in
-<a class="reference internal" href="#fig-lstm-0"><span class="std std-numref">figure10.1.1</span></a>. Three fully connected layers with sigmoid
+<a class="reference internal" href="#fig-lstm-0"><span class="std std-numref">Fig. 10.1.1</span></a>. Three fully connected layers with sigmoid
 activation functions compute the values of the input, forget, and output
 gates. As a result of the sigmoid activation, all values of the three
 gates are in the range of <span class="math notranslate nohighlight">\((0, 1)\)</span>. Additionally, we require an
@@ -589,10 +592,9 @@ value should be added to the current memory cell internal state. The
 or flush it. And the <em>output gate</em> determines whether the memory cell
 should influence the output at the current time step.</p>
 <figure class="align-default" id="id4">
-<span id="fig-lstm-0"></span><img alt="../_images/lstm-0.svg" src="../_images/lstm-0.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.1.1 </span><span class="caption-text">Computing the input gate, the forget gate, and the output gate in an
-LSTM model.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<span id="fig-lstm-0"></span><img alt="../_images/lstm-0.svg" src="../_images/lstm-0.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.1.1 </span><span class="caption-text">Computing the input gate, the forget gate, and the output gate in an
+LSTM model.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Mathematically, suppose that there are <span class="math notranslate nohighlight">\(h\)</span> hidden units, the batch
@@ -606,7 +608,7 @@ is <span class="math notranslate nohighlight">\(\mathbf{I}_t \in \mathbb{R}^{n \
 <span class="math notranslate nohighlight">\(\mathbf{O}_t \in \mathbb{R}^{n \times h}\)</span>. They are calculated as
 follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-lstm-0">
-<span class="eqno">(10.1.1)<a class="headerlink" href="#equation-chapter-recurrent-modern-lstm-0" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(10.1.1)<a class="headerlink" href="#equation-chapter-recurrent-modern-lstm-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
 \mathbf{I}_t &amp;= \sigma(\mathbf{X}_t \mathbf{W}_{\textrm{xi}} + \mathbf{H}_{t-1} \mathbf{W}_{\textrm{hi}} + \mathbf{b}_\textrm{i}),\\
 \mathbf{F}_t &amp;= \sigma(\mathbf{X}_t \mathbf{W}_{\textrm{xf}} + \mathbf{H}_{t-1} \mathbf{W}_{\textrm{hf}} + \mathbf{b}_\textrm{f}),\\
 \mathbf{O}_t &amp;= \sigma(\mathbf{X}_t \mathbf{W}_{\textrm{xo}} + \mathbf{H}_{t-1} \mathbf{W}_{\textrm{ho}} + \mathbf{b}_\textrm{o}),
@@ -618,12 +620,12 @@ and
 are weight parameters and
 <span class="math notranslate nohighlight">\(\mathbf{b}_\textrm{i}, \mathbf{b}_\textrm{f}, \mathbf{b}_\textrm{o} \in \mathbb{R}^{1 \times h}\)</span>
 are bias parameters. Note that broadcasting (see
-<a class="reference internal" href="../chapter_preliminaries/ndarray.html#subsec-broadcasting"><span class="std std-numref">2.1.4section</span></a>) is triggered during the summation. We
-use sigmoid functions (as introduced in <a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html#sec-mlp"><span class="std std-numref">5.1section</span></a>) to map the
+<a class="reference internal" href="../chapter_preliminaries/ndarray.html#subsec-broadcasting"><span class="std std-numref">Section 2.1.4</span></a>) is triggered during the summation. We
+use sigmoid functions (as introduced in <a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html#sec-mlp"><span class="std std-numref">Section 5.1</span></a>) to map the
 input values to the interval <span class="math notranslate nohighlight">\((0, 1)\)</span>.</p>
 </section>
 <section id="input-node">
-<h3><span class="section-number">10.1.1.3. </span>Input Node<a class="headerlink" href="#input-node" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.1.1.3. </span>Input Node<a class="headerlink" href="#input-node" title="Permalink to this heading">¶</a></h3>
 <p>Next we design the memory cell. Since we have not specified the action
 of the various gates yet, we first introduce the <em>input node</em>
 <span class="math notranslate nohighlight">\(\tilde{\mathbf{C}}_t \in \mathbb{R}^{n \times h}\)</span>. Its
@@ -632,22 +634,21 @@ uses a <span class="math notranslate nohighlight">\(\tanh\)</span> function with
 the activation function. This leads to the following equation at time
 step <span class="math notranslate nohighlight">\(t\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-lstm-1">
-<span class="eqno">(10.1.2)<a class="headerlink" href="#equation-chapter-recurrent-modern-lstm-1" title="Link to this equation">¶</a></span>\[\tilde{\mathbf{C}}_t = \textrm{tanh}(\mathbf{X}_t \mathbf{W}_{\textrm{xc}} + \mathbf{H}_{t-1} \mathbf{W}_{\textrm{hc}} + \mathbf{b}_\textrm{c}),\]</div>
+<span class="eqno">(10.1.2)<a class="headerlink" href="#equation-chapter-recurrent-modern-lstm-1" title="Permalink to this equation">¶</a></span>\[\tilde{\mathbf{C}}_t = \textrm{tanh}(\mathbf{X}_t \mathbf{W}_{\textrm{xc}} + \mathbf{H}_{t-1} \mathbf{W}_{\textrm{hc}} + \mathbf{b}_\textrm{c}),\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{xc}} \in \mathbb{R}^{d \times h}\)</span> and
 <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{hc}} \in \mathbb{R}^{h \times h}\)</span> are weight
 parameters and <span class="math notranslate nohighlight">\(\mathbf{b}_\textrm{c} \in \mathbb{R}^{1 \times h}\)</span>
 is a bias parameter.</p>
 <p>A quick illustration of the input node is shown in
-<a class="reference internal" href="#fig-lstm-1"><span class="std std-numref">figure10.1.2</span></a>.</p>
+<a class="reference internal" href="#fig-lstm-1"><span class="std std-numref">Fig. 10.1.2</span></a>.</p>
 <figure class="align-default" id="id5">
-<span id="fig-lstm-1"></span><img alt="../_images/lstm-1.svg" src="../_images/lstm-1.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.1.2 </span><span class="caption-text">Computing the input node in an LSTM model.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<span id="fig-lstm-1"></span><img alt="../_images/lstm-1.svg" src="../_images/lstm-1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.1.2 </span><span class="caption-text">Computing the input node in an LSTM model.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="memory-cell-internal-state">
-<h3><span class="section-number">10.1.1.4. </span>Memory Cell Internal State<a class="headerlink" href="#memory-cell-internal-state" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.1.1.4. </span>Memory Cell Internal State<a class="headerlink" href="#memory-cell-internal-state" title="Permalink to this heading">¶</a></h3>
 <p>In LSTMs, the input gate <span class="math notranslate nohighlight">\(\mathbf{I}_t\)</span> governs how much we take
 new data into account via <span class="math notranslate nohighlight">\(\tilde{\mathbf{C}}_t\)</span> and the forget
 gate <span class="math notranslate nohighlight">\(\mathbf{F}_t\)</span> addresses how much of the old cell internal
@@ -655,7 +656,7 @@ state <span class="math notranslate nohighlight">\(\mathbf{C}_{t-1} \in \mathbb{
 Using the Hadamard (elementwise) product operator <span class="math notranslate nohighlight">\(\odot\)</span> we
 arrive at the following update equation:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-lstm-2">
-<span class="eqno">(10.1.3)<a class="headerlink" href="#equation-chapter-recurrent-modern-lstm-2" title="Link to this equation">¶</a></span>\[\mathbf{C}_t = \mathbf{F}_t \odot \mathbf{C}_{t-1} + \mathbf{I}_t \odot \tilde{\mathbf{C}}_t.\]</div>
+<span class="eqno">(10.1.3)<a class="headerlink" href="#equation-chapter-recurrent-modern-lstm-2" title="Permalink to this equation">¶</a></span>\[\mathbf{C}_t = \mathbf{F}_t \odot \mathbf{C}_{t-1} + \mathbf{I}_t \odot \tilde{\mathbf{C}}_t.\]</div>
 <p>If the forget gate is always 1 and the input gate is always 0, the
 memory cell internal state <span class="math notranslate nohighlight">\(\mathbf{C}_{t-1}\)</span> will remain constant
 forever, passing unchanged to each subsequent time step. However, input
@@ -664,16 +665,15 @@ learn when to keep this value unchanged and when to perturb it in
 response to subsequent inputs. In practice, this design alleviates the
 vanishing gradient problem, resulting in models that are much easier to
 train, especially when facing datasets with long sequence lengths.</p>
-<p>We thus arrive at the flow diagram in <a class="reference internal" href="#fig-lstm-2"><span class="std std-numref">figure10.1.3</span></a>.</p>
+<p>We thus arrive at the flow diagram in <a class="reference internal" href="#fig-lstm-2"><span class="std std-numref">Fig. 10.1.3</span></a>.</p>
 <figure class="align-default" id="id6">
-<span id="fig-lstm-2"></span><img alt="../_images/lstm-2.svg" src="../_images/lstm-2.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.1.3 </span><span class="caption-text">Computing the memory cell internal state in an LSTM model.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+<span id="fig-lstm-2"></span><img alt="../_images/lstm-2.svg" src="../_images/lstm-2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.1.3 </span><span class="caption-text">Computing the memory cell internal state in an LSTM model.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="hidden-state">
-<h3><span class="section-number">10.1.1.5. </span>Hidden State<a class="headerlink" href="#hidden-state" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.1.1.5. </span>Hidden State<a class="headerlink" href="#hidden-state" title="Permalink to this heading">¶</a></h3>
 <p>Last, we need to define how to compute the output of the memory cell,
 i.e., the hidden state <span class="math notranslate nohighlight">\(\mathbf{H}_t \in \mathbb{R}^{n \times h}\)</span>,
 as seen by other layers. This is where the output gate comes into play.
@@ -682,7 +682,7 @@ and then apply another point-wise multiplication, this time with the
 output gate. This ensures that the values of <span class="math notranslate nohighlight">\(\mathbf{H}_t\)</span> are
 always in the interval <span class="math notranslate nohighlight">\((-1, 1)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-lstm-3">
-<span class="eqno">(10.1.4)<a class="headerlink" href="#equation-chapter-recurrent-modern-lstm-3" title="Link to this equation">¶</a></span>\[\mathbf{H}_t = \mathbf{O}_t \odot \tanh(\mathbf{C}_t).\]</div>
+<span class="eqno">(10.1.4)<a class="headerlink" href="#equation-chapter-recurrent-modern-lstm-3" title="Permalink to this equation">¶</a></span>\[\mathbf{H}_t = \mathbf{O}_t \odot \tanh(\mathbf{C}_t).\]</div>
 <p>Whenever the output gate is close to 1, we allow the memory cell
 internal state to impact the subsequent layers uninhibited, whereas for
 output gate values close to 0, we prevent the current memory from
@@ -691,22 +691,21 @@ that a memory cell can accrue information across many time steps without
 impacting the rest of the network (as long as the output gate takes
 values close to 0), and then suddenly impact the network at a subsequent
 time step as soon as the output gate flips from values close to 0 to
-values close to 1. <a class="reference internal" href="#fig-lstm-3"><span class="std std-numref">figure10.1.4</span></a> has a graphical illustration
+values close to 1. <a class="reference internal" href="#fig-lstm-3"><span class="std std-numref">Fig. 10.1.4</span></a> has a graphical illustration
 of the data flow.</p>
 <figure class="align-default" id="id7">
-<span id="fig-lstm-3"></span><img alt="../_images/lstm-3.svg" src="../_images/lstm-3.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.1.4 </span><span class="caption-text">Computing the hidden state in an LSTM model.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+<span id="fig-lstm-3"></span><img alt="../_images/lstm-3.svg" src="../_images/lstm-3.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.1.4 </span><span class="caption-text">Computing the hidden state in an LSTM model.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="implementation-from-scratch">
-<h2><span class="section-number">10.1.2. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.1.2. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Permalink to this heading">¶</a></h2>
 <p>Now let’s implement an LSTM from scratch. As same as the experiments in
-<a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">9.5section</span></a>, we first load <em>The Time Machine</em> dataset.</p>
+<a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">Section 9.5</span></a>, we first load <em>The Time Machine</em> dataset.</p>
 <section id="initializing-model-parameters">
-<h3><span class="section-number">10.1.2.1. </span>Initializing Model Parameters<a class="headerlink" href="#initializing-model-parameters" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.1.2.1. </span>Initializing Model Parameters<a class="headerlink" href="#initializing-model-parameters" title="Permalink to this heading">¶</a></h3>
 <p>Next, we need to define and initialize the model parameters. As
 previously, the hyperparameter <code class="docutils literal notranslate"><span class="pre">num_hiddens</span></code> dictates the number of
 hidden units. We initialize weights following a Gaussian distribution
@@ -753,9 +752,9 @@ with 0.01 standard deviation, and we set the biases to 0.</p>
 </div>
 </section>
 <section id="training-and-prediction">
-<h3><span class="section-number">10.1.2.2. </span>Training and Prediction<a class="headerlink" href="#training-and-prediction" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">10.1.2.2. </span>Training and Prediction<a class="headerlink" href="#training-and-prediction" title="Permalink to this heading">¶</a></h3>
 <p>Let’s train an LSTM model by instantiating the <code class="docutils literal notranslate"><span class="pre">RNNLMScratch</span></code> class
-from <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">9.5section</span></a>.</p>
+from <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">Section 9.5</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">TimeMachine</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 <span class="n">lstm</span> <span class="o">=</span> <span class="n">LSTMScratch</span><span class="p">(</span><span class="n">num_inputs</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="p">),</span> <span class="n">num_hiddens</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">RNNLMScratch</span><span class="p">(</span><span class="n">lstm</span><span class="p">,</span> <span class="n">num_inputs</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">vocab_size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="p">),</span> <span class="n">lr</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -764,12 +763,11 @@ from <a class="reference internal" href="../chapter_recurrent-neural-networks/rn
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_lstm_89ce5f_6_0.svg" src="../_images/output_lstm_89ce5f_6_0.svg" />
-</figure>
+<img alt="../_images/output_lstm_89ce5f_6_0.svg" src="../_images/output_lstm_89ce5f_6_0.svg" /></figure>
 </section>
 </section>
 <section id="concise-implementation">
-<h2><span class="section-number">10.1.3. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.1.3. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Permalink to this heading">¶</a></h2>
 <p>Using high-level APIs, we can directly instantiate an LSTM model. This
 encapsulates all the configuration details that we made explicit above.
 The code is significantly faster as it uses compiled operators rather
@@ -790,8 +788,7 @@ than Python for many details that we spelled out before.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_lstm_89ce5f_9_0.svg" src="../_images/output_lstm_89ce5f_9_0.svg" />
-</figure>
+<img alt="../_images/output_lstm_89ce5f_9_0.svg" src="../_images/output_lstm_89ce5f_9_0.svg" /></figure>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">&#39;it has&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">vocab</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_gpu</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -807,7 +804,7 @@ the sequence. Later we will encounter alternative models such as
 Transformers that can be used in some cases.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">10.1.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.1.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>While LSTMs were published in 1997, they rose to great prominence with
 some victories in prediction competitions in the mid-2000s, and became
 the dominant models for sequence learning from 2011 until the rise of
@@ -821,7 +818,7 @@ internal state remains entirely internal. LSTMs can alleviate vanishing
 and exploding gradients.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">10.1.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.1.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Adjust the hyperparameters and analyze their influence on running
 time, perplexity, and the output sequence.</p></li>

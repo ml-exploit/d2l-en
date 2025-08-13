@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="15.4. Natural Language Inference: Using Attention" href="natural-language-inference-attention.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="natural-language-inference-and-the-dataset">
-<span id="sec-natural-language-inference-and-dataset"></span><h1><span class="section-number">15.3. </span>Natural Language Inference and the Dataset<a class="headerlink" href="#natural-language-inference-and-the-dataset" title="Link to this heading">¶</a></h1>
-<p>In <a class="reference internal" href="sentiment-analysis-and-dataset.html#sec-sentiment"><span class="std std-numref">15.1section</span></a>, we discussed the problem of sentiment
+<span id="sec-natural-language-inference-and-dataset"></span><h1><span class="section-number">15.3. </span>Natural Language Inference and the Dataset<a class="headerlink" href="#natural-language-inference-and-the-dataset" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="sentiment-analysis-and-dataset.html#sec-sentiment"><span class="std std-numref">Section 15.1</span></a>, we discussed the problem of sentiment
 analysis. This task aims to classify a single text sequence into
 predefined categories, such as a set of sentiment polarities. However,
 when there is a need to decide whether one sentence can be inferred form
@@ -532,7 +535,7 @@ semantically equivalent, knowing how to classify one text sequence is
 insufficient. Instead, we need to be able to reason over pairs of text
 sequences.</p>
 <section id="natural-language-inference">
-<h2><span class="section-number">15.3.1. </span>Natural Language Inference<a class="headerlink" href="#natural-language-inference" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.3.1. </span>Natural Language Inference<a class="headerlink" href="#natural-language-inference" title="Permalink to this heading">¶</a></h2>
 <p><em>Natural language inference</em> studies whether a <em>hypothesis</em> can be
 inferred from a <em>premise</em>, where both are a text sequence. In other
 words, natural language inference determines the logical relationship
@@ -579,7 +582,7 @@ will begin by investigating a popular natural language inference
 benchmark dataset.</p>
 </section>
 <section id="the-stanford-natural-language-inference-snli-dataset">
-<h2><span class="section-number">15.3.2. </span>The Stanford Natural Language Inference (SNLI) Dataset<a class="headerlink" href="#the-stanford-natural-language-inference-snli-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.3.2. </span>The Stanford Natural Language Inference (SNLI) Dataset<a class="headerlink" href="#the-stanford-natural-language-inference-snli-dataset" title="Permalink to this heading">¶</a></h2>
 <p>Stanford Natural Language Inference (SNLI) Corpus is a collection of
 over 500000 labeled English sentence pairs
 <span id="id1">()</span>. We download and store the
@@ -632,7 +635,7 @@ extracted SNLI dataset in the path <code class="docutils literal notranslate"><s
 </pre></div>
 </div>
 <section id="reading-the-dataset">
-<h3><span class="section-number">15.3.2.1. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.3.2.1. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Permalink to this heading">¶</a></h3>
 <p>The original SNLI dataset contains much richer information than what we
 really need in our experiments. Thus, we define a function <code class="docutils literal notranslate"><span class="pre">read_snli</span></code>
 to only extract part of the dataset, then return lists of premises,
@@ -694,7 +697,7 @@ the testing set.</p>
 </div>
 </section>
 <section id="defining-a-class-for-loading-the-dataset">
-<h3><span class="section-number">15.3.2.2. </span>Defining a Class for Loading the Dataset<a class="headerlink" href="#defining-a-class-for-loading-the-dataset" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.3.2.2. </span>Defining a Class for Loading the Dataset<a class="headerlink" href="#defining-a-class-for-loading-the-dataset" title="Permalink to this heading">¶</a></h3>
 <p>Below we define a class for loading the SNLI dataset by inheriting from
 the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> class in Gluon. The argument <code class="docutils literal notranslate"><span class="pre">num_steps</span></code> in the class
 constructor specifies the length of a text sequence so that each
@@ -844,7 +847,7 @@ with the index <code class="docutils literal notranslate"><span class="pre">idx<
 </div>
 </section>
 <section id="putting-it-all-together">
-<h3><span class="section-number">15.3.2.3. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.3.2.3. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">¶</a></h3>
 <p>Now we can invoke the <code class="docutils literal notranslate"><span class="pre">read_snli</span></code> function and the <code class="docutils literal notranslate"><span class="pre">SNLIDataset</span></code>
 class to download the SNLI dataset and return <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> instances
 for both training and testing sets, together with the vocabulary of the
@@ -954,7 +957,7 @@ premises and hypotheses.</p>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">15.3.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.3.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Natural language inference studies whether a hypothesis can be
 inferred from a premise, where both are a text sequence.</p></li>
@@ -965,7 +968,7 @@ benchmark dataset of natural language inference.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">15.3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Machine translation has long been evaluated based on superficial
 <span class="math notranslate nohighlight">\(n\)</span>-gram matching between an output translation and a

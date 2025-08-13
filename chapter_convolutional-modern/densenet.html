@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Recurrent Neural Networks" href="../chapter_recurrent-neural-networks/index.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="densely-connected-networks-densenet">
-<span id="sec-densenet"></span><h1><span class="section-number">8.5. </span>Densely Connected Networks (DenseNet)<a class="headerlink" href="#densely-connected-networks-densenet" title="Link to this heading">¶</a></h1>
+<span id="sec-densenet"></span><h1><span class="section-number">8.5. </span>Densely Connected Networks (DenseNet)<a class="headerlink" href="#densely-connected-networks-densenet" title="Permalink to this heading">¶</a></h1>
 <p>ResNet significantly changed the view of how to parametrize the
 functions in deep networks. <em>DenseNet</em> (dense convolutional network) is
 to some extent the logical extension of this
@@ -538,34 +541,33 @@ mathematics.</p>
 </pre></div>
 </div>
 <section id="from-resnet-to-densenet">
-<h2><span class="section-number">8.5.1. </span>From ResNet to DenseNet<a class="headerlink" href="#from-resnet-to-densenet" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.5.1. </span>From ResNet to DenseNet<a class="headerlink" href="#from-resnet-to-densenet" title="Permalink to this heading">¶</a></h2>
 <p>Recall the Taylor expansion for functions. At the point <span class="math notranslate nohighlight">\(x = 0\)</span> it
 can be written as</p>
 <div class="math notranslate nohighlight" id="equation-chapter-convolutional-modern-densenet-0">
-<span class="eqno">(8.5.1)<a class="headerlink" href="#equation-chapter-convolutional-modern-densenet-0" title="Link to this equation">¶</a></span>\[f(x) = f(0) + x \cdot \left[f'(0) + x \cdot \left[\frac{f''(0)}{2!}  + x \cdot \left[\frac{f'''(0)}{3!}  + \cdots \right]\right]\right].\]</div>
+<span class="eqno">(8.5.1)<a class="headerlink" href="#equation-chapter-convolutional-modern-densenet-0" title="Permalink to this equation">¶</a></span>\[f(x) = f(0) + x \cdot \left[f'(0) + x \cdot \left[\frac{f''(0)}{2!}  + x \cdot \left[\frac{f'''(0)}{3!}  + \cdots \right]\right]\right].\]</div>
 <p>The key point is that it decomposes a function into terms of
 increasingly higher order. In a similar vein, ResNet decomposes
 functions into</p>
 <div class="math notranslate nohighlight" id="equation-chapter-convolutional-modern-densenet-1">
-<span class="eqno">(8.5.2)<a class="headerlink" href="#equation-chapter-convolutional-modern-densenet-1" title="Link to this equation">¶</a></span>\[f(\mathbf{x}) = \mathbf{x} + g(\mathbf{x}).\]</div>
+<span class="eqno">(8.5.2)<a class="headerlink" href="#equation-chapter-convolutional-modern-densenet-1" title="Permalink to this equation">¶</a></span>\[f(\mathbf{x}) = \mathbf{x} + g(\mathbf{x}).\]</div>
 <p>That is, ResNet decomposes <span class="math notranslate nohighlight">\(f\)</span> into a simple linear term and a
 more complex nonlinear one. What if we wanted to capture (not
 necessarily add) information beyond two terms? One such solution is
 DenseNet <span id="id2">()</span>.</p>
 <figure class="align-default" id="id5">
-<span id="fig-densenet-block"></span><img alt="../_images/densenet-block.svg" src="../_images/densenet-block.svg" />
-<figcaption>
-<p><span class="caption-number">figure8.5.1 </span><span class="caption-text">The main difference between ResNet (left) and DenseNet (right) in
-cross-layer connections: use of addition and use of concatenation.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<span id="fig-densenet-block"></span><img alt="../_images/densenet-block.svg" src="../_images/densenet-block.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.5.1 </span><span class="caption-text">The main difference between ResNet (left) and DenseNet (right) in
+cross-layer connections: use of addition and use of concatenation.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>As shown in <a class="reference internal" href="#fig-densenet-block"><span class="std std-numref">figure8.5.1</span></a>, the key difference between
+<p>As shown in <a class="reference internal" href="#fig-densenet-block"><span class="std std-numref">Fig. 8.5.1</span></a>, the key difference between
 ResNet and DenseNet is that in the latter case outputs are
 <em>concatenated</em> (denoted by <span class="math notranslate nohighlight">\([,]\)</span>) rather than added. As a result,
 we perform a mapping from <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> to its values after
 applying an increasingly complex sequence of functions:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-convolutional-modern-densenet-2">
-<span class="eqno">(8.5.3)<a class="headerlink" href="#equation-chapter-convolutional-modern-densenet-2" title="Link to this equation">¶</a></span>\[\mathbf{x} \to \left[
+<span class="eqno">(8.5.3)<a class="headerlink" href="#equation-chapter-convolutional-modern-densenet-2" title="Permalink to this equation">¶</a></span>\[\mathbf{x} \to \left[
 \mathbf{x},
 f_1(\mathbf{x}),
 f_2\left(\left[\mathbf{x}, f_1\left(\mathbf{x}\right)\right]\right), f_3\left(\left[\mathbf{x}, f_1\left(\mathbf{x}\right), f_2\left(\left[\mathbf{x}, f_1\left(\mathbf{x}\right)\right]\right)\right]\right), \ldots\right].\]</div>
@@ -575,12 +577,11 @@ rather than adding terms, we concatenate them. The name DenseNet arises
 from the fact that the dependency graph between variables becomes quite
 dense. The final layer of such a chain is densely connected to all
 previous layers. The dense connections are shown in
-<a class="reference internal" href="#fig-densenet"><span class="std std-numref">figure8.5.2</span></a>.</p>
+<a class="reference internal" href="#fig-densenet"><span class="std std-numref">Fig. 8.5.2</span></a>.</p>
 <figure class="align-default" id="id6">
-<span id="fig-densenet"></span><img alt="../_images/densenet.svg" src="../_images/densenet.svg" />
-<figcaption>
-<p><span class="caption-number">figure8.5.2 </span><span class="caption-text">Dense connections in DenseNet. Note how the dimensionality increases
-with depth.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+<span id="fig-densenet"></span><img alt="../_images/densenet.svg" src="../_images/densenet.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.5.2 </span><span class="caption-text">Dense connections in DenseNet. Note how the dimensionality increases
+with depth.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>The main components that comprise a DenseNet are <em>dense blocks</em> and
@@ -591,10 +592,10 @@ is not too large, since the expansion
 can be quite high-dimensional.</p>
 </section>
 <section id="dense-blocks">
-<h2><span class="section-number">8.5.2. </span>Dense Blocks<a class="headerlink" href="#dense-blocks" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.5.2. </span>Dense Blocks<a class="headerlink" href="#dense-blocks" title="Permalink to this heading">¶</a></h2>
 <p>DenseNet uses the modified “batch normalization, activation, and
 convolution” structure of ResNet (see the exercise in
-<a class="reference internal" href="resnet.html#sec-resnet"><span class="std std-numref">8.4section</span></a>). First, we implement this convolution block
+<a class="reference internal" href="resnet.html#sec-resnet"><span class="std std-numref">Section 8.4</span></a>). First, we implement this convolution block
 structure.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">conv_block</span><span class="p">(</span><span class="n">input_channels</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
@@ -641,7 +642,7 @@ is also referred to as the <em>growth rate</em>.</p>
 </div>
 </section>
 <section id="transition-layers">
-<h2><span class="section-number">8.5.3. </span>Transition Layers<a class="headerlink" href="#transition-layers" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.5.3. </span>Transition Layers<a class="headerlink" href="#transition-layers" title="Permalink to this heading">¶</a></h2>
 <p>Since each dense block will increase the number of channels, adding too
 many of them will lead to an excessively complex model. A <em>transition
 layer</em> is used to control the complexity of the model. It reduces the
@@ -666,7 +667,7 @@ channels to 10, and halves the height and width.</p>
 </div>
 </section>
 <section id="densenet-model">
-<h2><span class="section-number">8.5.4. </span>DenseNet Model<a class="headerlink" href="#densenet-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.5.4. </span>DenseNet Model<a class="headerlink" href="#densenet-model" title="Permalink to this heading">¶</a></h2>
 <p>Next, we will construct a DenseNet model. DenseNet first uses the same
 single convolutional layer and max-pooling layer as in ResNet.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">DenseNet</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Classifier</span><span class="p">):</span>
@@ -680,7 +681,7 @@ single convolutional layer and max-pooling layer as in ResNet.</p>
 <p>Then, similar to the four modules made up of residual blocks that ResNet
 uses, DenseNet uses four dense blocks. As with ResNet, we can set the
 number of convolutional layers used in each dense block. Here, we set it
-to 4, consistent with the ResNet-18 model in <a class="reference internal" href="resnet.html#sec-resnet"><span class="std std-numref">8.4section</span></a>.
+to 4, consistent with the ResNet-18 model in <a class="reference internal" href="resnet.html#sec-resnet"><span class="std std-numref">Section 8.4</span></a>.
 Furthermore, we set the number of channels (i.e., growth rate) for the
 convolutional layers in the dense block to 32, so 128 channels will be
 added to each dense block.</p>
@@ -716,7 +717,7 @@ at the end to produce the output.</p>
 </div>
 </section>
 <section id="training">
-<h2><span class="section-number">8.5.5. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.5.5. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h2>
 <p>Since we are using a deeper network here, in this section, we will
 reduce the input height and width from 224 to 96 to simplify the
 computation.</p>
@@ -727,11 +728,10 @@ computation.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_densenet_1bae0e_17_0.svg" src="../_images/output_densenet_1bae0e_17_0.svg" />
-</figure>
+<img alt="../_images/output_densenet_1bae0e_17_0.svg" src="../_images/output_densenet_1bae0e_17_0.svg" /></figure>
 </section>
 <section id="summary-and-discussion">
-<h2><span class="section-number">8.5.6. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.5.6. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Permalink to this heading">¶</a></h2>
 <p>The main components that comprise DenseNet are dense blocks and
 transition layers. For the latter, we need to keep the dimensionality
 under control when composing the network by adding transition layers
@@ -745,7 +745,7 @@ memory-efficient implementations that may increase training time
 <span id="id3">()</span>.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">8.5.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.5.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Why do we use average pooling rather than max-pooling in the
 transition layer?</p></li>
@@ -765,7 +765,7 @@ consumption? How would you need to change the framework?</p></li>
 <li><p>Implement the various DenseNet versions presented in Table 1 of the
 DenseNet paper <span id="id4">()</span>.</p></li>
 <li><p>Design an MLP-based model by applying the DenseNet idea. Apply it to
-the housing price prediction task in <a class="reference internal" href="../chapter_multilayer-perceptrons/kaggle-house-price.html#sec-kaggle-house"><span class="std std-numref">5.7section</span></a>.</p></li>
+the housing price prediction task in <a class="reference internal" href="../chapter_multilayer-perceptrons/kaggle-house-price.html#sec-kaggle-house"><span class="std std-numref">Section 5.7</span></a>.</p></li>
 </ol>
 </section>
 </section>

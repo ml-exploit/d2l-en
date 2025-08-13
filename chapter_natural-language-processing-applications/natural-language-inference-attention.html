@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="15.5. Fine-Tuning BERT for Sequence-Level and Token-Level Applications" href="finetuning-bert.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,9 +525,9 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="natural-language-inference-using-attention">
-<span id="sec-natural-language-inference-attention"></span><h1><span class="section-number">15.4. </span>Natural Language Inference: Using Attention<a class="headerlink" href="#natural-language-inference-using-attention" title="Link to this heading">¶</a></h1>
+<span id="sec-natural-language-inference-attention"></span><h1><span class="section-number">15.4. </span>Natural Language Inference: Using Attention<a class="headerlink" href="#natural-language-inference-using-attention" title="Permalink to this heading">¶</a></h1>
 <p>We introduced the natural language inference task and the SNLI dataset
-in <a class="reference internal" href="natural-language-inference-and-dataset.html#sec-natural-language-inference-and-dataset"><span class="std std-numref">15.3section</span></a>. In view of
+in <a class="reference internal" href="natural-language-inference-and-dataset.html#sec-natural-language-inference-and-dataset"><span class="std std-numref">Section 15.3</span></a>. In view of
 many models that are based on complex and deep architectures,
 <span id="id1"></span> proposed to address natural
 language inference with attention mechanisms and called it a
@@ -533,16 +536,15 @@ recurrent or convolutional layers, achieving the best result at the time
 on the SNLI dataset with much fewer parameters. In this section, we will
 describe and implement this attention-based method (with MLPs) for
 natural language inference, as depicted in
-<a class="reference internal" href="#fig-nlp-map-nli-attention"><span class="std std-numref">figure15.4.1</span></a>.</p>
+<a class="reference internal" href="#fig-nlp-map-nli-attention"><span class="std std-numref">Fig. 15.4.1</span></a>.</p>
 <figure class="align-default" id="id3">
-<span id="fig-nlp-map-nli-attention"></span><img alt="../_images/nlp-map-nli-attention.svg" src="../_images/nlp-map-nli-attention.svg" />
-<figcaption>
-<p><span class="caption-number">figure15.4.1 </span><span class="caption-text">This section feeds pretrained GloVe to an architecture based on
-attention and MLPs for natural language inference.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+<span id="fig-nlp-map-nli-attention"></span><img alt="../_images/nlp-map-nli-attention.svg" src="../_images/nlp-map-nli-attention.svg" /><figcaption>
+<p><span class="caption-number">Fig. 15.4.1 </span><span class="caption-text">This section feeds pretrained GloVe to an architecture based on
+attention and MLPs for natural language inference.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="the-model">
-<h2><span class="section-number">15.4.1. </span>The Model<a class="headerlink" href="#the-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.4.1. </span>The Model<a class="headerlink" href="#the-model" title="Permalink to this heading">¶</a></h2>
 <p>Simpler than preserving the order of tokens in premises and hypotheses,
 we can just align tokens in one text sequence to every token in the
 other, and vice versa, then compare and aggregate such information to
@@ -551,12 +553,11 @@ Similar to alignment of tokens between source and target sentences in
 machine translation, the alignment of tokens between premises and
 hypotheses can be neatly accomplished by attention mechanisms.</p>
 <figure class="align-default" id="id4">
-<span id="fig-nli-attention"></span><img alt="../_images/nli-attention.svg" src="../_images/nli-attention.svg" />
-<figcaption>
-<p><span class="caption-number">figure15.4.2 </span><span class="caption-text">Natural language inference using attention mechanisms.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<span id="fig-nli-attention"></span><img alt="../_images/nli-attention.svg" src="../_images/nli-attention.svg" /><figcaption>
+<p><span class="caption-number">Fig. 15.4.2 </span><span class="caption-text">Natural language inference using attention mechanisms.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#fig-nli-attention"><span class="std std-numref">figure15.4.2</span></a> depicts the natural language inference
+<p><a class="reference internal" href="#fig-nli-attention"><span class="std std-numref">Fig. 15.4.2</span></a> depicts the natural language inference
 method using attention mechanisms. At a high level, it consists of three
 jointly trained steps: attending, comparing, and aggregating. We will
 illustrate them step by step in the following.</p>
@@ -567,7 +568,7 @@ illustrate them step by step in the following.</p>
 </pre></div>
 </div>
 <section id="attending">
-<h3><span class="section-number">15.4.1.1. </span>Attending<a class="headerlink" href="#attending" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.4.1.1. </span>Attending<a class="headerlink" href="#attending" title="Permalink to this heading">¶</a></h3>
 <p>The first step is to align tokens in one text sequence to each token in
 the other sequence. Suppose that the premise is “i do need sleep” and
 the hypothesis is “i am tired”. Due to semantical similarity, we may
@@ -577,7 +578,7 @@ wish to align “i” in the premise with “i” in the hypothesis, and align
 “need” and “sleep” in the premise with “tired” in the hypothesis. Note
 that such alignment is <em>soft</em> using weighted average, where ideally
 large weights are associated with the tokens to be aligned. For ease of
-demonstration, <a class="reference internal" href="#fig-nli-attention"><span class="std std-numref">figure15.4.2</span></a> shows such alignment in a
+demonstration, <a class="reference internal" href="#fig-nli-attention"><span class="std std-numref">Fig. 15.4.2</span></a> shows such alignment in a
 <em>hard</em> way.</p>
 <p>Now we describe the soft alignment using attention mechanisms in more
 detail. Denote by
@@ -590,7 +591,7 @@ respectively, where
 word vector. For soft alignment, we compute the attention weights
 <span class="math notranslate nohighlight">\(e_{ij} \in \mathbb{R}\)</span> as</p>
 <div class="math notranslate nohighlight" id="equation-eq-nli-e">
-<span class="eqno">(15.4.1)<a class="headerlink" href="#equation-eq-nli-e" title="Link to this equation">¶</a></span>\[e_{ij} = f(\mathbf{a}_i)^\top f(\mathbf{b}_j),\]</div>
+<span class="eqno">(15.4.1)<a class="headerlink" href="#equation-eq-nli-e" title="Permalink to this equation">¶</a></span>\[e_{ij} = f(\mathbf{a}_i)^\top f(\mathbf{b}_j),\]</div>
 <p>where the function <span class="math notranslate nohighlight">\(f\)</span> is an MLP defined in the following <code class="docutils literal notranslate"><span class="pre">mlp</span></code>
 function. The output dimension of <span class="math notranslate nohighlight">\(f\)</span> is specified by the
 <code class="docutils literal notranslate"><span class="pre">num_hiddens</span></code> argument of <code class="docutils literal notranslate"><span class="pre">mlp</span></code>.</p>
@@ -619,11 +620,11 @@ weighted average of all the token vectors in the hypothesis to obtain
 representation of the hypothesis that is softly aligned with the token
 indexed by <span class="math notranslate nohighlight">\(i\)</span> in the premise:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-natural-language-processing-applications-natural-language-inference-attention-0">
-<span class="eqno">(15.4.2)<a class="headerlink" href="#equation-chapter-natural-language-processing-applications-natural-language-inference-attention-0" title="Link to this equation">¶</a></span>\[\boldsymbol{\beta}_i = \sum_{j=1}^{n}\frac{\exp(e_{ij})}{ \sum_{k=1}^{n} \exp(e_{ik})} \mathbf{b}_j.\]</div>
+<span class="eqno">(15.4.2)<a class="headerlink" href="#equation-chapter-natural-language-processing-applications-natural-language-inference-attention-0" title="Permalink to this equation">¶</a></span>\[\boldsymbol{\beta}_i = \sum_{j=1}^{n}\frac{\exp(e_{ij})}{ \sum_{k=1}^{n} \exp(e_{ik})} \mathbf{b}_j.\]</div>
 <p>Likewise, we compute soft alignment of premise tokens for each token
 indexed by <span class="math notranslate nohighlight">\(j\)</span> in the hypothesis:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-natural-language-processing-applications-natural-language-inference-attention-1">
-<span class="eqno">(15.4.3)<a class="headerlink" href="#equation-chapter-natural-language-processing-applications-natural-language-inference-attention-1" title="Link to this equation">¶</a></span>\[\boldsymbol{\alpha}_j = \sum_{i=1}^{m}\frac{\exp(e_{ij})}{ \sum_{k=1}^{m} \exp(e_{kj})} \mathbf{a}_i.\]</div>
+<span class="eqno">(15.4.3)<a class="headerlink" href="#equation-chapter-natural-language-processing-applications-natural-language-inference-attention-1" title="Permalink to this equation">¶</a></span>\[\boldsymbol{\alpha}_j = \sum_{i=1}^{m}\frac{\exp(e_{ij})}{ \sum_{k=1}^{m} \exp(e_{kj})} \mathbf{a}_i.\]</div>
 <p>Below we define the <code class="docutils literal notranslate"><span class="pre">Attend</span></code> class to compute the soft alignment of
 hypotheses (<code class="docutils literal notranslate"><span class="pre">beta</span></code>) with input premises <code class="docutils literal notranslate"><span class="pre">A</span></code> and soft alignment of
 premises (<code class="docutils literal notranslate"><span class="pre">alpha</span></code>) with input hypotheses <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
@@ -655,12 +656,12 @@ premises (<code class="docutils literal notranslate"><span class="pre">alpha</sp
 </div>
 </section>
 <section id="comparing">
-<h3><span class="section-number">15.4.1.2. </span>Comparing<a class="headerlink" href="#comparing" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.4.1.2. </span>Comparing<a class="headerlink" href="#comparing" title="Permalink to this heading">¶</a></h3>
 <p>In the next step, we compare a token in one sequence with the other
 sequence that is softly aligned with that token. Note that in soft
 alignment, all the tokens from one sequence, though with probably
 different attention weights, will be compared with a token in the other
-sequence. For easy of demonstration, <a class="reference internal" href="#fig-nli-attention"><span class="std std-numref">figure15.4.2</span></a> pairs
+sequence. For easy of demonstration, <a class="reference internal" href="#fig-nli-attention"><span class="std std-numref">Fig. 15.4.2</span></a> pairs
 tokens with aligned tokens in a <em>hard</em> way. For example, suppose that
 the attending step determines that “need” and “sleep” in the premise are
 both aligned with “tired” in the hypothesis, the pair “tired–need sleep”
@@ -669,7 +670,7 @@ will be compared.</p>
 <span class="math notranslate nohighlight">\([\cdot, \cdot]\)</span>) of tokens from one sequence and aligned tokens
 from the other sequence into a function <span class="math notranslate nohighlight">\(g\)</span> (an MLP):</p>
 <div class="math notranslate nohighlight" id="equation-eq-nli-v-ab">
-<span class="eqno">(15.4.4)<a class="headerlink" href="#equation-eq-nli-v-ab" title="Link to this equation">¶</a></span>\[\begin{split}\mathbf{v}_{A,i} = g([\mathbf{a}_i, \boldsymbol{\beta}_i]), i = 1, \ldots, m\\ \mathbf{v}_{B,j} = g([\mathbf{b}_j, \boldsymbol{\alpha}_j]), j = 1, \ldots, n.\end{split}\]</div>
+<span class="eqno">(15.4.4)<a class="headerlink" href="#equation-eq-nli-v-ab" title="Permalink to this equation">¶</a></span>\[\begin{split}\mathbf{v}_{A,i} = g([\mathbf{a}_i, \boldsymbol{\beta}_i]), i = 1, \ldots, m\\ \mathbf{v}_{B,j} = g([\mathbf{b}_j, \boldsymbol{\alpha}_j]), j = 1, \ldots, n.\end{split}\]</div>
 <p>In <a class="reference internal" href="#equation-eq-nli-v-ab">(15.4.4)</a>, <span class="math notranslate nohighlight">\(\mathbf{v}_{A,i}\)</span> is the comparison
 between token <span class="math notranslate nohighlight">\(i\)</span> in the premise and all the hypothesis tokens
 that are softly aligned with token <span class="math notranslate nohighlight">\(i\)</span>; while
@@ -690,19 +691,19 @@ comparing step.</p>
 </div>
 </section>
 <section id="aggregating">
-<h3><span class="section-number">15.4.1.3. </span>Aggregating<a class="headerlink" href="#aggregating" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.4.1.3. </span>Aggregating<a class="headerlink" href="#aggregating" title="Permalink to this heading">¶</a></h3>
 <p>With two sets of comparison vectors <span class="math notranslate nohighlight">\(\mathbf{v}_{A,i}\)</span>
 (<span class="math notranslate nohighlight">\(i = 1, \ldots, m\)</span>) and <span class="math notranslate nohighlight">\(\mathbf{v}_{B,j}\)</span>
 (<span class="math notranslate nohighlight">\(j = 1, \ldots, n\)</span>) on hand, in the last step we will aggregate
 such information to infer the logical relationship. We begin by summing
 up both sets:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-natural-language-processing-applications-natural-language-inference-attention-2">
-<span class="eqno">(15.4.5)<a class="headerlink" href="#equation-chapter-natural-language-processing-applications-natural-language-inference-attention-2" title="Link to this equation">¶</a></span>\[\mathbf{v}_A = \sum_{i=1}^{m} \mathbf{v}_{A,i}, \quad \mathbf{v}_B = \sum_{j=1}^{n}\mathbf{v}_{B,j}.\]</div>
+<span class="eqno">(15.4.5)<a class="headerlink" href="#equation-chapter-natural-language-processing-applications-natural-language-inference-attention-2" title="Permalink to this equation">¶</a></span>\[\mathbf{v}_A = \sum_{i=1}^{m} \mathbf{v}_{A,i}, \quad \mathbf{v}_B = \sum_{j=1}^{n}\mathbf{v}_{B,j}.\]</div>
 <p>Next we feed the concatenation of both summarization results into
 function <span class="math notranslate nohighlight">\(h\)</span> (an MLP) to obtain the classification result of the
 logical relationship:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-natural-language-processing-applications-natural-language-inference-attention-3">
-<span class="eqno">(15.4.6)<a class="headerlink" href="#equation-chapter-natural-language-processing-applications-natural-language-inference-attention-3" title="Link to this equation">¶</a></span>\[\hat{\mathbf{y}} = h([\mathbf{v}_A, \mathbf{v}_B]).\]</div>
+<span class="eqno">(15.4.6)<a class="headerlink" href="#equation-chapter-natural-language-processing-applications-natural-language-inference-attention-3" title="Permalink to this equation">¶</a></span>\[\hat{\mathbf{y}} = h([\mathbf{v}_A, \mathbf{v}_B]).\]</div>
 <p>The aggregation step is defined in the following <code class="docutils literal notranslate"><span class="pre">Aggregate</span></code> class.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Aggregate</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_inputs</span><span class="p">,</span> <span class="n">num_hiddens</span><span class="p">,</span> <span class="n">num_outputs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -721,7 +722,7 @@ logical relationship:</p>
 </div>
 </section>
 <section id="putting-it-all-together">
-<h3><span class="section-number">15.4.1.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.4.1.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">¶</a></h3>
 <p>By putting the attending, comparing, and aggregating steps together, we
 define the decomposable attention model to jointly train these three
 steps.</p>
@@ -748,13 +749,13 @@ steps.</p>
 </section>
 </section>
 <section id="training-and-evaluating-the-model">
-<h2><span class="section-number">15.4.2. </span>Training and Evaluating the Model<a class="headerlink" href="#training-and-evaluating-the-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.4.2. </span>Training and Evaluating the Model<a class="headerlink" href="#training-and-evaluating-the-model" title="Permalink to this heading">¶</a></h2>
 <p>Now we will train and evaluate the defined decomposable attention model
 on the SNLI dataset. We begin by reading the dataset.</p>
 <section id="reading-the-dataset">
-<h3><span class="section-number">15.4.2.1. </span>Reading the dataset<a class="headerlink" href="#reading-the-dataset" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.4.2.1. </span>Reading the dataset<a class="headerlink" href="#reading-the-dataset" title="Permalink to this heading">¶</a></h3>
 <p>We download and read the SNLI dataset using the function defined in
-<a class="reference internal" href="natural-language-inference-and-dataset.html#sec-natural-language-inference-and-dataset"><span class="std std-numref">15.3section</span></a>. The batch size
+<a class="reference internal" href="natural-language-inference-and-dataset.html#sec-natural-language-inference-and-dataset"><span class="std std-numref">Section 15.3</span></a>. The batch size
 and sequence length are set to <span class="math notranslate nohighlight">\(256\)</span> and <span class="math notranslate nohighlight">\(50\)</span>, respectively.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
 <span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">50</span>
@@ -772,7 +773,7 @@ and sequence length are set to <span class="math notranslate nohighlight">\(256\
 </div>
 </section>
 <section id="creating-the-model">
-<h3><span class="section-number">15.4.2.2. </span>Creating the Model<a class="headerlink" href="#creating-the-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.4.2.2. </span>Creating the Model<a class="headerlink" href="#creating-the-model" title="Permalink to this heading">¶</a></h3>
 <p>We use the pretrained 100-dimensional GloVe embedding to represent the
 input tokens. Thus, we predefine the dimension of vectors
 <span class="math notranslate nohighlight">\(\mathbf{a}_i\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}_j\)</span> in <a class="reference internal" href="#equation-eq-nli-e">(15.4.1)</a> as
@@ -792,7 +793,7 @@ to initialize vectors of input tokens.</p>
 </div>
 </section>
 <section id="id2">
-<h3><span class="section-number">15.4.2.3. </span>Training and Evaluating the Model<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.4.2.3. </span>Training and Evaluating the Model<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <p>In contrast to the <code class="docutils literal notranslate"><span class="pre">split_batch</span></code> function in <code class="xref std std-numref docutils literal notranslate"><span class="pre">sec_multi_gpu</span></code>
 that takes single inputs such as text sequences (or images), we define a
 <code class="docutils literal notranslate"><span class="pre">split_batch_multi_inputs</span></code> function to take multiple inputs such as
@@ -816,11 +817,10 @@ premises and hypotheses in minibatches.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_natural-language-inference-attention_8a1ec8_17_1.svg" src="../_images/output_natural-language-inference-attention_8a1ec8_17_1.svg" />
-</figure>
+<img alt="../_images/output_natural-language-inference-attention_8a1ec8_17_1.svg" src="../_images/output_natural-language-inference-attention_8a1ec8_17_1.svg" /></figure>
 </section>
 <section id="using-the-model">
-<h3><span class="section-number">15.4.2.4. </span>Using the Model<a class="headerlink" href="#using-the-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.4.2.4. </span>Using the Model<a class="headerlink" href="#using-the-model" title="Permalink to this heading">¶</a></h3>
 <p>Finally, define the prediction function to output the logical
 relationship between a pair of premise and hypothesis.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
@@ -852,7 +852,7 @@ result for a sample pair of sentences.</p>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">15.4.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.4.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>The decomposable attention model consists of three steps for
 predicting the logical relationships between premises and hypotheses:
@@ -869,7 +869,7 @@ inference.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">15.4.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.4.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Train the model with other combinations of hyperparameters. Can you
 get better accuracy on the test set?</p></li>

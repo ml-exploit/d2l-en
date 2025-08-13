@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.4. Linear Regression Implementation from Scratch" href="linear-regression-scratch.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="synthetic-regression-data">
-<span id="sec-synthetic-regression-data"></span><h1><span class="section-number">3.3. </span>Synthetic Regression Data<a class="headerlink" href="#synthetic-regression-data" title="Link to this heading">¶</a></h1>
+<span id="sec-synthetic-regression-data"></span><h1><span class="section-number">3.3. </span>Synthetic Regression Data<a class="headerlink" href="#synthetic-regression-data" title="Permalink to this heading">¶</a></h1>
 <p>Machine learning is all about extracting information from data. So you
 might wonder, what could we possibly learn from synthetic data? While we
 might not care intrinsically about the patterns that we ourselves baked
@@ -542,7 +545,7 @@ fact recover them.</p>
 </pre></div>
 </div>
 <section id="generating-the-dataset">
-<h2><span class="section-number">3.3.1. </span>Generating the Dataset<a class="headerlink" href="#generating-the-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.3.1. </span>Generating the Dataset<a class="headerlink" href="#generating-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>For this example, we will work in low dimension for succinctness. The
 following code snippet generates 1000 examples with 2-dimensional
 features drawn from a standard normal distribution. The resulting design
@@ -551,12 +554,12 @@ We generate each label by applying a <em>ground truth</em> linear function,
 corrupting them via additive noise <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span>, drawn
 independently and identically for each example:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-synthetic-regression-data-0">
-<span class="eqno">(3.3.1)<a class="headerlink" href="#equation-chapter-linear-regression-synthetic-regression-data-0" title="Link to this equation">¶</a></span>\[\mathbf{y}= \mathbf{X} \mathbf{w} + b + \boldsymbol{\epsilon}.\]</div>
+<span class="eqno">(3.3.1)<a class="headerlink" href="#equation-chapter-linear-regression-synthetic-regression-data-0" title="Permalink to this equation">¶</a></span>\[\mathbf{y}= \mathbf{X} \mathbf{w} + b + \boldsymbol{\epsilon}.\]</div>
 <p>For convenience we assume that <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span> is drawn
 from a normal distribution with mean <span class="math notranslate nohighlight">\(\mu= 0\)</span> and standard
 deviation <span class="math notranslate nohighlight">\(\sigma = 0.01\)</span>. Note that for object-oriented design we
 add the code to the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method of a subclass of
-<code class="docutils literal notranslate"><span class="pre">d2l.DataModule</span></code> (introduced in <a class="reference internal" href="oo-design.html#oo-design-data"><span class="std std-numref">3.2.3section</span></a>). It is
+<code class="docutils literal notranslate"><span class="pre">d2l.DataModule</span></code> (introduced in <a class="reference internal" href="oo-design.html#oo-design-data"><span class="std std-numref">Section 3.2.3</span></a>). It is
 good practice to allow the setting of any additional hyperparameters. We
 accomplish this with <code class="docutils literal notranslate"><span class="pre">save_hyperparameters()</span></code>. The <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> will
 be determined later.</p>
@@ -590,13 +593,13 @@ entry.</p>
 </div>
 </section>
 <section id="reading-the-dataset">
-<h2><span class="section-number">3.3.2. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.3.2. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>Training machine learning models often requires multiple passes over a
 dataset, grabbing one minibatch of examples at a time. This data is then
 used to update the model. To illustrate how this works, we implement the
 <code class="docutils literal notranslate"><span class="pre">get_dataloader</span></code> method, registering it in the
 <code class="docutils literal notranslate"><span class="pre">SyntheticRegressionData</span></code> class via <code class="docutils literal notranslate"><span class="pre">add_to_class</span></code> (introduced in
-<a class="reference internal" href="oo-design.html#oo-design-utilities"><span class="std std-numref">3.2.1section</span></a>). It takes a batch size, a matrix of
+<a class="reference internal" href="oo-design.html#oo-design-utilities"><span class="std std-numref">Section 3.2.1</span></a>). It takes a batch size, a matrix of
 features, and a vector of labels, and generates minibatches of size
 <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>. As such, each minibatch consists of a tuple of features
 and labels. Note that we need to be mindful of whether we’re in training
@@ -646,7 +649,7 @@ generated or processed on the fly. Next let’s try to implement the same
 method using built-in iterators.</p>
 </section>
 <section id="concise-implementation-of-the-data-loader">
-<h2><span class="section-number">3.3.3. </span>Concise Implementation of the Data Loader<a class="headerlink" href="#concise-implementation-of-the-data-loader" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.3.3. </span>Concise Implementation of the Data Loader<a class="headerlink" href="#concise-implementation-of-the-data-loader" title="Permalink to this heading">¶</a></h2>
 <p>Rather than writing our own iterator, we can call the existing API in a
 framework to load data. As before, we need a dataset with features <code class="docutils literal notranslate"><span class="pre">X</span></code>
 and labels <code class="docutils literal notranslate"><span class="pre">y</span></code>. Beyond that, we set <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> in the built-in
@@ -685,7 +688,7 @@ number of batches.</p>
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">3.3.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.3.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>Data loaders are a convenient way of abstracting out the process of
 loading and manipulating data. This way the same machine learning
 <em>algorithm</em> is capable of processing many different types and sources of
@@ -701,7 +704,7 @@ data or an underdetermined system of equations. We will put this to good
 use in the next section.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">3.3.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.3.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>What will happen if the number of examples cannot be divided by the
 batch size. How would you change this behavior by specifying a

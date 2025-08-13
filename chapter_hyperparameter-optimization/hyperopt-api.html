@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="18.3. Asynchronous Random Search" href="rs-async.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="hyperparameter-optimization-api">
-<span id="sec-api-hpo"></span><h1><span class="section-number">18.2. </span>Hyperparameter Optimization API<a class="headerlink" href="#hyperparameter-optimization-api" title="Link to this heading">¶</a></h1>
+<span id="sec-api-hpo"></span><h1><span class="section-number">18.2. </span>Hyperparameter Optimization API<a class="headerlink" href="#hyperparameter-optimization-api" title="Permalink to this heading">¶</a></h1>
 <p>Before we dive into the methodology, we will first discuss a basic code
 structure that allows us to efficiently implement various HPO
 algorithms. In general, all HPO algorithms considered here need to
@@ -544,12 +547,12 @@ HPO libraries, such as Syne Tune <span id="id1">()</span>, Ray Tune
 </pre></div>
 </div>
 <section id="searcher">
-<h2><span class="section-number">18.2.1. </span>Searcher<a class="headerlink" href="#searcher" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.2.1. </span>Searcher<a class="headerlink" href="#searcher" title="Permalink to this heading">¶</a></h2>
 <p>Below we define a base class for searchers, which provides a new
 candidate configuration through the <code class="docutils literal notranslate"><span class="pre">sample_configuration</span></code> function. A
 simple way to implement this function would be to sample configurations
 uniformly at random, as we did for random search in
-<a class="reference internal" href="hyperopt-intro.html#sec-what-is-hpo"><span class="std std-numref">18.1section</span></a>. More sophisticated algorithms, such as
+<a class="reference internal" href="hyperopt-intro.html#sec-what-is-hpo"><span class="std std-numref">Section 18.1</span></a>. More sophisticated algorithms, such as
 Bayesian optimization, will make these decisions based on the
 performance of previous trials. As a result, these algorithms are able
 to sample more promising candidates over time. We add the <code class="docutils literal notranslate"><span class="pre">update</span></code>
@@ -585,7 +588,7 @@ the user to prescribe the first configuration to be evaluated via
 </div>
 </section>
 <section id="scheduler">
-<h2><span class="section-number">18.2.2. </span>Scheduler<a class="headerlink" href="#scheduler" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.2.2. </span>Scheduler<a class="headerlink" href="#scheduler" title="Permalink to this heading">¶</a></h2>
 <p>Beyond sampling configurations for new trials, we also need to decide
 when and for how long to run a trial. In practice, all these decisions
 are done by the <code class="docutils literal notranslate"><span class="pre">HPOScheduler</span></code>, which delegates the choice of new
@@ -619,7 +622,7 @@ resources become available.</p>
 </div>
 </section>
 <section id="tuner">
-<h2><span class="section-number">18.2.3. </span>Tuner<a class="headerlink" href="#tuner" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.2.3. </span>Tuner<a class="headerlink" href="#tuner" title="Permalink to this heading">¶</a></h2>
 <p>Finally, we need a component that runs the scheduler/searcher and does
 some book-keeping of the results. The following code implements a
 sequential execution of the HPO trials that evaluates one training job
@@ -651,7 +654,7 @@ after the next and will serve as a basic example. We will later use
 </div>
 </section>
 <section id="bookkeeping-the-performance-of-hpo-algorithms">
-<h2><span class="section-number">18.2.4. </span>Bookkeeping the Performance of HPO Algorithms<a class="headerlink" href="#bookkeeping-the-performance-of-hpo-algorithms" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.2.4. </span>Bookkeeping the Performance of HPO Algorithms<a class="headerlink" href="#bookkeeping-the-performance-of-hpo-algorithms" title="Permalink to this heading">¶</a></h2>
 <p>With any HPO algorithm, we are mostly interested in the best performing
 configuration (called <em>incumbent</em>) and its validation error after a
 given wall-clock time. This is why we track <code class="docutils literal notranslate"><span class="pre">runtime</span></code> per iteration,
@@ -680,10 +683,10 @@ also how quickly an optimizer is able to find it.</p>
 </div>
 </section>
 <section id="example-optimizing-the-hyperparameters-of-a-convolutional-neural-network">
-<h2><span class="section-number">18.2.5. </span>Example: Optimizing the Hyperparameters of a Convolutional Neural Network<a class="headerlink" href="#example-optimizing-the-hyperparameters-of-a-convolutional-neural-network" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.2.5. </span>Example: Optimizing the Hyperparameters of a Convolutional Neural Network<a class="headerlink" href="#example-optimizing-the-hyperparameters-of-a-convolutional-neural-network" title="Permalink to this heading">¶</a></h2>
 <p>We now use our new implementation of random search to optimize the
 <em>batch size</em> and <em>learning rate</em> of the <code class="docutils literal notranslate"><span class="pre">LeNet</span></code> convolutional neural
-network from <a class="reference internal" href="../chapter_convolutional-neural-networks/lenet.html#sec-lenet"><span class="std std-numref">7.6section</span></a>. We being by defining the objective
+network from <a class="reference internal" href="../chapter_convolutional-neural-networks/lenet.html#sec-lenet"><span class="std std-numref">Section 7.6</span></a>. We being by defining the objective
 function, which will once more be validation error.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">hpo_objective_lenet</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">max_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span> <span class="c1">#@save</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">LeNet</span><span class="p">(</span><span class="n">num_inputs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -699,7 +702,7 @@ function, which will once more be validation error.</p>
 </div>
 <p>We also need to define the configuration space. Moreover, the first
 configuration to be evaluated is the default setting used in
-<a class="reference internal" href="../chapter_convolutional-neural-networks/lenet.html#sec-lenet"><span class="std std-numref">7.6section</span></a>.</p>
+<a class="reference internal" href="../chapter_convolutional-neural-networks/lenet.html#sec-lenet"><span class="std std-numref">Section 7.6</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config_space</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="n">stats</span><span class="o">.</span><span class="n">loguniform</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
     <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="n">stats</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
@@ -721,20 +724,15 @@ configuration to be evaluated is the default setting used in
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_hyperopt-api_529020_19_1.svg" src="../_images/output_hyperopt-api_529020_19_1.svg" />
-</figure>
+<img alt="../_images/output_hyperopt-api_529020_19_1.svg" src="../_images/output_hyperopt-api_529020_19_1.svg" /></figure>
 <figure class="align-default">
-<img alt="../_images/output_hyperopt-api_529020_19_2.svg" src="../_images/output_hyperopt-api_529020_19_2.svg" />
-</figure>
+<img alt="../_images/output_hyperopt-api_529020_19_2.svg" src="../_images/output_hyperopt-api_529020_19_2.svg" /></figure>
 <figure class="align-default">
-<img alt="../_images/output_hyperopt-api_529020_19_3.svg" src="../_images/output_hyperopt-api_529020_19_3.svg" />
-</figure>
+<img alt="../_images/output_hyperopt-api_529020_19_3.svg" src="../_images/output_hyperopt-api_529020_19_3.svg" /></figure>
 <figure class="align-default">
-<img alt="../_images/output_hyperopt-api_529020_19_4.svg" src="../_images/output_hyperopt-api_529020_19_4.svg" />
-</figure>
+<img alt="../_images/output_hyperopt-api_529020_19_4.svg" src="../_images/output_hyperopt-api_529020_19_4.svg" /></figure>
 <figure class="align-default">
-<img alt="../_images/output_hyperopt-api_529020_19_5.svg" src="../_images/output_hyperopt-api_529020_19_5.svg" />
-</figure>
+<img alt="../_images/output_hyperopt-api_529020_19_5.svg" src="../_images/output_hyperopt-api_529020_19_5.svg" /></figure>
 <p>Below we plot the optimization trajectory of the incumbent to get the
 any-time performance of random search:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">board</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">ProgressBoard</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
@@ -745,11 +743,10 @@ any-time performance of random search:</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_hyperopt-api_529020_21_0.svg" src="../_images/output_hyperopt-api_529020_21_0.svg" />
-</figure>
+<img alt="../_images/output_hyperopt-api_529020_21_0.svg" src="../_images/output_hyperopt-api_529020_21_0.svg" /></figure>
 </section>
 <section id="comparing-hpo-algorithms">
-<h2><span class="section-number">18.2.6. </span>Comparing HPO Algorithms<a class="headerlink" href="#comparing-hpo-algorithms" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.2.6. </span>Comparing HPO Algorithms<a class="headerlink" href="#comparing-hpo-algorithms" title="Permalink to this heading">¶</a></h2>
 <p>Just as with training algorithms or model architectures, it is important
 to understand how to best compare different HPO algorithms. Each HPO run
 depends on two major sources of randomness: the random effects of the
@@ -760,7 +757,7 @@ algorithms, it is crucial to run each experiment several times and
 report statistics, such as mean or median, across a population of
 multiple repetitions of an algorithm based on different seeds of the
 random number generator.</p>
-<p>To illustrate this, we compare random search (see <a class="reference internal" href="hyperopt-intro.html#sec-rs"><span class="std std-numref">18.1.2section</span></a>)
+<p>To illustrate this, we compare random search (see <a class="reference internal" href="hyperopt-intro.html#sec-rs"><span class="std std-numref">Section 18.1.2</span></a>)
 and Bayesian optimization <span id="id4">()</span> on tuning the
 hyperparameters of a feed-forward neural network. Each algorithm was
 evaluated <span class="math notranslate nohighlight">\(50\)</span> times with a different random seed. The solid line
@@ -771,14 +768,13 @@ same up to ~1000 seconds, but Bayesian optimization can make use of the
 past observation to identify better configurations and thus quickly
 outperforms random search afterwards.</p>
 <figure class="align-default" id="id5">
-<span id="example-anytime-performance"></span><img alt="../_images/example_anytime_performance.svg" src="../_images/example_anytime_performance.svg" />
-<figcaption>
-<p><span class="caption-number">figure18.2.1 </span><span class="caption-text">Example any-time performance plot to compare two algorithms A and B.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<span id="example-anytime-performance"></span><img alt="../_images/example_anytime_performance.svg" src="../_images/example_anytime_performance.svg" /><figcaption>
+<p><span class="caption-number">Fig. 18.2.1 </span><span class="caption-text">Example any-time performance plot to compare two algorithms A and B.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="summary">
-<h2><span class="section-number">18.2.7. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.2.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>This section laid out a simple, yet flexible interface to implement
 various HPO algorithms that we will look at in this chapter. Similar
 interfaces can be found in popular open-source HPO frameworks. We also
@@ -786,12 +782,12 @@ looked at how we can compare HPO algorithms, and potential pitfall one
 needs to be aware.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">18.2.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.2.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>The goal of this exercise is to implement the objective function for
 a slightly more challenging HPO problem, and to run more realistic
 experiments. We will use the two hidden layer MLP <code class="docutils literal notranslate"><span class="pre">DropoutMLP</span></code>
-implemented in <a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html#sec-dropout"><span class="std std-numref">5.6section</span></a>.</p>
+implemented in <a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html#sec-dropout"><span class="std std-numref">Section 5.6</span></a>.</p>
 <ol class="arabic simple">
 <li><p>Code up the objective function, which should depend on all
 hyperparameters of the model and <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>. Use
@@ -804,7 +800,7 @@ values lie in <span class="math notranslate nohighlight">\([0, 0.95]\)</span>, w
 sensible distributions from <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>.</p></li>
 <li><p>Run random search on this example with <code class="docutils literal notranslate"><span class="pre">number_of_trials=20</span></code> and
 plot the results. Make sure to first evaluate the default
-configuration of <a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html#sec-dropout"><span class="std std-numref">5.6section</span></a>, which is
+configuration of <a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html#sec-dropout"><span class="std std-numref">Section 5.6</span></a>, which is
 <code class="docutils literal notranslate"><span class="pre">initial_config</span> <span class="pre">=</span> <span class="pre">{'num_hiddens_1':</span> <span class="pre">256,</span> <span class="pre">'num_hiddens_2':</span> <span class="pre">256,</span> <span class="pre">'dropout_1':</span> <span class="pre">0.5,</span> <span class="pre">'dropout_2':</span> <span class="pre">0.5,</span> <span class="pre">'lr':</span> <span class="pre">0.1,</span> <span class="pre">'batch_size':</span> <span class="pre">256}</span></code>.</p></li>
 </ol>
 </li>

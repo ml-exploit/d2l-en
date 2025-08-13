@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="13.13. Image Classification (CIFAR-10) on Kaggle" href="kaggle-cifar10.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="neural-style-transfer">
-<h1><span class="section-number">13.12. </span>Neural Style Transfer<a class="headerlink" href="#neural-style-transfer" title="Link to this heading">¶</a></h1>
+<h1><span class="section-number">13.12. </span>Neural Style Transfer<a class="headerlink" href="#neural-style-transfer" title="Permalink to this heading">¶</a></h1>
 <p>If you are a photography enthusiast, you may be familiar with the
 filter. It can change the color style of photos so that landscape photos
 become sharper or portrait photos have whitened skins. However, one
@@ -536,22 +539,21 @@ automatically apply the style of one image to another image, i.e.,
 input images: one is the <em>content image</em> and the other is the <em>style
 image</em>. We will use neural networks to modify the content image to make
 it close to the style image in style. For example, the content image in
-<a class="reference internal" href="#fig-style-transfer"><span class="std std-numref">figure13.12.1</span></a> is a landscape photo taken by us in Mount
+<a class="reference internal" href="#fig-style-transfer"><span class="std std-numref">Fig. 13.12.1</span></a> is a landscape photo taken by us in Mount
 Rainier National Park in the suburbs of Seattle, while the style image
 is an oil painting with the theme of autumn oak trees. In the output
 synthesized image, the oil brush strokes of the style image are applied,
 leading to more vivid colors, while preserving the main shape of the
 objects in the content image.</p>
 <figure class="align-default" id="id4">
-<span id="fig-style-transfer"></span><img alt="../_images/style-transfer.svg" src="../_images/style-transfer.svg" />
-<figcaption>
-<p><span class="caption-number">figure13.12.1 </span><span class="caption-text">Given content and style images, style transfer outputs a synthesized
-image.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<span id="fig-style-transfer"></span><img alt="../_images/style-transfer.svg" src="../_images/style-transfer.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13.12.1 </span><span class="caption-text">Given content and style images, style transfer outputs a synthesized
+image.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="method">
-<h2><span class="section-number">13.12.1. </span>Method<a class="headerlink" href="#method" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="#fig-style-transfer-model"><span class="std std-numref">figure13.12.2</span></a> illustrates the CNN-based style
+<h2><span class="section-number">13.12.1. </span>Method<a class="headerlink" href="#method" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="#fig-style-transfer-model"><span class="std std-numref">Fig. 13.12.2</span></a> illustrates the CNN-based style
 transfer method with a simplified example. First, we initialize the
 synthesized image, for example, into the content image. This synthesized
 image is the only variable that needs to be updated during the style
@@ -560,15 +562,14 @@ training. Then we choose a pretrained CNN to extract image features and
 freeze its model parameters during training. This deep CNN uses multiple
 layers to extract hierarchical features for images. We can choose the
 output of some of these layers as content features or style features.
-Take <a class="reference internal" href="#fig-style-transfer-model"><span class="std std-numref">figure13.12.2</span></a> as an example. The pretrained
+Take <a class="reference internal" href="#fig-style-transfer-model"><span class="std std-numref">Fig. 13.12.2</span></a> as an example. The pretrained
 neural network here has 3 convolutional layers, where the second layer
 outputs the content features, and the first and third layers output the
 style features.</p>
 <figure class="align-default" id="id5">
-<span id="fig-style-transfer-model"></span><img alt="../_images/neural-style.svg" src="../_images/neural-style.svg" />
-<figcaption>
-<p><span class="caption-number">figure13.12.2 </span><span class="caption-text">CNN-based style transfer process. Solid lines show the direction of
-forward propagation and dotted lines show backward propagation.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<span id="fig-style-transfer-model"></span><img alt="../_images/neural-style.svg" src="../_images/neural-style.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13.12.2 </span><span class="caption-text">CNN-based style transfer process. Solid lines show the direction of
+forward propagation and dotted lines show backward propagation.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Next, we calculate the loss function of style transfer through forward
@@ -586,7 +587,7 @@ image.</p>
 transfer via a concrete experiment.</p>
 </section>
 <section id="reading-the-content-and-style-images">
-<h2><span class="section-number">13.12.2. </span>Reading the Content and Style Images<a class="headerlink" href="#reading-the-content-and-style-images" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.12.2. </span>Reading the Content and Style Images<a class="headerlink" href="#reading-the-content-and-style-images" title="Permalink to this heading">¶</a></h2>
 <p>First, we read the content and style images. From their printed
 coordinate axes, we can tell that these images have different sizes.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
@@ -604,18 +605,16 @@ coordinate axes, we can tell that these images have different sizes.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_neural-style_05634c_1_0.svg" src="../_images/output_neural-style_05634c_1_0.svg" />
-</figure>
+<img alt="../_images/output_neural-style_05634c_1_0.svg" src="../_images/output_neural-style_05634c_1_0.svg" /></figure>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">style_img</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;../img/autumn-oak.jpg&#39;</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">style_img</span><span class="p">);</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_neural-style_05634c_2_0.svg" src="../_images/output_neural-style_05634c_2_0.svg" />
-</figure>
+<img alt="../_images/output_neural-style_05634c_2_0.svg" src="../_images/output_neural-style_05634c_2_0.svg" /></figure>
 </section>
 <section id="preprocessing-and-postprocessing">
-<h2><span class="section-number">13.12.3. </span>Preprocessing and Postprocessing<a class="headerlink" href="#preprocessing-and-postprocessing" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.12.3. </span>Preprocessing and Postprocessing<a class="headerlink" href="#preprocessing-and-postprocessing" title="Permalink to this heading">¶</a></h2>
 <p>Below, we define two functions for preprocessing and postprocessing
 images. The <code class="docutils literal notranslate"><span class="pre">preprocess</span></code> function standardizes each of the three RGB
 channels of the input image and transforms the results into the CNN
@@ -641,7 +640,7 @@ than 1 with 0 or 1, respectively.</p>
 </div>
 </section>
 <section id="extracting-features">
-<h2><span class="section-number">13.12.4. </span>Extracting Features<a class="headerlink" href="#extracting-features" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.12.4. </span>Extracting Features<a class="headerlink" href="#extracting-features" title="Permalink to this heading">¶</a></h2>
 <p>We use the VGG-19 model pretrained on the ImageNet dataset to extract
 image features <span id="id2">()</span>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_net</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="s1">&#39;vgg19&#39;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -718,12 +717,12 @@ function during training.</p>
 </div>
 </section>
 <section id="defining-the-loss-function">
-<h2><span class="section-number">13.12.5. </span>Defining the Loss Function<a class="headerlink" href="#defining-the-loss-function" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.12.5. </span>Defining the Loss Function<a class="headerlink" href="#defining-the-loss-function" title="Permalink to this heading">¶</a></h2>
 <p>Now we will describe the loss function for style transfer. The loss
 function consists of the content loss, style loss, and total variation
 loss.</p>
 <section id="content-loss">
-<h3><span class="section-number">13.12.5.1. </span>Content Loss<a class="headerlink" href="#content-loss" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.12.5.1. </span>Content Loss<a class="headerlink" href="#content-loss" title="Permalink to this heading">¶</a></h3>
 <p>Similar to the loss function in linear regression, the content loss
 measures the difference in content features between the synthesized
 image and the content image via the squared loss function. The two
@@ -735,7 +734,7 @@ layer computed by the <code class="docutils literal notranslate"><span class="pr
 </div>
 </section>
 <section id="style-loss">
-<h3><span class="section-number">13.12.5.2. </span>Style Loss<a class="headerlink" href="#style-loss" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.12.5.2. </span>Style Loss<a class="headerlink" href="#style-loss" title="Permalink to this heading">¶</a></h3>
 <p>Style loss, similar to content loss, also uses the squared loss function
 to measure the difference in style between the synthesized image and the
 style image. To express the style output of any style layer, we first
@@ -775,14 +774,14 @@ image and the style image. It is assumed here that the Gram matrix
 </div>
 </section>
 <section id="total-variation-loss">
-<h3><span class="section-number">13.12.5.3. </span>Total Variation Loss<a class="headerlink" href="#total-variation-loss" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.12.5.3. </span>Total Variation Loss<a class="headerlink" href="#total-variation-loss" title="Permalink to this heading">¶</a></h3>
 <p>Sometimes, the learned synthesized image has a lot of high-frequency
 noise, i.e., particularly bright or dark pixels. One common noise
 reduction method is <em>total variation denoising</em>. Denote by
 <span class="math notranslate nohighlight">\(x_{i, j}\)</span> the pixel value at coordinate <span class="math notranslate nohighlight">\((i, j)\)</span>. Reducing
 total variation loss</p>
 <div class="math notranslate nohighlight" id="equation-chapter-computer-vision-neural-style-0">
-<span class="eqno">(13.12.1)<a class="headerlink" href="#equation-chapter-computer-vision-neural-style-0" title="Link to this equation">¶</a></span>\[\sum_{i, j} \left|x_{i, j} - x_{i+1, j}\right| + \left|x_{i, j} - x_{i, j+1}\right|\]</div>
+<span class="eqno">(13.12.1)<a class="headerlink" href="#equation-chapter-computer-vision-neural-style-0" title="Permalink to this equation">¶</a></span>\[\sum_{i, j} \left|x_{i, j} - x_{i+1, j}\right| + \left|x_{i, j} - x_{i, j+1}\right|\]</div>
 <p>makes values of neighboring pixels on the synthesized image closer.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tv_loss</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y_hat</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">Y_hat</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">+</span>
@@ -791,7 +790,7 @@ total variation loss</p>
 </div>
 </section>
 <section id="loss-function">
-<h3><span class="section-number">13.12.5.4. </span>Loss Function<a class="headerlink" href="#loss-function" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.12.5.4. </span>Loss Function<a class="headerlink" href="#loss-function" title="Permalink to this heading">¶</a></h3>
 <p>The loss function of style transfer is the weighted sum of content loss,
 style loss, and total variation loss. By adjusting these weight
 hyperparameters, we can balance among content retention, style transfer,
@@ -813,7 +812,7 @@ and noise reduction on the synthesized image.</p>
 </section>
 </section>
 <section id="initializing-the-synthesized-image">
-<h2><span class="section-number">13.12.6. </span>Initializing the Synthesized Image<a class="headerlink" href="#initializing-the-synthesized-image" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.12.6. </span>Initializing the Synthesized Image<a class="headerlink" href="#initializing-the-synthesized-image" title="Permalink to this heading">¶</a></h2>
 <p>In style transfer, the synthesized image is the only variable that needs
 to be updated during training. Thus, we can define a simple model,
 <code class="docutils literal notranslate"><span class="pre">SynthesizedImage</span></code>, and treat the synthesized image as the model
@@ -841,7 +840,7 @@ Gram matrices for the style image at various style layers,
 </div>
 </section>
 <section id="training">
-<h2><span class="section-number">13.12.7. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.12.7. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h2>
 <p>When training the model for style transfer, we continuously extract
 content features and style features of the synthesized image, and
 calculate the loss function. Below defines the training loop.</p>
@@ -886,8 +885,7 @@ to initialize the synthesized image.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_neural-style_05634c_32_0.svg" src="../_images/output_neural-style_05634c_32_0.svg" />
-</figure>
+<img alt="../_images/output_neural-style_05634c_32_0.svg" src="../_images/output_neural-style_05634c_32_0.svg" /></figure>
 <p>We can see that the synthesized image retains the scenery and objects of
 the content image, and transfers the color of the style image at the
 same time. For example, the synthesized image has blocks of color like
@@ -895,7 +893,7 @@ those in the style image. Some of these blocks even have the subtle
 texture of brush strokes.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">13.12.8. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.12.8. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>The loss function commonly used in style transfer consists of three
 parts: (i) content loss makes the synthesized image and the content
@@ -911,7 +909,7 @@ layers.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">13.12.9. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.12.9. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>How does the output change when you select different content and
 style layers?</p></li>

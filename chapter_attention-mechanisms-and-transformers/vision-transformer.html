@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="11.9. Large-Scale Pretraining with Transformers" href="large-pretraining-transformers.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,14 +525,14 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="transformers-for-vision">
-<span id="sec-vision-transformer"></span><h1><span class="section-number">11.8. </span>Transformers for Vision<a class="headerlink" href="#transformers-for-vision" title="Link to this heading">¶</a></h1>
+<span id="sec-vision-transformer"></span><h1><span class="section-number">11.8. </span>Transformers for Vision<a class="headerlink" href="#transformers-for-vision" title="Permalink to this heading">¶</a></h1>
 <p>The Transformer architecture was initially proposed for
 sequence-to-sequence learning, with a focus on machine translation.
 Subsequently, Transformers emerged as the model of choice in various
 natural language processing tasks
 <span id="id1">()</span>.
 However, in the field of computer vision the dominant architecture has
-remained the CNN (<a class="reference internal" href="../chapter_convolutional-modern/index.html#chap-modern-cnn"><span class="std std-numref">8section</span></a>). Naturally, researchers
+remained the CNN (<a class="reference internal" href="../chapter_convolutional-modern/index.html#chap-modern-cnn"><span class="std std-numref">Section 8</span></a>). Naturally, researchers
 started to wonder if it might be possible to do better by adapting
 Transformer models to image data. This question sparked immense interest
 in the computer vision community. Recently,
@@ -556,20 +559,19 @@ game-changer in computer vision.</p>
 </pre></div>
 </div>
 <section id="model">
-<h2><span class="section-number">11.8.1. </span>Model<a class="headerlink" href="#model" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="#fig-vit"><span class="std std-numref">figure11.8.1</span></a> depicts the model architecture of vision
+<h2><span class="section-number">11.8.1. </span>Model<a class="headerlink" href="#model" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="#fig-vit"><span class="std std-numref">Fig. 11.8.1</span></a> depicts the model architecture of vision
 Transformers. This architecture consists of a stem that patchifies
 images, a body based on the multilayer Transformer encoder, and a head
 that transforms the global representation into the output label.</p>
 <figure class="align-default" id="id10">
-<span id="fig-vit"></span><img alt="../_images/vit.svg" src="../_images/vit.svg" />
-<figcaption>
-<p><span class="caption-number">figure11.8.1 </span><span class="caption-text">The vision Transformer architecture. In this example, an image is
+<span id="fig-vit"></span><img alt="../_images/vit.svg" src="../_images/vit.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.8.1 </span><span class="caption-text">The vision Transformer architecture. In this example, an image is
 split into nine patches. A special “&lt;cls&gt;” token and the nine
 flattened image patches are transformed via patch embedding and
 <span class="math notranslate nohighlight">\(\mathit{n}\)</span> Transformer encoder blocks into ten
 representations, respectively. The “&lt;cls&gt;” representation is further
-transformed into the output label.</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+transformed into the output label.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Consider an input image with height <span class="math notranslate nohighlight">\(h\)</span>, width <span class="math notranslate nohighlight">\(w\)</span>, and
@@ -583,17 +585,17 @@ projected into a sequence of <span class="math notranslate nohighlight">\(m+1\)<
 positional embeddings. The multilayer Transformer encoder transforms
 <span class="math notranslate nohighlight">\(m+1\)</span> input vectors into the same number of output vector
 representations of the same length. It works exactly the same way as the
-original Transformer encoder in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">figure11.7.1</span></a>, only
+original Transformer encoder in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">Fig. 11.7.1</span></a>, only
 differing in the position of normalization. Since the “&lt;cls&gt;” token
 attends to all the image patches via self-attention (see
-<a class="reference internal" href="self-attention-and-positional-encoding.html#fig-cnn-rnn-self-attention"><span class="std std-numref">figure11.6.1</span></a>), its representation from the
+<a class="reference internal" href="self-attention-and-positional-encoding.html#fig-cnn-rnn-self-attention"><span class="std std-numref">Fig. 11.6.1</span></a>), its representation from the
 Transformer encoder output will be further transformed into the output
 label.</p>
 </section>
 <section id="patch-embedding">
-<h2><span class="section-number">11.8.2. </span>Patch Embedding<a class="headerlink" href="#patch-embedding" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.8.2. </span>Patch Embedding<a class="headerlink" href="#patch-embedding" title="Permalink to this heading">¶</a></h2>
 <p>To implement a vision Transformer, let’s start with patch embedding in
-<a class="reference internal" href="#fig-vit"><span class="std std-numref">figure11.8.1</span></a>. Splitting an image into patches and linearly
+<a class="reference internal" href="#fig-vit"><span class="std std-numref">Fig. 11.8.1</span></a>. Splitting an image into patches and linearly
 projecting these flattened patches can be simplified as a single
 convolution operation, where both the kernel size and the stride size
 are set to the patch size.</p>
@@ -628,10 +630,10 @@ vectors of length <code class="docutils literal notranslate"><span class="pre">n
 </div>
 </section>
 <section id="vision-transformer-encoder">
-<span id="subsec-vit-encoder"></span><h2><span class="section-number">11.8.3. </span>Vision Transformer Encoder<a class="headerlink" href="#vision-transformer-encoder" title="Link to this heading">¶</a></h2>
+<span id="subsec-vit-encoder"></span><h2><span class="section-number">11.8.3. </span>Vision Transformer Encoder<a class="headerlink" href="#vision-transformer-encoder" title="Permalink to this heading">¶</a></h2>
 <p>The MLP of the vision Transformer encoder is slightly different from the
 positionwise FFN of the original Transformer encoder (see
-<a class="reference internal" href="transformer.html#subsec-positionwise-ffn"><span class="std std-numref">11.7.2section</span></a>). First, here the activation
+<a class="reference internal" href="transformer.html#subsec-positionwise-ffn"><span class="std std-numref">Section 11.7.2</span></a>). First, here the activation
 function uses the Gaussian error linear unit (GELU), which can be
 considered as a smoother version of the ReLU
 <span id="id5">()</span>. Second, dropout is applied to the
@@ -651,9 +653,9 @@ output of each fully connected layer in the MLP for regularization.</p>
 </pre></div>
 </div>
 <p>The vision Transformer encoder block implementation just follows the
-pre-normalization design in <a class="reference internal" href="#fig-vit"><span class="std std-numref">figure11.8.1</span></a>, where normalization is
+pre-normalization design in <a class="reference internal" href="#fig-vit"><span class="std std-numref">Fig. 11.8.1</span></a>, where normalization is
 applied right <em>before</em> multi-head attention or the MLP. In contrast to
-post-normalization (“add &amp; norm” in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">figure11.7.1</span></a>), where
+post-normalization (“add &amp; norm” in <a class="reference internal" href="transformer.html#fig-transformer"><span class="std std-numref">Fig. 11.7.1</span></a>), where
 normalization is placed right <em>after</em> residual connections,
 pre-normalization leads to more effective or efficient training for
 Transformers
@@ -673,7 +675,7 @@ Transformers
         <span class="k">return</span> <span class="n">X</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ln2</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Just as in <a class="reference internal" href="transformer.html#subsec-transformer-encoder"><span class="std std-numref">11.7.4section</span></a>, no vision Transformer
+<p>Just as in <a class="reference internal" href="transformer.html#subsec-transformer-encoder"><span class="std std-numref">Section 11.7.4</span></a>, no vision Transformer
 encoder block changes its input shape.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
 <span class="n">encoder_blk</span> <span class="o">=</span> <span class="n">ViTBlock</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -683,7 +685,7 @@ encoder block changes its input shape.</p>
 </div>
 </section>
 <section id="putting-it-all-together">
-<h2><span class="section-number">11.8.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.8.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">¶</a></h2>
 <p>The forward pass of vision Transformers below is straightforward. First,
 input images are fed into an <code class="docutils literal notranslate"><span class="pre">PatchEmbedding</span></code> instance, whose output
 is concatenated with the “&lt;cls&gt;” token embedding. They are summed with
@@ -725,9 +727,9 @@ projected by the network head.</p>
 </div>
 </section>
 <section id="training">
-<h2><span class="section-number">11.8.5. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.8.5. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h2>
 <p>Training a vision Transformer on the Fashion-MNIST dataset is just like
-how CNNs were trained in <a class="reference internal" href="../chapter_convolutional-modern/index.html#chap-modern-cnn"><span class="std std-numref">8section</span></a>.</p>
+how CNNs were trained in <a class="reference internal" href="../chapter_convolutional-modern/index.html#chap-modern-cnn"><span class="std std-numref">Section 8</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">img_size</span><span class="p">,</span> <span class="n">patch_size</span> <span class="o">=</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">16</span>
 <span class="n">num_inputs</span><span class="p">,</span> <span class="n">num_hiddens</span><span class="p">,</span> <span class="n">mlp_num_input</span><span class="p">,</span> <span class="n">mlp_num_hiddens</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="n">num_blks</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span>
 <span class="n">emb_dropout</span><span class="p">,</span> <span class="n">blk_dropout</span><span class="p">,</span> <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span>
@@ -739,17 +741,16 @@ how CNNs were trained in <a class="reference internal" href="../chapter_convolut
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_vision-transformer_5c928f_15_0.svg" src="../_images/output_vision-transformer_5c928f_15_0.svg" />
-</figure>
+<img alt="../_images/output_vision-transformer_5c928f_15_0.svg" src="../_images/output_vision-transformer_5c928f_15_0.svg" /></figure>
 </section>
 <section id="summary-and-discussion">
-<h2><span class="section-number">11.8.6. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.8.6. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Permalink to this heading">¶</a></h2>
 <p>You may have noticed that for small datasets like Fashion-MNIST, our
 implemented vision Transformer does not outperform the ResNet in
-<a class="reference internal" href="../chapter_convolutional-modern/resnet.html#sec-resnet"><span class="std std-numref">8.4section</span></a>. Similar observations can be made even on the
+<a class="reference internal" href="../chapter_convolutional-modern/resnet.html#sec-resnet"><span class="std std-numref">Section 8.4</span></a>. Similar observations can be made even on the
 ImageNet dataset (1.2 million images). This is because Transformers
 <em>lack</em> those useful principles in convolution, such as translation
-invariance and locality (<a class="reference internal" href="../chapter_convolutional-neural-networks/why-conv.html#sec-why-conv"><span class="std std-numref">7.1section</span></a>). However, the picture
+invariance and locality (<a class="reference internal" href="../chapter_convolutional-neural-networks/why-conv.html#sec-why-conv"><span class="std std-numref">Section 7.1</span></a>). However, the picture
 changes when training larger models on larger datasets (e.g., 300
 million images), where vision Transformers outperform ResNets by a large
 margin in image classification, demonstrating intrinsic superiority of
@@ -759,17 +760,17 @@ vision Transformers has changed the landscape of network design for
 modeling image data. They were soon shown to be effective on the
 ImageNet dataset with data-efficient training strategies of DeiT
 <span id="id8">()</span>. However, the quadratic complexity of
-self-attention (<a class="reference internal" href="self-attention-and-positional-encoding.html#sec-self-attention-and-positional-encoding"><span class="std std-numref">11.6section</span></a>)
+self-attention (<a class="reference internal" href="self-attention-and-positional-encoding.html#sec-self-attention-and-positional-encoding"><span class="std std-numref">Section 11.6</span></a>)
 makes the Transformer architecture less suitable for higher-resolution
 images. Towards a general-purpose backbone network in computer vision,
 Swin Transformers addressed the quadratic computational complexity with
-respect to image size (<a class="reference internal" href="self-attention-and-positional-encoding.html#subsec-cnn-rnn-self-attention"><span class="std std-numref">11.6.2section</span></a>) and
+respect to image size (<a class="reference internal" href="self-attention-and-positional-encoding.html#subsec-cnn-rnn-self-attention"><span class="std std-numref">Section 11.6.2</span></a>) and
 reinstated convolution-like priors, extending the applicability of
 Transformers to a range of computer vision tasks beyond image
 classification with state-of-the-art results <span id="id9">()</span>.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">11.8.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.8.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>How does the value of <code class="docutils literal notranslate"><span class="pre">img_size</span></code> affect training time?</p></li>
 <li><p>Instead of projecting the “&lt;cls&gt;” token representation to the output,

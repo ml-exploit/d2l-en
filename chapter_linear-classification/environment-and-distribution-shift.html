@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5. Multilayer Perceptrons" href="../chapter_multilayer-perceptrons/index.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -320,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -526,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="environment-and-distribution-shift">
-<span id="sec-environment-and-distribution-shift"></span><h1><span class="section-number">4.7. </span>Environment and Distribution Shift<a class="headerlink" href="#environment-and-distribution-shift" title="Link to this heading">¶</a></h1>
+<span id="sec-environment-and-distribution-shift"></span><h1><span class="section-number">4.7. </span>Environment and Distribution Shift<a class="headerlink" href="#environment-and-distribution-shift" title="Permalink to this heading">¶</a></h1>
 <p>In the previous sections, we worked through a number of hands-on
 applications of machine learning, fitting models to a variety of
 datasets. And yet, we never stopped to contemplate either where data
@@ -564,7 +563,7 @@ step outside the realm of statistical prediction altogether and grapple
 with difficult philosophical questions concerning the ethical
 application of algorithms.</p>
 <section id="types-of-distribution-shift">
-<h2><span class="section-number">4.7.1. </span>Types of Distribution Shift<a class="headerlink" href="#types-of-distribution-shift" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.7.1. </span>Types of Distribution Shift<a class="headerlink" href="#types-of-distribution-shift" title="Permalink to this heading">¶</a></h2>
 <p>To begin, we stick with the passive prediction setting considering the
 various ways that data distributions might shift and what might be done
 to salvage model performance. In one classic setup, we assume that our
@@ -590,7 +589,7 @@ might change in the future, principled algorithms can detect shift and
 sometimes even adapt on the fly, improving on the accuracy of the
 original classifier.</p>
 <section id="covariate-shift">
-<h3><span class="section-number">4.7.1.1. </span>Covariate Shift<a class="headerlink" href="#covariate-shift" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.1.1. </span>Covariate Shift<a class="headerlink" href="#covariate-shift" title="Permalink to this heading">¶</a></h3>
 <p>Among categories of distribution shift, covariate shift may be the most
 widely studied. Here, we assume that while the distribution of inputs
 may change over time, the labeling function, i.e., the conditional
@@ -602,25 +601,25 @@ covariate shift is the natural assumption to invoke in settings where we
 believe that <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> causes <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p>Consider the challenge of distinguishing cats and dogs. Our training
 data might consist of images of the kind in
-<a class="reference internal" href="#fig-cat-dog-train"><span class="std std-numref">figure4.7.1</span></a>.</p>
+<a class="reference internal" href="#fig-cat-dog-train"><span class="std std-numref">Fig. 4.7.1</span></a>.</p>
 <figure class="align-default" id="id2">
 <span id="fig-cat-dog-train"></span><img alt="../_images/cat-dog-train.png" src="../_images/cat-dog-train.png" />
 <figcaption>
-<p><span class="caption-number">figure4.7.1 </span><span class="caption-text">Training data for distinguishing cats and dogs (illustrations: Lafeez
+<p><span class="caption-number">Fig. 4.7.1 </span><span class="caption-text">Training data for distinguishing cats and dogs (illustrations: Lafeez
 Hossain / 500px / Getty Images; ilkermetinkursova / iStock / Getty
 Images Plus; GlobalP / iStock / Getty Images Plus; Musthafa
-Aboobakuru / 500px / Getty Images).</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+Aboobakuru / 500px / Getty Images).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>At test time we are asked to classify the images in
-<a class="reference internal" href="#fig-cat-dog-test"><span class="std std-numref">figure4.7.2</span></a>.</p>
+<a class="reference internal" href="#fig-cat-dog-test"><span class="std std-numref">Fig. 4.7.2</span></a>.</p>
 <figure class="align-default" id="id3">
 <span id="fig-cat-dog-test"></span><img alt="../_images/cat-dog-test.png" src="../_images/cat-dog-test.png" />
 <figcaption>
-<p><span class="caption-number">figure4.7.2 </span><span class="caption-text">Test data for distinguishing cats and dogs (illustrations:
+<p><span class="caption-number">Fig. 4.7.2 </span><span class="caption-text">Test data for distinguishing cats and dogs (illustrations:
 SIBAS_minich / iStock / Getty Images Plus; Ghrzuzudu / iStock / Getty
 Images Plus; id-work / DigitalVision Vectors / Getty Images; Yime /
-iStock / Getty Images Plus).</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+iStock / Getty Images Plus).</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>The training set consists of photos, while the test set contains only
@@ -629,7 +628,7 @@ characteristics from the test set can spell trouble absent a coherent
 plan for how to adapt to the new domain.</p>
 </section>
 <section id="label-shift">
-<h3><span class="section-number">4.7.1.2. </span>Label Shift<a class="headerlink" href="#label-shift" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.1.2. </span>Label Shift<a class="headerlink" href="#label-shift" title="Permalink to this heading">¶</a></h3>
 <p><em>Label shift</em> describes the converse problem. Here, we assume that the
 label marginal <span class="math notranslate nohighlight">\(P(y)\)</span> can change but the class-conditional
 distribution <span class="math notranslate nohighlight">\(P(\mathbf{x} \mid y)\)</span> remains fixed across domains.
@@ -649,7 +648,7 @@ objects that look like inputs, which tend to be high-dimensional in deep
 learning.</p>
 </section>
 <section id="concept-shift">
-<h3><span class="section-number">4.7.1.3. </span>Concept Shift<a class="headerlink" href="#concept-shift" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.1.3. </span>Concept Shift<a class="headerlink" href="#concept-shift" title="Permalink to this heading">¶</a></h3>
 <p>We may also encounter the related problem of <em>concept shift</em>, which
 arises when the very definitions of labels can change. This sounds
 weird—a <em>cat</em> is a <em>cat</em>, no? However, other categories are subject to
@@ -658,13 +657,12 @@ passes for fashionable, and job titles, are all subject to considerable
 amounts of concept shift. It turns out that if we navigate around the
 United States, shifting the source of our data by geography, we will
 find considerable concept shift regarding the distribution of names for
-<em>soft drinks</em> as shown in <a class="reference internal" href="#fig-popvssoda"><span class="std std-numref">figure4.7.3</span></a>.</p>
+<em>soft drinks</em> as shown in <a class="reference internal" href="#fig-popvssoda"><span class="std std-numref">Fig. 4.7.3</span></a>.</p>
 <figure class="align-default" id="id4">
-<span id="fig-popvssoda"></span><a class="reference internal image-reference" href="../_images/popvssoda.png"><img alt="../_images/popvssoda.png" src="../_images/popvssoda.png" style="width: 400px;" />
-</a>
+<span id="fig-popvssoda"></span><a class="reference internal image-reference" href="../_images/popvssoda.png"><img alt="../_images/popvssoda.png" src="../_images/popvssoda.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">figure4.7.3 </span><span class="caption-text">Concept shift for soft drink names in the United States (CC-BY: Alan
-McConchie, PopVsSoda.com).</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<p><span class="caption-number">Fig. 4.7.3 </span><span class="caption-text">Concept shift for soft drink names in the United States (CC-BY: Alan
+McConchie, PopVsSoda.com).</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>If we were to build a machine translation system, the distribution
@@ -675,12 +673,12 @@ geographic sense.</p>
 </section>
 </section>
 <section id="examples-of-distribution-shift">
-<h2><span class="section-number">4.7.2. </span>Examples of Distribution Shift<a class="headerlink" href="#examples-of-distribution-shift" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.7.2. </span>Examples of Distribution Shift<a class="headerlink" href="#examples-of-distribution-shift" title="Permalink to this heading">¶</a></h2>
 <p>Before delving into formalism and algorithms, we can discuss some
 concrete situations where covariate or concept shift might not be
 obvious.</p>
 <section id="medical-diagnostics">
-<h3><span class="section-number">4.7.2.1. </span>Medical Diagnostics<a class="headerlink" href="#medical-diagnostics" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.2.1. </span>Medical Diagnostics<a class="headerlink" href="#medical-diagnostics" title="Permalink to this heading">¶</a></h3>
 <p>Imagine that you want to design an algorithm to detect cancer. You
 collect data from healthy and sick people and you train your algorithm.
 It works fine, giving you high accuracy and you conclude that you are
@@ -706,7 +704,7 @@ shift. Moreover, this case was unlikely to be correctable via
 conventional methods. In short, they wasted a significant sum of money.</p>
 </section>
 <section id="self-driving-cars">
-<h3><span class="section-number">4.7.2.2. </span>Self-Driving Cars<a class="headerlink" href="#self-driving-cars" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.2.2. </span>Self-Driving Cars<a class="headerlink" href="#self-driving-cars" title="Permalink to this heading">¶</a></h3>
 <p>Say a company wanted to leverage machine learning for developing
 self-driving cars. One key component here is a roadside detector. Since
 real annotated data is expensive to get, they had the (smart and
@@ -726,7 +724,7 @@ without shadows—the first set of pictures was taken in the early
 morning, the second set at noon.</p>
 </section>
 <section id="nonstationary-distributions">
-<h3><span class="section-number">4.7.2.3. </span>Nonstationary Distributions<a class="headerlink" href="#nonstationary-distributions" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.2.3. </span>Nonstationary Distributions<a class="headerlink" href="#nonstationary-distributions" title="Permalink to this heading">¶</a></h3>
 <p>A much more subtle situation arises when the distribution changes slowly
 (also known as <em>nonstationary distribution</em>) and the model is not
 updated adequately. Below are some typical cases.</p>
@@ -743,7 +741,7 @@ Christmas.</p></li>
 </ul>
 </section>
 <section id="more-anecdotes">
-<h3><span class="section-number">4.7.2.4. </span>More Anecdotes<a class="headerlink" href="#more-anecdotes" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.2.4. </span>More Anecdotes<a class="headerlink" href="#more-anecdotes" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>We build a face detector. It works well on all benchmarks.
 Unfortunately it fails on test data—the offending examples are
@@ -760,7 +758,7 @@ photographs is decidedly non-uniform.</p></li>
 </section>
 </section>
 <section id="correction-of-distribution-shift">
-<h2><span class="section-number">4.7.3. </span>Correction of Distribution Shift<a class="headerlink" href="#correction-of-distribution-shift" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.7.3. </span>Correction of Distribution Shift<a class="headerlink" href="#correction-of-distribution-shift" title="Permalink to this heading">¶</a></h2>
 <p>As we have discussed, there are many cases where training and test
 distributions <span class="math notranslate nohighlight">\(P(\mathbf{x}, y)\)</span> are different. In some cases, we
 get lucky and the models work despite covariate, label, or concept
@@ -770,7 +768,7 @@ considerably more technical. The impatient reader could continue on to
 the next section as this material is not prerequisite to subsequent
 concepts.</p>
 <section id="empirical-risk-and-risk">
-<span id="subsec-empirical-risk-and-risk"></span><h3><span class="section-number">4.7.3.1. </span>Empirical Risk and Risk<a class="headerlink" href="#empirical-risk-and-risk" title="Link to this heading">¶</a></h3>
+<span id="subsec-empirical-risk-and-risk"></span><h3><span class="section-number">4.7.3.1. </span>Empirical Risk and Risk<a class="headerlink" href="#empirical-risk-and-risk" title="Permalink to this heading">¶</a></h3>
 <p>Let’s first reflect on what exactly is happening during model training:
 we iterate over features and associated labels of training data
 <span class="math notranslate nohighlight">\(\{(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\}\)</span> and update
@@ -778,7 +776,7 @@ the parameters of a model <span class="math notranslate nohighlight">\(f\)</span
 simplicity we do not consider regularization, so we largely minimize the
 loss on the training:</p>
 <div class="math notranslate nohighlight" id="equation-eq-empirical-risk-min">
-<span class="eqno">(4.7.1)<a class="headerlink" href="#equation-eq-empirical-risk-min" title="Link to this equation">¶</a></span>\[\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n l(f(\mathbf{x}_i), y_i),\]</div>
+<span class="eqno">(4.7.1)<a class="headerlink" href="#equation-eq-empirical-risk-min" title="Permalink to this equation">¶</a></span>\[\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n l(f(\mathbf{x}_i), y_i),\]</div>
 <p>where <span class="math notranslate nohighlight">\(l\)</span> is the loss function measuring “how bad” the prediction
 <span class="math notranslate nohighlight">\(f(\mathbf{x}_i)\)</span> is given the associated label <span class="math notranslate nohighlight">\(y_i\)</span>.
 Statisticians call the term in <a class="reference internal" href="#equation-eq-empirical-risk-min">(4.7.1)</a>
@@ -787,7 +785,7 @@ training data for approximating the <em>risk</em>, which is the expectation of
 the loss over the entire population of data drawn from their true
 distribution <span class="math notranslate nohighlight">\(p(\mathbf{x},y)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-true-risk">
-<span class="eqno">(4.7.2)<a class="headerlink" href="#equation-eq-true-risk" title="Link to this equation">¶</a></span>\[E_{p(\mathbf{x}, y)} [l(f(\mathbf{x}), y)] = \int\int l(f(\mathbf{x}), y) p(\mathbf{x}, y) \;d\mathbf{x}dy.\]</div>
+<span class="eqno">(4.7.2)<a class="headerlink" href="#equation-eq-true-risk" title="Permalink to this equation">¶</a></span>\[E_{p(\mathbf{x}, y)} [l(f(\mathbf{x}), y)] = \int\int l(f(\mathbf{x}), y) p(\mathbf{x}, y) \;d\mathbf{x}dy.\]</div>
 <p>However, in practice we typically cannot obtain the entire population of
 data. Thus, <em>empirical risk minimization</em>, which is minimizing the
 empirical risk in <a class="reference internal" href="#equation-eq-empirical-risk-min">(4.7.1)</a>, is a practical
@@ -795,7 +793,7 @@ strategy for machine learning, with the hope of approximately minimizing
 the risk.</p>
 </section>
 <section id="covariate-shift-correction">
-<span id="subsec-covariate-shift-correction"></span><h3><span class="section-number">4.7.3.2. </span>Covariate Shift Correction<a class="headerlink" href="#covariate-shift-correction" title="Link to this heading">¶</a></h3>
+<span id="subsec-covariate-shift-correction"></span><h3><span class="section-number">4.7.3.2. </span>Covariate Shift Correction<a class="headerlink" href="#covariate-shift-correction" title="Permalink to this heading">¶</a></h3>
 <p>Assume that we want to estimate some dependency
 <span class="math notranslate nohighlight">\(P(y \mid \mathbf{x})\)</span> for which we have labeled data
 <span class="math notranslate nohighlight">\((\mathbf{x}_i, y_i)\)</span>. Unfortunately, the observations
@@ -807,7 +805,7 @@ the conditional distribution does not change:
 distribution <span class="math notranslate nohighlight">\(q(\mathbf{x})\)</span> is “wrong”, we can correct for that
 by using the following simple identity in the risk:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-environment-and-distribution-shift-0">
-<span class="eqno">(4.7.3)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-0" title="Link to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(4.7.3)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-0" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
 \int\int l(f(\mathbf{x}), y) p(y \mid \mathbf{x})p(\mathbf{x}) \;d\mathbf{x}dy =
 \int\int l(f(\mathbf{x}), y) q(y \mid \mathbf{x})q(\mathbf{x})\frac{p(\mathbf{x})}{q(\mathbf{x})} \;d\mathbf{x}dy.
 \end{aligned}\]</div>
@@ -815,12 +813,12 @@ by using the following simple identity in the risk:</p>
 probability that it would have been drawn from the correct distribution
 to that from the wrong one:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-environment-and-distribution-shift-1">
-<span class="eqno">(4.7.4)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-1" title="Link to this equation">¶</a></span>\[\beta_i \stackrel{\textrm{def}}{=} \frac{p(\mathbf{x}_i)}{q(\mathbf{x}_i)}.\]</div>
+<span class="eqno">(4.7.4)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-1" title="Permalink to this equation">¶</a></span>\[\beta_i \stackrel{\textrm{def}}{=} \frac{p(\mathbf{x}_i)}{q(\mathbf{x}_i)}.\]</div>
 <p>Plugging in the weight <span class="math notranslate nohighlight">\(\beta_i\)</span> for each data example
 <span class="math notranslate nohighlight">\((\mathbf{x}_i, y_i)\)</span> we can train our model using <em>weighted
 empirical risk minimization</em>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-weighted-empirical-risk-min">
-<span class="eqno">(4.7.5)<a class="headerlink" href="#equation-eq-weighted-empirical-risk-min" title="Link to this equation">¶</a></span>\[\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i).\]</div>
+<span class="eqno">(4.7.5)<a class="headerlink" href="#equation-eq-weighted-empirical-risk-min" title="Permalink to this equation">¶</a></span>\[\mathop{\mathrm{minimize}}_f \frac{1}{n} \sum_{i=1}^n \beta_i l(f(\mathbf{x}_i), y_i).\]</div>
 <p>Alas, we do not know that ratio, so before we can do anything useful we
 need to estimate it. Many methods are available, including some fancy
 operator-theoretic approaches that attempt to recalibrate the
@@ -834,7 +832,7 @@ is trivially available). Note however, that we only need features
 <p>In this case, there exists a very effective approach that will give
 almost as good results as the original: namely, logistic regression,
 which is a special case of softmax regression (see
-<a class="reference internal" href="softmax-regression.html#sec-softmax"><span class="std std-numref">4.1section</span></a>) for binary classification. This is all that is
+<a class="reference internal" href="softmax-regression.html#sec-softmax"><span class="std std-numref">Section 4.1</span></a>) for binary classification. This is all that is
 needed to compute estimated probability ratios. We learn a classifier to
 distinguish between data drawn from <span class="math notranslate nohighlight">\(p(\mathbf{x})\)</span> and data drawn
 from <span class="math notranslate nohighlight">\(q(\mathbf{x})\)</span>. If it is impossible to distinguish between
@@ -848,12 +846,12 @@ respectively. Now denote by <span class="math notranslate nohighlight">\(z\)</sp
 drawn from <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(-1\)</span> for data drawn from <span class="math notranslate nohighlight">\(q\)</span>. Then
 the probability in a mixed dataset is given by</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-environment-and-distribution-shift-2">
-<span class="eqno">(4.7.6)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-2" title="Link to this equation">¶</a></span>\[P(z=1 \mid \mathbf{x}) = \frac{p(\mathbf{x})}{p(\mathbf{x})+q(\mathbf{x})} \textrm{ and hence } \frac{P(z=1 \mid \mathbf{x})}{P(z=-1 \mid \mathbf{x})} = \frac{p(\mathbf{x})}{q(\mathbf{x})}.\]</div>
+<span class="eqno">(4.7.6)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-2" title="Permalink to this equation">¶</a></span>\[P(z=1 \mid \mathbf{x}) = \frac{p(\mathbf{x})}{p(\mathbf{x})+q(\mathbf{x})} \textrm{ and hence } \frac{P(z=1 \mid \mathbf{x})}{P(z=-1 \mid \mathbf{x})} = \frac{p(\mathbf{x})}{q(\mathbf{x})}.\]</div>
 <p>Thus, if we use a logistic regression approach, where
 <span class="math notranslate nohighlight">\(P(z=1 \mid \mathbf{x})=\frac{1}{1+\exp(-h(\mathbf{x}))}\)</span>
 (<span class="math notranslate nohighlight">\(h\)</span> is a parametrized function), it follows that</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-environment-and-distribution-shift-3">
-<span class="eqno">(4.7.7)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-3" title="Link to this equation">¶</a></span>\[\beta_i = \frac{1/(1 + \exp(-h(\mathbf{x}_i)))}{\exp(-h(\mathbf{x}_i))/(1 + \exp(-h(\mathbf{x}_i)))} = \exp(h(\mathbf{x}_i)).\]</div>
+<span class="eqno">(4.7.7)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-3" title="Permalink to this equation">¶</a></span>\[\beta_i = \frac{1/(1 + \exp(-h(\mathbf{x}_i)))}{\exp(-h(\mathbf{x}_i))/(1 + \exp(-h(\mathbf{x}_i)))} = \exp(h(\mathbf{x}_i)).\]</div>
 <p>As a result, we need to solve two problems: the first, to distinguish
 between data drawn from both distributions, and then a weighted
 empirical risk minimization problem in
@@ -888,10 +886,10 @@ time. If we find a point where <span class="math notranslate nohighlight">\(p(\m
 should be infinity.</p>
 </section>
 <section id="label-shift-correction">
-<h3><span class="section-number">4.7.3.3. </span>Label Shift Correction<a class="headerlink" href="#label-shift-correction" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.3.3. </span>Label Shift Correction<a class="headerlink" href="#label-shift-correction" title="Permalink to this heading">¶</a></h3>
 <p>Assume that we are dealing with a classification task with <span class="math notranslate nohighlight">\(k\)</span>
 categories. Using the same notation in
-<a class="reference internal" href="#subsec-covariate-shift-correction"><span class="std std-numref">4.7.3.2section</span></a>, <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(p\)</span>
+<a class="reference internal" href="#subsec-covariate-shift-correction"><span class="std std-numref">Section 4.7.3.2</span></a>, <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(p\)</span>
 are the source distribution (e.g., training time) and target
 distribution (e.g., test time), respectively. Assume that the
 distribution of labels shifts over time: <span class="math notranslate nohighlight">\(q(y) \neq p(y)\)</span>, but the
@@ -901,14 +899,14 @@ distribution <span class="math notranslate nohighlight">\(q(y)\)</span> is “wr
 to the following identity in the risk as defined in
 <a class="reference internal" href="#equation-eq-true-risk">(4.7.2)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-environment-and-distribution-shift-4">
-<span class="eqno">(4.7.8)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-4" title="Link to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(4.7.8)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-4" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
 \int\int l(f(\mathbf{x}), y) p(\mathbf{x} \mid y)p(y) \;d\mathbf{x}dy =
 \int\int l(f(\mathbf{x}), y) q(\mathbf{x} \mid y)q(y)\frac{p(y)}{q(y)} \;d\mathbf{x}dy.
 \end{aligned}\]</div>
 <p>Here, our importance weights will correspond to the label likelihood
 ratios:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-environment-and-distribution-shift-5">
-<span class="eqno">(4.7.9)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-5" title="Link to this equation">¶</a></span>\[\beta_i \stackrel{\textrm{def}}{=} \frac{p(y_i)}{q(y_i)}.\]</div>
+<span class="eqno">(4.7.9)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-5" title="Permalink to this equation">¶</a></span>\[\beta_i \stackrel{\textrm{def}}{=} \frac{p(y_i)}{q(y_i)}.\]</div>
 <p>One nice thing about label shift is that if we have a reasonably good
 model on the source distribution, then we can get consistent estimates
 of these weights without ever having to deal with the ambient dimension.
@@ -939,7 +937,7 @@ assumption holds in the first place (the strongest assumption here)—we
 can estimate the test set label distribution by solving a simple linear
 system</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-environment-and-distribution-shift-6">
-<span class="eqno">(4.7.10)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-6" title="Link to this equation">¶</a></span>\[\mathbf{C} p(\mathbf{y}) = \mu(\hat{\mathbf{y}}),\]</div>
+<span class="eqno">(4.7.10)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-6" title="Permalink to this equation">¶</a></span>\[\mathbf{C} p(\mathbf{y}) = \mu(\hat{\mathbf{y}}),\]</div>
 <p>because as an estimate
 <span class="math notranslate nohighlight">\(\sum_{j=1}^k c_{ij} p(y_j) = \mu(\hat{y}_i)\)</span> holds for all
 <span class="math notranslate nohighlight">\(1 \leq i \leq k\)</span>, where <span class="math notranslate nohighlight">\(p(y_j)\)</span> is the
@@ -956,7 +954,7 @@ this into weighted empirical risk minimization in
 <a class="reference internal" href="#equation-eq-weighted-empirical-risk-min">(4.7.5)</a>.</p>
 </section>
 <section id="concept-shift-correction">
-<h3><span class="section-number">4.7.3.4. </span>Concept Shift Correction<a class="headerlink" href="#concept-shift-correction" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.3.4. </span>Concept Shift Correction<a class="headerlink" href="#concept-shift-correction" title="Permalink to this heading">¶</a></h3>
 <p>Concept shift is much harder to fix in a principled manner. For
 instance, in a situation where suddenly the problem changes from
 distinguishing cats from dogs to one of distinguishing white from black
@@ -982,12 +980,12 @@ steps with the new data rather than training from scratch.</p>
 </section>
 </section>
 <section id="a-taxonomy-of-learning-problems">
-<h2><span class="section-number">4.7.4. </span>A Taxonomy of Learning Problems<a class="headerlink" href="#a-taxonomy-of-learning-problems" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.7.4. </span>A Taxonomy of Learning Problems<a class="headerlink" href="#a-taxonomy-of-learning-problems" title="Permalink to this heading">¶</a></h2>
 <p>Armed with knowledge about how to deal with changes in distributions, we
 can now consider some other aspects of machine learning problem
 formulation.</p>
 <section id="batch-learning">
-<h3><span class="section-number">4.7.4.1. </span>Batch Learning<a class="headerlink" href="#batch-learning" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.4.1. </span>Batch Learning<a class="headerlink" href="#batch-learning" title="Permalink to this heading">¶</a></h3>
 <p>In <em>batch learning</em>, we have access to training features and labels
 <span class="math notranslate nohighlight">\(\{(\mathbf{x}_1, y_1), \ldots, (\mathbf{x}_n, y_n)\}\)</span>, which we
 use to train a model <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>. Later on, we deploy this
@@ -1000,7 +998,7 @@ in. This is then installed in a customer’s home and is never updated
 again (barring extreme circumstances).</p>
 </section>
 <section id="online-learning">
-<h3><span class="section-number">4.7.4.2. </span>Online Learning<a class="headerlink" href="#online-learning" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.4.2. </span>Online Learning<a class="headerlink" href="#online-learning" title="Permalink to this heading">¶</a></h3>
 <p>Now imagine that the data <span class="math notranslate nohighlight">\((\mathbf{x}_i, y_i)\)</span> arrives one sample
 at a time. More specifically, assume that we first observe
 <span class="math notranslate nohighlight">\(\mathbf{x}_i\)</span>, then we need to come up with an estimate
@@ -1013,10 +1011,10 @@ us a profit. In other words, in <em>online learning</em>, we have the following
 cycle where we are continuously improving our model given new
 observations:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-environment-and-distribution-shift-7">
-<span class="eqno">(4.7.11)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-7" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}&amp;\textrm{model } f_t \longrightarrow \textrm{data }  \mathbf{x}_t \longrightarrow \textrm{estimate } f_t(\mathbf{x}_t) \longrightarrow\\ \textrm{obs}&amp;\textrm{ervation } y_t \longrightarrow \textrm{loss } l(y_t, f_t(\mathbf{x}_t)) \longrightarrow \textrm{model } f_{t+1}\end{aligned}\end{split}\]</div>
+<span class="eqno">(4.7.11)<a class="headerlink" href="#equation-chapter-linear-classification-environment-and-distribution-shift-7" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}&amp;\textrm{model } f_t \longrightarrow \textrm{data }  \mathbf{x}_t \longrightarrow \textrm{estimate } f_t(\mathbf{x}_t) \longrightarrow\\ \textrm{obs}&amp;\textrm{ervation } y_t \longrightarrow \textrm{loss } l(y_t, f_t(\mathbf{x}_t)) \longrightarrow \textrm{model } f_{t+1}\end{aligned}\end{split}\]</div>
 </section>
 <section id="bandits">
-<h3><span class="section-number">4.7.4.3. </span>Bandits<a class="headerlink" href="#bandits" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.4.3. </span>Bandits<a class="headerlink" href="#bandits" title="Permalink to this heading">¶</a></h3>
 <p><em>Bandits</em> are a special case of the problem above. While in most
 learning problems we have a continuously parametrized function <span class="math notranslate nohighlight">\(f\)</span>
 where we want to learn its parameters (e.g., a deep network), in a
@@ -1028,7 +1026,7 @@ problem is often (confusingly) treated as if it were a distinct learning
 setting.</p>
 </section>
 <section id="control">
-<h3><span class="section-number">4.7.4.4. </span>Control<a class="headerlink" href="#control" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.4.4. </span>Control<a class="headerlink" href="#control" title="Permalink to this heading">¶</a></h3>
 <p>In many cases the environment remembers what we did. Not necessarily in
 an adversarial manner but it will just remember and the response will
 depend on what happened before. For instance, a coffee boiler controller
@@ -1045,7 +1043,7 @@ and the reconstruction quality of generated images
 <span id="id1">()</span>.</p>
 </section>
 <section id="reinforcement-learning">
-<h3><span class="section-number">4.7.4.5. </span>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.4.5. </span>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Permalink to this heading">¶</a></h3>
 <p>In the more general case of an environment with memory, we may encounter
 situations where the environment is trying to cooperate with us
 (cooperative games, in particular for non-zero-sum games), or others
@@ -1057,7 +1055,7 @@ nontrivial ways, e.g., trying to avoid it, trying to cause an accident,
 or trying to cooperate with it.</p>
 </section>
 <section id="considering-the-environment">
-<h3><span class="section-number">4.7.4.6. </span>Considering the Environment<a class="headerlink" href="#considering-the-environment" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">4.7.4.6. </span>Considering the Environment<a class="headerlink" href="#considering-the-environment" title="Permalink to this heading">¶</a></h3>
 <p>One key distinction between the different situations above is that a
 strategy that might have worked throughout in the case of a stationary
 environment, might not work throughout in an environment that can adapt.
@@ -1073,7 +1071,7 @@ shift, i.e., when the problem that is being solved can change over time.</p>
 </section>
 </section>
 <section id="fairness-accountability-and-transparency-in-machine-learning">
-<h2><span class="section-number">4.7.5. </span>Fairness, Accountability, and Transparency in Machine Learning<a class="headerlink" href="#fairness-accountability-and-transparency-in-machine-learning" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.7.5. </span>Fairness, Accountability, and Transparency in Machine Learning<a class="headerlink" href="#fairness-accountability-and-transparency-in-machine-learning" title="Permalink to this heading">¶</a></h2>
 <p>Finally, it is important to remember that when you deploy machine
 learning systems you are not merely optimizing a predictive model—you
 are typically providing a tool that will be used to (partially or fully)
@@ -1121,7 +1119,7 @@ pressing ethical dilemmas that you might encounter in a career in
 machine learning.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">4.7.6. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.7.6. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>In many cases training and test sets do not come from the same
 distribution. This is called distribution shift. The risk is the
 expectation of the loss over the entire population of data drawn from
@@ -1138,7 +1136,7 @@ monitor live systems, open to the possibility that our models and the
 environment will become entangled in unanticipated ways.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">4.7.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.7.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>What could happen when we change the behavior of a search engine?
 What might the users do? What about the advertisers?</p></li>

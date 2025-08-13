@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.4. Softmax Regression Implementation from Scratch" href="softmax-regression-scratch.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -320,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -526,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="the-base-classification-model">
-<span id="sec-classification"></span><h1><span class="section-number">4.3. </span>The Base Classification Model<a class="headerlink" href="#the-base-classification-model" title="Link to this heading">¶</a></h1>
+<span id="sec-classification"></span><h1><span class="section-number">4.3. </span>The Base Classification Model<a class="headerlink" href="#the-base-classification-model" title="Permalink to this heading">¶</a></h1>
 <p>You may have noticed that the implementations from scratch and the
 concise implementation using framework functionality were quite similar
 in the case of regression. The same is true for classification. Since
@@ -539,7 +538,7 @@ provides a base class for classification models to simplify future code.</p>
 </pre></div>
 </div>
 <section id="the-classifier-class">
-<h2><span class="section-number">4.3.1. </span>The <code class="docutils literal notranslate"><span class="pre">Classifier</span></code> Class<a class="headerlink" href="#the-classifier-class" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.3.1. </span>The <code class="docutils literal notranslate"><span class="pre">Classifier</span></code> Class<a class="headerlink" href="#the-classifier-class" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Classifier</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>  <span class="c1">#@save</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The base class of classification models.&quot;&quot;&quot;</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">validation_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
@@ -557,7 +556,7 @@ minibatches, just as we did in the context of linear regression.</p>
 </div>
 </section>
 <section id="accuracy">
-<h2><span class="section-number">4.3.2. </span>Accuracy<a class="headerlink" href="#accuracy" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.3.2. </span>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this heading">¶</a></h2>
 <p>Given the predicted probability distribution <code class="docutils literal notranslate"><span class="pre">y_hat</span></code>, we typically
 choose the class with the highest predicted probability whenever we must
 output a hard prediction. Indeed, many applications require that we make
@@ -591,7 +590,7 @@ and 1 (true). Taking the sum yields the number of correct predictions.</p>
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">4.3.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.3.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>Classification is a sufficiently common problem that it warrants its own
 convenience functions. Of central importance in classification is the
 <em>accuracy</em> of the classifier. Note that while we often care primarily
@@ -602,7 +601,7 @@ useful to have a convenience method for assessing the accuracy of our
 classifier empirically.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">4.3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.3.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Denote by <span class="math notranslate nohighlight">\(L_\textrm{v}\)</span> the validation loss, and let
 <span class="math notranslate nohighlight">\(L_\textrm{v}^\textrm{q}\)</span> be its quick and dirty estimate

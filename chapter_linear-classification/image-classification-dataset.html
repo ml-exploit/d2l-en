@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.3. The Base Classification Model" href="classification.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -320,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -526,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="the-image-classification-dataset">
-<span id="sec-fashion-mnist"></span><h1><span class="section-number">4.2. </span>The Image Classification Dataset<a class="headerlink" href="#the-image-classification-dataset" title="Link to this heading">¶</a></h1>
+<span id="sec-fashion-mnist"></span><h1><span class="section-number">4.2. </span>The Image Classification Dataset<a class="headerlink" href="#the-image-classification-dataset" title="Permalink to this heading">¶</a></h1>
 <p>One widely used dataset for image classification is the <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST
 dataset</a>
 <span id="id1">()</span> of handwritten digits. At the time
@@ -573,7 +572,7 @@ clothing at <span class="math notranslate nohighlight">\(28 \times 28\)</span> p
 </pre></div>
 </div>
 <section id="loading-the-dataset">
-<h2><span class="section-number">4.2.1. </span>Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.2.1. </span>Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>Since the Fashion-MNIST dataset is so useful, all major frameworks
 provide preprocessed versions of it. We can download and read it into
 memory using built-in framework utilities.</p>
@@ -643,7 +642,7 @@ names.</p>
 </div>
 </section>
 <section id="reading-a-minibatch">
-<h2><span class="section-number">4.2.2. </span>Reading a Minibatch<a class="headerlink" href="#reading-a-minibatch" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.2.2. </span>Reading a Minibatch<a class="headerlink" href="#reading-a-minibatch" title="Permalink to this heading">¶</a></h2>
 <p>To make our life easier when reading from the training and test sets, we
 use the built-in data iterator rather than creating one from scratch.
 Recall that at each iteration, a data iterator reads a minibatch of data
@@ -680,7 +679,7 @@ constrained.</p>
 </div>
 </section>
 <section id="visualization">
-<h2><span class="section-number">4.2.3. </span>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.2.3. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">¶</a></h2>
 <p>We will often be using the Fashion-MNIST dataset. A convenience function
 <code class="docutils literal notranslate"><span class="pre">show_images</span></code> can be used to visualize the images and the associated
 labels. Skipping implementation details, we just show the interface
@@ -708,13 +707,12 @@ few examples in the training dataset.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_image-classification-dataset_4988ed_20_0.svg" src="../_images/output_image-classification-dataset_4988ed_20_0.svg" />
-</figure>
+<img alt="../_images/output_image-classification-dataset_4988ed_20_0.svg" src="../_images/output_image-classification-dataset_4988ed_20_0.svg" /></figure>
 <p>We are now ready to work with the Fashion-MNIST dataset in the sections
 that follow.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">4.2.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.2.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>We now have a slightly more realistic dataset to use for classification.
 Fashion-MNIST is an apparel classification dataset consisting of images
 representing 10 categories. We will use this dataset in subsequent
@@ -731,7 +729,7 @@ on well-implemented data iterators that exploit high-performance
 computing to avoid slowing down your training loop.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">4.2.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.2.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Does reducing the <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> (for instance, to 1) affect the
 reading performance?</p></li>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="11. Attention Mechanisms and Transformers" href="../chapter_attention-mechanisms-and-transformers/index.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="beam-search">
-<span id="sec-beam-search"></span><h1><span class="section-number">10.7. </span>Beam Search<a class="headerlink" href="#beam-search" title="Link to this heading">¶</a></h1>
-<p>In <a class="reference internal" href="seq2seq.html#sec-seq2seq"><span class="std std-numref">10.6section</span></a>, we introduced the encoder–decoder
+<span id="sec-beam-search"></span><h1><span class="section-number">10.7. </span>Beam Search<a class="headerlink" href="#beam-search" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="seq2seq.html#sec-seq2seq"><span class="std std-numref">Section 10.6</span></a>, we introduced the encoder–decoder
 architecture, and the standard techniques for training them end-to-end.
 However, when it came to test-time prediction, we mentioned only the
 <em>greedy</em> strategy, where we select at each time step the token given the
@@ -535,7 +538,7 @@ to run into. Subsequently, we compare this strategy with two
 alternatives: <em>exhaustive search</em> (illustrative but not practical) and
 <em>beam search</em> (the standard method in practice).</p>
 <p>Let’s begin by setting up our mathematical notation, borrowing
-conventions from <a class="reference internal" href="seq2seq.html#sec-seq2seq"><span class="std std-numref">10.6section</span></a>. At any time step <span class="math notranslate nohighlight">\(t'\)</span>,
+conventions from <a class="reference internal" href="seq2seq.html#sec-seq2seq"><span class="std std-numref">Section 10.6</span></a>. At any time step <span class="math notranslate nohighlight">\(t'\)</span>,
 the decoder outputs predictions representing the probability of each
 token in the vocabulary coming next in the sequence (the likely value of
 <span class="math notranslate nohighlight">\(y_{t'+1}\)</span>), conditioned on the previous tokens
@@ -551,13 +554,13 @@ outputs because there are no subsequent tokens once the “&lt;eos&gt;” token
 occurs. However, for our purposes, this number roughly captures the size
 of the search space.</p>
 <section id="greedy-search">
-<h2><span class="section-number">10.7.1. </span>Greedy Search<a class="headerlink" href="#greedy-search" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.7.1. </span>Greedy Search<a class="headerlink" href="#greedy-search" title="Permalink to this heading">¶</a></h2>
 <p>Consider the simple <em>greedy search</em> strategy from
-<a class="reference internal" href="seq2seq.html#sec-seq2seq"><span class="std std-numref">10.6section</span></a>. Here, at any time step <span class="math notranslate nohighlight">\(t'\)</span>, we simply
+<a class="reference internal" href="seq2seq.html#sec-seq2seq"><span class="std std-numref">Section 10.6</span></a>. Here, at any time step <span class="math notranslate nohighlight">\(t'\)</span>, we simply
 select the token with the highest conditional probability from
 <span class="math notranslate nohighlight">\(\mathcal{Y}\)</span>, i.e.,</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-beam-search-0">
-<span class="eqno">(10.7.1)<a class="headerlink" href="#equation-chapter-recurrent-modern-beam-search-0" title="Link to this equation">¶</a></span>\[y_{t'} = \operatorname*{argmax}_{y \in \mathcal{Y}} P(y \mid y_1, \ldots, y_{t'-1}, \mathbf{c}).\]</div>
+<span class="eqno">(10.7.1)<a class="headerlink" href="#equation-chapter-recurrent-modern-beam-search-0" title="Permalink to this equation">¶</a></span>\[y_{t'} = \operatorname*{argmax}_{y \in \mathcal{Y}} P(y \mid y_1, \ldots, y_{t'-1}, \mathbf{c}).\]</div>
 <p>Once our model outputs “&lt;eos&gt;” (or we reach the maximum length
 <span class="math notranslate nohighlight">\(T'\)</span>) the output sequence is completed.</p>
 <p>This strategy might look reasonable, and in fact it is not so bad!
@@ -574,53 +577,51 @@ us the most likely translation. Unfortunately, there is no guarantee
 that greedy search will give us this sequence.</p>
 <p>Let’s illustrate it with an example. Suppose that there are four tokens
 “A”, “B”, “C”, and “&lt;eos&gt;” in the output dictionary. In
-<a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">figure10.7.1</span></a>, the four numbers under each time step
+<a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">Fig. 10.7.1</span></a>, the four numbers under each time step
 represent the conditional probabilities of generating “A”, “B”, “C”, and
 “&lt;eos&gt;” respectively, at that time step.</p>
 <figure class="align-default" id="id2">
-<span id="fig-s2s-prob1"></span><img alt="../_images/s2s-prob1.svg" src="../_images/s2s-prob1.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.7.1 </span><span class="caption-text">At each time step, greedy search selects the token with the highest
-conditional probability.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+<span id="fig-s2s-prob1"></span><img alt="../_images/s2s-prob1.svg" src="../_images/s2s-prob1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.7.1 </span><span class="caption-text">At each time step, greedy search selects the token with the highest
+conditional probability.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>At each time step, greedy search selects the token with the highest
 conditional probability. Therefore, the output sequence “A”, “B”, “C”,
-and “&lt;eos&gt;” will be predicted (<a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">figure10.7.1</span></a>). The
+and “&lt;eos&gt;” will be predicted (<a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">Fig. 10.7.1</span></a>). The
 conditional probability of this output sequence is
 <span class="math notranslate nohighlight">\(0.5\times0.4\times0.4\times0.6 = 0.048\)</span>.</p>
-<p>Next, let’s look at another example in <a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">figure10.7.2</span></a>. Unlike
-in <a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">figure10.7.1</span></a>, at time step 2 we select the token “C”,
+<p>Next, let’s look at another example in <a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">Fig. 10.7.2</span></a>. Unlike
+in <a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">Fig. 10.7.1</span></a>, at time step 2 we select the token “C”,
 which has the <em>second</em> highest conditional probability.</p>
 <figure class="align-default" id="id3">
-<span id="fig-s2s-prob2"></span><img alt="../_images/s2s-prob2.svg" src="../_images/s2s-prob2.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.7.2 </span><span class="caption-text">The four numbers under each time step represent the conditional
+<span id="fig-s2s-prob2"></span><img alt="../_images/s2s-prob2.svg" src="../_images/s2s-prob2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.7.2 </span><span class="caption-text">The four numbers under each time step represent the conditional
 probabilities of generating “A”, “B”, “C”, and “&lt;eos&gt;” at that time
 step. At time step 2, the token “C”, which has the second highest
-conditional probability, is selected.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+conditional probability, is selected.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Since the output subsequences at time steps 1 and 2, on which time step
-3 is based, have changed from “A” and “B” in <a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">figure10.7.1</span></a>
-to “A” and “C” in <a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">figure10.7.2</span></a>, the conditional probability
+3 is based, have changed from “A” and “B” in <a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">Fig. 10.7.1</span></a>
+to “A” and “C” in <a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">Fig. 10.7.2</span></a>, the conditional probability
 of each token at time step 3 has also changed in
-<a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">figure10.7.2</span></a>. Suppose that we choose the token “B” at time
+<a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">Fig. 10.7.2</span></a>. Suppose that we choose the token “B” at time
 step 3. Now time step 4 is conditional on the output subsequence at the
 first three time steps “A”, “C”, and “B”, which has changed from “A”,
-“B”, and “C” in <a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">figure10.7.1</span></a>. Therefore, the conditional
+“B”, and “C” in <a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">Fig. 10.7.1</span></a>. Therefore, the conditional
 probability of generating each token at time step 4 in
-<a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">figure10.7.2</span></a> is also different from that in
-<a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">figure10.7.1</span></a>. As a result, the conditional probability of
+<a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">Fig. 10.7.2</span></a> is also different from that in
+<a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">Fig. 10.7.1</span></a>. As a result, the conditional probability of
 the output sequence “A”, “C”, “B”, and “&lt;eos&gt;” in
-<a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">figure10.7.2</span></a> is
+<a class="reference internal" href="#fig-s2s-prob2"><span class="std std-numref">Fig. 10.7.2</span></a> is
 <span class="math notranslate nohighlight">\(0.5\times0.3 \times0.6\times0.6=0.054\)</span>, which is greater than
-that of greedy search in <a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">figure10.7.1</span></a>. In this example, the
+that of greedy search in <a class="reference internal" href="#fig-s2s-prob1"><span class="std std-numref">Fig. 10.7.1</span></a>. In this example, the
 output sequence “A”, “B”, “C”, and “&lt;eos&gt;” obtained by the greedy search
 is not optimal.</p>
 </section>
 <section id="exhaustive-search">
-<span id="beam-search-1"></span><h2><span class="section-number">10.7.2. </span>Exhaustive Search<a class="headerlink" href="#exhaustive-search" title="Link to this heading">¶</a></h2>
+<span id="beam-search-1"></span><h2><span class="section-number">10.7.2. </span>Exhaustive Search<a class="headerlink" href="#exhaustive-search" title="Permalink to this heading">¶</a></h2>
 <p>If the goal is to obtain the most likely sequence, we may consider using
 <em>exhaustive search</em>: enumerate all the possible output sequences with
 their conditional probabilities, and then output the one that scores the
@@ -640,7 +641,7 @@ far from optimal. For example, when <span class="math notranslate nohighlight">\
 sequences.</p>
 </section>
 <section id="id1">
-<h2><span class="section-number">10.7.3. </span>Beam Search<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.7.3. </span>Beam Search<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <p>You could view sequence decoding strategies as lying on a spectrum, with
 <em>beam search</em> striking a compromise between the efficiency of greedy
 search and the optimality of exhaustive search. The most straightforward
@@ -654,15 +655,14 @@ continue to select <span class="math notranslate nohighlight">\(k\)</span> candi
 predicted probabilities from <span class="math notranslate nohighlight">\(k\left|\mathcal{Y}\right|\)</span> possible
 choices.</p>
 <figure class="align-default" id="id4">
-<span id="fig-beam-search"></span><img alt="../_images/beam-search.svg" src="../_images/beam-search.svg" />
-<figcaption>
-<p><span class="caption-number">figure10.7.3 </span><span class="caption-text">The process of beam search (beam size <span class="math notranslate nohighlight">\(=2\)</span>; maximum length of
+<span id="fig-beam-search"></span><img alt="../_images/beam-search.svg" src="../_images/beam-search.svg" /><figcaption>
+<p><span class="caption-number">Fig. 10.7.3 </span><span class="caption-text">The process of beam search (beam size <span class="math notranslate nohighlight">\(=2\)</span>; maximum length of
 an output sequence <span class="math notranslate nohighlight">\(=3\)</span>). The candidate output sequences are
 <span class="math notranslate nohighlight">\(\mathit{A}\)</span>, <span class="math notranslate nohighlight">\(\mathit{C}\)</span>, <span class="math notranslate nohighlight">\(\mathit{AB}\)</span>,
-<span class="math notranslate nohighlight">\(\mathit{CE}\)</span>, <span class="math notranslate nohighlight">\(\mathit{ABD}\)</span>, and <span class="math notranslate nohighlight">\(\mathit{CED}\)</span>.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<span class="math notranslate nohighlight">\(\mathit{CE}\)</span>, <span class="math notranslate nohighlight">\(\mathit{ABD}\)</span>, and <span class="math notranslate nohighlight">\(\mathit{CED}\)</span>.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#fig-beam-search"><span class="std std-numref">figure10.7.3</span></a> demonstrates the process of beam search with
+<p><a class="reference internal" href="#fig-beam-search"><span class="std std-numref">Fig. 10.7.3</span></a> demonstrates the process of beam search with
 an example. Suppose that the output vocabulary contains only five
 elements: <span class="math notranslate nohighlight">\(\mathcal{Y} = \{A, B, C, D, E\}\)</span>, where one of them is
 “&lt;eos&gt;”. Let the beam size be two and the maximum length of an output
@@ -671,12 +671,12 @@ highest conditional probabilities <span class="math notranslate nohighlight">\(P
 <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span>. At time step 2, for all
 <span class="math notranslate nohighlight">\(y_2 \in \mathcal{Y},\)</span> we compute</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-beam-search-1">
-<span class="eqno">(10.7.2)<a class="headerlink" href="#equation-chapter-recurrent-modern-beam-search-1" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}P(A, y_2 \mid \mathbf{c}) = P(A \mid \mathbf{c})P(y_2 \mid A, \mathbf{c}),\\ P(C, y_2 \mid \mathbf{c}) = P(C \mid \mathbf{c})P(y_2 \mid C, \mathbf{c}),\end{aligned}\end{split}\]</div>
+<span class="eqno">(10.7.2)<a class="headerlink" href="#equation-chapter-recurrent-modern-beam-search-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}P(A, y_2 \mid \mathbf{c}) = P(A \mid \mathbf{c})P(y_2 \mid A, \mathbf{c}),\\ P(C, y_2 \mid \mathbf{c}) = P(C \mid \mathbf{c})P(y_2 \mid C, \mathbf{c}),\end{aligned}\end{split}\]</div>
 <p>and pick the largest two among these ten values, say
 <span class="math notranslate nohighlight">\(P(A, B \mid \mathbf{c})\)</span> and <span class="math notranslate nohighlight">\(P(C, E \mid \mathbf{c})\)</span>.
 Then at time step 3, for all <span class="math notranslate nohighlight">\(y_3 \in \mathcal{Y}\)</span>, we compute</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-modern-beam-search-2">
-<span class="eqno">(10.7.3)<a class="headerlink" href="#equation-chapter-recurrent-modern-beam-search-2" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}P(A, B, y_3 \mid \mathbf{c}) = P(A, B \mid \mathbf{c})P(y_3 \mid A, B, \mathbf{c}),\\P(C, E, y_3 \mid \mathbf{c}) = P(C, E \mid \mathbf{c})P(y_3 \mid C, E, \mathbf{c}),\end{aligned}\end{split}\]</div>
+<span class="eqno">(10.7.3)<a class="headerlink" href="#equation-chapter-recurrent-modern-beam-search-2" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}P(A, B, y_3 \mid \mathbf{c}) = P(A, B \mid \mathbf{c})P(y_3 \mid A, B, \mathbf{c}),\\P(C, E, y_3 \mid \mathbf{c}) = P(C, E \mid \mathbf{c})P(y_3 \mid C, E, \mathbf{c}),\end{aligned}\end{split}\]</div>
 <p>and pick the largest two among these ten values, say
 <span class="math notranslate nohighlight">\(P(A, B, D \mid \mathbf{c})\)</span> and
 <span class="math notranslate nohighlight">\(P(C, E, D \mid \mathbf{c}).\)</span> As a result, we get six candidates
@@ -688,7 +688,7 @@ on these six sequences (e.g., discard portions including and after
 “&lt;eos&gt;”). Then we choose the output sequence which maximizes the
 following score:</p>
 <div class="math notranslate nohighlight" id="equation-eq-beam-search-score">
-<span class="eqno">(10.7.4)<a class="headerlink" href="#equation-eq-beam-search-score" title="Link to this equation">¶</a></span>\[\frac{1}{L^\alpha} \log P(y_1, \ldots, y_{L}\mid \mathbf{c}) = \frac{1}{L^\alpha} \sum_{t'=1}^L \log P(y_{t'} \mid y_1, \ldots, y_{t'-1}, \mathbf{c});\]</div>
+<span class="eqno">(10.7.4)<a class="headerlink" href="#equation-eq-beam-search-score" title="Permalink to this equation">¶</a></span>\[\frac{1}{L^\alpha} \log P(y_1, \ldots, y_{L}\mid \mathbf{c}) = \frac{1}{L^\alpha} \sum_{t'=1}^L \log P(y_{t'} \mid y_1, \ldots, y_{t'-1}, \mathbf{c});\]</div>
 <p>here <span class="math notranslate nohighlight">\(L\)</span> is the length of the final candidate sequence and
 <span class="math notranslate nohighlight">\(\alpha\)</span> is usually set to 0.75. Since a longer sequence has more
 logarithmic terms in the summation of <a class="reference internal" href="#equation-eq-beam-search-score">(10.7.4)</a>,
@@ -700,21 +700,21 @@ search can be treated as a special case of beam search arising when the
 beam size is set to 1.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">10.7.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.7.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>Sequence searching strategies include greedy search, exhaustive search,
 and beam search. Beam search provides a trade-off between accuracy and
 computational cost via the flexible choice of the beam size.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">10.7.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">10.7.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Can we treat exhaustive search as a special type of beam search? Why
 or why not?</p></li>
 <li><p>Apply beam search in the machine translation problem in
-<a class="reference internal" href="seq2seq.html#sec-seq2seq"><span class="std std-numref">10.6section</span></a>. How does the beam size affect the
+<a class="reference internal" href="seq2seq.html#sec-seq2seq"><span class="std std-numref">Section 10.6</span></a>. How does the beam size affect the
 translation results and the prediction speed?</p></li>
 <li><p>We used language modeling for generating text following user-provided
-prefixes in <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">9.5section</span></a>. Which kind of search
+prefixes in <a class="reference internal" href="../chapter_recurrent-neural-networks/rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">Section 9.5</span></a>. Which kind of search
 strategy does it use? Can you improve it?</p></li>
 </ol>
 <p><a class="reference external" href="https://discuss.d2l.ai/t/338">Discussions</a></p>

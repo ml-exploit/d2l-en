@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,14 +15,17 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="15.2. Sentiment Analysis: Using Convolutional Neural Networks" href="sentiment-analysis-cnn.html" />
@@ -110,9 +113,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -152,11 +153,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -295,7 +297,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -317,9 +320,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -359,11 +360,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -502,7 +504,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -521,7 +524,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="sentiment-analysis-and-the-dataset">
-<span id="sec-sentiment"></span><h1><span class="section-number">15.1. </span>Sentiment Analysis and the Dataset<a class="headerlink" href="#sentiment-analysis-and-the-dataset" title="Link to this heading">¶</a></h1>
+<span id="sec-sentiment"></span><h1><span class="section-number">15.1. </span>Sentiment Analysis and the Dataset<a class="headerlink" href="#sentiment-analysis-and-the-dataset" title="Permalink to this heading">¶</a></h1>
 <p>With the proliferation of online social media and review platforms, a
 plethora of opinionated data has been logged, bearing great potential
 for supporting decision making processes. <em>Sentiment analysis</em> studies
@@ -561,7 +564,7 @@ indicating different sentiment polarities.</p>
 </pre></div>
 </div>
 <section id="reading-the-dataset">
-<h2><span class="section-number">15.1.1. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.1.1. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>First, download and extract this IMDb review dataset in the path
 <code class="docutils literal notranslate"><span class="pre">../data/aclImdb</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
@@ -600,7 +603,7 @@ its label: 1 for “positive” and 0 for “negative”.</p>
 </div>
 </section>
 <section id="preprocessing-the-dataset">
-<h2><span class="section-number">15.1.2. </span>Preprocessing the Dataset<a class="headerlink" href="#preprocessing-the-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.1.2. </span>Preprocessing the Dataset<a class="headerlink" href="#preprocessing-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>Treating each word as a token and filtering out words that appear less
 than 5 times, we create a vocabulary out of the training dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_tokens</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">token</span><span class="o">=</span><span class="s1">&#39;word&#39;</span><span class="p">)</span>
@@ -616,13 +619,12 @@ tokens.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_sentiment-analysis-and-dataset_31f997_9_0.svg" src="../_images/output_sentiment-analysis-and-dataset_31f997_9_0.svg" />
-</figure>
+<img alt="../_images/output_sentiment-analysis-and-dataset_31f997_9_0.svg" src="../_images/output_sentiment-analysis-and-dataset_31f997_9_0.svg" /></figure>
 <p>As we expected, the reviews have varying lengths. To process a minibatch
 of such reviews at each time, we set the length of each review to 500
 with truncation and padding, which is similar to the preprocessing step
 for the machine translation dataset in
-<a class="reference internal" href="../chapter_recurrent-modern/machine-translation-and-dataset.html#sec-machine-translation"><span class="std std-numref">10.4section</span></a>.</p>
+<a class="reference internal" href="../chapter_recurrent-modern/machine-translation-and-dataset.html#sec-machine-translation"><span class="std std-numref">Section 10.4</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_steps</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># sequence length</span>
 <span class="n">train_features</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">d2l</span><span class="o">.</span><span class="n">truncate_pad</span><span class="p">(</span>
     <span class="n">vocab</span><span class="p">[</span><span class="n">line</span><span class="p">],</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">train_tokens</span><span class="p">])</span>
@@ -634,7 +636,7 @@ for the machine translation dataset in
 </div>
 </section>
 <section id="creating-data-iterators">
-<h2><span class="section-number">15.1.3. </span>Creating Data Iterators<a class="headerlink" href="#creating-data-iterators" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.1.3. </span>Creating Data Iterators<a class="headerlink" href="#creating-data-iterators" title="Permalink to this heading">¶</a></h2>
 <p>Now we can create data iterators. At each iteration, a minibatch of
 examples are returned.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
@@ -671,7 +673,7 @@ examples are returned.</p>
 </div>
 </section>
 <section id="putting-it-all-together">
-<h2><span class="section-number">15.1.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.1.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">¶</a></h2>
 <p>Last, we wrap up the above steps into the <code class="docutils literal notranslate"><span class="pre">load_data_imdb</span></code> function.
 It returns training and test data iterators and the vocabulary of the
 IMDb review dataset.</p>
@@ -740,7 +742,7 @@ IMDb review dataset.</p>
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">15.1.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.1.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Sentiment analysis studies people’s sentiments in their produced
 text, which is considered as a text classification problem that
@@ -751,7 +753,7 @@ dataset (IMDb review dataset) into data iterators with a vocabulary.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">15.1.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.1.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>What hyperparameters in this section can we modify to accelerate
 training sentiment analysis models?</p></li>

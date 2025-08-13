@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="14.8. Bidirectional Encoder Representations from Transformers (BERT)" href="bert.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,12 +525,12 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="word-similarity-and-analogy">
-<span id="sec-synonyms"></span><h1><span class="section-number">14.7. </span>Word Similarity and Analogy<a class="headerlink" href="#word-similarity-and-analogy" title="Link to this heading">¶</a></h1>
-<p>In <a class="reference internal" href="word2vec-pretraining.html#sec-word2vec-pretraining"><span class="std std-numref">14.4section</span></a>, we trained a word2vec model on
+<span id="sec-synonyms"></span><h1><span class="section-number">14.7. </span>Word Similarity and Analogy<a class="headerlink" href="#word-similarity-and-analogy" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="word2vec-pretraining.html#sec-word2vec-pretraining"><span class="std std-numref">Section 14.4</span></a>, we trained a word2vec model on
 a small dataset, and applied it to find semantically similar words for
 an input word. In practice, word vectors that are pretrained on large
 corpora can be applied to downstream natural language processing tasks,
-which will be covered later in <a class="reference internal" href="../chapter_natural-language-processing-applications/index.html#chap-nlp-app"><span class="std std-numref">15section</span></a>. To demonstrate
+which will be covered later in <a class="reference internal" href="../chapter_natural-language-processing-applications/index.html#chap-nlp-app"><span class="std std-numref">Section 15</span></a>. To demonstrate
 semantics of pretrained word vectors from large corpora in a
 straightforward way, let’s apply them in the word similarity and analogy
 tasks.</p>
@@ -553,7 +556,7 @@ tasks.</p>
 </pre></div>
 </div>
 <section id="loading-pretrained-word-vectors">
-<h2><span class="section-number">14.7.1. </span>Loading Pretrained Word Vectors<a class="headerlink" href="#loading-pretrained-word-vectors" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.7.1. </span>Loading Pretrained Word Vectors<a class="headerlink" href="#loading-pretrained-word-vectors" title="Permalink to this heading">¶</a></h2>
 <p>Below lists pretrained GloVe embeddings of dimension 50, 100, and 300,
 which can be downloaded from the <a class="reference external" href="https://nlp.stanford.edu/projects/glove/">GloVe
 website</a>. The pretrained
@@ -641,12 +644,12 @@ specified embedding file has to be downloaded if it was not yet.</p>
 </div>
 </section>
 <section id="applying-pretrained-word-vectors">
-<h2><span class="section-number">14.7.2. </span>Applying Pretrained Word Vectors<a class="headerlink" href="#applying-pretrained-word-vectors" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.7.2. </span>Applying Pretrained Word Vectors<a class="headerlink" href="#applying-pretrained-word-vectors" title="Permalink to this heading">¶</a></h2>
 <p>Using the loaded GloVe vectors, we will demonstrate their semantics by
 applying them in the following word similarity and analogy tasks.</p>
 <section id="word-similarity">
-<h3><span class="section-number">14.7.2.1. </span>Word Similarity<a class="headerlink" href="#word-similarity" title="Link to this heading">¶</a></h3>
-<p>Similar to <a class="reference internal" href="word2vec-pretraining.html#subsec-apply-word-embed"><span class="std std-numref">14.4.3section</span></a>, in order to find
+<h3><span class="section-number">14.7.2.1. </span>Word Similarity<a class="headerlink" href="#word-similarity" title="Permalink to this heading">¶</a></h3>
+<p>Similar to <a class="reference internal" href="word2vec-pretraining.html#subsec-apply-word-embed"><span class="std std-numref">Section 14.4.3</span></a>, in order to find
 semantically similar words for an input word based on cosine
 similarities between word vectors, we implement the following <code class="docutils literal notranslate"><span class="pre">knn</span></code>
 (<span class="math notranslate nohighlight">\(k\)</span>-nearest neighbors) function.</p>
@@ -717,7 +720,7 @@ semantically similar words to word “chip”.</p>
 </div>
 </section>
 <section id="word-analogy">
-<h3><span class="section-number">14.7.2.2. </span>Word Analogy<a class="headerlink" href="#word-analogy" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">14.7.2.2. </span>Word Analogy<a class="headerlink" href="#word-analogy" title="Permalink to this heading">¶</a></h3>
 <p>Besides finding similar words, we can also apply word vectors to word
 analogy tasks. For example, “man”:“woman”::“son”:“daughter” is the form
 of a word analogy: “man” is to “woman” as “son” is to “daughter”.
@@ -771,7 +774,7 @@ analogy: “do”:“did”::“go”:“went”.</p>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">14.7.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.7.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>In practice, word vectors that are pretrained on large corpora can be
 applied to downstream natural language processing tasks.</p></li>
@@ -780,7 +783,7 @@ analogy tasks.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">14.7.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.7.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Test the fastText results using <code class="docutils literal notranslate"><span class="pre">TokenEmbedding('wiki.en')</span></code>.</p></li>
 <li><p>When the vocabulary is extremely large, how can we find similar words

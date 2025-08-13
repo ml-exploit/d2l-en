@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="13.8. Region-based CNNs (R-CNNs)" href="rcnn.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="single-shot-multibox-detection">
-<span id="sec-ssd"></span><h1><span class="section-number">13.7. </span>Single Shot Multibox Detection<a class="headerlink" href="#single-shot-multibox-detection" title="Link to this heading">¶</a></h1>
-<p>In <a class="reference internal" href="bounding-box.html#sec-bbox"><span class="std std-numref">13.3section</span></a>–<a class="reference internal" href="object-detection-dataset.html#sec-object-detection-dataset"><span class="std std-numref">13.6section</span></a>, we
+<span id="sec-ssd"></span><h1><span class="section-number">13.7. </span>Single Shot Multibox Detection<a class="headerlink" href="#single-shot-multibox-detection" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="bounding-box.html#sec-bbox"><span class="std std-numref">Section 13.3</span></a>–<a class="reference internal" href="object-detection-dataset.html#sec-object-detection-dataset"><span class="std std-numref">Section 13.6</span></a>, we
 introduced bounding boxes, anchor boxes, multiscale object detection,
 and the dataset for object detection. Now we are ready to use such
 background knowledge to design an object detection model: single shot
@@ -533,8 +536,8 @@ vast amounts of object detection models, some of the design principles
 and implementation details in this section are also applicable to other
 models.</p>
 <section id="model">
-<h2><span class="section-number">13.7.1. </span>Model<a class="headerlink" href="#model" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="#fig-ssd"><span class="std std-numref">figure13.7.1</span></a> provides an overview of the design of single-shot
+<h2><span class="section-number">13.7.1. </span>Model<a class="headerlink" href="#model" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference internal" href="#fig-ssd"><span class="std std-numref">Fig. 13.7.1</span></a> provides an overview of the design of single-shot
 multibox detection. This model mainly consists of a base network
 followed by several multiscale feature map blocks. The base network is
 for extracting features from the input image, so it can use a deep CNN.
@@ -549,8 +552,8 @@ previous block, and enables each unit of the feature maps to increase
 its receptive field on the input image.</p>
 <p>Recall the design of multiscale object detection through layerwise
 representations of images by deep neural networks in
-<a class="reference internal" href="multiscale-object-detection.html#sec-multiscale-object-detection"><span class="std std-numref">13.5section</span></a>. Since multiscale feature
-maps closer to the top of <a class="reference internal" href="#fig-ssd"><span class="std std-numref">figure13.7.1</span></a> are smaller but have
+<a class="reference internal" href="multiscale-object-detection.html#sec-multiscale-object-detection"><span class="std std-numref">Section 13.5</span></a>. Since multiscale feature
+maps closer to the top of <a class="reference internal" href="#fig-ssd"><span class="std std-numref">Fig. 13.7.1</span></a> are smaller but have
 larger receptive fields, they are suitable for detecting fewer but
 larger objects.</p>
 <p>In a nutshell, via its base network and several multiscale feature map
@@ -559,18 +562,17 @@ anchor boxes with different sizes, and detects varying-size objects by
 predicting classes and offsets of these anchor boxes (thus the bounding
 boxes); thus, this is a multiscale object detection model.</p>
 <figure class="align-default" id="id5">
-<span id="fig-ssd"></span><img alt="../_images/ssd.svg" src="../_images/ssd.svg" />
-<figcaption>
-<p><span class="caption-number">figure13.7.1 </span><span class="caption-text">As a multiscale object detection model, single-shot multibox
+<span id="fig-ssd"></span><img alt="../_images/ssd.svg" src="../_images/ssd.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13.7.1 </span><span class="caption-text">As a multiscale object detection model, single-shot multibox
 detection mainly consists of a base network followed by several
-multiscale feature map blocks.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+multiscale feature map blocks.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>In the following, we will describe the implementation details of
-different blocks in <a class="reference internal" href="#fig-ssd"><span class="std std-numref">figure13.7.1</span></a>. To begin with, we discuss how
+different blocks in <a class="reference internal" href="#fig-ssd"><span class="std std-numref">Fig. 13.7.1</span></a>. To begin with, we discuss how
 to implement the class and bounding box prediction.</p>
 <section id="class-prediction-layer">
-<h3><span class="section-number">13.7.1.1. </span>Class Prediction Layer<a class="headerlink" href="#class-prediction-layer" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.7.1.1. </span>Class Prediction Layer<a class="headerlink" href="#class-prediction-layer" title="Permalink to this heading">¶</a></h3>
 <p>Let the number of object classes be <span class="math notranslate nohighlight">\(q\)</span>. Then anchor boxes have
 <span class="math notranslate nohighlight">\(q+1\)</span> classes, where class 0 is background. At some scale, suppose
 that the height and width of feature maps are <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(w\)</span>,
@@ -619,7 +621,7 @@ this convolutional layer remain unchanged.</p>
 </div>
 </section>
 <section id="bounding-box-prediction-layer">
-<h3><span class="section-number">13.7.1.2. </span>Bounding Box Prediction Layer<a class="headerlink" href="#bounding-box-prediction-layer" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.7.1.2. </span>Bounding Box Prediction Layer<a class="headerlink" href="#bounding-box-prediction-layer" title="Permalink to this heading">¶</a></h3>
 <p>The design of the bounding box prediction layer is similar to that of
 the class prediction layer. The only difference lies in the number of
 outputs for each anchor box: here we need to predict four offsets rather
@@ -630,7 +632,7 @@ than <span class="math notranslate nohighlight">\(q+1\)</span> classes.</p>
 </div>
 </section>
 <section id="concatenating-predictions-for-multiple-scales">
-<h3><span class="section-number">13.7.1.3. </span>Concatenating Predictions for Multiple Scales<a class="headerlink" href="#concatenating-predictions-for-multiple-scales" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.7.1.3. </span>Concatenating Predictions for Multiple Scales<a class="headerlink" href="#concatenating-predictions-for-multiple-scales" title="Permalink to this heading">¶</a></h3>
 <p>As we mentioned, single-shot multibox detection uses multiscale feature
 maps to generate anchor boxes and predict their classes and offsets. At
 different scales, the shapes of feature maps or the numbers of anchor
@@ -685,7 +687,7 @@ prediction outputs at two different scales for the same minibatch.</p>
 </div>
 </section>
 <section id="downsampling-block">
-<h3><span class="section-number">13.7.1.4. </span>Downsampling Block<a class="headerlink" href="#downsampling-block" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.7.1.4. </span>Downsampling Block<a class="headerlink" href="#downsampling-block" title="Permalink to this heading">¶</a></h3>
 <p>In order to detect objects at multiple scales, we define the following
 downsampling block <code class="docutils literal notranslate"><span class="pre">down_sample_blk</span></code> that halves the height and width
 of input feature maps. In fact, this block applies the design of VGG
@@ -723,7 +725,7 @@ feature maps.</p>
 </div>
 </section>
 <section id="base-network-block">
-<h3><span class="section-number">13.7.1.5. </span>Base Network Block<a class="headerlink" href="#base-network-block" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.7.1.5. </span>Base Network Block<a class="headerlink" href="#base-network-block" title="Permalink to this heading">¶</a></h3>
 <p>The base network block is used to extract features from input images.
 For simplicity, we construct a small base network consisting of three
 downsampling blocks that double the number of channels at each block.
@@ -744,7 +746,7 @@ outputs <span class="math notranslate nohighlight">\(32 \times 32\)</span> featu
 </div>
 </section>
 <section id="the-complete-model">
-<h3><span class="section-number">13.7.1.6. </span>The Complete Model<a class="headerlink" href="#the-complete-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.7.1.6. </span>The Complete Model<a class="headerlink" href="#the-complete-model" title="Permalink to this heading">¶</a></h3>
 <p>The complete single shot multibox detection model consists of five
 blocks. The feature maps produced by each block are used for both (i)
 generating anchor boxes and (ii) predicting classes and offsets of these
@@ -752,7 +754,7 @@ anchor boxes. Among these five blocks, the first one is the base network
 block, the second to the fourth are downsampling blocks, and the last
 block uses global max-pooling to reduce both the height and width to 1.
 Technically, the second to the fifth blocks are all those multiscale
-feature map blocks in <a class="reference internal" href="#fig-ssd"><span class="std std-numref">figure13.7.1</span></a>.</p>
+feature map blocks in <a class="reference internal" href="#fig-ssd"><span class="std std-numref">Fig. 13.7.1</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="c1">#AdapativeMaxPool2d</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">AdaptiveMaxPool2d</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -807,12 +809,12 @@ boxes.</p>
     <span class="k">return</span> <span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">anchors</span><span class="p">,</span> <span class="n">cls_preds</span><span class="p">,</span> <span class="n">bbox_preds</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Recall that in <a class="reference internal" href="#fig-ssd"><span class="std std-numref">figure13.7.1</span></a> a multiscale feature map block that
+<p>Recall that in <a class="reference internal" href="#fig-ssd"><span class="std std-numref">Fig. 13.7.1</span></a> a multiscale feature map block that
 is closer to the top is for detecting larger objects; thus, it needs to
 generate larger anchor boxes. In the above forward propagation, at each
 multiscale feature map block we pass in a list of two scale values via
 the <code class="docutils literal notranslate"><span class="pre">sizes</span></code> argument of the invoked <code class="docutils literal notranslate"><span class="pre">multibox_prior</span></code> function
-(described in <a class="reference internal" href="anchor.html#sec-anchor"><span class="std std-numref">13.4section</span></a>). In the following, the interval
+(described in <a class="reference internal" href="anchor.html#sec-anchor"><span class="std std-numref">Section 13.4</span></a>). In the following, the interval
 between 0.2 and 1.05 is split evenly into five sections to determine the
 smaller scale values at the five blocks: 0.2, 0.37, 0.54, 0.71, and
 0.88. Then their larger scale values are given by
@@ -905,13 +907,13 @@ generated for each image.</p>
 </section>
 </section>
 <section id="training">
-<h2><span class="section-number">13.7.2. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.7.2. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h2>
 <p>Now we will explain how to train the single shot multibox detection
 model for object detection.</p>
 <section id="reading-the-dataset-and-initializing-the-model">
-<h3><span class="section-number">13.7.2.1. </span>Reading the Dataset and Initializing the Model<a class="headerlink" href="#reading-the-dataset-and-initializing-the-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.7.2.1. </span>Reading the Dataset and Initializing the Model<a class="headerlink" href="#reading-the-dataset-and-initializing-the-model" title="Permalink to this heading">¶</a></h3>
 <p>To begin with, let’s read the banana detection dataset described in
-<a class="reference internal" href="object-detection-dataset.html#sec-object-detection-dataset"><span class="std std-numref">13.6section</span></a>.</p>
+<a class="reference internal" href="object-detection-dataset.html#sec-object-detection-dataset"><span class="std std-numref">Section 13.6</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">train_iter</span><span class="p">,</span> <span class="n">num_batches</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_bananas</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
 </pre></div>
@@ -925,14 +927,14 @@ optimization algorithm.</p>
 </div>
 </section>
 <section id="defining-loss-and-evaluation-functions">
-<h3><span class="section-number">13.7.2.2. </span>Defining Loss and Evaluation Functions<a class="headerlink" href="#defining-loss-and-evaluation-functions" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.7.2.2. </span>Defining Loss and Evaluation Functions<a class="headerlink" href="#defining-loss-and-evaluation-functions" title="Permalink to this heading">¶</a></h3>
 <p>Object detection has two types of losses. The first loss concerns
 classes of anchor boxes: its computation can simply reuse the
 cross-entropy loss function that we used for image classification. The
 second loss concerns offsets of positive (non-background) anchor boxes:
 this is a regression problem. For this regression problem, however, here
 we do not use the squared loss described in
-<a class="reference internal" href="../chapter_linear-regression/linear-regression.html#subsec-normal-distribution-and-squared-loss"><span class="std std-numref">3.1.3section</span></a>. Instead, we use
+<a class="reference internal" href="../chapter_linear-regression/linear-regression.html#subsec-normal-distribution-and-squared-loss"><span class="std std-numref">Section 3.1.3</span></a>. Instead, we use
 the <span class="math notranslate nohighlight">\(\ell_1\)</span> norm loss, the absolute value of the difference
 between the prediction and the ground-truth. The mask variable
 <code class="docutils literal notranslate"><span class="pre">bbox_masks</span></code> filters out negative anchor boxes and illegal (padded)
@@ -970,7 +972,7 @@ offsets for them.</p>
 </div>
 </section>
 <section id="training-the-model">
-<h3><span class="section-number">13.7.2.3. </span>Training the Model<a class="headerlink" href="#training-the-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.7.2.3. </span>Training the Model<a class="headerlink" href="#training-the-model" title="Permalink to this heading">¶</a></h3>
 <p>When training the model, we need to generate multiscale anchor boxes
 (<code class="docutils literal notranslate"><span class="pre">anchors</span></code>) and predict their classes (<code class="docutils literal notranslate"><span class="pre">cls_preds</span></code>) and offsets
 (<code class="docutils literal notranslate"><span class="pre">bbox_preds</span></code>) in the forward propagation. Then we label the classes
@@ -1020,12 +1022,11 @@ omitted here.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_ssd_265054_35_1.svg" src="../_images/output_ssd_265054_35_1.svg" />
-</figure>
+<img alt="../_images/output_ssd_265054_35_1.svg" src="../_images/output_ssd_265054_35_1.svg" /></figure>
 </section>
 </section>
 <section id="prediction">
-<h2><span class="section-number">13.7.3. </span>Prediction<a class="headerlink" href="#prediction" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.7.3. </span>Prediction<a class="headerlink" href="#prediction" title="Permalink to this heading">¶</a></h2>
 <p>During prediction, the goal is to detect all the objects of interest on
 the image. Below we read and resize a test image, converting it to a
 four-dimensional tensor that is required by convolutional layers.</p>
@@ -1097,11 +1098,10 @@ or above as output.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_ssd_265054_41_0.svg" src="../_images/output_ssd_265054_41_0.svg" />
-</figure>
+<img alt="../_images/output_ssd_265054_41_0.svg" src="../_images/output_ssd_265054_41_0.svg" /></figure>
 </section>
 <section id="summary">
-<h2><span class="section-number">13.7.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.7.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Single shot multibox detection is a multiscale object detection
 model. Via its base network and several multiscale feature map
@@ -1115,7 +1115,7 @@ the anchor box classes and offsets.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">13.7.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.7.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Can you improve the single-shot multibox detection by improving the
 loss function? For example, replace <span class="math notranslate nohighlight">\(\ell_1\)</span> norm loss with
@@ -1124,7 +1124,7 @@ function uses a square function around zero for smoothness, which is
 controlled by the hyperparameter <span class="math notranslate nohighlight">\(\sigma\)</span>:</p></li>
 </ol>
 <div class="math notranslate nohighlight" id="equation-chapter-computer-vision-ssd-0">
-<span class="eqno">(13.7.1)<a class="headerlink" href="#equation-chapter-computer-vision-ssd-0" title="Link to this equation">¶</a></span>\[\begin{split}f(x) =
+<span class="eqno">(13.7.1)<a class="headerlink" href="#equation-chapter-computer-vision-ssd-0" title="Permalink to this equation">¶</a></span>\[\begin{split}f(x) =
     \begin{cases}
     (\sigma x)^2/2,&amp; \textrm{if }|x| &lt; 1/\sigma^2\\
     |x|-0.5/\sigma^2,&amp; \textrm{otherwise}
@@ -1153,8 +1153,7 @@ is smoother.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_ssd_265054_43_0.svg" src="../_images/output_ssd_265054_43_0.svg" />
-</figure>
+<img alt="../_images/output_ssd_265054_43_0.svg" src="../_images/output_ssd_265054_43_0.svg" /></figure>
 <p>Besides, in the experiment we used cross-entropy loss for class
 prediction: denoting by <span class="math notranslate nohighlight">\(p_j\)</span> the predicted probability for the
 ground-truth class <span class="math notranslate nohighlight">\(j\)</span>, the cross-entropy loss is
@@ -1162,7 +1161,7 @@ ground-truth class <span class="math notranslate nohighlight">\(j\)</span>, the 
 <span id="id3">()</span>: given hyperparameters
 <span class="math notranslate nohighlight">\(\gamma &gt; 0\)</span> and <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>, this loss is defined as:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-computer-vision-ssd-1">
-<span class="eqno">(13.7.2)<a class="headerlink" href="#equation-chapter-computer-vision-ssd-1" title="Link to this equation">¶</a></span>\[- \alpha (1-p_j)^{\gamma} \log p_j.\]</div>
+<span class="eqno">(13.7.2)<a class="headerlink" href="#equation-chapter-computer-vision-ssd-1" title="Permalink to this equation">¶</a></span>\[- \alpha (1-p_j)^{\gamma} \log p_j.\]</div>
 <p>As we can see, increasing <span class="math notranslate nohighlight">\(\gamma\)</span> can effectively reduce the
 relative loss for well-classified examples (e.g., <span class="math notranslate nohighlight">\(p_j &gt; 0.5\)</span>) so
 the training can focus more on those difficult examples that are
@@ -1177,8 +1176,7 @@ misclassified.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_ssd_265054_45_0.svg" src="../_images/output_ssd_265054_45_0.svg" />
-</figure>
+<img alt="../_images/output_ssd_265054_45_0.svg" src="../_images/output_ssd_265054_45_0.svg" /></figure>
 <ol class="arabic simple" start="2">
 <li><p>Due to space limitations, we have omitted some implementation details
 of the single shot multibox detection model in this section. Can you

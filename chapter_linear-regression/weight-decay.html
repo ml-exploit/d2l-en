@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Linear Neural Networks for Classification" href="../chapter_linear-classification/index.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="weight-decay">
-<span id="sec-weight-decay"></span><h1><span class="section-number">3.7. </span>Weight Decay<a class="headerlink" href="#weight-decay" title="Link to this heading">¶</a></h1>
+<span id="sec-weight-decay"></span><h1><span class="section-number">3.7. </span>Weight Decay<a class="headerlink" href="#weight-decay" title="Permalink to this heading">¶</a></h1>
 <p>Now that we have characterized the problem of overfitting, we can
 introduce our first <em>regularization</em> technique. Recall that we can
 always mitigate overfitting by collecting more training data. However,
@@ -531,7 +534,7 @@ making it impossible in the short run. For now, we can assume that we
 already have as much high-quality data as our resources permit and focus
 the tools at our disposal when the dataset is taken as a given.</p>
 <p>Recall that in our polynomial regression example
-(<a class="reference internal" href="generalization.html#subsec-polynomial-curve-fitting"><span class="std std-numref">3.6.2.1section</span></a>) we could limit our model’s
+(<a class="reference internal" href="generalization.html#subsec-polynomial-curve-fitting"><span class="std std-numref">Section 3.6.2.1</span></a>) we could limit our model’s
 capacity by tweaking the degree of the fitted polynomial. Indeed,
 limiting the number of features is a popular technique for mitigating
 overfitting. However, simply tossing aside features can be too blunt an
@@ -557,7 +560,7 @@ more fine-grained tool for adjusting function complexity.</p>
 </pre></div>
 </div>
 <section id="norms-and-weight-decay">
-<h2><span class="section-number">3.7.1. </span>Norms and Weight Decay<a class="headerlink" href="#norms-and-weight-decay" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.7.1. </span>Norms and Weight Decay<a class="headerlink" href="#norms-and-weight-decay" title="Permalink to this heading">¶</a></h2>
 <p>Rather than directly manipulating the number of parameters, <em>weight
 decay</em>, operates by restricting the values that the parameters can take.
 More commonly called <span class="math notranslate nohighlight">\(\ell_2\)</span> regularization outside of deep
@@ -577,7 +580,7 @@ function <span class="math notranslate nohighlight">\(f(\mathbf{x}) = \mathbf{w}
 of its weight vector, e.g., <span class="math notranslate nohighlight">\(\| \mathbf{w} \|^2\)</span>. Recall that we
 introduced the <span class="math notranslate nohighlight">\(\ell_2\)</span> norm and <span class="math notranslate nohighlight">\(\ell_1\)</span> norm, which are
 special cases of the more general <span class="math notranslate nohighlight">\(\ell_p\)</span> norm, in
-<a class="reference internal" href="../chapter_preliminaries/linear-algebra.html#subsec-lin-algebra-norms"><span class="std std-numref">2.3.11section</span></a>. The most common method for
+<a class="reference internal" href="../chapter_preliminaries/linear-algebra.html#subsec-lin-algebra-norms"><span class="std std-numref">Section 2.3.11</span></a>. The most common method for
 ensuring a small weight vector is to add its norm as a penalty term to
 the problem of minimizing the loss. Thus we replace our original
 objective, <em>minimizing the prediction loss on the training labels</em>, with
@@ -586,10 +589,10 @@ penalty term</em>. Now, if our weight vector grows too large, our learning
 algorithm might focus on minimizing the weight norm
 <span class="math notranslate nohighlight">\(\| \mathbf{w} \|^2\)</span> rather than minimizing the training error.
 That is exactly what we want. To illustrate things in code, we revive
-our previous example from <a class="reference internal" href="linear-regression.html#sec-linear-regression"><span class="std std-numref">3.1section</span></a> for linear
+our previous example from <a class="reference internal" href="linear-regression.html#sec-linear-regression"><span class="std std-numref">Section 3.1</span></a> for linear
 regression. There, our loss was given by</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-weight-decay-0">
-<span class="eqno">(3.7.1)<a class="headerlink" href="#equation-chapter-linear-regression-weight-decay-0" title="Link to this equation">¶</a></span>\[L(\mathbf{w}, b) = \frac{1}{n}\sum_{i=1}^n \frac{1}{2}\left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)^2.\]</div>
+<span class="eqno">(3.7.1)<a class="headerlink" href="#equation-chapter-linear-regression-weight-decay-0" title="Permalink to this equation">¶</a></span>\[L(\mathbf{w}, b) = \frac{1}{n}\sum_{i=1}^n \frac{1}{2}\left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)^2.\]</div>
 <p>Recall that <span class="math notranslate nohighlight">\(\mathbf{x}^{(i)}\)</span> are the features, <span class="math notranslate nohighlight">\(y^{(i)}\)</span>
 is the label for any data example <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\((\mathbf{w}, b)\)</span>
 are the weight and bias parameters, respectively. To penalize the size
@@ -599,7 +602,7 @@ for this new additive penalty? In practice, we characterize this
 trade-off via the <em>regularization constant</em> <span class="math notranslate nohighlight">\(\lambda\)</span>, a
 nonnegative hyperparameter that we fit using validation data:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-weight-decay-1">
-<span class="eqno">(3.7.2)<a class="headerlink" href="#equation-chapter-linear-regression-weight-decay-1" title="Link to this equation">¶</a></span>\[L(\mathbf{w}, b) + \frac{\lambda}{2} \|\mathbf{w}\|^2.\]</div>
+<span class="eqno">(3.7.2)<a class="headerlink" href="#equation-chapter-linear-regression-weight-decay-1" title="Permalink to this equation">¶</a></span>\[L(\mathbf{w}, b) + \frac{\lambda}{2} \|\mathbf{w}\|^2.\]</div>
 <p>For <span class="math notranslate nohighlight">\(\lambda = 0\)</span>, we recover our original loss function. For
 <span class="math notranslate nohighlight">\(\lambda &gt; 0\)</span>, we restrict the size of <span class="math notranslate nohighlight">\(\| \mathbf{w} \|\)</span>.
 We divide by <span class="math notranslate nohighlight">\(2\)</span> by convention: when we take the derivative of a
@@ -632,7 +635,7 @@ the other (dropped) features.</p>
 stochastic gradient descent updates for <span class="math notranslate nohighlight">\(\ell_2\)</span>-regularized
 regression as follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-weight-decay-2">
-<span class="eqno">(3.7.3)<a class="headerlink" href="#equation-chapter-linear-regression-weight-decay-2" title="Link to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(3.7.3)<a class="headerlink" href="#equation-chapter-linear-regression-weight-decay-2" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
 \mathbf{w} &amp; \leftarrow \left(1- \eta\lambda \right) \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} \mathbf{x}^{(i)} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right).
 \end{aligned}\]</div>
 <p>As before, we update <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> based on the amount by which our
@@ -652,12 +655,12 @@ decay for other optimization algorithms, the idea of regularization
 through shrinking the size of weights still holds true.</p>
 </section>
 <section id="high-dimensional-linear-regression">
-<h2><span class="section-number">3.7.2. </span>High-Dimensional Linear Regression<a class="headerlink" href="#high-dimensional-linear-regression" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.7.2. </span>High-Dimensional Linear Regression<a class="headerlink" href="#high-dimensional-linear-regression" title="Permalink to this heading">¶</a></h2>
 <p>We can illustrate the benefits of weight decay through a simple
 synthetic example.</p>
 <p>First, we generate some data as before:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-weight-decay-3">
-<span class="eqno">(3.7.4)<a class="headerlink" href="#equation-chapter-linear-regression-weight-decay-3" title="Link to this equation">¶</a></span>\[y = 0.05 + \sum_{i = 1}^d 0.01 x_i + \epsilon \textrm{ where }
+<span class="eqno">(3.7.4)<a class="headerlink" href="#equation-chapter-linear-regression-weight-decay-3" title="Permalink to this equation">¶</a></span>\[y = 0.05 + \sum_{i = 1}^d 0.01 x_i + \epsilon \textrm{ where }
 \epsilon \sim \mathcal{N}(0, 0.01^2).\]</div>
 <p>In this synthetic dataset, our label is given by an underlying linear
 function of our inputs, corrupted by Gaussian noise with zero mean and
@@ -681,12 +684,12 @@ with only 20 examples.</p>
 </div>
 </section>
 <section id="implementation-from-scratch">
-<h2><span class="section-number">3.7.3. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.7.3. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Permalink to this heading">¶</a></h2>
 <p>Now, let’s try implementing weight decay from scratch. Since minibatch
 stochastic gradient descent is our optimizer, we just need to add the
 squared <span class="math notranslate nohighlight">\(\ell_2\)</span> penalty to the original loss function.</p>
 <section id="defining-ell-2-norm-penalty">
-<h3><span class="section-number">3.7.3.1. </span>Defining <span class="math notranslate nohighlight">\(\ell_2\)</span> Norm Penalty<a class="headerlink" href="#defining-ell-2-norm-penalty" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.7.3.1. </span>Defining <span class="math notranslate nohighlight">\(\ell_2\)</span> Norm Penalty<a class="headerlink" href="#defining-ell-2-norm-penalty" title="Permalink to this heading">¶</a></h3>
 <p>Perhaps the most convenient way of implementing this penalty is to
 square all terms in place and sum them.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">l2_penalty</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>
@@ -695,9 +698,9 @@ square all terms in place and sum them.</p>
 </div>
 </section>
 <section id="defining-the-model">
-<h3><span class="section-number">3.7.3.2. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.7.3.2. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Permalink to this heading">¶</a></h3>
 <p>In the final model, the linear regression and the squared loss have not
-changed since <a class="reference internal" href="linear-regression-scratch.html#sec-linear-scratch"><span class="std std-numref">3.4section</span></a>, so we will just define a
+changed since <a class="reference internal" href="linear-regression-scratch.html#sec-linear-scratch"><span class="std std-numref">Section 3.4</span></a>, so we will just define a
 subclass of <code class="docutils literal notranslate"><span class="pre">d2l.LinearRegressionScratch</span></code>. The only change here is
 that our loss now includes the penalty term.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WeightDecayScratch</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">LinearRegressionScratch</span><span class="p">):</span>
@@ -724,7 +727,7 @@ and evaluates it on the validation set with 100 examples.</p>
 </div>
 </section>
 <section id="training-without-regularization">
-<h3><span class="section-number">3.7.3.3. </span>Training without Regularization<a class="headerlink" href="#training-without-regularization" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.7.3.3. </span>Training without Regularization<a class="headerlink" href="#training-without-regularization" title="Permalink to this heading">¶</a></h3>
 <p>We now run this code with <code class="docutils literal notranslate"><span class="pre">lambd</span> <span class="pre">=</span> <span class="pre">0</span></code>, disabling weight decay. Note
 that we overfit badly, decreasing the training error but not the
 validation error—a textbook case of overfitting.</p>
@@ -735,11 +738,10 @@ validation error—a textbook case of overfitting.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_weight-decay_679df7_11_1.svg" src="../_images/output_weight-decay_679df7_11_1.svg" />
-</figure>
+<img alt="../_images/output_weight-decay_679df7_11_1.svg" src="../_images/output_weight-decay_679df7_11_1.svg" /></figure>
 </section>
 <section id="using-weight-decay">
-<h3><span class="section-number">3.7.3.4. </span>Using Weight Decay<a class="headerlink" href="#using-weight-decay" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.7.3.4. </span>Using Weight Decay<a class="headerlink" href="#using-weight-decay" title="Permalink to this heading">¶</a></h3>
 <p>Below, we run with substantial weight decay. Note that the training
 error increases but the validation error decreases. This is precisely
 the effect we expect from regularization.</p>
@@ -750,12 +752,11 @@ the effect we expect from regularization.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_weight-decay_679df7_13_1.svg" src="../_images/output_weight-decay_679df7_13_1.svg" />
-</figure>
+<img alt="../_images/output_weight-decay_679df7_13_1.svg" src="../_images/output_weight-decay_679df7_13_1.svg" /></figure>
 </section>
 </section>
 <section id="concise-implementation">
-<h2><span class="section-number">3.7.4. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.7.4. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Permalink to this heading">¶</a></h2>
 <p>Because weight decay is ubiquitous in neural network optimization, the
 deep learning framework makes it especially convenient, integrating
 weight decay into the optimization algorithm itself for easy use in
@@ -785,8 +786,7 @@ and this work becomes more routine.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_weight-decay_679df7_17_0.svg" src="../_images/output_weight-decay_679df7_17_0.svg" />
-</figure>
+<img alt="../_images/output_weight-decay_679df7_17_0.svg" src="../_images/output_weight-decay_679df7_17_0.svg" /></figure>
 <p>So far, we have touched upon one notion of what constitutes a simple
 linear function. However, even for simple nonlinear functions, the
 situation can be much more complex. To see this, the concept of
@@ -799,7 +799,7 @@ common heuristic whereby weight decay is applied to all layers of a deep
 network.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">3.7.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.7.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>Regularization is a common method for dealing with overfitting.
 Classical regularization techniques add a penalty term to the loss
 function (when training) to reduce the complexity of the learned model.
@@ -811,7 +811,7 @@ frameworks. Different sets of parameters can have different update
 behaviors within the same training loop.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">3.7.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.7.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Experiment with the value of <span class="math notranslate nohighlight">\(\lambda\)</span> in the estimation
 problem in this section. Plot training and validation accuracy as a
@@ -823,7 +823,7 @@ it really the optimal value? Does this matter?</p></li>
 of choice (<span class="math notranslate nohighlight">\(\ell_1\)</span> regularization)?</p></li>
 <li><p>We know that <span class="math notranslate nohighlight">\(\|\mathbf{w}\|^2 = \mathbf{w}^\top \mathbf{w}\)</span>.
 Can you find a similar equation for matrices (see the Frobenius norm
-in <a class="reference internal" href="../chapter_preliminaries/linear-algebra.html#subsec-lin-algebra-norms"><span class="std std-numref">2.3.11section</span></a>)?</p></li>
+in <a class="reference internal" href="../chapter_preliminaries/linear-algebra.html#subsec-lin-algebra-norms"><span class="std std-numref">Section 2.3.11</span></a>)?</p></li>
 <li><p>Review the relationship between training error and generalization
 error. In addition to weight decay, increased training, and the use
 of a model of suitable complexity, what other ways might help us deal

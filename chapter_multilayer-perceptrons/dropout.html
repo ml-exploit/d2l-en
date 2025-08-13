@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="5.7. Predicting House Prices on Kaggle" href="kaggle-house-price.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Multilayer Perceptrons</a><ul class="current">
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Multilayer Perceptrons</a><ul class="current">
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,16 +525,16 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="dropout">
-<span id="sec-dropout"></span><h1><span class="section-number">5.6. </span>Dropout<a class="headerlink" href="#dropout" title="Link to this heading">¶</a></h1>
+<span id="sec-dropout"></span><h1><span class="section-number">5.6. </span>Dropout<a class="headerlink" href="#dropout" title="Permalink to this heading">¶</a></h1>
 <p>Let’s think briefly about what we expect from a good predictive model.
 We want it to peform well on unseen data. Classical generalization
 theory suggests that to close the gap between train and test
 performance, we should aim for a simple model. Simplicity can come in
 the form of a small number of dimensions. We explored this when
 discussing the monomial basis functions of linear models in
-<a class="reference internal" href="../chapter_linear-regression/generalization.html#sec-generalization-basics"><span class="std std-numref">3.6section</span></a>. Additionally, as we saw when
+<a class="reference internal" href="../chapter_linear-regression/generalization.html#sec-generalization-basics"><span class="std std-numref">Section 3.6</span></a>. Additionally, as we saw when
 discussing weight decay (<span class="math notranslate nohighlight">\(\ell_2\)</span> regularization) in
-<a class="reference internal" href="../chapter_linear-regression/weight-decay.html#sec-weight-decay"><span class="std std-numref">3.7section</span></a>, the (inverse) norm of the parameters also
+<a class="reference internal" href="../chapter_linear-regression/weight-decay.html#sec-weight-decay"><span class="std std-numref">Section 3.7</span></a>, the (inverse) norm of the parameters also
 represents a useful measure of simplicity. Another useful notion of
 simplicity is smoothness, i.e., that the function should not be
 sensitive to small changes to its inputs. For instance, when we classify
@@ -576,7 +579,7 @@ fraction of nodes that were retained (not dropped out). In other words,
 with <em>dropout probability</em> <span class="math notranslate nohighlight">\(p\)</span>, each intermediate activation
 <span class="math notranslate nohighlight">\(h\)</span> is replaced by a random variable <span class="math notranslate nohighlight">\(h'\)</span> as follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-multilayer-perceptrons-dropout-0">
-<span class="eqno">(5.6.1)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-dropout-0" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(5.6.1)<a class="headerlink" href="#equation-chapter-multilayer-perceptrons-dropout-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
 h' =
 \begin{cases}
     0 &amp; \textrm{ with probability } p \\
@@ -590,21 +593,20 @@ h' =
 </pre></div>
 </div>
 <section id="dropout-in-practice">
-<h2><span class="section-number">5.6.1. </span>Dropout in Practice<a class="headerlink" href="#dropout-in-practice" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">5.6.1. </span>Dropout in Practice<a class="headerlink" href="#dropout-in-practice" title="Permalink to this heading">¶</a></h2>
 <p>Recall the MLP with a hidden layer and five hidden units from
-<a class="reference internal" href="mlp.html#fig-mlp"><span class="std std-numref">figure5.1.1</span></a>. When we apply dropout to a hidden layer, zeroing
+<a class="reference internal" href="mlp.html#fig-mlp"><span class="std std-numref">Fig. 5.1.1</span></a>. When we apply dropout to a hidden layer, zeroing
 out each hidden unit with probability <span class="math notranslate nohighlight">\(p\)</span>, the result can be
 viewed as a network containing only a subset of the original neurons. In
-<a class="reference internal" href="#fig-dropout2"><span class="std std-numref">figure5.6.1</span></a>, <span class="math notranslate nohighlight">\(h_2\)</span> and <span class="math notranslate nohighlight">\(h_5\)</span> are removed.
+<a class="reference internal" href="#fig-dropout2"><span class="std std-numref">Fig. 5.6.1</span></a>, <span class="math notranslate nohighlight">\(h_2\)</span> and <span class="math notranslate nohighlight">\(h_5\)</span> are removed.
 Consequently, the calculation of the outputs no longer depends on
 <span class="math notranslate nohighlight">\(h_2\)</span> or <span class="math notranslate nohighlight">\(h_5\)</span> and their respective gradient also vanishes
 when performing backpropagation. In this way, the calculation of the
 output layer cannot be overly dependent on any one element of
 <span class="math notranslate nohighlight">\(h_1, \ldots, h_5\)</span>.</p>
 <figure class="align-default" id="id3">
-<span id="fig-dropout2"></span><img alt="../_images/dropout2.svg" src="../_images/dropout2.svg" />
-<figcaption>
-<p><span class="caption-number">figure5.6.1 </span><span class="caption-text">MLP before and after dropout.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+<span id="fig-dropout2"></span><img alt="../_images/dropout2.svg" src="../_images/dropout2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.6.1 </span><span class="caption-text">MLP before and after dropout.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Typically, we disable dropout at test time. Given a trained model and a
@@ -616,7 +618,7 @@ different dropout outputs, then we might say that the network is more
 confident.</p>
 </section>
 <section id="implementation-from-scratch">
-<h2><span class="section-number">5.6.2. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">5.6.2. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Permalink to this heading">¶</a></h2>
 <p>To implement the dropout function for a single layer, we must draw as
 many samples from a Bernoulli (binary) random variable as our layer has
 dimensions, where the random variable takes value <span class="math notranslate nohighlight">\(1\)</span> (keep) with
@@ -653,7 +655,7 @@ operation, with probabilities 0, 0.5, and 1, respectively.</p>
 </pre></div>
 </div>
 <section id="defining-the-model">
-<h3><span class="section-number">5.6.2.1. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">5.6.2.1. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Permalink to this heading">¶</a></h3>
 <p>The model below applies dropout to the output of each hidden layer
 (following the activation function). We can set dropout probabilities
 for each layer separately. A common choice is to set a lower dropout
@@ -681,7 +683,7 @@ active during training.</p>
 </div>
 </section>
 <section id="training">
-<h3><span class="section-number">5.6.2.2. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">5.6.2.2. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h3>
 <p>The following is similar to the training of MLPs described previously.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hparams</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;num_inputs&#39;</span><span class="p">:</span><span class="mi">784</span><span class="p">,</span> <span class="s1">&#39;num_outputs&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;num_hiddens_1&#39;</span><span class="p">:</span><span class="mi">256</span><span class="p">,</span> <span class="s1">&#39;num_hiddens_2&#39;</span><span class="p">:</span><span class="mi">256</span><span class="p">,</span>
            <span class="s1">&#39;dropout_1&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;dropout_2&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;lr&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">}</span>
@@ -692,12 +694,11 @@ active during training.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_dropout_880ae5_9_0.svg" src="../_images/output_dropout_880ae5_9_0.svg" />
-</figure>
+<img alt="../_images/output_dropout_880ae5_9_0.svg" src="../_images/output_dropout_880ae5_9_0.svg" /></figure>
 </section>
 </section>
 <section id="concise-implementation">
-<h2><span class="section-number">5.6.3. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">5.6.3. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Permalink to this heading">¶</a></h2>
 <p>With high-level APIs, all we need to do is add a <code class="docutils literal notranslate"><span class="pre">Dropout</span></code> layer after
 each fully connected layer, passing in the dropout probability as the
 only argument to its constructor. During training, the <code class="docutils literal notranslate"><span class="pre">Dropout</span></code> layer
@@ -726,11 +727,10 @@ passes the data through during testing.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_dropout_880ae5_13_0.svg" src="../_images/output_dropout_880ae5_13_0.svg" />
-</figure>
+<img alt="../_images/output_dropout_880ae5_13_0.svg" src="../_images/output_dropout_880ae5_13_0.svg" /></figure>
 </section>
 <section id="summary">
-<h2><span class="section-number">5.6.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">5.6.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>Beyond controlling the number of dimensions and the size of the weight
 vector, dropout is yet another tool for avoiding overfitting. Often
 tools are used jointly. Note that dropout is used only during training:
@@ -738,7 +738,7 @@ it replaces an activation <span class="math notranslate nohighlight">\(h\)</span
 value <span class="math notranslate nohighlight">\(h\)</span>.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">5.6.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">5.6.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>What happens if you change the dropout probabilities for the first
 and second layers? In particular, what happens if you switch the ones

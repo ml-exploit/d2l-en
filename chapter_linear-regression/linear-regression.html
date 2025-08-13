@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.2. Object-Oriented Design for Implementation" href="oo-design.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="linear-regression">
-<span id="sec-linear-regression"></span><h1><span class="section-number">3.1. </span>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">¶</a></h1>
+<span id="sec-linear-regression"></span><h1><span class="section-number">3.1. </span>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this heading">¶</a></h1>
 <p><em>Regression</em> problems pop up whenever we want to predict a numerical
 value. Common examples include predicting prices (of homes, stocks,
 etc.), predicting the length of stay (for patients in the hospital),
@@ -549,7 +552,7 @@ the predictions are based are called <em>features</em> (or <em>covariates</em>).
 </pre></div>
 </div>
 <section id="basics">
-<h2><span class="section-number">3.1.1. </span>Basics<a class="headerlink" href="#basics" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.1. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this heading">¶</a></h2>
 <p><em>Linear regression</em> is both the simplest and most popular among the
 standard tools for tackling regression problems. Dating back to the dawn
 of the 19th century <span id="id1">()</span>, linear
@@ -567,13 +570,13 @@ concretely, <span class="math notranslate nohighlight">\(\mathbf{x}^{(i)}\)</spa
 sample and <span class="math notranslate nohighlight">\(x_j^{(i)}\)</span> denotes its <span class="math notranslate nohighlight">\(j^{\textrm{th}}\)</span>
 coordinate.</p>
 <section id="model">
-<span id="subsec-linear-model"></span><h3><span class="section-number">3.1.1.1. </span>Model<a class="headerlink" href="#model" title="Link to this heading">¶</a></h3>
+<span id="subsec-linear-model"></span><h3><span class="section-number">3.1.1.1. </span>Model<a class="headerlink" href="#model" title="Permalink to this heading">¶</a></h3>
 <p>At the heart of every solution is a model that describes how features
 can be transformed into an estimate of the target. The assumption of
 linearity means that the expected value of the target (price) can be
 expressed as a weighted sum of the features (area and age):</p>
 <div class="math notranslate nohighlight" id="equation-eq-price-area">
-<span class="eqno">(3.1.1)<a class="headerlink" href="#equation-eq-price-area" title="Link to this equation">¶</a></span>\[\textrm{price} = w_{\textrm{area}} \cdot \textrm{area} + w_{\textrm{age}} \cdot \textrm{age} + b.\]</div>
+<span class="eqno">(3.1.1)<a class="headerlink" href="#equation-eq-price-area" title="Permalink to this equation">¶</a></span>\[\textrm{price} = w_{\textrm{area}} \cdot \textrm{area} + w_{\textrm{age}} \cdot \textrm{age} + b.\]</div>
 <p>Here <span class="math notranslate nohighlight">\(w_{\textrm{area}}\)</span> and <span class="math notranslate nohighlight">\(w_{\textrm{age}}\)</span> are called
 <em>weights</em>, and <span class="math notranslate nohighlight">\(b\)</span> is called a <em>bias</em> (or <em>offset</em> or
 <em>intercept</em>). The weights determine the influence of each feature on our
@@ -598,13 +601,13 @@ employ compact linear algebra notation. When our inputs consist of
 <span class="math notranslate nohighlight">\(d\)</span>) and express our prediction <span class="math notranslate nohighlight">\(\hat{y}\)</span> (in general the
 “hat” symbol denotes an estimate) as</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-0">
-<span class="eqno">(3.1.2)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-0" title="Link to this equation">¶</a></span>\[\hat{y} = w_1  x_1 + \cdots + w_d  x_d + b.\]</div>
+<span class="eqno">(3.1.2)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-0" title="Permalink to this equation">¶</a></span>\[\hat{y} = w_1  x_1 + \cdots + w_d  x_d + b.\]</div>
 <p>Collecting all features into a vector
 <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^d\)</span> and all weights into a vector
 <span class="math notranslate nohighlight">\(\mathbf{w} \in \mathbb{R}^d\)</span>, we can express our model compactly
 via the dot product between <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-linreg-y">
-<span class="eqno">(3.1.3)<a class="headerlink" href="#equation-eq-linreg-y" title="Link to this equation">¶</a></span>\[\hat{y} = \mathbf{w}^\top \mathbf{x} + b.\]</div>
+<span class="eqno">(3.1.3)<a class="headerlink" href="#equation-eq-linreg-y" title="Permalink to this equation">¶</a></span>\[\hat{y} = \mathbf{w}^\top \mathbf{x} + b.\]</div>
 <p>In <a class="reference internal" href="#equation-eq-linreg-y">(3.1.3)</a>, the vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> corresponds to
 the features of a single example. We will often find it convenient to
 refer to features of our entire dataset of <span class="math notranslate nohighlight">\(n\)</span> examples via the
@@ -614,8 +617,8 @@ every feature. For a collection of features <span class="math notranslate nohigh
 predictions <span class="math notranslate nohighlight">\(\hat{\mathbf{y}} \in \mathbb{R}^n\)</span> can be expressed
 via the matrix–vector product:</p>
 <div class="math notranslate nohighlight" id="equation-eq-linreg-y-vec">
-<span class="eqno">(3.1.4)<a class="headerlink" href="#equation-eq-linreg-y-vec" title="Link to this equation">¶</a></span>\[{\hat{\mathbf{y}}} = \mathbf{X} \mathbf{w} + b,\]</div>
-<p>where broadcasting (<a class="reference internal" href="../chapter_preliminaries/ndarray.html#subsec-broadcasting"><span class="std std-numref">2.1.4section</span></a>) is applied during
+<span class="eqno">(3.1.4)<a class="headerlink" href="#equation-eq-linreg-y-vec" title="Permalink to this equation">¶</a></span>\[{\hat{\mathbf{y}}} = \mathbf{X} \mathbf{w} + b,\]</div>
+<p>where broadcasting (<a class="reference internal" href="../chapter_preliminaries/ndarray.html#subsec-broadcasting"><span class="std std-numref">Section 2.1.4</span></a>) is applied during
 the summation. Given features of a training dataset <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>
 and corresponding (known) labels <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, the goal of linear
 regression is to find the weight vector <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and the bias
@@ -637,7 +640,7 @@ things: (i) a measure of the quality of some given model; and (ii) a
 procedure for updating the model to improve its quality.</p>
 </section>
 <section id="loss-function">
-<span id="subsec-linear-regression-loss-function"></span><h3><span class="section-number">3.1.1.2. </span>Loss Function<a class="headerlink" href="#loss-function" title="Link to this heading">¶</a></h3>
+<span id="subsec-linear-regression-loss-function"></span><h3><span class="section-number">3.1.1.2. </span>Loss Function<a class="headerlink" href="#loss-function" title="Permalink to this heading">¶</a></h3>
 <p>Naturally, fitting our model to the data requires that we agree on some
 measure of <em>fitness</em> (or, equivalently, of <em>unfitness</em>). <em>Loss
 functions</em> quantify the distance between the <em>real</em> and <em>predicted</em>
@@ -648,18 +651,17 @@ error. When our prediction for an example <span class="math notranslate nohighli
 <span class="math notranslate nohighlight">\(\hat{y}^{(i)}\)</span> and the corresponding true label is
 <span class="math notranslate nohighlight">\(y^{(i)}\)</span>, the <em>squared error</em> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-mse">
-<span class="eqno">(3.1.5)<a class="headerlink" href="#equation-eq-mse" title="Link to this equation">¶</a></span>\[l^{(i)}(\mathbf{w}, b) = \frac{1}{2} \left(\hat{y}^{(i)} - y^{(i)}\right)^2.\]</div>
+<span class="eqno">(3.1.5)<a class="headerlink" href="#equation-eq-mse" title="Permalink to this equation">¶</a></span>\[l^{(i)}(\mathbf{w}, b) = \frac{1}{2} \left(\hat{y}^{(i)} - y^{(i)}\right)^2.\]</div>
 <p>The constant <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> makes no real difference but proves to
 be notationally convenient, since it cancels out when we take the
 derivative of the loss. Because the training dataset is given to us, and
 thus is out of our control, the empirical error is only a function of
-the model parameters. In <a class="reference internal" href="#fig-fit-linreg"><span class="std std-numref">figure3.1.1</span></a>, we visualize the
+the model parameters. In <a class="reference internal" href="#fig-fit-linreg"><span class="std std-numref">Fig. 3.1.1</span></a>, we visualize the
 fit of a linear regression model in a problem with one-dimensional
 inputs.</p>
 <figure class="align-default" id="id10">
-<span id="fig-fit-linreg"></span><img alt="../_images/fit-linreg.svg" src="../_images/fit-linreg.svg" />
-<figcaption>
-<p><span class="caption-number">figure3.1.1 </span><span class="caption-text">Fitting a linear regression model to one-dimensional data.</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+<span id="fig-fit-linreg"></span><img alt="../_images/fit-linreg.svg" src="../_images/fit-linreg.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3.1.1 </span><span class="caption-text">Fitting a linear regression model to one-dimensional data.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Note that large differences between estimates <span class="math notranslate nohighlight">\(\hat{y}^{(i)}\)</span> and
@@ -670,14 +672,14 @@ excessive sensitivity to anomalous data). To measure the quality of a
 model on the entire dataset of <span class="math notranslate nohighlight">\(n\)</span> examples, we simply average (or
 equivalently, sum) the losses on the training set:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-1">
-<span class="eqno">(3.1.6)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-1" title="Link to this equation">¶</a></span>\[L(\mathbf{w}, b) =\frac{1}{n}\sum_{i=1}^n l^{(i)}(\mathbf{w}, b) =\frac{1}{n} \sum_{i=1}^n \frac{1}{2}\left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)^2.\]</div>
+<span class="eqno">(3.1.6)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-1" title="Permalink to this equation">¶</a></span>\[L(\mathbf{w}, b) =\frac{1}{n}\sum_{i=1}^n l^{(i)}(\mathbf{w}, b) =\frac{1}{n} \sum_{i=1}^n \frac{1}{2}\left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)^2.\]</div>
 <p>When training the model, we seek parameters (<span class="math notranslate nohighlight">\(\mathbf{w}^*, b^*\)</span>)
 that minimize the total loss across all training examples:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-2">
-<span class="eqno">(3.1.7)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-2" title="Link to this equation">¶</a></span>\[\mathbf{w}^*, b^* = \operatorname*{argmin}_{\mathbf{w}, b}\  L(\mathbf{w}, b).\]</div>
+<span class="eqno">(3.1.7)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-2" title="Permalink to this equation">¶</a></span>\[\mathbf{w}^*, b^* = \operatorname*{argmin}_{\mathbf{w}, b}\  L(\mathbf{w}, b).\]</div>
 </section>
 <section id="analytic-solution">
-<h3><span class="section-number">3.1.1.3. </span>Analytic Solution<a class="headerlink" href="#analytic-solution" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.1.1.3. </span>Analytic Solution<a class="headerlink" href="#analytic-solution" title="Permalink to this heading">¶</a></h3>
 <p>Unlike most of the models that we will cover, linear regression presents
 us with a surprisingly easy optimization problem. In particular, we can
 find the optimal parameters (as assessed on the training data)
@@ -692,7 +694,7 @@ the loss surface and it corresponds to the minimum of the loss over the
 entire domain. Taking the derivative of the loss with respect to
 <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and setting it equal to zero yields:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-3">
-<span class="eqno">(3.1.8)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-3" title="Link to this equation">¶</a></span>\[\begin{aligned}
+<span class="eqno">(3.1.8)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-3" title="Permalink to this equation">¶</a></span>\[\begin{aligned}
     \partial_{\mathbf{w}} \|\mathbf{y} - \mathbf{X}\mathbf{w}\|^2 =
     2 \mathbf{X}^\top (\mathbf{X} \mathbf{w} - \mathbf{y}) = 0
     \textrm{ and hence }
@@ -701,7 +703,7 @@ entire domain. Taking the derivative of the loss with respect to
 <p>Solving for <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> provides us with the optimal solution for
 the optimization problem. Note that this solution</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-4">
-<span class="eqno">(3.1.9)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-4" title="Link to this equation">¶</a></span>\[\mathbf{w}^* = (\mathbf X^\top \mathbf X)^{-1}\mathbf X^\top \mathbf{y}\]</div>
+<span class="eqno">(3.1.9)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-4" title="Permalink to this equation">¶</a></span>\[\mathbf{w}^* = (\mathbf X^\top \mathbf X)^{-1}\mathbf X^\top \mathbf{y}\]</div>
 <p>will only be unique when the matrix <span class="math notranslate nohighlight">\(\mathbf X^\top \mathbf X\)</span> is
 invertible, i.e., when the columns of the design matrix are linearly
 independent <span id="id2">()</span>.</p>
@@ -712,7 +714,7 @@ of an analytic solution is so restrictive that it would exclude almost
 all exciting aspects of deep learning.</p>
 </section>
 <section id="minibatch-stochastic-gradient-descent">
-<h3><span class="section-number">3.1.1.4. </span>Minibatch Stochastic Gradient Descent<a class="headerlink" href="#minibatch-stochastic-gradient-descent" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.1.1.4. </span>Minibatch Stochastic Gradient Descent<a class="headerlink" href="#minibatch-stochastic-gradient-descent" title="Permalink to this heading">¶</a></h3>
 <p>Fortunately, even in cases where we cannot solve the models
 analytically, we can still often train models effectively in practice.
 Moreover, for many tasks, those hard-to-optimize models turn out to be
@@ -742,7 +744,7 @@ perform a matrix–vector multiplication than a corresponding number of
 vector–vector operations. This means that it can take a lot longer to
 process one sample at a time compared to a full batch. A second problem
 is that some of the layers, such as batch normalization (to be described
-in <a class="reference internal" href="../chapter_convolutional-modern/batch-norm.html#sec-batch-norm"><span class="std std-numref">8.3section</span></a>), only work well when we have access to
+in <a class="reference internal" href="../chapter_convolutional-modern/batch-norm.html#sec-batch-norm"><span class="std std-numref">Section 8.3</span></a>), only work well when we have access to
 more than one observation at a time.</p>
 <p>The solution to both problems is to pick an intermediate strategy:
 rather than taking a full batch or only a single sample at a time, we
@@ -762,14 +764,14 @@ predetermined small positive value <span class="math notranslate nohighlight">\(
 rate</em>, and subtract the resulting term from the current parameter
 values. We can express the update as follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-5">
-<span class="eqno">(3.1.10)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-5" title="Link to this equation">¶</a></span>\[(\mathbf{w},b) \leftarrow (\mathbf{w},b) - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_{(\mathbf{w},b)} l^{(i)}(\mathbf{w},b).\]</div>
+<span class="eqno">(3.1.10)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-5" title="Permalink to this equation">¶</a></span>\[(\mathbf{w},b) \leftarrow (\mathbf{w},b) - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_{(\mathbf{w},b)} l^{(i)}(\mathbf{w},b).\]</div>
 <p>In summary, minibatch SGD proceeds as follows: (i) initialize the values
 of the model parameters, typically at random; (ii) iteratively sample
 random minibatches from the data, updating the parameters in the
 direction of the negative gradient. For quadratic losses and affine
 transformations, this has a closed-form expansion:</p>
 <div class="math notranslate nohighlight" id="equation-eq-linreg-batch-update">
-<span class="eqno">(3.1.11)<a class="headerlink" href="#equation-eq-linreg-batch-update" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned} \mathbf{w} &amp; \leftarrow \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_{\mathbf{w}} l^{(i)}(\mathbf{w}, b) &amp;&amp; = \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \mathbf{x}^{(i)} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)\\ b &amp;\leftarrow b -  \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_b l^{(i)}(\mathbf{w}, b) &amp;&amp;  = b - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right). \end{aligned}\end{split}\]</div>
+<span class="eqno">(3.1.11)<a class="headerlink" href="#equation-eq-linreg-batch-update" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned} \mathbf{w} &amp; \leftarrow \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_{\mathbf{w}} l^{(i)}(\mathbf{w}, b) &amp;&amp; = \mathbf{w} - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \mathbf{x}^{(i)} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right)\\ b &amp;\leftarrow b -  \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \partial_b l^{(i)}(\mathbf{w}, b) &amp;&amp;  = b - \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}_t} \left(\mathbf{w}^\top \mathbf{x}^{(i)} + b - y^{(i)}\right). \end{aligned}\end{split}\]</div>
 <p>Since we pick a minibatch <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> we need to normalize by
 its size <span class="math notranslate nohighlight">\(|\mathcal{B}|\)</span>. Frequently minibatch size and learning
 rate are user-defined. Such tunable parameters that are not updated in
@@ -802,7 +804,7 @@ predictions on previously unseen data, a challenge called
 <em>generalization</em>. We return to these topics throughout the book.</p>
 </section>
 <section id="predictions">
-<h3><span class="section-number">3.1.1.5. </span>Predictions<a class="headerlink" href="#predictions" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.1.1.5. </span>Predictions<a class="headerlink" href="#predictions" title="Permalink to this heading">¶</a></h3>
 <p>Given the model <span class="math notranslate nohighlight">\(\hat{\mathbf{w}}^\top \mathbf{x} + \hat{b}\)</span>, we
 can now make <em>predictions</em> for a new example, e.g., predicting the sales
 price of a previously unseen house given its area <span class="math notranslate nohighlight">\(x_1\)</span> and age
@@ -818,7 +820,7 @@ practitioners talk to statisticians. In the following we will stick to
 </section>
 </section>
 <section id="vectorization-for-speed">
-<h2><span class="section-number">3.1.2. </span>Vectorization for Speed<a class="headerlink" href="#vectorization-for-speed" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.2. </span>Vectorization for Speed<a class="headerlink" href="#vectorization-for-speed" title="Permalink to this heading">¶</a></h2>
 <p>When training our models, we typically want to process whole minibatches
 of examples simultaneously. Doing this efficiently requires that we
 vectorize the calculations and leverage fast linear algebra libraries
@@ -861,7 +863,7 @@ calculations ourselves, reducing the potential for errors and increasing
 portability of the code.</p>
 </section>
 <section id="the-normal-distribution-and-squared-loss">
-<span id="subsec-normal-distribution-and-squared-loss"></span><h2><span class="section-number">3.1.3. </span>The Normal Distribution and Squared Loss<a class="headerlink" href="#the-normal-distribution-and-squared-loss" title="Link to this heading">¶</a></h2>
+<span id="subsec-normal-distribution-and-squared-loss"></span><h2><span class="section-number">3.1.3. </span>The Normal Distribution and Squared Loss<a class="headerlink" href="#the-normal-distribution-and-squared-loss" title="Permalink to this heading">¶</a></h2>
 <p>So far we have given a fairly functional motivation of the squared loss
 objective: the optimal parameters return the conditional expectation
 <span class="math notranslate nohighlight">\(E[Y\mid X]\)</span> whenever the underlying pattern is truly linear, and
@@ -878,7 +880,7 @@ common parentage.</p>
 variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> (standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>) is given
 as</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-6">
-<span class="eqno">(3.1.12)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-6" title="Link to this equation">¶</a></span>\[p(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{1}{2 \sigma^2} (x - \mu)^2\right).\]</div>
+<span class="eqno">(3.1.12)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-6" title="Permalink to this equation">¶</a></span>\[p(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{1}{2 \sigma^2} (x - \mu)^2\right).\]</div>
 <p>Below we define a function to compute the normal distribution.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">normal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
     <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -897,8 +899,7 @@ as</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_linear-regression_433d43_11_0.svg" src="../_images/output_linear-regression_433d43_11_0.svg" />
-</figure>
+<img alt="../_images/output_linear-regression_433d43_11_0.svg" src="../_images/output_linear-regression_433d43_11_0.svg" /></figure>
 <p>Note that changing the mean corresponds to a shift along the
 <span class="math notranslate nohighlight">\(x\)</span>-axis, and increasing the variance spreads the distribution
 out, lowering its peak.</p>
@@ -907,17 +908,17 @@ that observations arise from noisy measurements, where the noise
 <span class="math notranslate nohighlight">\(\epsilon\)</span> follows the normal distribution
 <span class="math notranslate nohighlight">\(\mathcal{N}(0, \sigma^2)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-7">
-<span class="eqno">(3.1.13)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-7" title="Link to this equation">¶</a></span>\[y = \mathbf{w}^\top \mathbf{x} + b + \epsilon \textrm{ where } \epsilon \sim \mathcal{N}(0, \sigma^2).\]</div>
+<span class="eqno">(3.1.13)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-7" title="Permalink to this equation">¶</a></span>\[y = \mathbf{w}^\top \mathbf{x} + b + \epsilon \textrm{ where } \epsilon \sim \mathcal{N}(0, \sigma^2).\]</div>
 <p>Thus, we can now write out the <em>likelihood</em> of seeing a particular
 <span class="math notranslate nohighlight">\(y\)</span> for a given <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> via</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-8">
-<span class="eqno">(3.1.14)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-8" title="Link to this equation">¶</a></span>\[P(y \mid \mathbf{x}) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{1}{2 \sigma^2} (y - \mathbf{w}^\top \mathbf{x} - b)^2\right).\]</div>
+<span class="eqno">(3.1.14)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-8" title="Permalink to this equation">¶</a></span>\[P(y \mid \mathbf{x}) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left(-\frac{1}{2 \sigma^2} (y - \mathbf{w}^\top \mathbf{x} - b)^2\right).\]</div>
 <p>As such, the likelihood factorizes. According to <em>the principle of
 maximum likelihood</em>, the best values of parameters <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>
 and <span class="math notranslate nohighlight">\(b\)</span> are those that maximize the <em>likelihood</em> of the entire
 dataset:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-9">
-<span class="eqno">(3.1.15)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-9" title="Link to this equation">¶</a></span>\[P(\mathbf y \mid \mathbf X) = \prod_{i=1}^{n} p(y^{(i)} \mid \mathbf{x}^{(i)}).\]</div>
+<span class="eqno">(3.1.15)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-9" title="Permalink to this equation">¶</a></span>\[P(\mathbf y \mid \mathbf X) = \prod_{i=1}^{n} p(y^{(i)} \mid \mathbf{x}^{(i)}).\]</div>
 <p>The equality follows since all pairs <span class="math notranslate nohighlight">\((\mathbf{x}^{(i)}, y^{(i)})\)</span>
 were drawn independently of each other. Estimators chosen according to
 the principle of maximum likelihood are called <em>maximum likelihood
@@ -929,7 +930,7 @@ expressed as minimization rather than maximization. So, without changing
 anything, we can <em>minimize</em> the <em>negative log-likelihood</em>, which we can
 express as follows:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-regression-linear-regression-10">
-<span class="eqno">(3.1.16)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-10" title="Link to this equation">¶</a></span>\[-\log P(\mathbf y \mid \mathbf X) = \sum_{i=1}^n \frac{1}{2} \log(2 \pi \sigma^2) + \frac{1}{2 \sigma^2} \left(y^{(i)} - \mathbf{w}^\top \mathbf{x}^{(i)} - b\right)^2.\]</div>
+<span class="eqno">(3.1.16)<a class="headerlink" href="#equation-chapter-linear-regression-linear-regression-10" title="Permalink to this equation">¶</a></span>\[-\log P(\mathbf y \mid \mathbf X) = \sum_{i=1}^n \frac{1}{2} \log(2 \pi \sigma^2) + \frac{1}{2 \sigma^2} \left(y^{(i)} - \mathbf{w}^\top \mathbf{x}^{(i)} - b\right)^2.\]</div>
 <p>If we assume that <span class="math notranslate nohighlight">\(\sigma\)</span> is fixed, we can ignore the first term,
 because it does not depend on <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> or <span class="math notranslate nohighlight">\(b\)</span>. The
 second term is identical to the squared error loss introduced earlier,
@@ -940,20 +941,19 @@ maximum likelihood estimation of a linear model under the assumption of
 additive Gaussian noise.</p>
 </section>
 <section id="linear-regression-as-a-neural-network">
-<h2><span class="section-number">3.1.4. </span>Linear Regression as a Neural Network<a class="headerlink" href="#linear-regression-as-a-neural-network" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.4. </span>Linear Regression as a Neural Network<a class="headerlink" href="#linear-regression-as-a-neural-network" title="Permalink to this heading">¶</a></h2>
 <p>While linear models are not sufficiently rich to express the many
 complicated networks that we will introduce in this book, (artificial)
 neural networks are rich enough to subsume linear models as networks in
 which every feature is represented by an input neuron, all of which are
 connected directly to the output.</p>
-<p><a class="reference internal" href="#fig-single-neuron"><span class="std std-numref">figure3.1.2</span></a> depicts linear regression as a neural
+<p><a class="reference internal" href="#fig-single-neuron"><span class="std std-numref">Fig. 3.1.2</span></a> depicts linear regression as a neural
 network. The diagram highlights the connectivity pattern, such as how
 each input is connected to the output, but not the specific values taken
 by the weights or biases.</p>
 <figure class="align-default" id="id11">
-<span id="fig-single-neuron"></span><img alt="../_images/singleneuron.svg" src="../_images/singleneuron.svg" />
-<figcaption>
-<p><span class="caption-number">figure3.1.2 </span><span class="caption-text">Linear regression is a single-layer neural network.</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+<span id="fig-single-neuron"></span><img alt="../_images/singleneuron.svg" src="../_images/singleneuron.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3.1.2 </span><span class="caption-text">Linear regression is a single-layer neural network.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>The inputs are <span class="math notranslate nohighlight">\(x_1, \ldots, x_d\)</span>. We refer to <span class="math notranslate nohighlight">\(d\)</span> as the
@@ -965,22 +965,21 @@ neuron. In summary, we can think of linear regression as a single-layer
 fully connected neural network. We will encounter networks with far more
 layers in later chapters.</p>
 <section id="biology">
-<h3><span class="section-number">3.1.4.1. </span>Biology<a class="headerlink" href="#biology" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">3.1.4.1. </span>Biology<a class="headerlink" href="#biology" title="Permalink to this heading">¶</a></h3>
 <p>Because linear regression predates computational neuroscience, it might
 seem anachronistic to describe linear regression in terms of neural
 networks. Nonetheless, they were a natural place to start when the
 cyberneticists and neurophysiologists Warren McCulloch and Walter Pitts
 began to develop models of artificial neurons. Consider the cartoonish
-picture of a biological neuron in <a class="reference internal" href="#fig-neuron"><span class="std std-numref">figure3.1.3</span></a>, consisting of
+picture of a biological neuron in <a class="reference internal" href="#fig-neuron"><span class="std std-numref">Fig. 3.1.3</span></a>, consisting of
 <em>dendrites</em> (input terminals), the <em>nucleus</em> (CPU), the <em>axon</em> (output
 wire), and the <em>axon terminals</em> (output terminals), enabling connections
 to other neurons via <em>synapses</em>.</p>
 <figure class="align-default" id="id12">
-<span id="fig-neuron"></span><img alt="../_images/neuron.svg" src="../_images/neuron.svg" />
-<figcaption>
-<p><span class="caption-number">figure3.1.3 </span><span class="caption-text">The real neuron (source: “Anatomy and Physiology” by the US National
+<span id="fig-neuron"></span><img alt="../_images/neuron.svg" src="../_images/neuron.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3.1.3 </span><span class="caption-text">The real neuron (source: “Anatomy and Physiology” by the US National
 Cancer Institute’s Surveillance, Epidemiology and End Results (SEER)
-Program).</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+Program).</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Information <span class="math notranslate nohighlight">\(x_i\)</span> arriving from other neurons (or environmental
@@ -1009,7 +1008,7 @@ science, and many other fields.</p>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">3.1.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>In this section, we introduced traditional linear regression, where the
 parameters of a linear function are chosen to minimize squared loss on
 the training set. We also motivated this choice of objective both via
@@ -1025,7 +1024,7 @@ differentiable objectives, optimization via minibatch stochastic
 gradient descent, and ultimately, evaluation on previously unseen data.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">3.1.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">3.1.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Assume that we have some data
 <span class="math notranslate nohighlight">\(x_1, \ldots, x_n \in \mathbb{R}\)</span>. Our goal is to find a

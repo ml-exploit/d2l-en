@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="14.3. The Dataset for Pretraining Word Embeddings" href="word-embedding-dataset.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="approximate-training">
-<span id="sec-approx-train"></span><h1><span class="section-number">14.2. </span>Approximate Training<a class="headerlink" href="#approximate-training" title="Link to this heading">¶</a></h1>
-<p>Recall our discussions in <a class="reference internal" href="word2vec.html#sec-word2vec"><span class="std std-numref">14.1section</span></a>. The main idea of the
+<span id="sec-approx-train"></span><h1><span class="section-number">14.2. </span>Approximate Training<a class="headerlink" href="#approximate-training" title="Permalink to this heading">¶</a></h1>
+<p>Recall our discussions in <a class="reference internal" href="word2vec.html#sec-word2vec"><span class="std std-numref">Section 14.1</span></a>. The main idea of the
 skip-gram model is using softmax operations to calculate the conditional
 probability of generating a context word <span class="math notranslate nohighlight">\(w_o\)</span> based on the given
 center word <span class="math notranslate nohighlight">\(w_c\)</span> in <a class="reference internal" href="word2vec.html#equation-eq-skip-gram-softmax">(14.1.4)</a>, whose
@@ -546,24 +549,24 @@ skip-gram model and the continuous bag of words model, we will just take
 the skip-gram model as an example to describe these two approximate
 training methods.</p>
 <section id="negative-sampling">
-<span id="subsec-negative-sampling"></span><h2><span class="section-number">14.2.1. </span>Negative Sampling<a class="headerlink" href="#negative-sampling" title="Link to this heading">¶</a></h2>
+<span id="subsec-negative-sampling"></span><h2><span class="section-number">14.2.1. </span>Negative Sampling<a class="headerlink" href="#negative-sampling" title="Permalink to this heading">¶</a></h2>
 <p>Negative sampling modifies the original objective function. Given the
 context window of a center word <span class="math notranslate nohighlight">\(w_c\)</span>, the fact that any (context)
 word <span class="math notranslate nohighlight">\(w_o\)</span> comes from this context window is considered as an
 event with the probability modeled by</p>
 <div class="math notranslate nohighlight" id="equation-chapter-natural-language-processing-pretraining-approx-training-0">
-<span class="eqno">(14.2.1)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-0" title="Link to this equation">¶</a></span>\[P(D=1\mid w_c, w_o) = \sigma(\mathbf{u}_o^\top \mathbf{v}_c),\]</div>
+<span class="eqno">(14.2.1)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-0" title="Permalink to this equation">¶</a></span>\[P(D=1\mid w_c, w_o) = \sigma(\mathbf{u}_o^\top \mathbf{v}_c),\]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma\)</span> uses the definition of the sigmoid activation
 function:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sigma-f">
-<span class="eqno">(14.2.2)<a class="headerlink" href="#equation-eq-sigma-f" title="Link to this equation">¶</a></span>\[\sigma(x) = \frac{1}{1+\exp(-x)}.\]</div>
+<span class="eqno">(14.2.2)<a class="headerlink" href="#equation-eq-sigma-f" title="Permalink to this equation">¶</a></span>\[\sigma(x) = \frac{1}{1+\exp(-x)}.\]</div>
 <p>Let’s begin by maximizing the joint probability of all such events in
 text sequences to train word embeddings. Specifically, given a text
 sequence of length <span class="math notranslate nohighlight">\(T\)</span>, denote by <span class="math notranslate nohighlight">\(w^{(t)}\)</span> the word at time
 step <span class="math notranslate nohighlight">\(t\)</span> and let the context window size be <span class="math notranslate nohighlight">\(m\)</span>, consider
 maximizing the joint probability</p>
 <div class="math notranslate nohighlight" id="equation-eq-negative-sample-pos">
-<span class="eqno">(14.2.3)<a class="headerlink" href="#equation-eq-negative-sample-pos" title="Link to this equation">¶</a></span>\[\prod_{t=1}^{T} \prod_{-m \leq j \leq m,\ j \neq 0} P(D=1\mid w^{(t)}, w^{(t+j)}).\]</div>
+<span class="eqno">(14.2.3)<a class="headerlink" href="#equation-eq-negative-sample-pos" title="Permalink to this equation">¶</a></span>\[\prod_{t=1}^{T} \prod_{-m \leq j \leq m,\ j \neq 0} P(D=1\mid w^{(t)}, w^{(t+j)}).\]</div>
 <p>However, <a class="reference internal" href="#equation-eq-negative-sample-pos">(14.2.3)</a> only considers those events
 that involve positive examples. As a result, the joint probability in
 <a class="reference internal" href="#equation-eq-negative-sample-pos">(14.2.3)</a> is maximized to 1 only if all the word
@@ -581,18 +584,18 @@ example and negative examples <span class="math notranslate nohighlight">\(S, N_
 independent. Negative sampling rewrites the joint probability (involving
 only positive examples) in <a class="reference internal" href="#equation-eq-negative-sample-pos">(14.2.3)</a> as</p>
 <div class="math notranslate nohighlight" id="equation-chapter-natural-language-processing-pretraining-approx-training-1">
-<span class="eqno">(14.2.4)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-1" title="Link to this equation">¶</a></span>\[\prod_{t=1}^{T} \prod_{-m \leq j \leq m,\ j \neq 0} P(w^{(t+j)} \mid w^{(t)}),\]</div>
+<span class="eqno">(14.2.4)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-1" title="Permalink to this equation">¶</a></span>\[\prod_{t=1}^{T} \prod_{-m \leq j \leq m,\ j \neq 0} P(w^{(t+j)} \mid w^{(t)}),\]</div>
 <p>where the conditional probability is approximated through events
 <span class="math notranslate nohighlight">\(S, N_1, \ldots, N_K\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-negative-sample-conditional-prob">
-<span class="eqno">(14.2.5)<a class="headerlink" href="#equation-eq-negative-sample-conditional-prob" title="Link to this equation">¶</a></span>\[P(w^{(t+j)} \mid w^{(t)}) =P(D=1\mid w^{(t)}, w^{(t+j)})\prod_{k=1,\ w_k \sim P(w)}^K P(D=0\mid w^{(t)}, w_k).\]</div>
+<span class="eqno">(14.2.5)<a class="headerlink" href="#equation-eq-negative-sample-conditional-prob" title="Permalink to this equation">¶</a></span>\[P(w^{(t+j)} \mid w^{(t)}) =P(D=1\mid w^{(t)}, w^{(t+j)})\prod_{k=1,\ w_k \sim P(w)}^K P(D=0\mid w^{(t)}, w_k).\]</div>
 <p>Denote by <span class="math notranslate nohighlight">\(i_t\)</span> and <span class="math notranslate nohighlight">\(h_k\)</span> the indices of a word
 <span class="math notranslate nohighlight">\(w^{(t)}\)</span> at time step <span class="math notranslate nohighlight">\(t\)</span> of a text sequence and a noise
 word <span class="math notranslate nohighlight">\(w_k\)</span>, respectively. The logarithmic loss with respect to the
 conditional probabilities in
 <a class="reference internal" href="#equation-eq-negative-sample-conditional-prob">(14.2.5)</a> is</p>
 <div class="math notranslate nohighlight" id="equation-chapter-natural-language-processing-pretraining-approx-training-2">
-<span class="eqno">(14.2.6)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-2" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(14.2.6)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-2" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
 -\log P(w^{(t+j)} \mid w^{(t)})
 =&amp; -\log P(D=1\mid w^{(t)}, w^{(t+j)}) - \sum_{k=1,\ w_k \sim P(w)}^K \log P(D=0\mid w^{(t)}, w_k)\\
 =&amp;-  \log\, \sigma\left(\mathbf{u}_{i_{t+j}}^\top \mathbf{v}_{i_t}\right) - \sum_{k=1,\ w_k \sim P(w)}^K \log\left(1-\sigma\left(\mathbf{u}_{h_k}^\top \mathbf{v}_{i_t}\right)\right)\\
@@ -605,16 +608,15 @@ smaller value, the computational cost for gradients at each training
 step with negative sampling is smaller.</p>
 </section>
 <section id="hierarchical-softmax">
-<h2><span class="section-number">14.2.2. </span>Hierarchical Softmax<a class="headerlink" href="#hierarchical-softmax" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.2.2. </span>Hierarchical Softmax<a class="headerlink" href="#hierarchical-softmax" title="Permalink to this heading">¶</a></h2>
 <p>As an alternative approximate training method, <em>hierarchical softmax</em>
 uses the binary tree, a data structure illustrated in
-<a class="reference internal" href="#fig-hi-softmax"><span class="std std-numref">figure14.2.1</span></a>, where each leaf node of the tree represents
+<a class="reference internal" href="#fig-hi-softmax"><span class="std std-numref">Fig. 14.2.1</span></a>, where each leaf node of the tree represents
 a word in dictionary <span class="math notranslate nohighlight">\(\mathcal{V}\)</span>.</p>
 <figure class="align-default" id="id1">
-<span id="fig-hi-softmax"></span><img alt="../_images/hi-softmax.svg" src="../_images/hi-softmax.svg" />
-<figcaption>
-<p><span class="caption-number">figure14.2.1 </span><span class="caption-text">Hierarchical softmax for approximate training, where each leaf node
-of the tree represents a word in the dictionary.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<span id="fig-hi-softmax"></span><img alt="../_images/hi-softmax.svg" src="../_images/hi-softmax.svg" /><figcaption>
+<p><span class="caption-number">Fig. 14.2.1 </span><span class="caption-text">Hierarchical softmax for approximate training, where each leaf node
+of the tree represents a word in the dictionary.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Denote by <span class="math notranslate nohighlight">\(L(w)\)</span> the number of nodes (including both ends) on the
@@ -622,27 +624,27 @@ path from the root node to the leaf node representing word <span class="math not
 the binary tree. Let <span class="math notranslate nohighlight">\(n(w,j)\)</span> be the <span class="math notranslate nohighlight">\(j^\textrm{th}\)</span> node on
 this path, with its context word vector being
 <span class="math notranslate nohighlight">\(\mathbf{u}_{n(w, j)}\)</span>. For example, <span class="math notranslate nohighlight">\(L(w_3) = 4\)</span> in
-<a class="reference internal" href="#fig-hi-softmax"><span class="std std-numref">figure14.2.1</span></a>. Hierarchical softmax approximates the
+<a class="reference internal" href="#fig-hi-softmax"><span class="std std-numref">Fig. 14.2.1</span></a>. Hierarchical softmax approximates the
 conditional probability in <a class="reference internal" href="word2vec.html#equation-eq-skip-gram-softmax">(14.1.4)</a> as</p>
 <div class="math notranslate nohighlight" id="equation-chapter-natural-language-processing-pretraining-approx-training-3">
-<span class="eqno">(14.2.7)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-3" title="Link to this equation">¶</a></span>\[P(w_o \mid w_c) = \prod_{j=1}^{L(w_o)-1} \sigma\left( [\![  n(w_o, j+1) = \textrm{leftChild}(n(w_o, j)) ]\!] \cdot \mathbf{u}_{n(w_o, j)}^\top \mathbf{v}_c\right),\]</div>
+<span class="eqno">(14.2.7)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-3" title="Permalink to this equation">¶</a></span>\[P(w_o \mid w_c) = \prod_{j=1}^{L(w_o)-1} \sigma\left( [\![  n(w_o, j+1) = \textrm{leftChild}(n(w_o, j)) ]\!] \cdot \mathbf{u}_{n(w_o, j)}^\top \mathbf{v}_c\right),\]</div>
 <p>where function <span class="math notranslate nohighlight">\(\sigma\)</span> is defined in <a class="reference internal" href="#equation-eq-sigma-f">(14.2.2)</a>, and
 <span class="math notranslate nohighlight">\(\textrm{leftChild}(n)\)</span> is the left child node of node <span class="math notranslate nohighlight">\(n\)</span>:
 if <span class="math notranslate nohighlight">\(x\)</span> is true, <span class="math notranslate nohighlight">\([\![x]\!] = 1\)</span>; otherwise
 <span class="math notranslate nohighlight">\([\![x]\!] = -1\)</span>.</p>
 <p>To illustrate, let’s calculate the conditional probability of generating
-word <span class="math notranslate nohighlight">\(w_3\)</span> given word <span class="math notranslate nohighlight">\(w_c\)</span> in <a class="reference internal" href="#fig-hi-softmax"><span class="std std-numref">figure14.2.1</span></a>.
+word <span class="math notranslate nohighlight">\(w_3\)</span> given word <span class="math notranslate nohighlight">\(w_c\)</span> in <a class="reference internal" href="#fig-hi-softmax"><span class="std std-numref">Fig. 14.2.1</span></a>.
 This requires dot products between the word vector <span class="math notranslate nohighlight">\(\mathbf{v}_c\)</span>
 of <span class="math notranslate nohighlight">\(w_c\)</span> and non-leaf node vectors on the path (the path in bold
-in <a class="reference internal" href="#fig-hi-softmax"><span class="std std-numref">figure14.2.1</span></a>) from the root to <span class="math notranslate nohighlight">\(w_3\)</span>, which is
+in <a class="reference internal" href="#fig-hi-softmax"><span class="std std-numref">Fig. 14.2.1</span></a>) from the root to <span class="math notranslate nohighlight">\(w_3\)</span>, which is
 traversed left, right, then left:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-natural-language-processing-pretraining-approx-training-4">
-<span class="eqno">(14.2.8)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-4" title="Link to this equation">¶</a></span>\[P(w_3 \mid w_c) = \sigma(\mathbf{u}_{n(w_3, 1)}^\top \mathbf{v}_c) \cdot \sigma(-\mathbf{u}_{n(w_3, 2)}^\top \mathbf{v}_c) \cdot \sigma(\mathbf{u}_{n(w_3, 3)}^\top \mathbf{v}_c).\]</div>
+<span class="eqno">(14.2.8)<a class="headerlink" href="#equation-chapter-natural-language-processing-pretraining-approx-training-4" title="Permalink to this equation">¶</a></span>\[P(w_3 \mid w_c) = \sigma(\mathbf{u}_{n(w_3, 1)}^\top \mathbf{v}_c) \cdot \sigma(-\mathbf{u}_{n(w_3, 2)}^\top \mathbf{v}_c) \cdot \sigma(\mathbf{u}_{n(w_3, 3)}^\top \mathbf{v}_c).\]</div>
 <p>Since <span class="math notranslate nohighlight">\(\sigma(x)+\sigma(-x) = 1\)</span>, it holds that the conditional
 probabilities of generating all the words in dictionary
 <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> based on any word <span class="math notranslate nohighlight">\(w_c\)</span> sum up to one:</p>
 <div class="math notranslate nohighlight" id="equation-eq-hi-softmax-sum-one">
-<span class="eqno">(14.2.9)<a class="headerlink" href="#equation-eq-hi-softmax-sum-one" title="Link to this equation">¶</a></span>\[\sum_{w \in \mathcal{V}} P(w \mid w_c) = 1.\]</div>
+<span class="eqno">(14.2.9)<a class="headerlink" href="#equation-eq-hi-softmax-sum-one" title="Permalink to this equation">¶</a></span>\[\sum_{w \in \mathcal{V}} P(w \mid w_c) = 1.\]</div>
 <p>Fortunately, since <span class="math notranslate nohighlight">\(L(w_o)-1\)</span> is on the order of
 <span class="math notranslate nohighlight">\(\mathcal{O}(\textrm{log}_2|\mathcal{V}|)\)</span> due to the binary tree
 structure, when the dictionary size <span class="math notranslate nohighlight">\(\mathcal{V}\)</span> is huge, the
@@ -650,7 +652,7 @@ computational cost for each training step using hierarchical softmax is
 significantly reduced compared with that without approximate training.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">14.2.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.2.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Negative sampling constructs the loss function by considering
 mutually independent events that involve both positive and negative
@@ -663,7 +665,7 @@ size at each step.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">14.2.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.2.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>How can we sample noise words in negative sampling?</p></li>
 <li><p>Verify that <a class="reference internal" href="#equation-eq-hi-softmax-sum-one">(14.2.9)</a> holds.</p></li>

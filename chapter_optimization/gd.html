@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="12.4. Stochastic Gradient Descent" href="sgd.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="gradient-descent">
-<span id="sec-gd"></span><h1><span class="section-number">12.3. </span>Gradient Descent<a class="headerlink" href="#gradient-descent" title="Link to this heading">¶</a></h1>
+<span id="sec-gd"></span><h1><span class="section-number">12.3. </span>Gradient Descent<a class="headerlink" href="#gradient-descent" title="Permalink to this heading">¶</a></h1>
 <p>In this section we are going to introduce the basic concepts underlying
 <em>gradient descent</em>. Although it is rarely used directly in deep
 learning, an understanding of gradient descent is key to understanding
@@ -533,14 +536,14 @@ preconditioning is a common technique in gradient descent and carries
 over to more advanced algorithms. Let’s start with a simple special
 case.</p>
 <section id="one-dimensional-gradient-descent">
-<h2><span class="section-number">12.3.1. </span>One-Dimensional Gradient Descent<a class="headerlink" href="#one-dimensional-gradient-descent" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.3.1. </span>One-Dimensional Gradient Descent<a class="headerlink" href="#one-dimensional-gradient-descent" title="Permalink to this heading">¶</a></h2>
 <p>Gradient descent in one dimension is an excellent example to explain why
 the gradient descent algorithm may reduce the value of the objective
 function. Consider some continuously differentiable real-valued function
 <span class="math notranslate nohighlight">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span>. Using a Taylor expansion
 we obtain</p>
 <div class="math notranslate nohighlight" id="equation-gd-taylor">
-<span class="eqno">(12.3.1)<a class="headerlink" href="#equation-gd-taylor" title="Link to this equation">¶</a></span>\[f(x + \epsilon) = f(x) + \epsilon f'(x) + \mathcal{O}(\epsilon^2).\]</div>
+<span class="eqno">(12.3.1)<a class="headerlink" href="#equation-gd-taylor" title="Permalink to this equation">¶</a></span>\[f(x + \epsilon) = f(x) + \epsilon f'(x) + \mathcal{O}(\epsilon^2).\]</div>
 <p>That is, in first-order approximation <span class="math notranslate nohighlight">\(f(x+\epsilon)\)</span> is given by
 the function value <span class="math notranslate nohighlight">\(f(x)\)</span> and the first derivative <span class="math notranslate nohighlight">\(f'(x)\)</span>
 at <span class="math notranslate nohighlight">\(x\)</span>. It is not unreasonable to assume that for small
@@ -549,16 +552,16 @@ decrease <span class="math notranslate nohighlight">\(f\)</span>. To keep things
 <span class="math notranslate nohighlight">\(\eta &gt; 0\)</span> and choose <span class="math notranslate nohighlight">\(\epsilon = -\eta f'(x)\)</span>. Plugging
 this into the Taylor expansion above we get</p>
 <div class="math notranslate nohighlight" id="equation-gd-taylor-2">
-<span class="eqno">(12.3.2)<a class="headerlink" href="#equation-gd-taylor-2" title="Link to this equation">¶</a></span>\[f(x - \eta f'(x)) = f(x) - \eta f'^2(x) + \mathcal{O}(\eta^2 f'^2(x)).\]</div>
+<span class="eqno">(12.3.2)<a class="headerlink" href="#equation-gd-taylor-2" title="Permalink to this equation">¶</a></span>\[f(x - \eta f'(x)) = f(x) - \eta f'^2(x) + \mathcal{O}(\eta^2 f'^2(x)).\]</div>
 <p>If the derivative <span class="math notranslate nohighlight">\(f'(x) \neq 0\)</span> does not vanish we make progress
 since <span class="math notranslate nohighlight">\(\eta f'^2(x)&gt;0\)</span>. Moreover, we can always choose
 <span class="math notranslate nohighlight">\(\eta\)</span> small enough for the higher-order terms to become
 irrelevant. Hence we arrive at</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-0">
-<span class="eqno">(12.3.3)<a class="headerlink" href="#equation-chapter-optimization-gd-0" title="Link to this equation">¶</a></span>\[f(x - \eta f'(x)) \lessapprox f(x).\]</div>
+<span class="eqno">(12.3.3)<a class="headerlink" href="#equation-chapter-optimization-gd-0" title="Permalink to this equation">¶</a></span>\[f(x - \eta f'(x)) \lessapprox f(x).\]</div>
 <p>This means that, if we use</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-1">
-<span class="eqno">(12.3.4)<a class="headerlink" href="#equation-chapter-optimization-gd-1" title="Link to this equation">¶</a></span>\[x \leftarrow x - \eta f'(x)\]</div>
+<span class="eqno">(12.3.4)<a class="headerlink" href="#equation-chapter-optimization-gd-1" title="Permalink to this equation">¶</a></span>\[x \leftarrow x - \eta f'(x)\]</div>
 <p>to iterate <span class="math notranslate nohighlight">\(x\)</span>, the value of function <span class="math notranslate nohighlight">\(f(x)\)</span> might decline.
 Therefore, in gradient descent we first choose an initial value
 <span class="math notranslate nohighlight">\(x\)</span> and a constant <span class="math notranslate nohighlight">\(\eta &gt; 0\)</span> and then use them to
@@ -645,10 +648,9 @@ optimal solution.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gd_9cd2d2_6_0.svg" src="../_images/output_gd_9cd2d2_6_0.svg" />
-</figure>
+<img alt="../_images/output_gd_9cd2d2_6_0.svg" src="../_images/output_gd_9cd2d2_6_0.svg" /></figure>
 <section id="learning-rate">
-<span id="subsec-gd-learningrate"></span><h3><span class="section-number">12.3.1.1. </span>Learning Rate<a class="headerlink" href="#learning-rate" title="Link to this heading">¶</a></h3>
+<span id="subsec-gd-learningrate"></span><h3><span class="section-number">12.3.1.1. </span>Learning Rate<a class="headerlink" href="#learning-rate" title="Permalink to this heading">¶</a></h3>
 <p>The learning rate <span class="math notranslate nohighlight">\(\eta\)</span> can be set by the algorithm designer. If
 we use a learning rate that is too small, it will cause <span class="math notranslate nohighlight">\(x\)</span> to
 update very slowly, requiring more iterations to get a better solution.
@@ -662,8 +664,7 @@ optimization problem for <span class="math notranslate nohighlight">\(\eta = 0.0
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gd_9cd2d2_8_1.svg" src="../_images/output_gd_9cd2d2_8_1.svg" />
-</figure>
+<img alt="../_images/output_gd_9cd2d2_8_1.svg" src="../_images/output_gd_9cd2d2_8_1.svg" /></figure>
 <p>Conversely, if we use an excessively high learning rate,
 <span class="math notranslate nohighlight">\(\left|\eta f'(x)\right|\)</span> might be too large for the first-order
 Taylor expansion formula. That is, the term
@@ -679,11 +680,10 @@ overshoots the optimal solution <span class="math notranslate nohighlight">\(x=0
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gd_9cd2d2_10_1.svg" src="../_images/output_gd_9cd2d2_10_1.svg" />
-</figure>
+<img alt="../_images/output_gd_9cd2d2_10_1.svg" src="../_images/output_gd_9cd2d2_10_1.svg" /></figure>
 </section>
 <section id="local-minima">
-<h3><span class="section-number">12.3.1.2. </span>Local Minima<a class="headerlink" href="#local-minima" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">12.3.1.2. </span>Local Minima<a class="headerlink" href="#local-minima" title="Permalink to this heading">¶</a></h3>
 <p>To illustrate what happens for nonconvex functions consider the case of
 <span class="math notranslate nohighlight">\(f(x) = x \cdot \cos(cx)\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>. This
 function has infinitely many local minima. Depending on our choice of
@@ -718,12 +718,11 @@ minimum.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gd_9cd2d2_12_1.svg" src="../_images/output_gd_9cd2d2_12_1.svg" />
-</figure>
+<img alt="../_images/output_gd_9cd2d2_12_1.svg" src="../_images/output_gd_9cd2d2_12_1.svg" /></figure>
 </section>
 </section>
 <section id="multivariate-gradient-descent">
-<h2><span class="section-number">12.3.2. </span>Multivariate Gradient Descent<a class="headerlink" href="#multivariate-gradient-descent" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.3.2. </span>Multivariate Gradient Descent<a class="headerlink" href="#multivariate-gradient-descent" title="Permalink to this heading">¶</a></h2>
 <p>Now that we have a better intuition of the univariate case, let’s
 consider the situation where
 <span class="math notranslate nohighlight">\(\mathbf{x} = [x_1, x_2, \ldots, x_d]^\top\)</span>. That is, the
@@ -731,7 +730,7 @@ objective function <span class="math notranslate nohighlight">\(f: \mathbb{R}^d 
 into scalars. Correspondingly its gradient is multivariate, too. It is a
 vector consisting of <span class="math notranslate nohighlight">\(d\)</span> partial derivatives:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-2">
-<span class="eqno">(12.3.5)<a class="headerlink" href="#equation-chapter-optimization-gd-2" title="Link to this equation">¶</a></span>\[\nabla f(\mathbf{x}) = \bigg[\frac{\partial f(\mathbf{x})}{\partial x_1}, \frac{\partial f(\mathbf{x})}{\partial x_2}, \ldots, \frac{\partial f(\mathbf{x})}{\partial x_d}\bigg]^\top.\]</div>
+<span class="eqno">(12.3.5)<a class="headerlink" href="#equation-chapter-optimization-gd-2" title="Permalink to this equation">¶</a></span>\[\nabla f(\mathbf{x}) = \bigg[\frac{\partial f(\mathbf{x})}{\partial x_1}, \frac{\partial f(\mathbf{x})}{\partial x_2}, \ldots, \frac{\partial f(\mathbf{x})}{\partial x_d}\bigg]^\top.\]</div>
 <p>Each partial derivative element
 <span class="math notranslate nohighlight">\(\partial f(\mathbf{x})/\partial x_i\)</span> in the gradient indicates
 the rate of change of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> with respect to
@@ -739,14 +738,14 @@ the input <span class="math notranslate nohighlight">\(x_i\)</span>. As before i
 corresponding Taylor approximation for multivariate functions to get
 some idea of what we should do. In particular, we have that</p>
 <div class="math notranslate nohighlight" id="equation-gd-multi-taylor">
-<span class="eqno">(12.3.6)<a class="headerlink" href="#equation-gd-multi-taylor" title="Link to this equation">¶</a></span>\[f(\mathbf{x} + \boldsymbol{\epsilon}) = f(\mathbf{x}) + \mathbf{\boldsymbol{\epsilon}}^\top \nabla f(\mathbf{x}) + \mathcal{O}(\|\boldsymbol{\epsilon}\|^2).\]</div>
+<span class="eqno">(12.3.6)<a class="headerlink" href="#equation-gd-multi-taylor" title="Permalink to this equation">¶</a></span>\[f(\mathbf{x} + \boldsymbol{\epsilon}) = f(\mathbf{x}) + \mathbf{\boldsymbol{\epsilon}}^\top \nabla f(\mathbf{x}) + \mathcal{O}(\|\boldsymbol{\epsilon}\|^2).\]</div>
 <p>In other words, up to second-order terms in
 <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span> the direction of steepest descent is given
 by the negative gradient <span class="math notranslate nohighlight">\(-\nabla f(\mathbf{x})\)</span>. Choosing a
 suitable learning rate <span class="math notranslate nohighlight">\(\eta &gt; 0\)</span> yields the prototypical gradient
 descent algorithm:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-3">
-<span class="eqno">(12.3.7)<a class="headerlink" href="#equation-chapter-optimization-gd-3" title="Link to this equation">¶</a></span>\[\mathbf{x} \leftarrow \mathbf{x} - \eta \nabla f(\mathbf{x}).\]</div>
+<span class="eqno">(12.3.7)<a class="headerlink" href="#equation-chapter-optimization-gd-3" title="Permalink to this equation">¶</a></span>\[\mathbf{x} \leftarrow \mathbf{x} - \eta \nabla f(\mathbf{x}).\]</div>
 <p>To see how the algorithm behaves in practice let’s construct an
 objective function <span class="math notranslate nohighlight">\(f(\mathbf{x})=x_1^2+2x_2^2\)</span> with a
 two-dimensional vector <span class="math notranslate nohighlight">\(\mathbf{x} = [x_1, x_2]^\top\)</span> as input and
@@ -830,12 +829,11 @@ after 20 steps the value of <span class="math notranslate nohighlight">\(\mathbf
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gd_9cd2d2_18_1.svg" src="../_images/output_gd_9cd2d2_18_1.svg" />
-</figure>
+<img alt="../_images/output_gd_9cd2d2_18_1.svg" src="../_images/output_gd_9cd2d2_18_1.svg" /></figure>
 </section>
 <section id="adaptive-methods">
-<h2><span class="section-number">12.3.3. </span>Adaptive Methods<a class="headerlink" href="#adaptive-methods" title="Link to this heading">¶</a></h2>
-<p>As we could see in <a class="reference internal" href="#subsec-gd-learningrate"><span class="std std-numref">12.3.1.1section</span></a>, getting the
+<h2><span class="section-number">12.3.3. </span>Adaptive Methods<a class="headerlink" href="#adaptive-methods" title="Permalink to this heading">¶</a></h2>
+<p>As we could see in <a class="reference internal" href="#subsec-gd-learningrate"><span class="std std-numref">Section 12.3.1.1</span></a>, getting the
 learning rate <span class="math notranslate nohighlight">\(\eta\)</span> “just right” is tricky. If we pick it too
 small, we make little progress. If we pick it too large, the solution
 oscillates and in the worst case it might even diverge. What if we could
@@ -847,12 +845,12 @@ learning directly due to the computational cost, they provide useful
 intuition into how to design advanced optimization algorithms that mimic
 many of the desirable properties of the algorithms outlined below.</p>
 <section id="newtons-method">
-<h3><span class="section-number">12.3.3.1. </span>Newton’s Method<a class="headerlink" href="#newtons-method" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">12.3.3.1. </span>Newton’s Method<a class="headerlink" href="#newtons-method" title="Permalink to this heading">¶</a></h3>
 <p>Reviewing the Taylor expansion of some function
 <span class="math notranslate nohighlight">\(f: \mathbb{R}^d \rightarrow \mathbb{R}\)</span> there is no need to stop
 after the first term. In fact, we can write it as</p>
 <div class="math notranslate nohighlight" id="equation-gd-hot-taylor">
-<span class="eqno">(12.3.8)<a class="headerlink" href="#equation-gd-hot-taylor" title="Link to this equation">¶</a></span>\[f(\mathbf{x} + \boldsymbol{\epsilon}) = f(\mathbf{x}) + \boldsymbol{\epsilon}^\top \nabla f(\mathbf{x}) + \frac{1}{2} \boldsymbol{\epsilon}^\top \nabla^2 f(\mathbf{x}) \boldsymbol{\epsilon} + \mathcal{O}(\|\boldsymbol{\epsilon}\|^3).\]</div>
+<span class="eqno">(12.3.8)<a class="headerlink" href="#equation-gd-hot-taylor" title="Permalink to this equation">¶</a></span>\[f(\mathbf{x} + \boldsymbol{\epsilon}) = f(\mathbf{x}) + \boldsymbol{\epsilon}^\top \nabla f(\mathbf{x}) + \frac{1}{2} \boldsymbol{\epsilon}^\top \nabla^2 f(\mathbf{x}) \boldsymbol{\epsilon} + \mathcal{O}(\|\boldsymbol{\epsilon}\|^3).\]</div>
 <p>To avoid cumbersome notation we define
 <span class="math notranslate nohighlight">\(\mathbf{H} \stackrel{\textrm{def}}{=} \nabla^2 f(\mathbf{x})\)</span> to
 be the Hessian of <span class="math notranslate nohighlight">\(f\)</span>, which is a <span class="math notranslate nohighlight">\(d \times d\)</span> matrix. For
@@ -863,12 +861,12 @@ may be prohibitively large, due to the cost of storing
 compute via backpropagation. For now let’s ignore such considerations
 and look at what algorithm we would get.</p>
 <p>After all, the minimum of <span class="math notranslate nohighlight">\(f\)</span> satisfies <span class="math notranslate nohighlight">\(\nabla f = 0\)</span>.
-Following calculus rules in <a class="reference internal" href="../chapter_preliminaries/calculus.html#subsec-calculus-grad"><span class="std std-numref">2.4.3section</span></a>, by taking
+Following calculus rules in <a class="reference internal" href="../chapter_preliminaries/calculus.html#subsec-calculus-grad"><span class="std std-numref">Section 2.4.3</span></a>, by taking
 derivatives of <a class="reference internal" href="#equation-gd-hot-taylor">(12.3.8)</a> with regard to
 <span class="math notranslate nohighlight">\(\boldsymbol{\epsilon}\)</span> and ignoring higher-order terms we arrive
 at</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-4">
-<span class="eqno">(12.3.9)<a class="headerlink" href="#equation-chapter-optimization-gd-4" title="Link to this equation">¶</a></span>\[\nabla f(\mathbf{x}) + \mathbf{H} \boldsymbol{\epsilon} = 0 \textrm{ and hence }
+<span class="eqno">(12.3.9)<a class="headerlink" href="#equation-chapter-optimization-gd-4" title="Permalink to this equation">¶</a></span>\[\nabla f(\mathbf{x}) + \mathbf{H} \boldsymbol{\epsilon} = 0 \textrm{ and hence }
 \boldsymbol{\epsilon} = -\mathbf{H}^{-1} \nabla f(\mathbf{x}).\]</div>
 <p>That is, we need to invert the Hessian <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> as part of the
 optimization problem.</p>
@@ -934,8 +932,7 @@ iterations.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gd_9cd2d2_20_1.svg" src="../_images/output_gd_9cd2d2_20_1.svg" />
-</figure>
+<img alt="../_images/output_gd_9cd2d2_20_1.svg" src="../_images/output_gd_9cd2d2_20_1.svg" /></figure>
 <p>Now let’s consider a <em>nonconvex</em> function, such as
 <span class="math notranslate nohighlight">\(f(x) = x \cos(c x)\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>. After all, note
 that in Newton’s method we end up dividing by the Hessian. This means
@@ -975,8 +972,7 @@ of the algorithm. Let’s see what happens in practice.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gd_9cd2d2_22_1.svg" src="../_images/output_gd_9cd2d2_22_1.svg" />
-</figure>
+<img alt="../_images/output_gd_9cd2d2_22_1.svg" src="../_images/output_gd_9cd2d2_22_1.svg" /></figure>
 <p>This went spectacularly wrong. How can we fix it? One way would be to
 “fix” the Hessian by taking its absolute value instead. Another strategy
 is to bring back the learning rate. This seems to defeat the purpose,
@@ -992,11 +988,10 @@ quite an efficient algorithm.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gd_9cd2d2_24_1.svg" src="../_images/output_gd_9cd2d2_24_1.svg" />
-</figure>
+<img alt="../_images/output_gd_9cd2d2_24_1.svg" src="../_images/output_gd_9cd2d2_24_1.svg" /></figure>
 </section>
 <section id="convergence-analysis">
-<h3><span class="section-number">12.3.3.2. </span>Convergence Analysis<a class="headerlink" href="#convergence-analysis" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">12.3.3.2. </span>Convergence Analysis<a class="headerlink" href="#convergence-analysis" title="Permalink to this heading">¶</a></h3>
 <p>We only analyze the convergence rate of Newton’s method for some convex
 and three times differentiable objective function <span class="math notranslate nohighlight">\(f\)</span>, where the
 second derivative is nonzero, i.e., <span class="math notranslate nohighlight">\(f'' &gt; 0\)</span>. The multivariate
@@ -1009,22 +1004,22 @@ from optimality at the <span class="math notranslate nohighlight">\(k^\textrm{th
 expansion we have that the condition <span class="math notranslate nohighlight">\(f'(x^*) = 0\)</span> can be written
 as</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-5">
-<span class="eqno">(12.3.10)<a class="headerlink" href="#equation-chapter-optimization-gd-5" title="Link to this equation">¶</a></span>\[0 = f'(x^{(k)} - e^{(k)}) = f'(x^{(k)}) - e^{(k)} f''(x^{(k)}) + \frac{1}{2} (e^{(k)})^2 f'''(\xi^{(k)}),\]</div>
+<span class="eqno">(12.3.10)<a class="headerlink" href="#equation-chapter-optimization-gd-5" title="Permalink to this equation">¶</a></span>\[0 = f'(x^{(k)} - e^{(k)}) = f'(x^{(k)}) - e^{(k)} f''(x^{(k)}) + \frac{1}{2} (e^{(k)})^2 f'''(\xi^{(k)}),\]</div>
 <p>which holds for some <span class="math notranslate nohighlight">\(\xi^{(k)} \in [x^{(k)} - e^{(k)}, x^{(k)}]\)</span>.
 Dividing the above expansion by <span class="math notranslate nohighlight">\(f''(x^{(k)})\)</span> yields</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-6">
-<span class="eqno">(12.3.11)<a class="headerlink" href="#equation-chapter-optimization-gd-6" title="Link to this equation">¶</a></span>\[e^{(k)} - \frac{f'(x^{(k)})}{f''(x^{(k)})} = \frac{1}{2} (e^{(k)})^2 \frac{f'''(\xi^{(k)})}{f''(x^{(k)})}.\]</div>
+<span class="eqno">(12.3.11)<a class="headerlink" href="#equation-chapter-optimization-gd-6" title="Permalink to this equation">¶</a></span>\[e^{(k)} - \frac{f'(x^{(k)})}{f''(x^{(k)})} = \frac{1}{2} (e^{(k)})^2 \frac{f'''(\xi^{(k)})}{f''(x^{(k)})}.\]</div>
 <p>Recall that we have the update
 <span class="math notranslate nohighlight">\(x^{(k+1)} = x^{(k)} - f'(x^{(k)}) / f''(x^{(k)})\)</span>. Plugging in
 this update equation and taking the absolute value of both sides, we
 have</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-7">
-<span class="eqno">(12.3.12)<a class="headerlink" href="#equation-chapter-optimization-gd-7" title="Link to this equation">¶</a></span>\[\left|e^{(k+1)}\right| = \frac{1}{2}(e^{(k)})^2 \frac{\left|f'''(\xi^{(k)})\right|}{f''(x^{(k)})}.\]</div>
+<span class="eqno">(12.3.12)<a class="headerlink" href="#equation-chapter-optimization-gd-7" title="Permalink to this equation">¶</a></span>\[\left|e^{(k+1)}\right| = \frac{1}{2}(e^{(k)})^2 \frac{\left|f'''(\xi^{(k)})\right|}{f''(x^{(k)})}.\]</div>
 <p>Consequently, whenever we are in a region of bounded
 <span class="math notranslate nohighlight">\(\left|f'''(\xi^{(k)})\right| / (2f''(x^{(k)})) \leq c\)</span>, we have a
 quadratically decreasing error</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-8">
-<span class="eqno">(12.3.13)<a class="headerlink" href="#equation-chapter-optimization-gd-8" title="Link to this equation">¶</a></span>\[\left|e^{(k+1)}\right| \leq c (e^{(k)})^2.\]</div>
+<span class="eqno">(12.3.13)<a class="headerlink" href="#equation-chapter-optimization-gd-8" title="Permalink to this equation">¶</a></span>\[\left|e^{(k+1)}\right| \leq c (e^{(k)})^2.\]</div>
 <p>As an aside, optimization researchers call this <em>linear</em> convergence,
 whereas a condition such as
 <span class="math notranslate nohighlight">\(\left|e^{(k+1)}\right| \leq \alpha \left|e^{(k)}\right|\)</span> would be
@@ -1038,14 +1033,14 @@ not have any “surprising” properties in terms of how it might change its
 values.</p>
 </section>
 <section id="preconditioning">
-<h3><span class="section-number">12.3.3.3. </span>Preconditioning<a class="headerlink" href="#preconditioning" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">12.3.3.3. </span>Preconditioning<a class="headerlink" href="#preconditioning" title="Permalink to this heading">¶</a></h3>
 <p>Quite unsurprisingly computing and storing the full Hessian is very
 expensive. It is thus desirable to find alternatives. One way to improve
 matters is <em>preconditioning</em>. It avoids computing the Hessian in its
 entirety but only computes the <em>diagonal</em> entries. This leads to update
 algorithms of the form</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-gd-9">
-<span class="eqno">(12.3.14)<a class="headerlink" href="#equation-chapter-optimization-gd-9" title="Link to this equation">¶</a></span>\[\mathbf{x} \leftarrow \mathbf{x} - \eta \textrm{diag}(\mathbf{H})^{-1} \nabla f(\mathbf{x}).\]</div>
+<span class="eqno">(12.3.14)<a class="headerlink" href="#equation-chapter-optimization-gd-9" title="Permalink to this equation">¶</a></span>\[\mathbf{x} \leftarrow \mathbf{x} - \eta \textrm{diag}(\mathbf{H})^{-1} \nabla f(\mathbf{x}).\]</div>
 <p>While this is not quite as good as the full Newton’s method, it is still
 much better than not using it. To see why this might be a good idea
 consider a situation where one variable denotes height in millimeters
@@ -1059,7 +1054,7 @@ of the innovation in stochastic gradient descent optimization
 algorithms.</p>
 </section>
 <section id="gradient-descent-with-line-search">
-<h3><span class="section-number">12.3.3.4. </span>Gradient Descent with Line Search<a class="headerlink" href="#gradient-descent-with-line-search" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">12.3.3.4. </span>Gradient Descent with Line Search<a class="headerlink" href="#gradient-descent-with-line-search" title="Permalink to this heading">¶</a></h3>
 <p>One of the key problems in gradient descent is that we might overshoot
 the goal or make insufficient progress. A simple fix for the problem is
 to use line search in conjunction with gradient descent. That is, we use
@@ -1074,7 +1069,7 @@ dataset. This is way too costly to accomplish.</p>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">12.3.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.3.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Learning rates matter. Too large and we diverge, too small and we do
 not make progress.</p></li>
@@ -1088,7 +1083,7 @@ problems.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">12.3.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.3.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Experiment with different learning rates and objective functions for
 gradient descent.</p></li>

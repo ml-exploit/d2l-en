@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="18. Hyperparameter Optimization" href="../chapter_hyperparameter-optimization/index.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="gaussian-process-inference">
-<h1><span class="section-number">17.3. </span>Gaussian Process Inference<a class="headerlink" href="#gaussian-process-inference" title="Link to this heading">¶</a></h1>
+<h1><span class="section-number">17.3. </span>Gaussian Process Inference<a class="headerlink" href="#gaussian-process-inference" title="Permalink to this heading">¶</a></h1>
 <p>In this section, we will show how to perform posterior inference and
 make predictions using the GP priors we introduced in the last section.
 We will start with regression, where we can perform inference in <em>closed
@@ -536,7 +539,7 @@ topics in depth in the next section. In that section, we will also
 consider settings where approximate inference is required —
 classification, point processes, or any non-Gaussian likelihoods.</p>
 <section id="posterior-inference-for-regression">
-<h2><span class="section-number">17.3.1. </span>Posterior Inference for Regression<a class="headerlink" href="#posterior-inference-for-regression" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">17.3.1. </span>Posterior Inference for Regression<a class="headerlink" href="#posterior-inference-for-regression" title="Permalink to this heading">¶</a></h2>
 <p>An <em>observation</em> model relates the function we want to learn,
 <span class="math notranslate nohighlight">\(f(x)\)</span>, to our observations <span class="math notranslate nohighlight">\(y(x)\)</span>, both indexed by some
 input <span class="math notranslate nohighlight">\(x\)</span>. In classification, <span class="math notranslate nohighlight">\(x\)</span> could be the pixels of an
@@ -547,7 +550,7 @@ surface temperature, a sea-level, a <span class="math notranslate nohighlight">\
 noise-free function <span class="math notranslate nohighlight">\(f(x)\)</span> plus i.i.d. Gaussian noise
 <span class="math notranslate nohighlight">\(\epsilon(x)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-gp-regression">
-<span class="eqno">(17.3.1)<a class="headerlink" href="#equation-eq-gp-regression" title="Link to this equation">¶</a></span>\[y(x) = f(x) + \epsilon(x),\]</div>
+<span class="eqno">(17.3.1)<a class="headerlink" href="#equation-eq-gp-regression" title="Permalink to this equation">¶</a></span>\[y(x) = f(x) + \epsilon(x),\]</div>
 <p>with <span class="math notranslate nohighlight">\(\epsilon(x) \sim \mathcal{N}(0,\sigma^2)\)</span>. Let
 <span class="math notranslate nohighlight">\(\mathbf{y} = y(X) = (y(x_1),\dots,y(x_n))^{\top}\)</span> be a vector of
 our training observations, and
@@ -565,7 +568,7 @@ simplicity, we will assume the mean function <span class="math notranslate nohig
 derivations can easily be generalized later on.</p>
 <p>Suppose we want to make predictions at a set of inputs</p>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-0">
-<span class="eqno">(17.3.2)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-0" title="Link to this equation">¶</a></span>\[X_* = x_{*1},x_{*2},\dots,x_{*m}.\]</div>
+<span class="eqno">(17.3.2)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-0" title="Permalink to this equation">¶</a></span>\[X_* = x_{*1},x_{*2},\dots,x_{*m}.\]</div>
 <p>Then we want to find <span class="math notranslate nohighlight">\(x^2\)</span> and
 <span class="math notranslate nohighlight">\(p(\mathbf{f}_* | \mathbf{y}, X)\)</span>. In the regression setting, we
 can conveniently find this distribution by using Gaussian identities,
@@ -588,7 +591,7 @@ show that
 where <span class="math notranslate nohighlight">\(K(X_*,X)\)</span> is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix formed by
 evaluating the kernel at all pairs of test and training inputs.</p>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-1">
-<span class="eqno">(17.3.3)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-1" title="Link to this equation">¶</a></span>\[\begin{split}\begin{bmatrix}
+<span class="eqno">(17.3.3)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{bmatrix}
 \mathbf{y} \\
 \mathbf{f}_*
 \end{bmatrix}
@@ -637,7 +640,7 @@ hyperparameters. For a full discussion, see MacKay Ch. 28
 </div>
 </section>
 <section id="equations-for-making-predictions-and-learning-kernel-hyperparameters-in-gp-regression">
-<h2><span class="section-number">17.3.2. </span>Equations for Making Predictions and Learning Kernel Hyperparameters in GP Regression<a class="headerlink" href="#equations-for-making-predictions-and-learning-kernel-hyperparameters-in-gp-regression" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">17.3.2. </span>Equations for Making Predictions and Learning Kernel Hyperparameters in GP Regression<a class="headerlink" href="#equations-for-making-predictions-and-learning-kernel-hyperparameters-in-gp-regression" title="Permalink to this heading">¶</a></h2>
 <p>We list here the equations you will use for learning hyperparameters and
 making predictions in Gaussian process regression. Again, we assume a
 vector of regression targets <span class="math notranslate nohighlight">\(\textbf{y}\)</span>, indexed by inputs
@@ -665,17 +668,17 @@ conditioning on these learned hyperparameters <span class="math notranslate nohi
 <p>The log marginal likelihood is simply a log Gaussian density, which has
 the form:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-2">
-<span class="eqno">(17.3.4)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-2" title="Link to this equation">¶</a></span>\[\log p(\textbf{y} | \theta, X) = -\frac{1}{2}\textbf{y}^{\top}[K_{\theta}(X,X) + \sigma^2I]^{-1}\textbf{y} - \frac{1}{2}\log|K_{\theta}(X,X)| + c\]</div>
+<span class="eqno">(17.3.4)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-2" title="Permalink to this equation">¶</a></span>\[\log p(\textbf{y} | \theta, X) = -\frac{1}{2}\textbf{y}^{\top}[K_{\theta}(X,X) + \sigma^2I]^{-1}\textbf{y} - \frac{1}{2}\log|K_{\theta}(X,X)| + c\]</div>
 <p>The predictive distribution has the form:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-3">
-<span class="eqno">(17.3.5)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-3" title="Link to this equation">¶</a></span>\[p(y_* | x_*, \textbf{y}, \theta) = \mathcal{N}(a_*,v_*)\]</div>
+<span class="eqno">(17.3.5)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-3" title="Permalink to this equation">¶</a></span>\[p(y_* | x_*, \textbf{y}, \theta) = \mathcal{N}(a_*,v_*)\]</div>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-4">
-<span class="eqno">(17.3.6)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-4" title="Link to this equation">¶</a></span>\[a_* = k_{\theta}(x_*,X)[K_{\theta}(X,X)+\sigma^2I]^{-1}(\textbf{y}-\mu) + \mu\]</div>
+<span class="eqno">(17.3.6)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-4" title="Permalink to this equation">¶</a></span>\[a_* = k_{\theta}(x_*,X)[K_{\theta}(X,X)+\sigma^2I]^{-1}(\textbf{y}-\mu) + \mu\]</div>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-5">
-<span class="eqno">(17.3.7)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-5" title="Link to this equation">¶</a></span>\[v_* = k_{\theta}(x_*,x_*) - K_{\theta}(x_*,X)[K_{\theta}(X,X)+\sigma^2I]^{-1}k_{\theta}(X,x_*)\]</div>
+<span class="eqno">(17.3.7)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-5" title="Permalink to this equation">¶</a></span>\[v_* = k_{\theta}(x_*,x_*) - K_{\theta}(x_*,X)[K_{\theta}(X,X)+\sigma^2I]^{-1}k_{\theta}(X,x_*)\]</div>
 </section>
 <section id="interpreting-equations-for-learning-and-predictions">
-<h2><span class="section-number">17.3.3. </span>Interpreting Equations for Learning and Predictions<a class="headerlink" href="#interpreting-equations-for-learning-and-predictions" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">17.3.3. </span>Interpreting Equations for Learning and Predictions<a class="headerlink" href="#interpreting-equations-for-learning-and-predictions" title="Permalink to this heading">¶</a></h2>
 <p>There are some key points to note about the predictive distributions for
 Gaussian processes:</p>
 <ul class="simple">
@@ -726,11 +729,11 @@ to add a small amount of “jitter” to the diagonal, on the order of
 </ul>
 </section>
 <section id="worked-example-from-scratch">
-<h2><span class="section-number">17.3.4. </span>Worked Example from Scratch<a class="headerlink" href="#worked-example-from-scratch" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">17.3.4. </span>Worked Example from Scratch<a class="headerlink" href="#worked-example-from-scratch" title="Permalink to this heading">¶</a></h2>
 <p>Let’s create some regression data, and then fit the data with a GP,
 implementing every step from scratch. We’ll sample data from</p>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-6">
-<span class="eqno">(17.3.8)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-6" title="Link to this equation">¶</a></span>\[y(x) = \sin(x) + \frac{1}{2}\sin(4x) + \epsilon,\]</div>
+<span class="eqno">(17.3.8)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-6" title="Permalink to this equation">¶</a></span>\[y(x) = \sin(x) + \frac{1}{2}\sin(4x) + \epsilon,\]</div>
 <p>with <span class="math notranslate nohighlight">\(\epsilon \sim \mathcal{N}(0,\sigma^2)\)</span>. The noise free
 function we wish to find is
 <span class="math notranslate nohighlight">\(f(x) = \sin(x) + \frac{1}{2}\sin(4x)\)</span>. We’ll start by using a
@@ -750,15 +753,14 @@ noise standard deviation <span class="math notranslate nohighlight">\(\sigma = 0
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gp-inference_265dea_3_0.svg" src="../_images/output_gp-inference_265dea_3_0.svg" />
-</figure>
+<img alt="../_images/output_gp-inference_265dea_3_0.svg" src="../_images/output_gp-inference_265dea_3_0.svg" /></figure>
 <p>Here we see the noisy observations as circles, and the noise-free
 function in blue that we wish to find.</p>
 <p>Now, let’s specify a GP prior over the latent noise-free function,
 <span class="math notranslate nohighlight">\(f(x)\sim \mathcal{GP}(m,k)\)</span>. We’ll use a mean function
 <span class="math notranslate nohighlight">\(m(x) = 0\)</span>, and an RBF covariance function (kernel)</p>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-7">
-<span class="eqno">(17.3.9)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-7" title="Link to this equation">¶</a></span>\[k(x_i,x_j) = a^2\exp\left(-\frac{1}{2\ell^2}||x-x'||^2\right).\]</div>
+<span class="eqno">(17.3.9)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-7" title="Permalink to this equation">¶</a></span>\[k(x_i,x_j) = a^2\exp\left(-\frac{1}{2\ell^2}||x-x'||^2\right).\]</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">test_x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">cov</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">rbfkernel</span><span class="p">(</span><span class="n">test_x</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 </pre></div>
@@ -777,16 +779,15 @@ is within this region).</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gp-inference_265dea_7_0.svg" src="../_images/output_gp-inference_265dea_7_0.svg" />
-</figure>
+<img alt="../_images/output_gp-inference_265dea_7_0.svg" src="../_images/output_gp-inference_265dea_7_0.svg" /></figure>
 <p>Do these samples look reasonable? Are the high-level properties of the
 functions aligned with the type of data we are trying to model?</p>
 <p>Now let’s form the mean and variance of the posterior predictive
 distribution at any arbitrary test point <span class="math notranslate nohighlight">\(x_*\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-8">
-<span class="eqno">(17.3.10)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-8" title="Link to this equation">¶</a></span>\[\bar{f}_{*} = K(x, x_*)^T (K(x, x) + \sigma^2 I)^{-1}y\]</div>
+<span class="eqno">(17.3.10)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-8" title="Permalink to this equation">¶</a></span>\[\bar{f}_{*} = K(x, x_*)^T (K(x, x) + \sigma^2 I)^{-1}y\]</div>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-9">
-<span class="eqno">(17.3.11)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-9" title="Link to this equation">¶</a></span>\[V(f_{*}) = K(x_*, x_*) - K(x, x_*)^T (K(x, x) + \sigma^2 I)^{-1}K(x, x_*)\]</div>
+<span class="eqno">(17.3.11)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-9" title="Permalink to this equation">¶</a></span>\[V(f_{*}) = K(x_*, x_*) - K(x, x_*)^T (K(x, x) + \sigma^2 I)^{-1}K(x, x_*)\]</div>
 <p>Before we make predictions, we should learn our kernel hyperparameters
 <span class="math notranslate nohighlight">\(\theta\)</span> and noise variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>. Let’s initialize our
 length-scale at 0.75, as our prior functions looked too quickly varying
@@ -795,9 +796,9 @@ deviation <span class="math notranslate nohighlight">\(\sigma\)</span> of 0.75.<
 <p>In order to learn these parameters, we will maximize the marginal
 likelihood with respect to these parameters.</p>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-10">
-<span class="eqno">(17.3.12)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-10" title="Link to this equation">¶</a></span>\[\log p(y | X) = \log \int p(y | f, X)p(f | X)df\]</div>
+<span class="eqno">(17.3.12)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-10" title="Permalink to this equation">¶</a></span>\[\log p(y | X) = \log \int p(y | f, X)p(f | X)df\]</div>
 <div class="math notranslate nohighlight" id="equation-chapter-gaussian-processes-gp-inference-11">
-<span class="eqno">(17.3.13)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-11" title="Link to this equation">¶</a></span>\[\log p(y | X) = -\frac{1}{2}y^T(K(x, x) + \sigma^2 I)^{-1}y - \frac{1}{2}\log |K(x, x) + \sigma^2 I| - \frac{n}{2}\log 2\pi\]</div>
+<span class="eqno">(17.3.13)<a class="headerlink" href="#equation-chapter-gaussian-processes-gp-inference-11" title="Permalink to this equation">¶</a></span>\[\log p(y | X) = -\frac{1}{2}y^T(K(x, x) + \sigma^2 I)^{-1}y - \frac{1}{2}\log |K(x, x) + \sigma^2 I| - \frac{n}{2}\log 2\pi\]</div>
 <p>Perhaps our prior functions were too quickly varying. Let’s guess a
 length-scale of 0.4. We’ll also guess a noise standard deviation of
 0.75. These are simply hyperparameter initializations — we will learn
@@ -853,8 +854,7 @@ variety of initializations and see what results you find.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gp-inference_265dea_11_0.svg" src="../_images/output_gp-inference_265dea_11_0.svg" />
-</figure>
+<img alt="../_images/output_gp-inference_265dea_11_0.svg" src="../_images/output_gp-inference_265dea_11_0.svg" /></figure>
 <p>We see the posterior mean in orange almost perfectly matches the true
 noise free function! Note that the 95% credible set we are showing is
 for the latent <em>noise free</em> (true) function, and not the data points. We
@@ -908,8 +908,7 @@ us what types of functions we believe might fit our data, a posteriori.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_gp-inference_265dea_15_0.svg" src="../_images/output_gp-inference_265dea_15_0.svg" />
-</figure>
+<img alt="../_images/output_gp-inference_265dea_15_0.svg" src="../_images/output_gp-inference_265dea_15_0.svg" /></figure>
 <p>In basic regression applications, it is most common to use the posterior
 predictive mean and standard deviation as a point predictor and metric
 for uncertainty, respectively. In more advanced applications, such as
@@ -920,7 +919,7 @@ applications, these samples give us more intuition about the fit we have
 for the data, and are often useful to include in visualizations.</p>
 </section>
 <section id="making-life-easy-with-gpytorch">
-<h2><span class="section-number">17.3.5. </span>Making Life Easy with GPyTorch<a class="headerlink" href="#making-life-easy-with-gpytorch" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">17.3.5. </span>Making Life Easy with GPyTorch<a class="headerlink" href="#making-life-easy-with-gpytorch" title="Permalink to this heading">¶</a></h2>
 <p>As we have seen, it is actually pretty easy to implement basic Gaussian
 process regression entirely from scratch. However, as soon as we want to
 explore a variety of kernel choices, consider approximate inference
@@ -982,7 +981,7 @@ credible set in the <em>observation space</em> rather than the latent function
 space, to demonstrate that they indeed cover the observed datapoints.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">17.3.6. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">17.3.6. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>We can combine a Gaussian process prior with data to form a posterior,
 which we use to make predictions. We can also form a marginal
 likelihood, which is useful for automatic learning of kernel
@@ -998,7 +997,7 @@ in future notebooks, such as scalable inference, or non-Gaussian
 likelihoods for classification.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">17.3.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">17.3.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>We have emphasized the importance of <em>learning</em> kernel
 hyperparameters, and the effect of hyperparameters and kernels on the

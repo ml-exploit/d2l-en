@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="14.9. The Dataset for Pretraining BERT" href="bert-dataset.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,16 +525,16 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="bidirectional-encoder-representations-from-transformers-bert">
-<span id="sec-bert"></span><h1><span class="section-number">14.8. </span>Bidirectional Encoder Representations from Transformers (BERT)<a class="headerlink" href="#bidirectional-encoder-representations-from-transformers-bert" title="Link to this heading">¶</a></h1>
+<span id="sec-bert"></span><h1><span class="section-number">14.8. </span>Bidirectional Encoder Representations from Transformers (BERT)<a class="headerlink" href="#bidirectional-encoder-representations-from-transformers-bert" title="Permalink to this heading">¶</a></h1>
 <p>We have introduced several word embedding models for natural language
 understanding. After pretraining, the output can be thought of as a
 matrix where each row is a vector that represents a word of a predefined
 vocabulary. In fact, these word embedding models are all
 <em>context-independent</em>. Let’s begin by illustrating this property.</p>
 <section id="from-context-independent-to-context-sensitive">
-<h2><span class="section-number">14.8.1. </span>From Context-Independent to Context-Sensitive<a class="headerlink" href="#from-context-independent-to-context-sensitive" title="Link to this heading">¶</a></h2>
-<p>Recall the experiments in <a class="reference internal" href="word2vec-pretraining.html#sec-word2vec-pretraining"><span class="std std-numref">14.4section</span></a> and
-<a class="reference internal" href="similarity-analogy.html#sec-synonyms"><span class="std std-numref">14.7section</span></a>. For instance, word2vec and GloVe both assign
+<h2><span class="section-number">14.8.1. </span>From Context-Independent to Context-Sensitive<a class="headerlink" href="#from-context-independent-to-context-sensitive" title="Permalink to this heading">¶</a></h2>
+<p>Recall the experiments in <a class="reference internal" href="word2vec-pretraining.html#sec-word2vec-pretraining"><span class="std std-numref">Section 14.4</span></a> and
+<a class="reference internal" href="similarity-analogy.html#sec-synonyms"><span class="std std-numref">Section 14.7</span></a>. For instance, word2vec and GloVe both assign
 the same pretrained vector to the same word regardless of the context of
 the word (if any). Formally, a context-independent representation of any
 token <span class="math notranslate nohighlight">\(x\)</span> is a function <span class="math notranslate nohighlight">\(f(x)\)</span> that only takes <span class="math notranslate nohighlight">\(x\)</span> as
@@ -568,7 +571,7 @@ coreference resolution, named entity recognition, and question
 answering.</p>
 </section>
 <section id="from-task-specific-to-task-agnostic">
-<h2><span class="section-number">14.8.2. </span>From Task-Specific to Task-Agnostic<a class="headerlink" href="#from-task-specific-to-task-agnostic" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.8.2. </span>From Task-Specific to Task-Agnostic<a class="headerlink" href="#from-task-specific-to-task-agnostic" title="Permalink to this heading">¶</a></h2>
 <p>Although ELMo has significantly improved solutions to a diverse set of
 natural language processing tasks, each solution still hinges on a
 <em>task-specific</em> architecture. However, it is practically non-trivial to
@@ -593,7 +596,7 @@ sensitive to the context to its left, GPT will return the same
 representation for “bank”, though it has different meanings.</p>
 </section>
 <section id="bert-combining-the-best-of-both-worlds">
-<h2><span class="section-number">14.8.3. </span>BERT: Combining the Best of Both Worlds<a class="headerlink" href="#bert-combining-the-best-of-both-worlds" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.8.3. </span>BERT: Combining the Best of Both Worlds<a class="headerlink" href="#bert-combining-the-best-of-both-worlds" title="Permalink to this heading">¶</a></h2>
 <p>As we have seen, ELMo encodes context bidirectionally but uses
 task-specific architectures; while GPT is task-agnostic but encodes
 context left-to-right. Combining the best of both worlds, BERT
@@ -608,12 +611,11 @@ added output layer, with minimal changes to the model architecture
 depending on nature of tasks, such as predicting for every token
 vs. predicting for the entire sequence. Second, all the parameters of
 the pretrained Transformer encoder are fine-tuned, while the additional
-output layer will be trained from scratch. <a class="reference internal" href="#fig-elmo-gpt-bert"><span class="std std-numref">figure14.8.1</span></a>
+output layer will be trained from scratch. <a class="reference internal" href="#fig-elmo-gpt-bert"><span class="std std-numref">Fig. 14.8.1</span></a>
 depicts the differences among ELMo, GPT, and BERT.</p>
 <figure class="align-default" id="id8">
-<span id="fig-elmo-gpt-bert"></span><img alt="../_images/elmo-gpt-bert.svg" src="../_images/elmo-gpt-bert.svg" />
-<figcaption>
-<p><span class="caption-number">figure14.8.1 </span><span class="caption-text">A comparison of ELMo, GPT, and BERT.</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+<span id="fig-elmo-gpt-bert"></span><img alt="../_images/elmo-gpt-bert.svg" src="../_images/elmo-gpt-bert.svg" /><figcaption>
+<p><span class="caption-number">Fig. 14.8.1 </span><span class="caption-text">A comparison of ELMo, GPT, and BERT.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>BERT further improved the state of the art on eleven natural language
@@ -627,7 +629,7 @@ natural languages have revolutionized solutions to various natural
 language processing tasks.</p>
 <p>In the rest of this chapter, we will dive into the pretraining of BERT.
 When natural language processing applications are explained in
-<a class="reference internal" href="../chapter_natural-language-processing-applications/index.html#chap-nlp-app"><span class="std std-numref">15section</span></a>, we will illustrate fine-tuning of BERT for
+<a class="reference internal" href="../chapter_natural-language-processing-applications/index.html#chap-nlp-app"><span class="std std-numref">Section 15</span></a>, we will illustrate fine-tuning of BERT for
 downstream applications.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mlx</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
@@ -636,7 +638,7 @@ downstream applications.</p>
 </div>
 </section>
 <section id="input-representation">
-<span id="subsec-bert-input-rep"></span><h2><span class="section-number">14.8.4. </span>Input Representation<a class="headerlink" href="#input-representation" title="Link to this heading">¶</a></h2>
+<span id="subsec-bert-input-rep"></span><h2><span class="section-number">14.8.4. </span>Input Representation<a class="headerlink" href="#input-representation" title="Permalink to this heading">¶</a></h2>
 <p>In natural language processing, some tasks (e.g., sentiment analysis)
 take single text as input, while in some other tasks (e.g., natural
 language inference), the input is a pair of text sequences. The BERT
@@ -672,19 +674,18 @@ and their corresponding segment IDs.</p>
 Common in the Transformer encoder, positional embeddings are added at
 every position of the BERT input sequence. However, different from the
 original Transformer encoder, BERT uses <em>learnable</em> positional
-embeddings. To sum up, <a class="reference internal" href="#fig-bert-input"><span class="std std-numref">figure14.8.2</span></a> shows that the
+embeddings. To sum up, <a class="reference internal" href="#fig-bert-input"><span class="std std-numref">Fig. 14.8.2</span></a> shows that the
 embeddings of the BERT input sequence are the sum of the token
 embeddings, segment embeddings, and positional embeddings.</p>
 <figure class="align-default" id="id9">
-<span id="fig-bert-input"></span><img alt="../_images/bert-input.svg" src="../_images/bert-input.svg" />
-<figcaption>
-<p><span class="caption-number">figure14.8.2 </span><span class="caption-text">The embeddings of the BERT input sequence are the sum of the token
-embeddings, segment embeddings, and positional embeddings.</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+<span id="fig-bert-input"></span><img alt="../_images/bert-input.svg" src="../_images/bert-input.svg" /><figcaption>
+<p><span class="caption-number">Fig. 14.8.2 </span><span class="caption-text">The embeddings of the BERT input sequence are the sum of the token
+embeddings, segment embeddings, and positional embeddings.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>The following <code class="docutils literal notranslate"><span class="pre">BERTEncoder</span></code> class is similar to the
 <code class="docutils literal notranslate"><span class="pre">TransformerEncoder</span></code> class as implemented in
-<a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/transformer.html#sec-transformer"><span class="std std-numref">11.7section</span></a>. Different from <code class="docutils literal notranslate"><span class="pre">TransformerEncoder</span></code>,
+<a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/transformer.html#sec-transformer"><span class="std std-numref">Section 11.7</span></a>. Different from <code class="docutils literal notranslate"><span class="pre">TransformerEncoder</span></code>,
 <code class="docutils literal notranslate"><span class="pre">BERTEncoder</span></code> uses segment embeddings and learnable positional
 embeddings.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
@@ -740,7 +741,7 @@ Transformer encoder.</p>
 </div>
 </section>
 <section id="pretraining-tasks">
-<span id="subsec-bert-pretraining-tasks"></span><h2><span class="section-number">14.8.5. </span>Pretraining Tasks<a class="headerlink" href="#pretraining-tasks" title="Link to this heading">¶</a></h2>
+<span id="subsec-bert-pretraining-tasks"></span><h2><span class="section-number">14.8.5. </span>Pretraining Tasks<a class="headerlink" href="#pretraining-tasks" title="Permalink to this heading">¶</a></h2>
 <p>The forward inference of <code class="docutils literal notranslate"><span class="pre">BERTEncoder</span></code> gives the BERT representation
 of each token of the input text and the inserted special tokens “&lt;cls&gt;”
 and “&lt;seq&gt;”. Next, we will use these representations to compute the loss
@@ -748,8 +749,8 @@ function for pretraining BERT. The pretraining is composed of the
 following two tasks: masked language modeling and next sentence
 prediction.</p>
 <section id="masked-language-modeling">
-<span id="subsec-mlm"></span><h3><span class="section-number">14.8.5.1. </span>Masked Language Modeling<a class="headerlink" href="#masked-language-modeling" title="Link to this heading">¶</a></h3>
-<p>As illustrated in <a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">9.3section</span></a>, a language model
+<span id="subsec-mlm"></span><h3><span class="section-number">14.8.5.1. </span>Masked Language Modeling<a class="headerlink" href="#masked-language-modeling" title="Permalink to this heading">¶</a></h3>
+<p>As illustrated in <a class="reference internal" href="../chapter_recurrent-neural-networks/language-model.html#sec-language-model"><span class="std std-numref">Section 9.3</span></a>, a language model
 predicts a token using the context on its left. To encode context
 bidirectionally for representing each token, BERT randomly masks tokens
 and uses tokens from the bidirectional context to predict the masked
@@ -837,7 +838,7 @@ the masked language model task in BERT pretraining.</p>
 </div>
 </section>
 <section id="next-sentence-prediction">
-<span id="subsec-nsp"></span><h3><span class="section-number">14.8.5.2. </span>Next Sentence Prediction<a class="headerlink" href="#next-sentence-prediction" title="Link to this heading">¶</a></h3>
+<span id="subsec-nsp"></span><h3><span class="section-number">14.8.5.2. </span>Next Sentence Prediction<a class="headerlink" href="#next-sentence-prediction" title="Permalink to this heading">¶</a></h3>
 <p>Although masked language modeling is able to encode bidirectional
 context for representing words, it does not explicitly model the logical
 relationship between text pairs. To help understand the relationship
@@ -898,7 +899,7 @@ million words and 2.5 billion words, respectively.</p>
 </section>
 </section>
 <section id="putting-it-all-together">
-<h2><span class="section-number">14.8.6. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.8.6. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">¶</a></h2>
 <p>When pretraining BERT, the final loss function is a linear combination
 of both the loss functions for masked language modeling and next
 sentence prediction. Now we can define the <code class="docutils literal notranslate"><span class="pre">BERTModel</span></code> class by
@@ -935,7 +936,7 @@ representations <code class="docutils literal notranslate"><span class="pre">enc
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">14.8.7. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.8.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Word embedding models such as word2vec and GloVe are
 context-independent. They assign the same pretrained vector to the
@@ -960,7 +961,7 @@ explicitly models the logical relationship between text pairs.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">14.8.8. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.8.8. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>All other things being equal, will a masked language model require
 more or fewer pretraining steps to converge than a left-to-right

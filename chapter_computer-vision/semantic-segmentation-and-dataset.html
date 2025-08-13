@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="13.10. Transposed Convolution" href="transposed-conv.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,28 +525,27 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="semantic-segmentation-and-the-dataset">
-<span id="sec-semantic-segmentation"></span><h1><span class="section-number">13.9. </span>Semantic Segmentation and the Dataset<a class="headerlink" href="#semantic-segmentation-and-the-dataset" title="Link to this heading">¶</a></h1>
+<span id="sec-semantic-segmentation"></span><h1><span class="section-number">13.9. </span>Semantic Segmentation and the Dataset<a class="headerlink" href="#semantic-segmentation-and-the-dataset" title="Permalink to this heading">¶</a></h1>
 <p>When discussing object detection tasks in
-<a class="reference internal" href="bounding-box.html#sec-bbox"><span class="std std-numref">13.3section</span></a>–<a class="reference internal" href="rcnn.html#sec-rcnn"><span class="std std-numref">13.8section</span></a>, rectangular bounding boxes
+<a class="reference internal" href="bounding-box.html#sec-bbox"><span class="std std-numref">Section 13.3</span></a>–<a class="reference internal" href="rcnn.html#sec-rcnn"><span class="std std-numref">Section 13.8</span></a>, rectangular bounding boxes
 are used to label and predict objects in images. This section will
 discuss the problem of <em>semantic segmentation</em>, which focuses on how to
 divide an image into regions belonging to different semantic classes.
 Different from object detection, semantic segmentation recognizes and
 understands what are in images in pixel level: its labeling and
 prediction of semantic regions are in pixel level.
-<a class="reference internal" href="#fig-segmentation"><span class="std std-numref">figure13.9.1</span></a> shows the labels of the dog, cat, and
+<a class="reference internal" href="#fig-segmentation"><span class="std std-numref">Fig. 13.9.1</span></a> shows the labels of the dog, cat, and
 background of the image in semantic segmentation. Compared with in
 object detection, the pixel-level borders labeled in semantic
 segmentation are obviously more fine-grained.</p>
 <figure class="align-default" id="id1">
-<span id="fig-segmentation"></span><img alt="../_images/segmentation.svg" src="../_images/segmentation.svg" />
-<figcaption>
-<p><span class="caption-number">figure13.9.1 </span><span class="caption-text">Labels of the dog, cat, and background of the image in semantic
-segmentation.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+<span id="fig-segmentation"></span><img alt="../_images/segmentation.svg" src="../_images/segmentation.svg" /><figcaption>
+<p><span class="caption-number">Fig. 13.9.1 </span><span class="caption-text">Labels of the dog, cat, and background of the image in semantic
+segmentation.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <section id="image-segmentation-and-instance-segmentation">
-<h2><span class="section-number">13.9.1. </span>Image Segmentation and Instance Segmentation<a class="headerlink" href="#image-segmentation-and-instance-segmentation" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.9.1. </span>Image Segmentation and Instance Segmentation<a class="headerlink" href="#image-segmentation-and-instance-segmentation" title="Permalink to this heading">¶</a></h2>
 <p>There are also two important tasks in the field of computer vision that
 are similar to semantic segmentation, namely image segmentation and
 instance segmentation. We will briefly distinguish them from semantic
@@ -555,7 +557,7 @@ correlation between pixels in the image. It does not need label
 information about image pixels during training, and it cannot
 guarantee that the segmented regions will have the semantics that we
 hope to obtain during prediction. Taking the image in
-<a class="reference internal" href="#fig-segmentation"><span class="std std-numref">figure13.9.1</span></a> as input, image segmentation may divide
+<a class="reference internal" href="#fig-segmentation"><span class="std std-numref">Fig. 13.9.1</span></a> as input, image segmentation may divide
 the dog into two regions: one covers the mouth and eyes which are
 mainly black, and the other covers the rest of the body which is
 mainly yellow.</p></li>
@@ -569,7 +571,7 @@ which of the two dogs a pixel belongs to.</p></li>
 </ul>
 </section>
 <section id="the-pascal-voc2012-semantic-segmentation-dataset">
-<h2><span class="section-number">13.9.2. </span>The Pascal VOC2012 Semantic Segmentation Dataset<a class="headerlink" href="#the-pascal-voc2012-semantic-segmentation-dataset" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.9.2. </span>The Pascal VOC2012 Semantic Segmentation Dataset<a class="headerlink" href="#the-pascal-voc2012-semantic-segmentation-dataset" title="Permalink to this heading">¶</a></h2>
 <p>On of the most important semantic segmentation dataset is <a class="reference external" href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/">Pascal
 VOC2012</a>. In the
 following, we will take a look at this dataset.</p>
@@ -805,9 +807,9 @@ part of the airplane is 1, while the background index is 0.</p>
 </pre></div>
 </div>
 <section id="data-preprocessing">
-<h3><span class="section-number">13.9.2.1. </span>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.9.2.1. </span>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this heading">¶</a></h3>
 <p>In previous experiments such as in
-<a class="reference internal" href="../chapter_convolutional-modern/alexnet.html#sec-alexnet"><span class="std std-numref">8.1section</span></a>–<a class="reference internal" href="../chapter_convolutional-modern/googlenet.html#sec-googlenet"><span class="std std-numref">8.2section</span></a>, images are rescaled
+<a class="reference internal" href="../chapter_convolutional-modern/alexnet.html#sec-alexnet"><span class="std std-numref">Section 8.1</span></a>–<a class="reference internal" href="../chapter_convolutional-modern/googlenet.html#sec-googlenet"><span class="std std-numref">Section 8.2</span></a>, images are rescaled
 to fit the model’s required input shape. However, in semantic
 segmentation, doing so requires rescaling the predicted pixel classes
 back to the original shape of the input image. Such rescaling may be
@@ -873,7 +875,7 @@ we crop the same area of the input image and the label.</p>
 </figure>
 </section>
 <section id="custom-semantic-segmentation-dataset-class">
-<h3><span class="section-number">13.9.2.2. </span>Custom Semantic Segmentation Dataset Class<a class="headerlink" href="#custom-semantic-segmentation-dataset-class" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.9.2.2. </span>Custom Semantic Segmentation Dataset Class<a class="headerlink" href="#custom-semantic-segmentation-dataset-class" title="Permalink to this heading">¶</a></h3>
 <p>We define a custom semantic segmentation dataset class <code class="docutils literal notranslate"><span class="pre">VOCSegDataset</span></code>
 by inheriting the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> class provided by high-level APIs. By
 implementing the <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> function, we can arbitrarily access the
@@ -984,7 +986,7 @@ three RGB channels of input images.</p>
 </div>
 </section>
 <section id="reading-the-dataset">
-<h3><span class="section-number">13.9.2.3. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.9.2.3. </span>Reading the Dataset<a class="headerlink" href="#reading-the-dataset" title="Permalink to this heading">¶</a></h3>
 <p>We use the custom <code class="docutils literal notranslate"><span class="pre">VOCSegDatase</span></code>t class to create instances of the
 training set and test set, respectively. Suppose that we specify that
 the output shape of randomly cropped images is <span class="math notranslate nohighlight">\(320\times 480\)</span>.
@@ -1068,7 +1070,7 @@ three-dimensional tensors.</p>
 </div>
 </section>
 <section id="putting-it-all-together">
-<h3><span class="section-number">13.9.2.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">13.9.2.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">¶</a></h3>
 <p>Finally, we define the following <code class="docutils literal notranslate"><span class="pre">load_data_voc</span></code> function to download
 and read the Pascal VOC2012 semantic segmentation dataset. It returns
 data iterators for both the training and test datasets.</p>
@@ -1121,7 +1123,7 @@ data iterators for both the training and test datasets.</p>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">13.9.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.9.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Semantic segmentation recognizes and understands what are in an image
 in pixel level by dividing the image into regions belonging to
@@ -1134,12 +1136,12 @@ fixed shape rather than rescaled.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">13.9.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">13.9.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>How can semantic segmentation be applied in autonomous vehicles and
 medical image diagnostics? Can you think of other applications?</p></li>
 <li><p>Recall the descriptions of data augmentation in
-<a class="reference internal" href="image-augmentation.html#sec-image-augmentation"><span class="std std-numref">13.1section</span></a>. Which of the image augmentation
+<a class="reference internal" href="image-augmentation.html#sec-image-augmentation"><span class="std std-numref">Section 13.1</span></a>. Which of the image augmentation
 methods used in image classification would be infeasible to be
 applied in semantic segmentation?</p></li>
 </ol>

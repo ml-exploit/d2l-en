@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="15.3. Natural Language Inference and the Dataset" href="natural-language-inference-and-dataset.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="sentiment-analysis-using-convolutional-neural-networks">
-<span id="sec-sentiment-cnn"></span><h1><span class="section-number">15.2. </span>Sentiment Analysis: Using Convolutional Neural Networks<a class="headerlink" href="#sentiment-analysis-using-convolutional-neural-networks" title="Link to this heading">¶</a></h1>
-<p>In <a class="reference internal" href="../chapter_convolutional-neural-networks/index.html#chap-cnn"><span class="std std-numref">7section</span></a>, we investigated mechanisms for processing
+<span id="sec-sentiment-cnn"></span><h1><span class="section-number">15.2. </span>Sentiment Analysis: Using Convolutional Neural Networks<a class="headerlink" href="#sentiment-analysis-using-convolutional-neural-networks" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="../chapter_convolutional-neural-networks/index.html#chap-cnn"><span class="std std-numref">Section 7</span></a>, we investigated mechanisms for processing
 two-dimensional image data with two-dimensional CNNs, which were applied
 to local features such as adjacent pixels. Though originally designed
 for computer vision, CNNs are also widely used for natural language
@@ -534,13 +537,12 @@ local features such as <span class="math notranslate nohighlight">\(n\)</span>-g
 design a CNN architecture for representing single text
 <span id="id1">()</span>. Compared with <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_nlp-map-sa-rnn</span></code> that
 uses an RNN architecture with GloVe pretraining for sentiment analysis,
-the only difference in <a class="reference internal" href="#fig-nlp-map-sa-cnn"><span class="std std-numref">figure15.2.1</span></a> lies in the choice
+the only difference in <a class="reference internal" href="#fig-nlp-map-sa-cnn"><span class="std std-numref">Fig. 15.2.1</span></a> lies in the choice
 of the architecture.</p>
 <figure class="align-default" id="id3">
-<span id="fig-nlp-map-sa-cnn"></span><img alt="../_images/nlp-map-sa-cnn.svg" src="../_images/nlp-map-sa-cnn.svg" />
-<figcaption>
-<p><span class="caption-number">figure15.2.1 </span><span class="caption-text">This section feeds pretrained GloVe to a CNN-based architecture for
-sentiment analysis.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+<span id="fig-nlp-map-sa-cnn"></span><img alt="../_images/nlp-map-sa-cnn.svg" src="../_images/nlp-map-sa-cnn.svg" /><figcaption>
+<p><span class="caption-number">Fig. 15.2.1 </span><span class="caption-text">This section feeds pretrained GloVe to a CNN-based architecture for
+sentiment analysis.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
@@ -556,27 +558,26 @@ sentiment analysis.</span><a class="headerlink" href="#id3" title="Link to this 
 </pre></div>
 </div>
 <section id="one-dimensional-convolutions">
-<h2><span class="section-number">15.2.1. </span>One-Dimensional Convolutions<a class="headerlink" href="#one-dimensional-convolutions" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.2.1. </span>One-Dimensional Convolutions<a class="headerlink" href="#one-dimensional-convolutions" title="Permalink to this heading">¶</a></h2>
 <p>Before introducing the model, let’s see how a one-dimensional
 convolution works. Bear in mind that it is just a special case of a
 two-dimensional convolution based on the cross-correlation operation.</p>
 <figure class="align-default" id="id4">
-<span id="fig-conv1d"></span><img alt="../_images/conv1d.svg" src="../_images/conv1d.svg" />
-<figcaption>
-<p><span class="caption-number">figure15.2.2 </span><span class="caption-text">One-dimensional cross-correlation operation. The shaded portions are
+<span id="fig-conv1d"></span><img alt="../_images/conv1d.svg" src="../_images/conv1d.svg" /><figcaption>
+<p><span class="caption-number">Fig. 15.2.2 </span><span class="caption-text">One-dimensional cross-correlation operation. The shaded portions are
 the first output element as well as the input and kernel tensor
 elements used for the output computation:
-<span class="math notranslate nohighlight">\(0\times1+1\times2=2\)</span>.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<span class="math notranslate nohighlight">\(0\times1+1\times2=2\)</span>.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>As shown in <a class="reference internal" href="#fig-conv1d"><span class="std std-numref">figure15.2.2</span></a>, in the one-dimensional case, the
+<p>As shown in <a class="reference internal" href="#fig-conv1d"><span class="std std-numref">Fig. 15.2.2</span></a>, in the one-dimensional case, the
 convolution window slides from left to right across the input tensor.
 During sliding, the input subtensor (e.g., <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> in
-<a class="reference internal" href="#fig-conv1d"><span class="std std-numref">figure15.2.2</span></a>) contained in the convolution window at a certain
+<a class="reference internal" href="#fig-conv1d"><span class="std std-numref">Fig. 15.2.2</span></a>) contained in the convolution window at a certain
 position and the kernel tensor (e.g., <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span> in
-<a class="reference internal" href="#fig-conv1d"><span class="std std-numref">figure15.2.2</span></a>) are multiplied elementwise. The sum of these
+<a class="reference internal" href="#fig-conv1d"><span class="std std-numref">Fig. 15.2.2</span></a>) are multiplied elementwise. The sum of these
 multiplications gives the single scalar value (e.g.,
-<span class="math notranslate nohighlight">\(0\times1+1\times2=2\)</span> in <a class="reference internal" href="#fig-conv1d"><span class="std std-numref">figure15.2.2</span></a>) at the
+<span class="math notranslate nohighlight">\(0\times1+1\times2=2\)</span> in <a class="reference internal" href="#fig-conv1d"><span class="std std-numref">Fig. 15.2.2</span></a>) at the
 corresponding position of the output tensor.</p>
 <p>We implement one-dimensional cross-correlation in the following
 <code class="docutils literal notranslate"><span class="pre">corr1d</span></code> function. Given an input tensor <code class="docutils literal notranslate"><span class="pre">X</span></code> and a kernel tensor
@@ -590,7 +591,7 @@ corresponding position of the output tensor.</p>
 </pre></div>
 </div>
 <p>We can construct the input tensor <code class="docutils literal notranslate"><span class="pre">X</span></code> and the kernel tensor <code class="docutils literal notranslate"><span class="pre">K</span></code> from
-<a class="reference internal" href="#fig-conv1d"><span class="std std-numref">figure15.2.2</span></a> to validate the output of the above
+<a class="reference internal" href="#fig-conv1d"><span class="std std-numref">Fig. 15.2.2</span></a> to validate the output of the above
 one-dimensional cross-correlation implementation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">corr1d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
@@ -604,20 +605,19 @@ kernel needs to have the same number of input channels. Then for each
 channel, perform a cross-correlation operation on the one-dimensional
 tensor of the input and the one-dimensional tensor of the convolution
 kernel, summing the results over all the channels to produce the
-one-dimensional output tensor. <a class="reference internal" href="#fig-conv1d-channel"><span class="std std-numref">figure15.2.3</span></a> shows a
+one-dimensional output tensor. <a class="reference internal" href="#fig-conv1d-channel"><span class="std std-numref">Fig. 15.2.3</span></a> shows a
 one-dimensional cross-correlation operation with 3 input channels.</p>
 <figure class="align-default" id="id5">
-<span id="fig-conv1d-channel"></span><img alt="../_images/conv1d-channel.svg" src="../_images/conv1d-channel.svg" />
-<figcaption>
-<p><span class="caption-number">figure15.2.3 </span><span class="caption-text">One-dimensional cross-correlation operation with 3 input channels.
+<span id="fig-conv1d-channel"></span><img alt="../_images/conv1d-channel.svg" src="../_images/conv1d-channel.svg" /><figcaption>
+<p><span class="caption-number">Fig. 15.2.3 </span><span class="caption-text">One-dimensional cross-correlation operation with 3 input channels.
 The shaded portions are the first output element as well as the input
 and kernel tensor elements used for the output computation:
-<span class="math notranslate nohighlight">\(0\times1+1\times2+1\times3+2\times4+2\times(-1)+3\times(-3)=2\)</span>.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<span class="math notranslate nohighlight">\(0\times1+1\times2+1\times3+2\times4+2\times(-1)+3\times(-3)=2\)</span>.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>We can implement the one-dimensional cross-correlation operation for
 multiple input channels and validate the results in
-<a class="reference internal" href="#fig-conv1d-channel"><span class="std std-numref">figure15.2.3</span></a>.</p>
+<a class="reference internal" href="#fig-conv1d-channel"><span class="std std-numref">Fig. 15.2.3</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">corr1d_multi_in</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
     <span class="c1"># First, iterate through the 0th dimension (channel dimension) of `X` and</span>
     <span class="c1"># `K`. Then, add them together</span>
@@ -636,27 +636,26 @@ multiple input channels and validate the results in
 <p>Note that multi-input-channel one-dimensional cross-correlations are
 equivalent to single-input-channel two-dimensional cross-correlations.
 To illustrate, an equivalent form of the multi-input-channel
-one-dimensional cross-correlation in <a class="reference internal" href="#fig-conv1d-channel"><span class="std std-numref">figure15.2.3</span></a> is
+one-dimensional cross-correlation in <a class="reference internal" href="#fig-conv1d-channel"><span class="std std-numref">Fig. 15.2.3</span></a> is
 the single-input-channel two-dimensional cross-correlation in
-<a class="reference internal" href="#fig-conv1d-2d"><span class="std std-numref">figure15.2.4</span></a>, where the height of the convolution kernel
+<a class="reference internal" href="#fig-conv1d-2d"><span class="std std-numref">Fig. 15.2.4</span></a>, where the height of the convolution kernel
 has to be the same as that of the input tensor.</p>
 <figure class="align-default" id="id6">
-<span id="fig-conv1d-2d"></span><img alt="../_images/conv1d-2d.svg" src="../_images/conv1d-2d.svg" />
-<figcaption>
-<p><span class="caption-number">figure15.2.4 </span><span class="caption-text">Two-dimensional cross-correlation operation with a single input
+<span id="fig-conv1d-2d"></span><img alt="../_images/conv1d-2d.svg" src="../_images/conv1d-2d.svg" /><figcaption>
+<p><span class="caption-number">Fig. 15.2.4 </span><span class="caption-text">Two-dimensional cross-correlation operation with a single input
 channel. The shaded portions are the first output element as well as
 the input and kernel tensor elements used for the output computation:
-<span class="math notranslate nohighlight">\(2\times(-1)+3\times(-3)+1\times3+2\times4+0\times1+1\times2=2\)</span>.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+<span class="math notranslate nohighlight">\(2\times(-1)+3\times(-3)+1\times3+2\times4+0\times1+1\times2=2\)</span>.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>Both the outputs in <a class="reference internal" href="#fig-conv1d"><span class="std std-numref">figure15.2.2</span></a> and
-<a class="reference internal" href="#fig-conv1d-channel"><span class="std std-numref">figure15.2.3</span></a> have only one channel. Same as
+<p>Both the outputs in <a class="reference internal" href="#fig-conv1d"><span class="std std-numref">Fig. 15.2.2</span></a> and
+<a class="reference internal" href="#fig-conv1d-channel"><span class="std std-numref">Fig. 15.2.3</span></a> have only one channel. Same as
 two-dimensional convolutions with multiple output channels described in
-<a class="reference internal" href="../chapter_convolutional-neural-networks/channels.html#subsec-multi-output-channels"><span class="std std-numref">7.4.2section</span></a>, we can also specify multiple
+<a class="reference internal" href="../chapter_convolutional-neural-networks/channels.html#subsec-multi-output-channels"><span class="std std-numref">Section 7.4.2</span></a>, we can also specify multiple
 output channels for one-dimensional convolutions.</p>
 </section>
 <section id="max-over-time-pooling">
-<h2><span class="section-number">15.2.2. </span>Max-Over-Time Pooling<a class="headerlink" href="#max-over-time-pooling" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.2.2. </span>Max-Over-Time Pooling<a class="headerlink" href="#max-over-time-pooling" title="Permalink to this heading">¶</a></h2>
 <p>Similarly, we can use pooling to extract the highest value from sequence
 representations as the most important feature across time steps. The
 <em>max-over-time pooling</em> used in textCNN works like the one-dimensional
@@ -667,7 +666,7 @@ Note that the max-over-time pooling allows different numbers of time
 steps at different channels.</p>
 </section>
 <section id="the-textcnn-model">
-<h2><span class="section-number">15.2.3. </span>The textCNN Model<a class="headerlink" href="#the-textcnn-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.2.3. </span>The textCNN Model<a class="headerlink" href="#the-textcnn-model" title="Permalink to this heading">¶</a></h2>
 <p>Using the one-dimensional convolution and max-over-time pooling, the
 textCNN model takes individual pretrained token representations as
 input, then obtains and transforms sequence representations for the
@@ -689,12 +688,11 @@ the fully connected layer. Dropout can be used for reducing
 overfitting.</p></li>
 </ol>
 <figure class="align-default" id="id7">
-<span id="fig-conv1d-textcnn"></span><img alt="../_images/textcnn.svg" src="../_images/textcnn.svg" />
-<figcaption>
-<p><span class="caption-number">figure15.2.5 </span><span class="caption-text">The model architecture of textCNN.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+<span id="fig-conv1d-textcnn"></span><img alt="../_images/textcnn.svg" src="../_images/textcnn.svg" /><figcaption>
+<p><span class="caption-number">Fig. 15.2.5 </span><span class="caption-text">The model architecture of textCNN.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#fig-conv1d-textcnn"><span class="std std-numref">figure15.2.5</span></a> illustrates the model architecture of
+<p><a class="reference internal" href="#fig-conv1d-textcnn"><span class="std std-numref">Fig. 15.2.5</span></a> illustrates the model architecture of
 textCNN with a concrete example. The input is a sentence with 11 tokens,
 where each token is represented by a 6-dimensional vectors. So we have a
 6-channel input with width 11. Define two one-dimensional convolution
@@ -705,7 +703,7 @@ channels with width <span class="math notranslate nohighlight">\(11-4+1=8\)</spa
 vector, which is finally transformed into a 2-dimensional output vector
 for binary sentiment predictions.</p>
 <section id="defining-the-model">
-<h3><span class="section-number">15.2.3.1. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.2.3.1. </span>Defining the Model<a class="headerlink" href="#defining-the-model" title="Permalink to this heading">¶</a></h3>
 <p>We implement the textCNN model in the following class. Compared with the
 bidirectional RNN model in <code class="xref std std-numref docutils literal notranslate"><span class="pre">sec_sentiment_rnn</span></code>, besides
 replacing recurrent layers with convolutional layers, we also use two
@@ -752,7 +750,7 @@ kernel widths of 3, 4, and 5, all with 100 output channels.</p>
 </div>
 </section>
 <section id="loading-pretrained-word-vectors">
-<h3><span class="section-number">15.2.3.2. </span>Loading Pretrained Word Vectors<a class="headerlink" href="#loading-pretrained-word-vectors" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.2.3.2. </span>Loading Pretrained Word Vectors<a class="headerlink" href="#loading-pretrained-word-vectors" title="Permalink to this heading">¶</a></h3>
 <p>Same as <code class="xref std std-numref docutils literal notranslate"><span class="pre">sec_sentiment_rnn</span></code>, we load pretrained
 100-dimensional GloVe embeddings as the initialized token
 representations. These token representations (embedding weights) will be
@@ -772,7 +770,7 @@ trained in <code class="docutils literal notranslate"><span class="pre">embeddin
 </div>
 </section>
 <section id="training-and-evaluating-the-model">
-<h3><span class="section-number">15.2.3.3. </span>Training and Evaluating the Model<a class="headerlink" href="#training-and-evaluating-the-model" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">15.2.3.3. </span>Training and Evaluating the Model<a class="headerlink" href="#training-and-evaluating-the-model" title="Permalink to this heading">¶</a></h3>
 <p>Now we can train the textCNN model for sentiment analysis.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_num_batch</span><span class="p">(</span><span class="nb">iter</span><span class="p">):</span>
     <span class="n">num_batches</span> <span class="o">=</span> <span class="mi">0</span>
@@ -793,8 +791,7 @@ trained in <code class="docutils literal notranslate"><span class="pre">embeddin
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_sentiment-analysis-cnn_a6d733_15_1.svg" src="../_images/output_sentiment-analysis-cnn_a6d733_15_1.svg" />
-</figure>
+<img alt="../_images/output_sentiment-analysis-cnn_a6d733_15_1.svg" src="../_images/output_sentiment-analysis-cnn_a6d733_15_1.svg" /></figure>
 <p>Below we use the trained model to predict the sentiment for two simple
 sentences.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d2l</span><span class="o">.</span><span class="n">predict_sentiment</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="s1">&#39;this movie is so great&#39;</span><span class="p">)</span>
@@ -812,7 +809,7 @@ sentences.</p>
 </section>
 </section>
 <section id="summary">
-<h2><span class="section-number">15.2.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.2.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>One-dimensional CNNs can process local features such as
 <span class="math notranslate nohighlight">\(n\)</span>-grams in text.</p></li>
@@ -826,7 +823,7 @@ layers and max-over-time pooling layers.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">15.2.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">15.2.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Tune hyperparameters and compare the two architectures for sentiment
 analysis in <code class="xref std std-numref docutils literal notranslate"><span class="pre">sec_sentiment_rnn</span></code> and in this section, such

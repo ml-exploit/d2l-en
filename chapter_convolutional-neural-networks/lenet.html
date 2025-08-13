@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8. Modern Convolutional Neural Networks" href="../chapter_convolutional-modern/index.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,11 +525,11 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="convolutional-neural-networks-lenet">
-<span id="sec-lenet"></span><h1><span class="section-number">7.6. </span>Convolutional Neural Networks (LeNet)<a class="headerlink" href="#convolutional-neural-networks-lenet" title="Link to this heading">¶</a></h1>
+<span id="sec-lenet"></span><h1><span class="section-number">7.6. </span>Convolutional Neural Networks (LeNet)<a class="headerlink" href="#convolutional-neural-networks-lenet" title="Permalink to this heading">¶</a></h1>
 <p>We now have all the ingredients required to assemble a fully-functional
 CNN. In our earlier encounter with image data, we applied a linear model
-with softmax regression (<a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html#sec-softmax-scratch"><span class="std std-numref">4.3section</span></a>) and an MLP
-(<a class="reference internal" href="../chapter_multilayer-perceptrons/mlp-implementation.html#sec-mlp-implementation"><span class="std std-numref">5.2section</span></a>) to pictures of clothing in the
+with softmax regression (<a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html#sec-softmax-scratch"><span class="std std-numref">Section 4.4</span></a>) and an MLP
+(<a class="reference internal" href="../chapter_multilayer-perceptrons/mlp-implementation.html#sec-mlp-implementation"><span class="std std-numref">Section 5.2</span></a>) to pictures of clothing in the
 Fashion-MNIST dataset. To make such data amenable we first flattened
 each image from a <span class="math notranslate nohighlight">\(28\times28\)</span> matrix into a fixed-length
 <span class="math notranslate nohighlight">\(784\)</span>-dimensional vector, and thereafter processed them in fully
@@ -555,16 +558,15 @@ his colleague Leon Bottou wrote in the 1990s!</p>
 </pre></div>
 </div>
 <section id="lenet">
-<h2><span class="section-number">7.6.1. </span>LeNet<a class="headerlink" href="#lenet" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.6.1. </span>LeNet<a class="headerlink" href="#lenet" title="Permalink to this heading">¶</a></h2>
 <p>At a high level, LeNet (LeNet-5) consists of two parts: (i) a
 convolutional encoder consisting of two convolutional layers; and (ii) a
 dense block consisting of three fully connected layers. The architecture
-is summarized in <a class="reference internal" href="#img-lenet"><span class="std std-numref">figure7.6.1</span></a>.</p>
+is summarized in <a class="reference internal" href="#img-lenet"><span class="std std-numref">Fig. 7.6.1</span></a>.</p>
 <figure class="align-default" id="id4">
-<span id="img-lenet"></span><img alt="../_images/lenet.svg" src="../_images/lenet.svg" />
-<figcaption>
-<p><span class="caption-number">figure7.6.1 </span><span class="caption-text">Data flow in LeNet. The input is a handwritten digit, the output is a
-probability over 10 possible outcomes.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+<span id="img-lenet"></span><img alt="../_images/lenet.svg" src="../_images/lenet.svg" /><figcaption>
+<p><span class="caption-number">Fig. 7.6.1 </span><span class="caption-text">Data flow in LeNet. The input is a handwritten digit, the output is a
+probability over 10 possible outcomes.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>The basic units in each convolutional block are a convolutional layer, a
@@ -594,7 +596,7 @@ code snippet will convince you that implementing such models with modern
 deep learning frameworks is remarkably simple. We need only to
 instantiate a <code class="docutils literal notranslate"><span class="pre">Sequential</span></code> block and chain together the appropriate
 layers, using Xavier initialization as introduced in
-<a class="reference internal" href="../chapter_multilayer-perceptrons/numerical-stability-and-init.html#subsec-xavier"><span class="std std-numref">5.4.2.2section</span></a>.</p>
+<a class="reference internal" href="../chapter_multilayer-perceptrons/numerical-stability-and-init.html#subsec-xavier"><span class="std std-numref">Section 5.4.2.2</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_cnn</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>  <span class="c1">#@save</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize weights for CNNs.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
@@ -629,9 +631,8 @@ greatly simplifies the implementation, not least due to the fact that
 the Gaussian decoder is rarely used nowadays. Other than that, this
 network matches the original LeNet-5 architecture.</p>
 <figure class="align-default" id="id5">
-<span id="img-lenet-vert"></span><img alt="../_images/lenet-vert.svg" src="../_images/lenet-vert.svg" />
-<figcaption>
-<p><span class="caption-number">figure7.6.2 </span><span class="caption-text">Compressed notation for LeNet-5.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<span id="img-lenet-vert"></span><img alt="../_images/lenet-vert.svg" src="../_images/lenet-vert.svg" /><figcaption>
+<p><span class="caption-number">Fig. 7.6.2 </span><span class="caption-text">Compressed notation for LeNet-5.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@d2l</span><span class="o">.</span><span class="n">add_to_class</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Classifier</span><span class="p">)</span>  <span class="c1">#@save</span>
@@ -679,7 +680,7 @@ dimensionality, finally emitting an output whose dimension matches the
 number of classes.</p>
 </section>
 <section id="training">
-<h2><span class="section-number">7.6.2. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.6.2. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h2>
 <p>Now that we have implemented the model, let’s run an experiment to see
 how the LeNet-5 model fares on Fashion-MNIST.</p>
 <p>While CNNs have fewer parameters, they can still be more expensive to
@@ -697,18 +698,17 @@ minibatch stochastic gradient descent.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_lenet_c21234_9_0.svg" src="../_images/output_lenet_c21234_9_0.svg" />
-</figure>
+<img alt="../_images/output_lenet_c21234_9_0.svg" src="../_images/output_lenet_c21234_9_0.svg" /></figure>
 </section>
 <section id="summary">
-<h2><span class="section-number">7.6.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.6.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>We have made significant progress in this chapter. We moved from the
 MLPs of the 1980s to the CNNs of the 1990s and early 2000s. The
 architectures proposed, e.g., in the form of LeNet-5 remain meaningful,
 even to this day. It is worth comparing the error rates on Fashion-MNIST
 achievable with LeNet-5 both to the very best possible with MLPs
-(<a class="reference internal" href="../chapter_multilayer-perceptrons/mlp-implementation.html#sec-mlp-implementation"><span class="std std-numref">5.2section</span></a>) and those with significantly more
-advanced architectures such as ResNet (<a class="reference internal" href="../chapter_convolutional-modern/resnet.html#sec-resnet"><span class="std std-numref">8.4section</span></a>). LeNet is
+(<a class="reference internal" href="../chapter_multilayer-perceptrons/mlp-implementation.html#sec-mlp-implementation"><span class="std std-numref">Section 5.2</span></a>) and those with significantly more
+advanced architectures such as ResNet (<a class="reference internal" href="../chapter_convolutional-modern/resnet.html#sec-resnet"><span class="std std-numref">Section 8.4</span></a>). LeNet is
 much more similar to the latter than to the former. One of the primary
 differences, as we shall see, is that greater amounts of computation
 enabled significantly more complex architectures.</p>
@@ -722,7 +722,7 @@ model development tremendously. In the next chapter, we will journey
 down this rabbit hole to see where it takes us.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">7.6.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.6.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Let’s modernize LeNet. Implement and test the following changes:</p>
 <ol class="arabic simple">

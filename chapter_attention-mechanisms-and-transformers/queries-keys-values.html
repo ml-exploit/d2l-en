@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="11.2. Attention Pooling by Similarity" href="attention-pooling.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="queries-keys-and-values">
-<span id="sec-queries-keys-values"></span><h1><span class="section-number">11.1. </span>Queries, Keys, and Values<a class="headerlink" href="#queries-keys-and-values" title="Link to this heading">¶</a></h1>
+<span id="sec-queries-keys-values"></span><h1><span class="section-number">11.1. </span>Queries, Keys, and Values<a class="headerlink" href="#queries-keys-and-values" title="Permalink to this heading">¶</a></h1>
 <p>So far all the networks we have reviewed crucially relied on the input
 being of a well-defined size. For instance, the images in ImageNet are
 of size <span class="math notranslate nohighlight">\(224 \times 224\)</span> pixels and CNNs are specifically tuned to
@@ -531,7 +534,7 @@ is well defined and fixed. Variable size is addressed by sequentially
 processing one token at a time, or by specially designed convolution
 kernels <span id="id1">()</span>. This approach
 can lead to significant problems when the input is truly of varying size
-with varying information content, such as in <a class="reference internal" href="../chapter_recurrent-modern/seq2seq.html#sec-seq2seq"><span class="std std-numref">10.6section</span></a> in
+with varying information content, such as in <a class="reference internal" href="../chapter_recurrent-modern/seq2seq.html#sec-seq2seq"><span class="std std-numref">Section 10.6</span></a> in
 the transformation of text <span id="id2">()</span>. In
 particular, for long sequences it becomes quite difficult to keep track
 of everything that has already been generated or even viewed by the
@@ -572,7 +575,7 @@ a database of <span class="math notranslate nohighlight">\(m\)</span> tuples of 
 by <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> a <em>query</em>. Then we can define the <em>attention</em> over
 <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> as</p>
 <div class="math notranslate nohighlight" id="equation-eq-attention-pooling">
-<span class="eqno">(11.1.1)<a class="headerlink" href="#equation-eq-attention-pooling" title="Link to this equation">¶</a></span>\[\textrm{Attention}(\mathbf{q}, \mathcal{D}) \stackrel{\textrm{def}}{=} \sum_{i=1}^m \alpha(\mathbf{q}, \mathbf{k}_i) \mathbf{v}_i,\]</div>
+<span class="eqno">(11.1.1)<a class="headerlink" href="#equation-eq-attention-pooling" title="Permalink to this equation">¶</a></span>\[\textrm{Attention}(\mathbf{q}, \mathcal{D}) \stackrel{\textrm{def}}{=} \sum_{i=1}^m \alpha(\mathbf{q}, \mathbf{k}_i) \mathbf{v}_i,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha(\mathbf{q}, \mathbf{k}_i) \in \mathbb{R}\)</span>
 (<span class="math notranslate nohighlight">\(i = 1, \ldots, m\)</span>) are scalar attention weights. The operation
 itself is typically referred to as <em>attention pooling</em>. The name
@@ -603,13 +606,13 @@ called average pooling in deep learning.</p></li>
 <p>A common strategy for ensuring that the weights sum up to <span class="math notranslate nohighlight">\(1\)</span> is
 to normalize them via</p>
 <div class="math notranslate nohighlight" id="equation-chapter-attention-mechanisms-and-transformers-queries-keys-values-0">
-<span class="eqno">(11.1.2)<a class="headerlink" href="#equation-chapter-attention-mechanisms-and-transformers-queries-keys-values-0" title="Link to this equation">¶</a></span>\[\alpha(\mathbf{q}, \mathbf{k}_i) = \frac{\alpha(\mathbf{q}, \mathbf{k}_i)}{{\sum_j} \alpha(\mathbf{q}, \mathbf{k}_j)}.\]</div>
+<span class="eqno">(11.1.2)<a class="headerlink" href="#equation-chapter-attention-mechanisms-and-transformers-queries-keys-values-0" title="Permalink to this equation">¶</a></span>\[\alpha(\mathbf{q}, \mathbf{k}_i) = \frac{\alpha(\mathbf{q}, \mathbf{k}_i)}{{\sum_j} \alpha(\mathbf{q}, \mathbf{k}_j)}.\]</div>
 <p>In particular, to ensure that the weights are also nonnegative, one can
 resort to exponentiation. This means that we can now pick <em>any</em> function
 <span class="math notranslate nohighlight">\(a(\mathbf{q}, \mathbf{k})\)</span> and then apply the softmax operation
 used for multinomial models to it via</p>
 <div class="math notranslate nohighlight" id="equation-eq-softmax-attention">
-<span class="eqno">(11.1.3)<a class="headerlink" href="#equation-eq-softmax-attention" title="Link to this equation">¶</a></span>\[\alpha(\mathbf{q}, \mathbf{k}_i) = \frac{\exp(a(\mathbf{q}, \mathbf{k}_i))}{\sum_j \exp(a(\mathbf{q}, \mathbf{k}_j))}.\]</div>
+<span class="eqno">(11.1.3)<a class="headerlink" href="#equation-eq-softmax-attention" title="Permalink to this equation">¶</a></span>\[\alpha(\mathbf{q}, \mathbf{k}_i) = \frac{\exp(a(\mathbf{q}, \mathbf{k}_i))}{\sum_j \exp(a(\mathbf{q}, \mathbf{k}_j))}.\]</div>
 <p>This operation is readily available in all deep learning frameworks. It
 is differentiable and its gradient never vanishes, all of which are
 desirable properties in a model. Note though, the attention mechanism
@@ -618,15 +621,14 @@ non-differentiable attention model that can be trained using
 reinforcement learning methods <span id="id5">()</span>. As
 one would expect, training such a model is quite complex. Consequently
 the bulk of modern attention research follows the framework outlined in
-<a class="reference internal" href="#fig-qkv"><span class="std std-numref">figure11.1.1</span></a>. We thus focus our exposition on this family of
+<a class="reference internal" href="#fig-qkv"><span class="std std-numref">Fig. 11.1.1</span></a>. We thus focus our exposition on this family of
 differentiable mechanisms.</p>
 <figure class="align-default" id="id8">
-<span id="fig-qkv"></span><img alt="../_images/qkv.svg" src="../_images/qkv.svg" />
-<figcaption>
-<p><span class="caption-number">figure11.1.1 </span><span class="caption-text">The attention mechanism computes a linear combination over values
+<span id="fig-qkv"></span><img alt="../_images/qkv.svg" src="../_images/qkv.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.1.1 </span><span class="caption-text">The attention mechanism computes a linear combination over values
 <span class="math notranslate nohighlight">\(\mathbf{v}_\mathit{i}\)</span> via attention pooling, where weights
 are derived according to the compatibility between a query
-<span class="math notranslate nohighlight">\(\mathbf{q}\)</span> and keys <span class="math notranslate nohighlight">\(\mathbf{k}_\mathit{i}\)</span>.</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+<span class="math notranslate nohighlight">\(\mathbf{q}\)</span> and keys <span class="math notranslate nohighlight">\(\mathbf{k}_\mathit{i}\)</span>.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>What is quite remarkable is that the actual “code” for executing on the
@@ -642,7 +644,7 @@ attention pooling operation is performed.</p>
 </pre></div>
 </div>
 <section id="visualization">
-<h2><span class="section-number">11.1.1. </span>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.1.1. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">¶</a></h2>
 <p>One of the benefits of the attention mechanism is that it can be quite
 intuitive, particularly when the weights are nonnegative and sum to
 <span class="math notranslate nohighlight">\(1\)</span>. In this case we might <em>interpret</em> large weights as a way for
@@ -686,11 +688,10 @@ the query and the key are the same.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_queries-keys-values_4df1d8_5_0.svg" src="../_images/output_queries-keys-values_4df1d8_5_0.svg" />
-</figure>
+<img alt="../_images/output_queries-keys-values_4df1d8_5_0.svg" src="../_images/output_queries-keys-values_4df1d8_5_0.svg" /></figure>
 </section>
 <section id="summary">
-<h2><span class="section-number">11.1.2. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.1.2. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>The attention mechanism allows us to aggregate data from many (key,
 value) pairs. So far our discussion was quite abstract, simply
 describing a way to pool data. We have not explained yet where those
@@ -706,7 +707,7 @@ control by which a neural network can select elements from a set and to
 construct an associated weighted sum over representations.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">11.1.3. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.1.3. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Suppose that you wanted to reimplement approximate (key, query)
 matches as used in classical databases, which attention function

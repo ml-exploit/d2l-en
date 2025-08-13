@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="14.5. Word Embedding with Global Vectors (GloVe)" href="glove.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,13 +525,13 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="pretraining-word2vec">
-<span id="sec-word2vec-pretraining"></span><h1><span class="section-number">14.4. </span>Pretraining word2vec<a class="headerlink" href="#pretraining-word2vec" title="Link to this heading">¶</a></h1>
+<span id="sec-word2vec-pretraining"></span><h1><span class="section-number">14.4. </span>Pretraining word2vec<a class="headerlink" href="#pretraining-word2vec" title="Permalink to this heading">¶</a></h1>
 <p>We go on to implement the skip-gram model defined in
-<a class="reference internal" href="word2vec.html#sec-word2vec"><span class="std std-numref">14.1section</span></a>. Then we will pretrain word2vec using negative
+<a class="reference internal" href="word2vec.html#sec-word2vec"><span class="std std-numref">Section 14.1</span></a>. Then we will pretrain word2vec using negative
 sampling on the PTB dataset. First of all, let’s obtain the data
 iterator and the vocabulary for this dataset by calling the
 <code class="docutils literal notranslate"><span class="pre">d2l.load_data_ptb</span></code> function, which was described in
-<a class="reference internal" href="word-embedding-dataset.html#sec-word2vec-data"><span class="std std-numref">14.3section</span></a></p>
+<a class="reference internal" href="word-embedding-dataset.html#sec-word2vec-data"><span class="std std-numref">Section 14.3</span></a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -567,12 +570,12 @@ iterator and the vocabulary for this dataset by calling the
 </pre></div>
 </div>
 <section id="the-skip-gram-model">
-<h2><span class="section-number">14.4.1. </span>The Skip-Gram Model<a class="headerlink" href="#the-skip-gram-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.4.1. </span>The Skip-Gram Model<a class="headerlink" href="#the-skip-gram-model" title="Permalink to this heading">¶</a></h2>
 <p>We implement the skip-gram model by using embedding layers and batch
 matrix multiplications. First, let’s review how embedding layers work.</p>
 <section id="embedding-layer">
-<h3><span class="section-number">14.4.1.1. </span>Embedding Layer<a class="headerlink" href="#embedding-layer" title="Link to this heading">¶</a></h3>
-<p>As described in <a class="reference internal" href="../chapter_recurrent-modern/seq2seq.html#sec-seq2seq"><span class="std std-numref">10.6section</span></a>, an embedding layer maps a
+<h3><span class="section-number">14.4.1.1. </span>Embedding Layer<a class="headerlink" href="#embedding-layer" title="Permalink to this heading">¶</a></h3>
+<p>As described in <a class="reference internal" href="../chapter_recurrent-modern/seq2seq.html#sec-seq2seq"><span class="std std-numref">Section 10.6</span></a>, an embedding layer maps a
 token’s index to its feature vector. The weight of this layer is a
 matrix whose number of rows equals to the dictionary size
 (<code class="docutils literal notranslate"><span class="pre">input_dim</span></code>) and number of columns equals to the vector dimension for
@@ -618,15 +621,15 @@ token indices with shape (2, 3).</p>
 </div>
 </section>
 <section id="defining-the-forward-propagation">
-<h3><span class="section-number">14.4.1.2. </span>Defining the Forward Propagation<a class="headerlink" href="#defining-the-forward-propagation" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">14.4.1.2. </span>Defining the Forward Propagation<a class="headerlink" href="#defining-the-forward-propagation" title="Permalink to this heading">¶</a></h3>
 <p>In the forward propagation, the input of the skip-gram model includes
 the center word indices <code class="docutils literal notranslate"><span class="pre">center</span></code> of shape (batch size, 1) and the
 concatenated context and noise word indices <code class="docutils literal notranslate"><span class="pre">contexts_and_negatives</span></code>
 of shape (batch size, <code class="docutils literal notranslate"><span class="pre">max_len</span></code>), where <code class="docutils literal notranslate"><span class="pre">max_len</span></code> is defined in
-<a class="reference internal" href="word-embedding-dataset.html#subsec-word2vec-minibatch-loading"><span class="std std-numref">14.3.5section</span></a>. These two variables are
+<a class="reference internal" href="word-embedding-dataset.html#subsec-word2vec-minibatch-loading"><span class="std std-numref">Section 14.3.5</span></a>. These two variables are
 first transformed from the token indices into vectors via the embedding
 layer, then their batch matrix multiplication (described in
-<a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-scoring-functions.html#subsec-batch-dot"><span class="std std-numref">11.3.2.2section</span></a>) returns an output of shape (batch size, 1,
+<a class="reference internal" href="../chapter_attention-mechanisms-and-transformers/attention-scoring-functions.html#subsec-batch-dot"><span class="std std-numref">Section 11.3.2.2</span></a>) returns an output of shape (batch size, 1,
 <code class="docutils literal notranslate"><span class="pre">max_len</span></code>). Each element in the output is the dot product of a center
 word vector and a context or noise word vector.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
@@ -673,13 +676,13 @@ example inputs.</p>
 </section>
 </section>
 <section id="training">
-<h2><span class="section-number">14.4.2. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.4.2. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h2>
 <p>Before training the skip-gram model with negative sampling, let’s first
 define its loss function.</p>
 <section id="binary-cross-entropy-loss">
-<h3><span class="section-number">14.4.2.1. </span>Binary Cross-Entropy Loss<a class="headerlink" href="#binary-cross-entropy-loss" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">14.4.2.1. </span>Binary Cross-Entropy Loss<a class="headerlink" href="#binary-cross-entropy-loss" title="Permalink to this heading">¶</a></h3>
 <p>According to the definition of the loss function for negative sampling
-in <a class="reference internal" href="approx-training.html#subsec-negative-sampling"><span class="std std-numref">14.2.1section</span></a>, we will use the binary
+in <a class="reference internal" href="approx-training.html#subsec-negative-sampling"><span class="std std-numref">Section 14.2.1</span></a>, we will use the binary
 cross-entropy loss.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
 <span class="n">loss</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">SigmoidBCELoss</span><span class="p">()</span>
@@ -703,7 +706,7 @@ cross-entropy loss.</p>
 </pre></div>
 </div>
 <p>Recall our descriptions of the mask variable and the label variable in
-<a class="reference internal" href="word-embedding-dataset.html#subsec-word2vec-minibatch-loading"><span class="std std-numref">14.3.5section</span></a>. The following calculates
+<a class="reference internal" href="word-embedding-dataset.html#subsec-word2vec-minibatch-loading"><span class="std std-numref">Section 14.3.5</span></a>. The following calculates
 the binary cross-entropy loss for the given variables.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.4</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
@@ -738,7 +741,7 @@ averaged over non-masked predictions.</p>
 </div>
 </section>
 <section id="initializing-model-parameters">
-<h3><span class="section-number">14.4.2.2. </span>Initializing Model Parameters<a class="headerlink" href="#initializing-model-parameters" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">14.4.2.2. </span>Initializing Model Parameters<a class="headerlink" href="#initializing-model-parameters" title="Permalink to this heading">¶</a></h3>
 <p>We define two embedding layers for all the words in the vocabulary when
 they are used as center words and context words, respectively. The word
 vector dimension <code class="docutils literal notranslate"><span class="pre">embed_size</span></code> is set to 100.</p>
@@ -766,7 +769,7 @@ vector dimension <code class="docutils literal notranslate"><span class="pre">em
 </div>
 </section>
 <section id="defining-the-training-loop">
-<h3><span class="section-number">14.4.2.3. </span>Defining the Training Loop<a class="headerlink" href="#defining-the-training-loop" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">14.4.2.3. </span>Defining the Training Loop<a class="headerlink" href="#defining-the-training-loop" title="Permalink to this heading">¶</a></h3>
 <p>The training loop is defined below. Because of the existence of padding,
 the calculation of the loss function is slightly different compared to
 the previous training functions.</p>
@@ -869,12 +872,11 @@ the previous training functions.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_word2vec-pretraining_8b7dee_21_1.svg" src="../_images/output_word2vec-pretraining_8b7dee_21_1.svg" />
-</figure>
+<img alt="../_images/output_word2vec-pretraining_8b7dee_21_1.svg" src="../_images/output_word2vec-pretraining_8b7dee_21_1.svg" /></figure>
 </section>
 </section>
 <section id="applying-word-embeddings">
-<span id="subsec-apply-word-embed"></span><h2><span class="section-number">14.4.3. </span>Applying Word Embeddings<a class="headerlink" href="#applying-word-embeddings" title="Link to this heading">¶</a></h2>
+<span id="subsec-apply-word-embed"></span><h2><span class="section-number">14.4.3. </span>Applying Word Embeddings<a class="headerlink" href="#applying-word-embeddings" title="Permalink to this heading">¶</a></h2>
 <p>After training the word2vec model, we can use the cosine similarity of
 word vectors from the trained model to find words from the dictionary
 that are most semantically similar to an input word.</p>
@@ -925,7 +927,7 @@ that are most semantically similar to an input word.</p>
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">14.4.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.4.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>We can train a skip-gram model with negative sampling using embedding
 layers and the binary cross-entropy loss.</p></li>
@@ -935,7 +937,7 @@ vectors.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">14.4.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">14.4.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Using the trained model, find semantically similar words for other
 input words. Can you improve the results by tuning hyperparameters?</p></li>

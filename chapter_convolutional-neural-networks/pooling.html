@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7.6. Convolutional Neural Networks (LeNet)" href="lenet.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="pooling">
-<span id="sec-pooling"></span><h1><span class="section-number">7.5. </span>Pooling<a class="headerlink" href="#pooling" title="Link to this heading">¶</a></h1>
+<span id="sec-pooling"></span><h1><span class="section-number">7.5. </span>Pooling<a class="headerlink" href="#pooling" title="Permalink to this heading">¶</a></h1>
 <p>In many cases our ultimate task asks some global question about the
 image, e.g., <em>does it contain a cat?</em> Consequently, the units of our
 final layer should be sensitive to the entire input. By gradually
@@ -534,7 +537,7 @@ larger the receptive field (relative to the input) to which each hidden
 node is sensitive. Reducing spatial resolution accelerates this process,
 since the convolution kernels cover a larger effective area.</p>
 <p>Moreover, when detecting lower-level features, such as edges (as
-discussed in <a class="reference internal" href="conv-layer.html#sec-conv-layer"><span class="std std-numref">7.2section</span></a>), we often want our
+discussed in <a class="reference internal" href="conv-layer.html#sec-conv-layer"><span class="std std-numref">Section 7.2</span></a>), we often want our
 representations to be somewhat invariant to translation. For instance,
 if we take the image <code class="docutils literal notranslate"><span class="pre">X</span></code> with a sharp delineation between black and
 white and shift the whole image by one pixel to the right, i.e.,
@@ -554,7 +557,7 @@ spatially downsampling representations.</p>
 </pre></div>
 </div>
 <section id="maximum-pooling-and-average-pooling">
-<h2><span class="section-number">7.5.1. </span>Maximum Pooling and Average Pooling<a class="headerlink" href="#maximum-pooling-and-average-pooling" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.5.1. </span>Maximum Pooling and Average Pooling<a class="headerlink" href="#maximum-pooling-and-average-pooling" title="Permalink to this heading">¶</a></h2>
 <p>Like convolutional layers, <em>pooling</em> operators consist of a fixed-shape
 window that is slid over all regions in the input according to its
 stride, computing a single output for each location traversed by the
@@ -584,19 +587,18 @@ location that the pooling window hits, it computes the maximum or
 average value of the input subtensor in the window, depending on whether
 max or average pooling is employed.</p>
 <figure class="align-default" id="id5">
-<span id="fig-pooling"></span><img alt="../_images/pooling.svg" src="../_images/pooling.svg" />
-<figcaption>
-<p><span class="caption-number">figure7.5.1 </span><span class="caption-text">Max-pooling with a pooling window shape of <span class="math notranslate nohighlight">\(2\times 2\)</span>. The
+<span id="fig-pooling"></span><img alt="../_images/pooling.svg" src="../_images/pooling.svg" /><figcaption>
+<p><span class="caption-number">Fig. 7.5.1 </span><span class="caption-text">Max-pooling with a pooling window shape of <span class="math notranslate nohighlight">\(2\times 2\)</span>. The
 shaded portions are the first output element as well as the input
 tensor elements used for the output computation:
-<span class="math notranslate nohighlight">\(\max(0, 1, 3, 4)=4\)</span>.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+<span class="math notranslate nohighlight">\(\max(0, 1, 3, 4)=4\)</span>.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>The output tensor in <a class="reference internal" href="#fig-pooling"><span class="std std-numref">figure7.5.1</span></a> has a height of 2 and a
+<p>The output tensor in <a class="reference internal" href="#fig-pooling"><span class="std std-numref">Fig. 7.5.1</span></a> has a height of 2 and a
 width of 2. The four elements are derived from the maximum value in each
 pooling window:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-convolutional-neural-networks-pooling-0">
-<span class="eqno">(7.5.1)<a class="headerlink" href="#equation-chapter-convolutional-neural-networks-pooling-0" title="Link to this equation">¶</a></span>\[\begin{split}\max(0, 1, 3, 4)=4,\\
+<span class="eqno">(7.5.1)<a class="headerlink" href="#equation-chapter-convolutional-neural-networks-pooling-0" title="Permalink to this equation">¶</a></span>\[\begin{split}\max(0, 1, 3, 4)=4,\\
 \max(1, 2, 4, 5)=5,\\
 \max(3, 4, 6, 7)=7,\\
 \max(4, 5, 7, 8)=8.\\\end{split}\]</div>
@@ -613,7 +615,7 @@ recognized by the convolutional layer moves no more than one element in
 height or width.</p>
 <p>In the code below, we implement the forward propagation of the pooling
 layer in the <code class="docutils literal notranslate"><span class="pre">pool2d</span></code> function. This function is similar to the
-<code class="docutils literal notranslate"><span class="pre">corr2d</span></code> function in <a class="reference internal" href="conv-layer.html#sec-conv-layer"><span class="std std-numref">7.2section</span></a>. However, no kernel is
+<code class="docutils literal notranslate"><span class="pre">corr2d</span></code> function in <a class="reference internal" href="conv-layer.html#sec-conv-layer"><span class="std std-numref">Section 7.2</span></a>. However, no kernel is
 needed, computing the output as either the maximum or the average of
 each region in the input.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pool2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pool_size</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">):</span>
@@ -628,7 +630,7 @@ each region in the input.</p>
     <span class="k">return</span> <span class="n">Y</span>
 </pre></div>
 </div>
-<p>We can construct the input tensor <code class="docutils literal notranslate"><span class="pre">X</span></code> in <a class="reference internal" href="#fig-pooling"><span class="std std-numref">figure7.5.1</span></a> to
+<p>We can construct the input tensor <code class="docutils literal notranslate"><span class="pre">X</span></code> in <a class="reference internal" href="#fig-pooling"><span class="std std-numref">Fig. 7.5.1</span></a> to
 validate the output of the two-dimensional max-pooling layer.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">]])</span>
 <span class="n">pool2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -648,7 +650,7 @@ validate the output of the two-dimensional max-pooling layer.</p>
 </div>
 </section>
 <section id="padding-and-stride">
-<h2><span class="section-number">7.5.2. </span>Padding and Stride<a class="headerlink" href="#padding-and-stride" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.5.2. </span>Padding and Stride<a class="headerlink" href="#padding-and-stride" title="Permalink to this heading">¶</a></h2>
 <p>As with convolutional layers, pooling layers change the output shape.
 And as before, we can adjust the operation to achieve a desired output
 shape by padding the input and adjusting the stride. We can demonstrate
@@ -717,7 +719,7 @@ arbitrary height and width respectively, as the example below shows.</p>
 </div>
 </section>
 <section id="multiple-channels">
-<h2><span class="section-number">7.5.3. </span>Multiple Channels<a class="headerlink" href="#multiple-channels" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.5.3. </span>Multiple Channels<a class="headerlink" href="#multiple-channels" title="Permalink to this heading">¶</a></h2>
 <p>When processing multi-channel input data, the pooling layer pools each
 input channel separately, rather than summing the inputs up over
 channels as in a convolutional layer. This means that the number of
@@ -759,7 +761,7 @@ channel dimension to construct an input with two channels.</p>
 </div>
 </section>
 <section id="summary">
-<h2><span class="section-number">7.5.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.5.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>Pooling is an exceedingly simple operation. It does exactly what its
 name indicates, aggregate results over a window of values. All
 convolution semantics, such as strides and padding apply in the same way
@@ -779,7 +781,7 @@ aggregating over outputs, e.g., by using the alignment between a query
 and representation vectors.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">7.5.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.5.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Implement average pooling through a convolution.</p></li>
 <li><p>Prove that max-pooling cannot be implemented through a convolution

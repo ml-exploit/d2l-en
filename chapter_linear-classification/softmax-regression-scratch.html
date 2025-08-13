@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4.5. Concise Implementation of Softmax Regression" href="softmax-regression-concise.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -320,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -526,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="softmax-regression-implementation-from-scratch">
-<span id="sec-softmax-scratch"></span><h1><span class="section-number">4.4. </span>Softmax Regression Implementation from Scratch<a class="headerlink" href="#softmax-regression-implementation-from-scratch" title="Link to this heading">¶</a></h1>
+<span id="sec-softmax-scratch"></span><h1><span class="section-number">4.4. </span>Softmax Regression Implementation from Scratch<a class="headerlink" href="#softmax-regression-implementation-from-scratch" title="Permalink to this heading">¶</a></h1>
 <p>Because softmax regression is so fundamental, we believe that you ought
 to know how to implement it yourself. Here, we limit ourselves to
 defining the softmax-specific aspects of the model and reuse the other
@@ -538,12 +537,12 @@ loop.</p>
 </pre></div>
 </div>
 <section id="the-softmax">
-<h2><span class="section-number">4.4.1. </span>The Softmax<a class="headerlink" href="#the-softmax" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.4.1. </span>The Softmax<a class="headerlink" href="#the-softmax" title="Permalink to this heading">¶</a></h2>
 <p>Let’s begin with the most important part: the mapping from scalars to
 probabilities. For a refresher, recall the operation of the sum operator
 along specific dimensions in a tensor, as discussed in
-<a class="reference internal" href="../chapter_preliminaries/linear-algebra.html#subsec-lin-alg-reduction"><span class="std std-numref">2.3.6section</span></a> and
-<a class="reference internal" href="../chapter_preliminaries/linear-algebra.html#subsec-lin-alg-non-reduction"><span class="std std-numref">2.3.7section</span></a>. Given a matrix <code class="docutils literal notranslate"><span class="pre">X</span></code> we can
+<a class="reference internal" href="../chapter_preliminaries/linear-algebra.html#subsec-lin-alg-reduction"><span class="std std-numref">Section 2.3.6</span></a> and
+<a class="reference internal" href="../chapter_preliminaries/linear-algebra.html#subsec-lin-alg-non-reduction"><span class="std std-numref">Section 2.3.7</span></a>. Given a matrix <code class="docutils literal notranslate"><span class="pre">X</span></code> we can
 sum over all elements (by default) or only over elements in the same
 axis. The <code class="docutils literal notranslate"><span class="pre">axis</span></code> variable lets us compute row and column sums:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]])</span>
@@ -560,7 +559,7 @@ term; (ii) a sum over each row to compute the normalization constant for
 each example; (iii) division of each row by its normalization constant,
 ensuring that the result sums to 1:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-linear-classification-softmax-regression-scratch-0">
-<span class="eqno">(4.4.1)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-scratch-0" title="Link to this equation">¶</a></span>\[\mathrm{softmax}(\mathbf{X})_{ij} = \frac{\exp(\mathbf{X}_{ij})}{\sum_k \exp(\mathbf{X}_{ik})}.\]</div>
+<span class="eqno">(4.4.1)<a class="headerlink" href="#equation-chapter-linear-classification-softmax-regression-scratch-0" title="Permalink to this equation">¶</a></span>\[\mathrm{softmax}(\mathbf{X})_{ij} = \frac{\exp(\mathbf{X}_{ij})}{\sum_k \exp(\mathbf{X}_{ik})}.\]</div>
 <p>The (logarithm of the) denominator is called the (log) <em>partition
 function</em>. It was introduced in <a class="reference external" href="https://en.wikipedia.org/wiki/Partition_function_(statistical_mechanics)">statistical
 physics</a>
@@ -591,7 +590,7 @@ going forward.</p>
 </div>
 </section>
 <section id="the-model">
-<h2><span class="section-number">4.4.2. </span>The Model<a class="headerlink" href="#the-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.4.2. </span>The Model<a class="headerlink" href="#the-model" title="Permalink to this heading">¶</a></h2>
 <p>We now have everything that we need to implement the softmax regression
 model. As in our linear regression example, each instance will be
 represented by a fixed-length vector. Since the raw data here consists
@@ -628,9 +627,9 @@ model.</p>
 </div>
 </section>
 <section id="the-cross-entropy-loss">
-<h2><span class="section-number">4.4.3. </span>The Cross-Entropy Loss<a class="headerlink" href="#the-cross-entropy-loss" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.4.3. </span>The Cross-Entropy Loss<a class="headerlink" href="#the-cross-entropy-loss" title="Permalink to this heading">¶</a></h2>
 <p>Next we need to implement the cross-entropy loss function (introduced in
-<a class="reference internal" href="softmax-regression.html#subsec-softmax-regression-loss-func"><span class="std std-numref">4.1.2section</span></a>). This may be the most
+<a class="reference internal" href="softmax-regression.html#subsec-softmax-regression-loss-func"><span class="std std-numref">Section 4.1.2</span></a>). This may be the most
 common loss function in all of deep learning. At the moment,
 applications of deep learning easily cast as classification problems far
 outnumber those better treated as regression problems.</p>
@@ -668,8 +667,8 @@ probabilities in <code class="docutils literal notranslate"><span class="pre">y_
 </div>
 </section>
 <section id="training">
-<h2><span class="section-number">4.4.4. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
-<p>We reuse the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method defined in <a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html#sec-linear-scratch"><span class="std std-numref">3.4section</span></a> to
+<h2><span class="section-number">4.4.4. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h2>
+<p>We reuse the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method defined in <a class="reference internal" href="../chapter_linear-regression/linear-regression-scratch.html#sec-linear-scratch"><span class="std std-numref">Section 3.4</span></a> to
 train the model with 10 epochs. Note that the number of epochs
 (<code class="docutils literal notranslate"><span class="pre">max_epochs</span></code>), the minibatch size (<code class="docutils literal notranslate"><span class="pre">batch_size</span></code>), and learning rate
 (<code class="docutils literal notranslate"><span class="pre">lr</span></code>) are adjustable hyperparameters. That means that while these
@@ -678,7 +677,7 @@ influence the performance of our model, both vis-à-vis training and
 generalization performance. In practice you will want to choose these
 values based on the <em>validation</em> split of the data and then, ultimately,
 to evaluate your final model on the <em>test</em> split. As discussed in
-<a class="reference internal" href="../chapter_linear-regression/generalization.html#subsec-generalization-model-selection"><span class="std std-numref">3.6.3section</span></a>, we will regard the
+<a class="reference internal" href="../chapter_linear-regression/generalization.html#subsec-generalization-model-selection"><span class="std std-numref">Section 3.6.3</span></a>, we will regard the
 test data of Fashion-MNIST as the validation set, thus reporting
 validation loss and validation accuracy on this split.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">FashionMNIST</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
@@ -688,11 +687,10 @@ validation loss and validation accuracy on this split.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_softmax-regression-scratch_009b7c_17_0.svg" src="../_images/output_softmax-regression-scratch_009b7c_17_0.svg" />
-</figure>
+<img alt="../_images/output_softmax-regression-scratch_009b7c_17_0.svg" src="../_images/output_softmax-regression-scratch_009b7c_17_0.svg" /></figure>
 </section>
 <section id="prediction">
-<h2><span class="section-number">4.4.5. </span>Prediction<a class="headerlink" href="#prediction" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.4.5. </span>Prediction<a class="headerlink" href="#prediction" title="Permalink to this heading">¶</a></h2>
 <p>Now that training is complete, our model is ready to classify some
 images.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">val_dataloader</span><span class="p">()))</span>
@@ -718,11 +716,10 @@ output).</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_softmax-regression-scratch_009b7c_21_0.svg" src="../_images/output_softmax-regression-scratch_009b7c_21_0.svg" />
-</figure>
+<img alt="../_images/output_softmax-regression-scratch_009b7c_21_0.svg" src="../_images/output_softmax-regression-scratch_009b7c_21_0.svg" /></figure>
 </section>
 <section id="summary">
-<h2><span class="section-number">4.4.6. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.4.6. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>By now we are starting to get some experience with solving linear
 regression and classification problems. With it, we have reached what
 would arguably be the state of the art of 1960–1970s of statistical
@@ -730,11 +727,11 @@ modeling. In the next section, we will show you how to leverage deep
 learning frameworks to implement this model much more efficiently.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">4.4.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">4.4.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>In this section, we directly implemented the softmax function based
 on the mathematical definition of the softmax operation. As discussed
-in <a class="reference internal" href="softmax-regression.html#sec-softmax"><span class="std std-numref">4.1section</span></a> this can cause numerical instabilities.</p>
+in <a class="reference internal" href="softmax-regression.html#sec-softmax"><span class="std std-numref">Section 4.1</span></a> this can cause numerical instabilities.</p>
 <ol class="arabic simple">
 <li><p>Test whether <code class="docutils literal notranslate"><span class="pre">softmax</span></code> still works correctly if an input has a
 value of <span class="math notranslate nohighlight">\(100\)</span>.</p></li>

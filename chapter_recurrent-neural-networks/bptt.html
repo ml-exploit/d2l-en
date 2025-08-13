@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Modern Recurrent Neural Networks" href="../chapter_recurrent-modern/index.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="backpropagation-through-time">
-<span id="sec-bptt"></span><h1><span class="section-number">9.7. </span>Backpropagation Through Time<a class="headerlink" href="#backpropagation-through-time" title="Link to this heading">¶</a></h1>
-<p>If you completed the exercises in <a class="reference internal" href="rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">9.5section</span></a>, you would
+<span id="sec-bptt"></span><h1><span class="section-number">9.7. </span>Backpropagation Through Time<a class="headerlink" href="#backpropagation-through-time" title="Permalink to this heading">¶</a></h1>
+<p>If you completed the exercises in <a class="reference internal" href="rnn-scratch.html#sec-rnn-scratch"><span class="std std-numref">Section 9.5</span></a>, you would
 have seen that gradient clipping is vital for preventing the occasional
 massive gradients from destabilizing training. We hinted that the
 exploding gradients stem from backpropagating across long sequences.
@@ -533,7 +536,7 @@ mathematical detail. Hopefully, this discussion will bring some
 precision to the notion of <em>vanishing</em> and <em>exploding</em> gradients. If you
 recall our discussion of forward and backward propagation through
 computational graphs when we introduced MLPs in
-<a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html#sec-backprop"><span class="std std-numref">5.3section</span></a>, then forward propagation in RNNs should be
+<a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html#sec-backprop"><span class="std std-numref">Section 5.3</span></a>, then forward propagation in RNNs should be
 relatively straightforward. Applying backpropagation in RNNs is called
 <em>backpropagation through time</em> <span id="id1">()</span>. This procedure
 requires us to expand (or unroll) the computational graph of an RNN one
@@ -554,21 +557,21 @@ arriving at the output, and another 1000 matrix products are required to
 compute the gradient. We now analyze what can go wrong and how to
 address it in practice.</p>
 <section id="analysis-of-gradients-in-rnns">
-<span id="subsec-bptt-analysis"></span><h2><span class="section-number">9.7.1. </span>Analysis of Gradients in RNNs<a class="headerlink" href="#analysis-of-gradients-in-rnns" title="Link to this heading">¶</a></h2>
+<span id="subsec-bptt-analysis"></span><h2><span class="section-number">9.7.1. </span>Analysis of Gradients in RNNs<a class="headerlink" href="#analysis-of-gradients-in-rnns" title="Permalink to this heading">¶</a></h2>
 <p>We start with a simplified model of how an RNN works. This model ignores
 details about the specifics of the hidden state and how it is updated.
 The mathematical notation here does not explicitly distinguish scalars,
 vectors, and matrices. We are just trying to develop some intuition. In
 this simplified model, we denote <span class="math notranslate nohighlight">\(h_t\)</span> as the hidden state,
 <span class="math notranslate nohighlight">\(x_t\)</span> as input, and <span class="math notranslate nohighlight">\(o_t\)</span> as output at time step <span class="math notranslate nohighlight">\(t\)</span>.
-Recall our discussions in <a class="reference internal" href="rnn.html#subsec-rnn-w-hidden-states"><span class="std std-numref">9.4.2section</span></a> that
+Recall our discussions in <a class="reference internal" href="rnn.html#subsec-rnn-w-hidden-states"><span class="std std-numref">Section 9.4.2</span></a> that
 the input and the hidden state can be concatenated before being
 multiplied by one weight variable in the hidden layer. Thus, we use
 <span class="math notranslate nohighlight">\(w_\textrm{h}\)</span> and <span class="math notranslate nohighlight">\(w_\textrm{o}\)</span> to indicate the weights of
 the hidden layer and the output layer, respectively. As a result, the
 hidden states and outputs at each time step are</p>
 <div class="math notranslate nohighlight" id="equation-eq-bptt-ht-ot">
-<span class="eqno">(9.7.1)<a class="headerlink" href="#equation-eq-bptt-ht-ot" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}h_t &amp;= f(x_t, h_{t-1}, w_\textrm{h}),\\o_t &amp;= g(h_t, w_\textrm{o}),\end{aligned}\end{split}\]</div>
+<span class="eqno">(9.7.1)<a class="headerlink" href="#equation-eq-bptt-ht-ot" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}h_t &amp;= f(x_t, h_{t-1}, w_\textrm{h}),\\o_t &amp;= g(h_t, w_\textrm{o}),\end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are transformations of the hidden layer
 and the output layer, respectively. Hence, we have a chain of values
 <span class="math notranslate nohighlight">\(\{\ldots, (x_{t-1}, h_{t-1}, o_{t-1}), (x_{t}, h_{t}, o_t), \ldots\}\)</span>
@@ -579,12 +582,12 @@ discrepancy between output <span class="math notranslate nohighlight">\(o_t\)</s
 <span class="math notranslate nohighlight">\(y_t\)</span> is then evaluated by an objective function across all the
 <span class="math notranslate nohighlight">\(T\)</span> time steps as</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-bptt-0">
-<span class="eqno">(9.7.2)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-0" title="Link to this equation">¶</a></span>\[L(x_1, \ldots, x_T, y_1, \ldots, y_T, w_\textrm{h}, w_\textrm{o}) = \frac{1}{T}\sum_{t=1}^T l(y_t, o_t).\]</div>
+<span class="eqno">(9.7.2)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-0" title="Permalink to this equation">¶</a></span>\[L(x_1, \ldots, x_T, y_1, \ldots, y_T, w_\textrm{h}, w_\textrm{o}) = \frac{1}{T}\sum_{t=1}^T l(y_t, o_t).\]</div>
 <p>For backpropagation, matters are a bit trickier, especially when we
 compute the gradients with regard to the parameters <span class="math notranslate nohighlight">\(w_\textrm{h}\)</span>
 of the objective function <span class="math notranslate nohighlight">\(L\)</span>. To be specific, by the chain rule,</p>
 <div class="math notranslate nohighlight" id="equation-eq-bptt-partial-l-wh">
-<span class="eqno">(9.7.3)<a class="headerlink" href="#equation-eq-bptt-partial-l-wh" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}\frac{\partial L}{\partial w_\textrm{h}}  &amp; = \frac{1}{T}\sum_{t=1}^T \frac{\partial l(y_t, o_t)}{\partial w_\textrm{h}}  \\&amp; = \frac{1}{T}\sum_{t=1}^T \frac{\partial l(y_t, o_t)}{\partial o_t} \frac{\partial g(h_t, w_\textrm{o})}{\partial h_t}  \frac{\partial h_t}{\partial w_\textrm{h}}.\end{aligned}\end{split}\]</div>
+<span class="eqno">(9.7.3)<a class="headerlink" href="#equation-eq-bptt-partial-l-wh" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\frac{\partial L}{\partial w_\textrm{h}}  &amp; = \frac{1}{T}\sum_{t=1}^T \frac{\partial l(y_t, o_t)}{\partial w_\textrm{h}}  \\&amp; = \frac{1}{T}\sum_{t=1}^T \frac{\partial l(y_t, o_t)}{\partial o_t} \frac{\partial g(h_t, w_\textrm{o})}{\partial h_t}  \frac{\partial h_t}{\partial w_\textrm{h}}.\end{aligned}\end{split}\]</div>
 <p>The first and the second factors of the product in
 <a class="reference internal" href="#equation-eq-bptt-partial-l-wh">(9.7.3)</a> are easy to compute. The third factor
 <span class="math notranslate nohighlight">\(\partial h_t/\partial w_\textrm{h}\)</span> is where things get tricky,
@@ -596,16 +599,16 @@ computation in <a class="reference internal" href="#equation-eq-bptt-ht-ot">(9.7
 the total derivate of <span class="math notranslate nohighlight">\(h_t\)</span> with respect to <span class="math notranslate nohighlight">\(w_\textrm{h}\)</span>
 using the chain rule yields</p>
 <div class="math notranslate nohighlight" id="equation-eq-bptt-partial-ht-wh-recur">
-<span class="eqno">(9.7.4)<a class="headerlink" href="#equation-eq-bptt-partial-ht-wh-recur" title="Link to this equation">¶</a></span>\[\frac{\partial h_t}{\partial w_\textrm{h}}= \frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial w_\textrm{h}} +\frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial w_\textrm{h}}.\]</div>
+<span class="eqno">(9.7.4)<a class="headerlink" href="#equation-eq-bptt-partial-ht-wh-recur" title="Permalink to this equation">¶</a></span>\[\frac{\partial h_t}{\partial w_\textrm{h}}= \frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial w_\textrm{h}} +\frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial w_\textrm{h}}.\]</div>
 <p>To derive the above gradient, assume that we have three sequences
 <span class="math notranslate nohighlight">\(\{a_{t}\},\{b_{t}\},\{c_{t}\}\)</span> satisfying <span class="math notranslate nohighlight">\(a_{0}=0\)</span> and
 <span class="math notranslate nohighlight">\(a_{t}=b_{t}+c_{t}a_{t-1}\)</span> for <span class="math notranslate nohighlight">\(t=1, 2,\ldots\)</span>. Then for
 <span class="math notranslate nohighlight">\(t\geq 1\)</span>, it is easy to show</p>
 <div class="math notranslate nohighlight" id="equation-eq-bptt-at">
-<span class="eqno">(9.7.5)<a class="headerlink" href="#equation-eq-bptt-at" title="Link to this equation">¶</a></span>\[a_{t}=b_{t}+\sum_{i=1}^{t-1}\left(\prod_{j=i+1}^{t}c_{j}\right)b_{i}.\]</div>
+<span class="eqno">(9.7.5)<a class="headerlink" href="#equation-eq-bptt-at" title="Permalink to this equation">¶</a></span>\[a_{t}=b_{t}+\sum_{i=1}^{t-1}\left(\prod_{j=i+1}^{t}c_{j}\right)b_{i}.\]</div>
 <p>By substituting <span class="math notranslate nohighlight">\(a_t\)</span>, <span class="math notranslate nohighlight">\(b_t\)</span>, and <span class="math notranslate nohighlight">\(c_t\)</span> according to</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-bptt-1">
-<span class="eqno">(9.7.6)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-1" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}a_t &amp;= \frac{\partial h_t}{\partial w_\textrm{h}},\\
+<span class="eqno">(9.7.6)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}a_t &amp;= \frac{\partial h_t}{\partial w_\textrm{h}},\\
 b_t &amp;= \frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial w_\textrm{h}}, \\
 c_t &amp;= \frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial h_{t-1}},\end{aligned}\end{split}\]</div>
 <p>the gradient computation in <a class="reference internal" href="#equation-eq-bptt-partial-ht-wh-recur">(9.7.4)</a>
@@ -613,13 +616,13 @@ satisfies <span class="math notranslate nohighlight">\(a_{t}=b_{t}+c_{t}a_{t-1}\
 <a class="reference internal" href="#equation-eq-bptt-at">(9.7.5)</a>, we can remove the recurrent computation in
 <a class="reference internal" href="#equation-eq-bptt-partial-ht-wh-recur">(9.7.4)</a> with</p>
 <div class="math notranslate nohighlight" id="equation-eq-bptt-partial-ht-wh-gen">
-<span class="eqno">(9.7.7)<a class="headerlink" href="#equation-eq-bptt-partial-ht-wh-gen" title="Link to this equation">¶</a></span>\[\frac{\partial h_t}{\partial w_\textrm{h}}=\frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial w_\textrm{h}}+\sum_{i=1}^{t-1}\left(\prod_{j=i+1}^{t} \frac{\partial f(x_{j},h_{j-1},w_\textrm{h})}{\partial h_{j-1}} \right) \frac{\partial f(x_{i},h_{i-1},w_\textrm{h})}{\partial w_\textrm{h}}.\]</div>
+<span class="eqno">(9.7.7)<a class="headerlink" href="#equation-eq-bptt-partial-ht-wh-gen" title="Permalink to this equation">¶</a></span>\[\frac{\partial h_t}{\partial w_\textrm{h}}=\frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial w_\textrm{h}}+\sum_{i=1}^{t-1}\left(\prod_{j=i+1}^{t} \frac{\partial f(x_{j},h_{j-1},w_\textrm{h})}{\partial h_{j-1}} \right) \frac{\partial f(x_{i},h_{i-1},w_\textrm{h})}{\partial w_\textrm{h}}.\]</div>
 <p>While we can use the chain rule to compute
 <span class="math notranslate nohighlight">\(\partial h_t/\partial w_\textrm{h}\)</span> recursively, this chain can
 get very long whenever <span class="math notranslate nohighlight">\(t\)</span> is large. Let’s discuss a number of
 strategies for dealing with this problem.</p>
 <section id="full-computation">
-<h3><span class="section-number">9.7.1.1. </span>Full Computation<a class="headerlink" href="#full-computation" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.7.1.1. </span>Full Computation<a class="headerlink" href="#full-computation" title="Permalink to this heading">¶</a></h3>
 <p>One idea might be to compute the full sum in
 <a class="reference internal" href="#equation-eq-bptt-partial-ht-wh-gen">(9.7.7)</a>. However, this is very slow and
 gradients can blow up, since subtle changes in the initial conditions
@@ -631,7 +634,7 @@ that generalize well. Hence this strategy is almost never used in
 practice.</p>
 </section>
 <section id="truncating-time-steps">
-<h3><span class="section-number">9.7.1.2. </span>Truncating Time Steps<a class="headerlink" href="#truncating-time-steps" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.7.1.2. </span>Truncating Time Steps<a class="headerlink" href="#truncating-time-steps" title="Permalink to this heading">¶</a></h3>
 <p>Alternatively, we can truncate the sum in
 <a class="reference internal" href="#equation-eq-bptt-partial-ht-wh-gen">(9.7.7)</a> after <span class="math notranslate nohighlight">\(\tau\)</span> steps. This is
 what we have been discussing so far. This leads to an <em>approximation</em> of
@@ -645,7 +648,7 @@ influence rather than long-term consequences. This is actually
 stable models.</p>
 </section>
 <section id="randomized-truncation">
-<h3><span class="section-number">9.7.1.3. </span>Randomized Truncation<a class="headerlink" href="#randomized-truncation" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.7.1.3. </span>Randomized Truncation<a class="headerlink" href="#randomized-truncation" title="Permalink to this heading">¶</a></h3>
 <p>Last, we can replace <span class="math notranslate nohighlight">\(\partial h_t/\partial w_\textrm{h}\)</span> by a
 random variable which is correct in expectation but truncates the
 sequence. This is achieved by using a sequence of <span class="math notranslate nohighlight">\(\xi_t\)</span> with
@@ -655,7 +658,7 @@ predefined <span class="math notranslate nohighlight">\(0 \leq \pi_t \leq 1\)</s
 this to replace the gradient <span class="math notranslate nohighlight">\(\partial h_t/\partial w_\textrm{h}\)</span>
 in <a class="reference internal" href="#equation-eq-bptt-partial-ht-wh-recur">(9.7.4)</a> with</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-bptt-2">
-<span class="eqno">(9.7.8)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-2" title="Link to this equation">¶</a></span>\[z_t= \frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial w_\textrm{h}} +\xi_t \frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial w_\textrm{h}}.\]</div>
+<span class="eqno">(9.7.8)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-2" title="Permalink to this equation">¶</a></span>\[z_t= \frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial w_\textrm{h}} +\xi_t \frac{\partial f(x_{t},h_{t-1},w_\textrm{h})}{\partial h_{t-1}} \frac{\partial h_{t-1}}{\partial w_\textrm{h}}.\]</div>
 <p>It follows from the definition of <span class="math notranslate nohighlight">\(\xi_t\)</span> that
 <span class="math notranslate nohighlight">\(E[z_t] = \partial h_t/\partial w_\textrm{h}\)</span>. Whenever
 <span class="math notranslate nohighlight">\(\xi_t = 0\)</span> the recurrent computation terminates at that time step
@@ -664,16 +667,15 @@ where long sequences are rare but appropriately overweighted. This idea
 was proposed by <span id="id3"></span>.</p>
 </section>
 <section id="comparing-strategies">
-<h3><span class="section-number">9.7.1.4. </span>Comparing Strategies<a class="headerlink" href="#comparing-strategies" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">9.7.1.4. </span>Comparing Strategies<a class="headerlink" href="#comparing-strategies" title="Permalink to this heading">¶</a></h3>
 <figure class="align-default" id="id4">
-<span id="fig-truncated-bptt"></span><img alt="../_images/truncated-bptt.svg" src="../_images/truncated-bptt.svg" />
-<figcaption>
-<p><span class="caption-number">figure9.7.1 </span><span class="caption-text">Comparing strategies for computing gradients in RNNs. From top to
+<span id="fig-truncated-bptt"></span><img alt="../_images/truncated-bptt.svg" src="../_images/truncated-bptt.svg" /><figcaption>
+<p><span class="caption-number">Fig. 9.7.1 </span><span class="caption-text">Comparing strategies for computing gradients in RNNs. From top to
 bottom: randomized truncation, regular truncation, and full
-computation.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+computation.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#fig-truncated-bptt"><span class="std std-numref">figure9.7.1</span></a> illustrates the three strategies when
+<p><a class="reference internal" href="#fig-truncated-bptt"><span class="std std-numref">Fig. 9.7.1</span></a> illustrates the three strategies when
 analyzing the first few characters of <em>The Time Machine</em> using
 backpropagation through time for RNNs:</p>
 <ul class="simple">
@@ -697,10 +699,10 @@ regularizing effect that can be desirable.</p>
 </section>
 </section>
 <section id="backpropagation-through-time-in-detail">
-<h2><span class="section-number">9.7.2. </span>Backpropagation Through Time in Detail<a class="headerlink" href="#backpropagation-through-time-in-detail" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.7.2. </span>Backpropagation Through Time in Detail<a class="headerlink" href="#backpropagation-through-time-in-detail" title="Permalink to this heading">¶</a></h2>
 <p>After discussing the general principle, let’s discuss backpropagation
 through time in detail. In contrast to the analysis in
-<a class="reference internal" href="#subsec-bptt-analysis"><span class="std std-numref">9.7.1section</span></a>, in the following we will show how to
+<a class="reference internal" href="#subsec-bptt-analysis"><span class="std std-numref">Section 9.7.1</span></a>, in the following we will show how to
 compute the gradients of the objective function with respect to all the
 decomposed model parameters. To keep things simple, we consider an RNN
 without bias parameters, whose activation function in the hidden layer
@@ -710,7 +712,7 @@ let the single example input and the target be
 hidden state <span class="math notranslate nohighlight">\(\mathbf{h}_t \in \mathbb{R}^h\)</span> and the output
 <span class="math notranslate nohighlight">\(\mathbf{o}_t \in \mathbb{R}^q\)</span> are computed as</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-bptt-3">
-<span class="eqno">(9.7.9)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-3" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}\mathbf{h}_t &amp;= \mathbf{W}_\textrm{hx} \mathbf{x}_t + \mathbf{W}_\textrm{hh} \mathbf{h}_{t-1},\\
+<span class="eqno">(9.7.9)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-3" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}\mathbf{h}_t &amp;= \mathbf{W}_\textrm{hx} \mathbf{x}_t + \mathbf{W}_\textrm{hh} \mathbf{h}_{t-1},\\
 \mathbf{o}_t &amp;= \mathbf{W}_\textrm{qh} \mathbf{h}_{t},\end{aligned}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{hx} \in \mathbb{R}^{h \times d}\)</span>,
 <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{hh} \in \mathbb{R}^{h \times h}\)</span>, and
@@ -719,59 +721,58 @@ weight parameters. Denote by <span class="math notranslate nohighlight">\(l(\mat
 time step <span class="math notranslate nohighlight">\(t\)</span>. Our objective function, the loss over <span class="math notranslate nohighlight">\(T\)</span>
 time steps from the beginning of the sequence is thus</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-bptt-4">
-<span class="eqno">(9.7.10)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-4" title="Link to this equation">¶</a></span>\[L = \frac{1}{T} \sum_{t=1}^T l(\mathbf{o}_t, y_t).\]</div>
+<span class="eqno">(9.7.10)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-4" title="Permalink to this equation">¶</a></span>\[L = \frac{1}{T} \sum_{t=1}^T l(\mathbf{o}_t, y_t).\]</div>
 <p>In order to visualize the dependencies among model variables and
 parameters during computation of the RNN, we can draw a computational
-graph for the model, as shown in <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">figure9.7.2</span></a>. For example,
+graph for the model, as shown in <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">Fig. 9.7.2</span></a>. For example,
 the computation of the hidden states of time step 3,
 <span class="math notranslate nohighlight">\(\mathbf{h}_3\)</span>, depends on the model parameters
 <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{hx}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{hh}\)</span>, the
 hidden state of the previous time step <span class="math notranslate nohighlight">\(\mathbf{h}_2\)</span>, and the
 input of the current time step <span class="math notranslate nohighlight">\(\mathbf{x}_3\)</span>.</p>
 <figure class="align-default" id="id5">
-<span id="fig-rnn-bptt"></span><img alt="../_images/rnn-bptt.svg" src="../_images/rnn-bptt.svg" />
-<figcaption>
-<p><span class="caption-number">figure9.7.2 </span><span class="caption-text">Computational graph showing dependencies for an RNN model with three
+<span id="fig-rnn-bptt"></span><img alt="../_images/rnn-bptt.svg" src="../_images/rnn-bptt.svg" /><figcaption>
+<p><span class="caption-number">Fig. 9.7.2 </span><span class="caption-text">Computational graph showing dependencies for an RNN model with three
 time steps. Boxes represent variables (not shaded) or parameters
-(shaded) and circles represent operators.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+(shaded) and circles represent operators.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
-<p>As just mentioned, the model parameters in <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">figure9.7.2</span></a> are
+<p>As just mentioned, the model parameters in <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">Fig. 9.7.2</span></a> are
 <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{hx}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{hh}\)</span>, and
 <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{qh}\)</span>. Generally, training this model requires
 gradient computation with respect to these parameters
 <span class="math notranslate nohighlight">\(\partial L/\partial \mathbf{W}_\textrm{hx}\)</span>,
 <span class="math notranslate nohighlight">\(\partial L/\partial \mathbf{W}_\textrm{hh}\)</span>, and
 <span class="math notranslate nohighlight">\(\partial L/\partial \mathbf{W}_\textrm{qh}\)</span>. According to the
-dependencies in <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">figure9.7.2</span></a>, we can traverse in the
+dependencies in <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">Fig. 9.7.2</span></a>, we can traverse in the
 opposite direction of the arrows to calculate and store the gradients in
 turn. To flexibly express the multiplication of matrices, vectors, and
 scalars of different shapes in the chain rule, we continue to use the
-<span class="math notranslate nohighlight">\(\textrm{prod}\)</span> operator as described in <a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html#sec-backprop"><span class="std std-numref">5.3section</span></a>.</p>
+<span class="math notranslate nohighlight">\(\textrm{prod}\)</span> operator as described in <a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html#sec-backprop"><span class="std std-numref">Section 5.3</span></a>.</p>
 <p>First of all, differentiating the objective function with respect to the
 model output at any time step <span class="math notranslate nohighlight">\(t\)</span> is fairly straightforward:</p>
 <div class="math notranslate nohighlight" id="equation-eq-bptt-partial-l-ot">
-<span class="eqno">(9.7.11)<a class="headerlink" href="#equation-eq-bptt-partial-l-ot" title="Link to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{o}_t} =  \frac{\partial l (\mathbf{o}_t, y_t)}{T \cdot \partial \mathbf{o}_t} \in \mathbb{R}^q.\]</div>
+<span class="eqno">(9.7.11)<a class="headerlink" href="#equation-eq-bptt-partial-l-ot" title="Permalink to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{o}_t} =  \frac{\partial l (\mathbf{o}_t, y_t)}{T \cdot \partial \mathbf{o}_t} \in \mathbb{R}^q.\]</div>
 <p>Now we can calculate the gradient of the objective with respect to the
 parameter <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{qh}\)</span> in the output layer:
 <span class="math notranslate nohighlight">\(\partial L/\partial \mathbf{W}_\textrm{qh} \in \mathbb{R}^{q \times h}\)</span>.
-Based on <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">figure9.7.2</span></a>, the objective <span class="math notranslate nohighlight">\(L\)</span> depends on
+Based on <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">Fig. 9.7.2</span></a>, the objective <span class="math notranslate nohighlight">\(L\)</span> depends on
 <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{qh}\)</span> via
 <span class="math notranslate nohighlight">\(\mathbf{o}_1, \ldots, \mathbf{o}_T\)</span>. Using the chain rule yields</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-bptt-5">
-<span class="eqno">(9.7.12)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-5" title="Link to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{W}_\textrm{qh}}
+<span class="eqno">(9.7.12)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-5" title="Permalink to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{W}_\textrm{qh}}
 = \sum_{t=1}^T \textrm{prod}\left(\frac{\partial L}{\partial \mathbf{o}_t}, \frac{\partial \mathbf{o}_t}{\partial \mathbf{W}_\textrm{qh}}\right)
 = \sum_{t=1}^T \frac{\partial L}{\partial \mathbf{o}_t} \mathbf{h}_t^\top,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\partial L/\partial \mathbf{o}_t\)</span> is given by
 <a class="reference internal" href="#equation-eq-bptt-partial-l-ot">(9.7.11)</a>.</p>
-<p>Next, as shown in <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">figure9.7.2</span></a>, at the final time step
+<p>Next, as shown in <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">Fig. 9.7.2</span></a>, at the final time step
 <span class="math notranslate nohighlight">\(T\)</span>, the objective function <span class="math notranslate nohighlight">\(L\)</span> depends on the hidden state
 <span class="math notranslate nohighlight">\(\mathbf{h}_T\)</span> only via <span class="math notranslate nohighlight">\(\mathbf{o}_T\)</span>. Therefore, we can
 easily find the gradient
 <span class="math notranslate nohighlight">\(\partial L/\partial \mathbf{h}_T \in \mathbb{R}^h\)</span> using the
 chain rule:</p>
 <div class="math notranslate nohighlight" id="equation-eq-bptt-partial-l-ht-final-step">
-<span class="eqno">(9.7.13)<a class="headerlink" href="#equation-eq-bptt-partial-l-ht-final-step" title="Link to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{h}_T} = \textrm{prod}\left(\frac{\partial L}{\partial \mathbf{o}_T}, \frac{\partial \mathbf{o}_T}{\partial \mathbf{h}_T} \right) = \mathbf{W}_\textrm{qh}^\top \frac{\partial L}{\partial \mathbf{o}_T}.\]</div>
+<span class="eqno">(9.7.13)<a class="headerlink" href="#equation-eq-bptt-partial-l-ht-final-step" title="Permalink to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{h}_T} = \textrm{prod}\left(\frac{\partial L}{\partial \mathbf{o}_T}, \frac{\partial \mathbf{o}_T}{\partial \mathbf{h}_T} \right) = \mathbf{W}_\textrm{qh}^\top \frac{\partial L}{\partial \mathbf{o}_T}.\]</div>
 <p>It gets trickier for any time step <span class="math notranslate nohighlight">\(t &lt; T\)</span>, where the objective
 function <span class="math notranslate nohighlight">\(L\)</span> depends on <span class="math notranslate nohighlight">\(\mathbf{h}_t\)</span> via
 <span class="math notranslate nohighlight">\(\mathbf{h}_{t+1}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{o}_t\)</span>. According to the
@@ -779,11 +780,11 @@ chain rule, the gradient of the hidden state
 <span class="math notranslate nohighlight">\(\partial L/\partial \mathbf{h}_t \in \mathbb{R}^h\)</span> at any time
 step <span class="math notranslate nohighlight">\(t &lt; T\)</span> can be recurrently computed as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-bptt-partial-l-ht-recur">
-<span class="eqno">(9.7.14)<a class="headerlink" href="#equation-eq-bptt-partial-l-ht-recur" title="Link to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{h}_t} = \textrm{prod}\left(\frac{\partial L}{\partial \mathbf{h}_{t+1}}, \frac{\partial \mathbf{h}_{t+1}}{\partial \mathbf{h}_t} \right) + \textrm{prod}\left(\frac{\partial L}{\partial \mathbf{o}_t}, \frac{\partial \mathbf{o}_t}{\partial \mathbf{h}_t} \right) = \mathbf{W}_\textrm{hh}^\top \frac{\partial L}{\partial \mathbf{h}_{t+1}} + \mathbf{W}_\textrm{qh}^\top \frac{\partial L}{\partial \mathbf{o}_t}.\]</div>
+<span class="eqno">(9.7.14)<a class="headerlink" href="#equation-eq-bptt-partial-l-ht-recur" title="Permalink to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{h}_t} = \textrm{prod}\left(\frac{\partial L}{\partial \mathbf{h}_{t+1}}, \frac{\partial \mathbf{h}_{t+1}}{\partial \mathbf{h}_t} \right) + \textrm{prod}\left(\frac{\partial L}{\partial \mathbf{o}_t}, \frac{\partial \mathbf{o}_t}{\partial \mathbf{h}_t} \right) = \mathbf{W}_\textrm{hh}^\top \frac{\partial L}{\partial \mathbf{h}_{t+1}} + \mathbf{W}_\textrm{qh}^\top \frac{\partial L}{\partial \mathbf{o}_t}.\]</div>
 <p>For analysis, expanding the recurrent computation for any time step
 <span class="math notranslate nohighlight">\(1 \leq t \leq T\)</span> gives</p>
 <div class="math notranslate nohighlight" id="equation-eq-bptt-partial-l-ht">
-<span class="eqno">(9.7.15)<a class="headerlink" href="#equation-eq-bptt-partial-l-ht" title="Link to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{h}_t}= \sum_{i=t}^T {\left(\mathbf{W}_\textrm{hh}^\top\right)}^{T-i} \mathbf{W}_\textrm{qh}^\top \frac{\partial L}{\partial \mathbf{o}_{T+t-i}}.\]</div>
+<span class="eqno">(9.7.15)<a class="headerlink" href="#equation-eq-bptt-partial-l-ht" title="Permalink to this equation">¶</a></span>\[\frac{\partial L}{\partial \mathbf{h}_t}= \sum_{i=t}^T {\left(\mathbf{W}_\textrm{hh}^\top\right)}^{T-i} \mathbf{W}_\textrm{qh}^\top \frac{\partial L}{\partial \mathbf{o}_{T+t-i}}.\]</div>
 <p>We can see from <a class="reference internal" href="#equation-eq-bptt-partial-l-ht">(9.7.15)</a> that this simple linear
 example already exhibits some key problems of long sequence models: it
 involves potentially very large powers of
@@ -792,11 +793,11 @@ vanish and eigenvalues larger than 1 diverge. This is numerically
 unstable, which manifests itself in the form of vanishing and exploding
 gradients. One way to address this is to truncate the time steps at a
 computationally convenient size as discussed in
-<a class="reference internal" href="#subsec-bptt-analysis"><span class="std std-numref">9.7.1section</span></a>. In practice, this truncation can also
+<a class="reference internal" href="#subsec-bptt-analysis"><span class="std std-numref">Section 9.7.1</span></a>. In practice, this truncation can also
 be effected by detaching the gradient after a given number of time
 steps. Later on, we will see how more sophisticated sequence models such
 as long short-term memory can alleviate this further.</p>
-<p>Finally, <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">figure9.7.2</span></a> shows that the objective function
+<p>Finally, <a class="reference internal" href="#fig-rnn-bptt"><span class="std std-numref">Fig. 9.7.2</span></a> shows that the objective function
 <span class="math notranslate nohighlight">\(L\)</span> depends on model parameters <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{hx}\)</span> and
 <span class="math notranslate nohighlight">\(\mathbf{W}_\textrm{hh}\)</span> in the hidden layer via hidden states
 <span class="math notranslate nohighlight">\(\mathbf{h}_1, \ldots, \mathbf{h}_T\)</span>. To compute gradients with
@@ -806,7 +807,7 @@ and
 <span class="math notranslate nohighlight">\(\partial L / \partial \mathbf{W}_\textrm{hh} \in \mathbb{R}^{h \times h}\)</span>,
 we apply the chain rule giving</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-bptt-6">
-<span class="eqno">(9.7.16)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-6" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(9.7.16)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-bptt-6" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
 \frac{\partial L}{\partial \mathbf{W}_\textrm{hx}}
 &amp;= \sum_{t=1}^T \textrm{prod}\left(\frac{\partial L}{\partial \mathbf{h}_t}, \frac{\partial \mathbf{h}_t}{\partial \mathbf{W}_\textrm{hx}}\right)
 = \sum_{t=1}^T \frac{\partial L}{\partial \mathbf{h}_t} \mathbf{x}_t^\top,\\
@@ -819,7 +820,7 @@ computed by <a class="reference internal" href="#equation-eq-bptt-partial-l-ht-f
 <a class="reference internal" href="#equation-eq-bptt-partial-l-ht-recur">(9.7.14)</a> is the key quantity that affects
 the numerical stability.</p>
 <p>Since backpropagation through time is the application of backpropagation
-in RNNs, as we have explained in <a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html#sec-backprop"><span class="std std-numref">5.3section</span></a>, training RNNs
+in RNNs, as we have explained in <a class="reference internal" href="../chapter_multilayer-perceptrons/backprop.html#sec-backprop"><span class="std std-numref">Section 5.3</span></a>, training RNNs
 alternates forward propagation with backpropagation through time.
 Moreover, backpropagation through time computes and stores the above
 gradients in turn. Specifically, stored intermediate values are reused
@@ -829,7 +830,7 @@ both <span class="math notranslate nohighlight">\(\partial L / \partial \mathbf{
 <span class="math notranslate nohighlight">\(\partial L / \partial \mathbf{W}_\textrm{hh}\)</span>.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">9.7.3. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.7.3. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>Backpropagation through time is merely an application of backpropagation
 to sequence models with a hidden state. Truncation, such as regular or
 randomized, is needed for computational convenience and numerical
@@ -839,7 +840,7 @@ gradients. For efficient computation, intermediate values are cached
 during backpropagation through time.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">9.7.4. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.7.4. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Assume that we have a symmetric matrix
 <span class="math notranslate nohighlight">\(\mathbf{M} \in \mathbb{R}^{n \times n}\)</span> with eigenvalues

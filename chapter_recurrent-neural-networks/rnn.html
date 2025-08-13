@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9.5. Recurrent Neural Network Implementation from Scratch" href="rnn-scratch.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="recurrent-neural-networks">
-<span id="sec-rnn"></span><h1><span class="section-number">9.4. </span>Recurrent Neural Networks<a class="headerlink" href="#recurrent-neural-networks" title="Link to this heading">¶</a></h1>
-<p>In <a class="reference internal" href="language-model.html#sec-language-model"><span class="std std-numref">9.3section</span></a> we described Markov models and
+<span id="sec-rnn"></span><h1><span class="section-number">9.4. </span>Recurrent Neural Networks<a class="headerlink" href="#recurrent-neural-networks" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="language-model.html#sec-language-model"><span class="std std-numref">Section 9.3</span></a> we described Markov models and
 <span class="math notranslate nohighlight">\(n\)</span>-grams for language modeling, where the conditional probability
 of token <span class="math notranslate nohighlight">\(x_t\)</span> at time step <span class="math notranslate nohighlight">\(t\)</span> only depends on the
 <span class="math notranslate nohighlight">\(n-1\)</span> previous tokens. If we want to incorporate the possible
@@ -535,20 +538,20 @@ would also increase exponentially with it, as we need to store
 <span class="math notranslate nohighlight">\(P(x_t \mid x_{t-1}, \ldots, x_{t-n+1})\)</span> it is preferable to use a
 latent variable model,</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-rnn-0">
-<span class="eqno">(9.4.1)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-0" title="Link to this equation">¶</a></span>\[P(x_t \mid x_{t-1}, \ldots, x_1) \approx P(x_t \mid h_{t-1}),\]</div>
+<span class="eqno">(9.4.1)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-0" title="Permalink to this equation">¶</a></span>\[P(x_t \mid x_{t-1}, \ldots, x_1) \approx P(x_t \mid h_{t-1}),\]</div>
 <p>where <span class="math notranslate nohighlight">\(h_{t-1}\)</span> is a <em>hidden state</em> that stores the sequence
 information up to time step <span class="math notranslate nohighlight">\(t-1\)</span>. In general, the hidden state at
 any time step <span class="math notranslate nohighlight">\(t\)</span> could be computed based on both the current
 input <span class="math notranslate nohighlight">\(x_{t}\)</span> and the previous hidden state <span class="math notranslate nohighlight">\(h_{t-1}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-ht-xt">
-<span class="eqno">(9.4.2)<a class="headerlink" href="#equation-eq-ht-xt" title="Link to this equation">¶</a></span>\[h_t = f(x_{t}, h_{t-1}).\]</div>
+<span class="eqno">(9.4.2)<a class="headerlink" href="#equation-eq-ht-xt" title="Permalink to this equation">¶</a></span>\[h_t = f(x_{t}, h_{t-1}).\]</div>
 <p>For a sufficiently powerful function <span class="math notranslate nohighlight">\(f\)</span> in <a class="reference internal" href="#equation-eq-ht-xt">(9.4.2)</a>,
 the latent variable model is not an approximation. After all,
 <span class="math notranslate nohighlight">\(h_t\)</span> may simply store all the data it has observed so far.
 However, it could potentially make both computation and storage
 expensive.</p>
 <p>Recall that we have discussed hidden layers with hidden units in
-<a class="reference internal" href="../chapter_multilayer-perceptrons/index.html#chap-perceptrons"><span class="std std-numref">5section</span></a>. It is noteworthy that hidden layers and
+<a class="reference internal" href="../chapter_multilayer-perceptrons/index.html#chap-perceptrons"><span class="std std-numref">Section 5</span></a>. It is noteworthy that hidden layers and
 hidden states refer to two very different concepts. Hidden layers are,
 as explained, layers that are hidden from view on the path from input to
 output. Hidden states are technically speaking <em>inputs</em> to whatever we
@@ -556,29 +559,29 @@ do at a given step, and they can only be computed by looking at data at
 previous time steps.</p>
 <p><em>Recurrent neural networks</em> (RNNs) are neural networks with hidden
 states. Before introducing the RNN model, we first revisit the MLP model
-introduced in <a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html#sec-mlp"><span class="std std-numref">5.1section</span></a>.</p>
+introduced in <a class="reference internal" href="../chapter_multilayer-perceptrons/mlp.html#sec-mlp"><span class="std std-numref">Section 5.1</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mlx</span> <span class="k">as</span> <span class="n">d2l</span>
 </pre></div>
 </div>
 <section id="neural-networks-without-hidden-states">
-<h2><span class="section-number">9.4.1. </span>Neural Networks without Hidden States<a class="headerlink" href="#neural-networks-without-hidden-states" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.4.1. </span>Neural Networks without Hidden States<a class="headerlink" href="#neural-networks-without-hidden-states" title="Permalink to this heading">¶</a></h2>
 <p>Let’s take a look at an MLP with a single hidden layer. Let the hidden
 layer’s activation function be <span class="math notranslate nohighlight">\(\phi\)</span>. Given a minibatch of
 examples <span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> with batch size
 <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(d\)</span> inputs, the hidden layer output
 <span class="math notranslate nohighlight">\(\mathbf{H} \in \mathbb{R}^{n \times h}\)</span> is calculated as</p>
 <div class="math notranslate nohighlight" id="equation-rnn-h-without-state">
-<span class="eqno">(9.4.3)<a class="headerlink" href="#equation-rnn-h-without-state" title="Link to this equation">¶</a></span>\[\mathbf{H} = \phi(\mathbf{X} \mathbf{W}_{\textrm{xh}} + \mathbf{b}_\textrm{h}).\]</div>
+<span class="eqno">(9.4.3)<a class="headerlink" href="#equation-rnn-h-without-state" title="Permalink to this equation">¶</a></span>\[\mathbf{H} = \phi(\mathbf{X} \mathbf{W}_{\textrm{xh}} + \mathbf{b}_\textrm{h}).\]</div>
 <p>In <a class="reference internal" href="#equation-rnn-h-without-state">(9.4.3)</a>, we have the weight parameter
 <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{xh}} \in \mathbb{R}^{d \times h}\)</span>, the bias
 parameter <span class="math notranslate nohighlight">\(\mathbf{b}_\textrm{h} \in \mathbb{R}^{1 \times h}\)</span>, and
 the number of hidden units <span class="math notranslate nohighlight">\(h\)</span>, for the hidden layer. So armed, we
-apply broadcasting (see <a class="reference internal" href="../chapter_preliminaries/ndarray.html#subsec-broadcasting"><span class="std std-numref">2.1.4section</span></a>) during the
+apply broadcasting (see <a class="reference internal" href="../chapter_preliminaries/ndarray.html#subsec-broadcasting"><span class="std std-numref">Section 2.1.4</span></a>) during the
 summation. Next, the hidden layer output <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> is used as
 input of the output layer, which is given by</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-rnn-1">
-<span class="eqno">(9.4.4)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-1" title="Link to this equation">¶</a></span>\[\mathbf{O} = \mathbf{H} \mathbf{W}_{\textrm{hq}} + \mathbf{b}_\textrm{q},\]</div>
+<span class="eqno">(9.4.4)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-1" title="Permalink to this equation">¶</a></span>\[\mathbf{O} = \mathbf{H} \mathbf{W}_{\textrm{hq}} + \mathbf{b}_\textrm{q},\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{O} \in \mathbb{R}^{n \times q}\)</span> is the output
 variable, <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{hq}} \in \mathbb{R}^{h \times q}\)</span>
 is the weight parameter, and
@@ -587,13 +590,13 @@ parameter of the output layer. If it is a classification problem, we can
 use <span class="math notranslate nohighlight">\(\mathrm{softmax}(\mathbf{O})\)</span> to compute the probability
 distribution of the output categories.</p>
 <p>This is entirely analogous to the regression problem we solved
-previously in <a class="reference internal" href="sequence.html#sec-sequence"><span class="std std-numref">9.1section</span></a>, hence we omit details. Suffice
+previously in <a class="reference internal" href="sequence.html#sec-sequence"><span class="std std-numref">Section 9.1</span></a>, hence we omit details. Suffice
 it to say that we can pick feature-label pairs at random and learn the
 parameters of our network via automatic differentiation and stochastic
 gradient descent.</p>
 </section>
 <section id="recurrent-neural-networks-with-hidden-states">
-<span id="subsec-rnn-w-hidden-states"></span><h2><span class="section-number">9.4.2. </span>Recurrent Neural Networks with Hidden States<a class="headerlink" href="#recurrent-neural-networks-with-hidden-states" title="Link to this heading">¶</a></h2>
+<span id="subsec-rnn-w-hidden-states"></span><h2><span class="section-number">9.4.2. </span>Recurrent Neural Networks with Hidden States<a class="headerlink" href="#recurrent-neural-networks-with-hidden-states" title="Permalink to this heading">¶</a></h2>
 <p>Matters are entirely different when we have hidden states. Let’s look at
 the structure in some more detail.</p>
 <p>Assume that we have a minibatch of inputs
@@ -612,7 +615,7 @@ output of the current time step is determined by the input of the
 current time step together with the hidden layer output of the previous
 time step:</p>
 <div class="math notranslate nohighlight" id="equation-rnn-h-with-state">
-<span class="eqno">(9.4.5)<a class="headerlink" href="#equation-rnn-h-with-state" title="Link to this equation">¶</a></span>\[\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{\textrm{xh}} + \mathbf{H}_{t-1} \mathbf{W}_{\textrm{hh}}  + \mathbf{b}_\textrm{h}).\]</div>
+<span class="eqno">(9.4.5)<a class="headerlink" href="#equation-rnn-h-with-state" title="Permalink to this equation">¶</a></span>\[\mathbf{H}_t = \phi(\mathbf{X}_t \mathbf{W}_{\textrm{xh}} + \mathbf{H}_{t-1} \mathbf{W}_{\textrm{hh}}  + \mathbf{b}_\textrm{h}).\]</div>
 <p>Compared with <a class="reference internal" href="#equation-rnn-h-without-state">(9.4.3)</a>,
 <a class="reference internal" href="#equation-rnn-h-with-state">(9.4.5)</a> adds one more term
 <span class="math notranslate nohighlight">\(\mathbf{H}_{t-1} \mathbf{W}_{\textrm{hh}}\)</span> and thus instantiates
@@ -633,7 +636,7 @@ state defined by <a class="reference internal" href="#equation-rnn-h-with-state"
 step <span class="math notranslate nohighlight">\(t\)</span>, the output of the output layer is similar to the
 computation in the MLP:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-recurrent-neural-networks-rnn-2">
-<span class="eqno">(9.4.6)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-2" title="Link to this equation">¶</a></span>\[\mathbf{O}_t = \mathbf{H}_t \mathbf{W}_{\textrm{hq}} + \mathbf{b}_\textrm{q}.\]</div>
+<span class="eqno">(9.4.6)<a class="headerlink" href="#equation-chapter-recurrent-neural-networks-rnn-2" title="Permalink to this equation">¶</a></span>\[\mathbf{O}_t = \mathbf{H}_t \mathbf{W}_{\textrm{hq}} + \mathbf{b}_\textrm{q}.\]</div>
 <p>Parameters of the RNN include the weights
 <span class="math notranslate nohighlight">\(\mathbf{W}_{\textrm{xh}} \in \mathbb{R}^{d \times h}, \mathbf{W}_{\textrm{hh}} \in \mathbb{R}^{h \times h}\)</span>,
 and the bias <span class="math notranslate nohighlight">\(\mathbf{b}_\textrm{h} \in \mathbb{R}^{1 \times h}\)</span>
@@ -643,7 +646,7 @@ bias <span class="math notranslate nohighlight">\(\mathbf{b}_\textrm{q} \in \mat
 output layer. It is worth mentioning that even at different time steps,
 RNNs always use these model parameters. Therefore, the parametrization
 cost of an RNN does not grow as the number of time steps increases.</p>
-<p><a class="reference internal" href="#fig-rnn"><span class="std std-numref">figure9.4.1</span></a> illustrates the computational logic of an RNN at
+<p><a class="reference internal" href="#fig-rnn"><span class="std std-numref">Fig. 9.4.1</span></a> illustrates the computational logic of an RNN at
 three adjacent time steps. At any time step <span class="math notranslate nohighlight">\(t\)</span>, the computation
 of the hidden state can be treated as: (i) concatenating the input
 <span class="math notranslate nohighlight">\(\mathbf{X}_t\)</span> at the current time step <span class="math notranslate nohighlight">\(t\)</span> and the hidden
@@ -661,9 +664,8 @@ of the next time step <span class="math notranslate nohighlight">\(t+1\)</span>.
 will also be fed into the fully connected output layer to compute the
 output <span class="math notranslate nohighlight">\(\mathbf{O}_t\)</span> of the current time step <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <figure class="align-default" id="id2">
-<span id="fig-rnn"></span><img alt="../_images/rnn.svg" src="../_images/rnn.svg" />
-<figcaption>
-<p><span class="caption-number">figure9.4.1 </span><span class="caption-text">An RNN with a hidden state.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+<span id="fig-rnn"></span><img alt="../_images/rnn.svg" src="../_images/rnn.svg" /><figcaption>
+<p><span class="caption-number">Fig. 9.4.1 </span><span class="caption-text">An RNN with a hidden state.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>We just mentioned that the calculation of
@@ -702,8 +704,8 @@ same output matrix of shape (3, 4) as above.</p>
 </div>
 </section>
 <section id="rnn-based-character-level-language-models">
-<h2><span class="section-number">9.4.3. </span>RNN-Based Character-Level Language Models<a class="headerlink" href="#rnn-based-character-level-language-models" title="Link to this heading">¶</a></h2>
-<p>Recall that for language modeling in <a class="reference internal" href="language-model.html#sec-language-model"><span class="std std-numref">9.3section</span></a>, we
+<h2><span class="section-number">9.4.3. </span>RNN-Based Character-Level Language Models<a class="headerlink" href="#rnn-based-character-level-language-models" title="Permalink to this heading">¶</a></h2>
+<p>Recall that for language modeling in <a class="reference internal" href="language-model.html#sec-language-model"><span class="std std-numref">Section 9.3</span></a>, we
 aim to predict the next token based on the current and past tokens; thus
 we shift the original sequence by one token as the targets (labels).
 <span id="id1"></span> first proposed to use a
@@ -712,14 +714,13 @@ RNNs can be used to build a language model. Let the minibatch size be
 one, and the sequence of the text be “machine”. To simplify training in
 subsequent sections, we tokenize text into characters rather than words
 and consider a <em>character-level language model</em>.
-<a class="reference internal" href="#fig-rnn-train"><span class="std std-numref">figure9.4.2</span></a> demonstrates how to predict the next character
+<a class="reference internal" href="#fig-rnn-train"><span class="std std-numref">Fig. 9.4.2</span></a> demonstrates how to predict the next character
 based on the current and previous characters via an RNN for
 character-level language modeling.</p>
 <figure class="align-default" id="id3">
-<span id="fig-rnn-train"></span><img alt="../_images/rnn-train.svg" src="../_images/rnn-train.svg" />
-<figcaption>
-<p><span class="caption-number">figure9.4.2 </span><span class="caption-text">A character-level language model based on the RNN. The input and
-target sequences are “machin” and “achine”, respectively.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+<span id="fig-rnn-train"></span><img alt="../_images/rnn-train.svg" src="../_images/rnn-train.svg" /><figcaption>
+<p><span class="caption-number">Fig. 9.4.2 </span><span class="caption-text">A character-level language model based on the RNN. The input and
+target sequences are “machin” and “achine”, respectively.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>During the training process, we run a softmax operation on the output
@@ -727,7 +728,7 @@ from the output layer for each time step, and then use the cross-entropy
 loss to compute the error between the model output and the target.
 Because of the recurrent computation of the hidden state in the hidden
 layer, the output, <span class="math notranslate nohighlight">\(\mathbf{O}_3\)</span>, of time step 3 in
-<a class="reference internal" href="#fig-rnn-train"><span class="std std-numref">figure9.4.2</span></a> is determined by the text sequence “m”, “a”,
+<a class="reference internal" href="#fig-rnn-train"><span class="std std-numref">Fig. 9.4.2</span></a> is determined by the text sequence “m”, “a”,
 and “c”. Since the next character of the sequence in the training data
 is “h”, the loss of time step 3 will depend on the probability
 distribution of the next character generated based on the feature
@@ -736,12 +737,12 @@ sequence “m”, “a”, “c” and the target “h” of this time step.</p>
 vector, and we use a batch size <span class="math notranslate nohighlight">\(n&gt;1\)</span>. Therefore, the input
 <span class="math notranslate nohighlight">\(\mathbf X_t\)</span> at time step <span class="math notranslate nohighlight">\(t\)</span> will be an <span class="math notranslate nohighlight">\(n\times d\)</span>
 matrix, which is identical to what we discussed in
-<a class="reference internal" href="#subsec-rnn-w-hidden-states"><span class="std std-numref">9.4.2section</span></a>.</p>
+<a class="reference internal" href="#subsec-rnn-w-hidden-states"><span class="std std-numref">Section 9.4.2</span></a>.</p>
 <p>In the following sections, we will implement RNNs for character-level
 language models.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">9.4.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.4.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>A neural network that uses recurrent computation for hidden states is
 called a recurrent neural network (RNN). The hidden state of an RNN can
 capture historical information of the sequence up to the current time
@@ -751,7 +752,7 @@ applications, an RNN can be used to create character-level language
 models.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">9.4.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">9.4.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>If we use an RNN to predict the next character in a text sequence,
 what is the required dimension for any output?</p></li>

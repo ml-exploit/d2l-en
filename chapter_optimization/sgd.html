@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="12.5. Minibatch Stochastic Gradient Descent" href="minibatch-sgd.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,11 +525,11 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="stochastic-gradient-descent">
-<span id="sec-sgd"></span><h1><span class="section-number">12.4. </span>Stochastic Gradient Descent<a class="headerlink" href="#stochastic-gradient-descent" title="Link to this heading">¶</a></h1>
+<span id="sec-sgd"></span><h1><span class="section-number">12.4. </span>Stochastic Gradient Descent<a class="headerlink" href="#stochastic-gradient-descent" title="Permalink to this heading">¶</a></h1>
 <p>In earlier chapters we kept using stochastic gradient descent in our
 training procedure, however, without explaining why it works. To shed
 some light on it, we just described the basic principles of gradient
-descent in <a class="reference internal" href="gd.html#sec-gd"><span class="std std-numref">12.3section</span></a>. In this section, we go on to discuss
+descent in <a class="reference internal" href="gd.html#sec-gd"><span class="std std-numref">Section 12.3</span></a>. In this section, we go on to discuss
 <em>stochastic gradient descent</em> in greater detail.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
@@ -557,7 +560,7 @@ descent in <a class="reference internal" href="gd.html#sec-gd"><span class="std 
 </pre></div>
 </div>
 <section id="stochastic-gradient-updates">
-<h2><span class="section-number">12.4.1. </span>Stochastic Gradient Updates<a class="headerlink" href="#stochastic-gradient-updates" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.4.1. </span>Stochastic Gradient Updates<a class="headerlink" href="#stochastic-gradient-updates" title="Permalink to this heading">¶</a></h2>
 <p>In deep learning, the objective function is usually the average of the
 loss functions for each example in the training dataset. Given a
 training dataset of <span class="math notranslate nohighlight">\(n\)</span> examples, we assume that
@@ -565,11 +568,11 @@ training dataset of <span class="math notranslate nohighlight">\(n\)</span> exam
 training example of index <span class="math notranslate nohighlight">\(i\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the
 parameter vector. Then we arrive at the objective function</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-0">
-<span class="eqno">(12.4.1)<a class="headerlink" href="#equation-chapter-optimization-sgd-0" title="Link to this equation">¶</a></span>\[f(\mathbf{x}) = \frac{1}{n} \sum_{i = 1}^n f_i(\mathbf{x}).\]</div>
+<span class="eqno">(12.4.1)<a class="headerlink" href="#equation-chapter-optimization-sgd-0" title="Permalink to this equation">¶</a></span>\[f(\mathbf{x}) = \frac{1}{n} \sum_{i = 1}^n f_i(\mathbf{x}).\]</div>
 <p>The gradient of the objective function at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is computed
 as</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-1">
-<span class="eqno">(12.4.2)<a class="headerlink" href="#equation-chapter-optimization-sgd-1" title="Link to this equation">¶</a></span>\[\nabla f(\mathbf{x}) = \frac{1}{n} \sum_{i = 1}^n \nabla f_i(\mathbf{x}).\]</div>
+<span class="eqno">(12.4.2)<a class="headerlink" href="#equation-chapter-optimization-sgd-1" title="Permalink to this equation">¶</a></span>\[\nabla f(\mathbf{x}) = \frac{1}{n} \sum_{i = 1}^n \nabla f_i(\mathbf{x}).\]</div>
 <p>If gradient descent is used, the computational cost for each independent
 variable iteration is <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>, which grows linearly with
 <span class="math notranslate nohighlight">\(n\)</span>. Therefore, when the training dataset is larger, the cost of
@@ -580,7 +583,7 @@ uniformly sample an index <span class="math notranslate nohighlight">\(i\in\{1,\
 at random, and compute the gradient <span class="math notranslate nohighlight">\(\nabla f_i(\mathbf{x})\)</span> to
 update <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-2">
-<span class="eqno">(12.4.3)<a class="headerlink" href="#equation-chapter-optimization-sgd-2" title="Link to this equation">¶</a></span>\[\mathbf{x} \leftarrow \mathbf{x} - \eta \nabla f_i(\mathbf{x}),\]</div>
+<span class="eqno">(12.4.3)<a class="headerlink" href="#equation-chapter-optimization-sgd-2" title="Permalink to this equation">¶</a></span>\[\mathbf{x} \leftarrow \mathbf{x} - \eta \nabla f_i(\mathbf{x}),\]</div>
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the learning rate. We can see that the
 computational cost for each iteration drops from <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>
 of the gradient descent to the constant <span class="math notranslate nohighlight">\(\mathcal{O}(1)\)</span>.
@@ -588,7 +591,7 @@ Moreover, we want to emphasize that the stochastic gradient
 <span class="math notranslate nohighlight">\(\nabla f_i(\mathbf{x})\)</span> is an unbiased estimate of the full
 gradient <span class="math notranslate nohighlight">\(\nabla f(\mathbf{x})\)</span> because</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-3">
-<span class="eqno">(12.4.4)<a class="headerlink" href="#equation-chapter-optimization-sgd-3" title="Link to this equation">¶</a></span>\[\mathbb{E}_i \nabla f_i(\mathbf{x}) = \frac{1}{n} \sum_{i = 1}^n \nabla f_i(\mathbf{x}) = \nabla f(\mathbf{x}).\]</div>
+<span class="eqno">(12.4.4)<a class="headerlink" href="#equation-chapter-optimization-sgd-3" title="Permalink to this equation">¶</a></span>\[\mathbb{E}_i \nabla f_i(\mathbf{x}) = \frac{1}{n} \sum_{i = 1}^n \nabla f_i(\mathbf{x}) = \nabla f(\mathbf{x}).\]</div>
 <p>This means that, on average, the stochastic gradient is a good estimate
 of the gradient.</p>
 <p>Now, we will compare it with gradient descent by adding random noise
@@ -652,11 +655,10 @@ stochastic gradient descent.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_sgd_0425f7_6_1.svg" src="../_images/output_sgd_0425f7_6_1.svg" />
-</figure>
+<img alt="../_images/output_sgd_0425f7_6_1.svg" src="../_images/output_sgd_0425f7_6_1.svg" /></figure>
 <p>As we can see, the trajectory of the variables in the stochastic
 gradient descent is much more noisy than the one we observed in gradient
-descent in <a class="reference internal" href="gd.html#sec-gd"><span class="std std-numref">12.3section</span></a>. This is due to the stochastic nature of
+descent in <a class="reference internal" href="gd.html#sec-gd"><span class="std std-numref">Section 12.3</span></a>. This is due to the stochastic nature of
 the gradient. That is, even when we arrive near the minimum, we are
 still subject to the uncertainty injected by the instantaneous gradient
 via <span class="math notranslate nohighlight">\(\eta \nabla f_i(\mathbf{x})\)</span>. Even after 50 steps the quality
@@ -674,7 +676,7 @@ learning rate scheduling lies dormant as we set the associated <code class="docu
 function to be constant.</p>
 </section>
 <section id="dynamic-learning-rate">
-<h2><span class="section-number">12.4.2. </span>Dynamic Learning Rate<a class="headerlink" href="#dynamic-learning-rate" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.4.2. </span>Dynamic Learning Rate<a class="headerlink" href="#dynamic-learning-rate" title="Permalink to this heading">¶</a></h2>
 <p>Replacing <span class="math notranslate nohighlight">\(\eta\)</span> with a time-dependent learning rate
 <span class="math notranslate nohighlight">\(\eta(t)\)</span> adds to the complexity of controlling convergence of an
 optimization algorithm. In particular, we need to figure out how rapidly
@@ -684,7 +686,7 @@ optimization. The following are a few basic strategies that are used in
 adjusting <span class="math notranslate nohighlight">\(\eta\)</span> over time (we will discuss more advanced
 strategies later):</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-4">
-<span class="eqno">(12.4.5)<a class="headerlink" href="#equation-chapter-optimization-sgd-4" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(12.4.5)<a class="headerlink" href="#equation-chapter-optimization-sgd-4" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}
     \eta(t) &amp; = \eta_i \textrm{ if } t_i \leq t \leq t_{i+1}  &amp;&amp; \textrm{piecewise constant} \\
     \eta(t) &amp; = \eta_0 \cdot e^{-\lambda t} &amp;&amp; \textrm{exponential decay} \\
     \eta(t) &amp; = \eta_0 \cdot (\beta t + 1)^{-\alpha} &amp;&amp; \textrm{polynomial decay}
@@ -713,8 +715,7 @@ this rate is well behaved.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_sgd_0425f7_8_1.svg" src="../_images/output_sgd_0425f7_8_1.svg" />
-</figure>
+<img alt="../_images/output_sgd_0425f7_8_1.svg" src="../_images/output_sgd_0425f7_8_1.svg" /></figure>
 <p>As expected, the variance in the parameters is significantly reduced.
 However, this comes at the expense of failing to converge to the optimal
 solution <span class="math notranslate nohighlight">\(\mathbf{x} = (0, 0)\)</span>. Even after 1000 iteration steps
@@ -738,8 +739,7 @@ steps.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_sgd_0425f7_10_1.svg" src="../_images/output_sgd_0425f7_10_1.svg" />
-</figure>
+<img alt="../_images/output_sgd_0425f7_10_1.svg" src="../_images/output_sgd_0425f7_10_1.svg" /></figure>
 <p>There exist many more choices for how to set the learning rate. For
 instance, we could start with a small rate, then rapidly ramp up and
 then decrease it again, albeit more slowly. We could even alternate
@@ -754,7 +754,7 @@ notes</a>
 of Tibshirani 2015.</p>
 </section>
 <section id="convergence-analysis-for-convex-objectives">
-<h2><span class="section-number">12.4.3. </span>Convergence Analysis for Convex Objectives<a class="headerlink" href="#convergence-analysis-for-convex-objectives" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.4.3. </span>Convergence Analysis for Convex Objectives<a class="headerlink" href="#convergence-analysis-for-convex-objectives" title="Permalink to this heading">¶</a></h2>
 <p>The following convergence analysis of stochastic gradient descent for
 convex objective functions is optional and primarily serves to convey
 more intuition about the problem. We limit ourselves to one of the
@@ -766,13 +766,13 @@ is particularly well behaved.</p>
 for all <span class="math notranslate nohighlight">\(\boldsymbol{\xi}\)</span>. More concretely, we consider the
 stochastic gradient descent update:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-5">
-<span class="eqno">(12.4.6)<a class="headerlink" href="#equation-chapter-optimization-sgd-5" title="Link to this equation">¶</a></span>\[\mathbf{x}_{t+1} = \mathbf{x}_{t} - \eta_t \partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x}),\]</div>
+<span class="eqno">(12.4.6)<a class="headerlink" href="#equation-chapter-optimization-sgd-5" title="Permalink to this equation">¶</a></span>\[\mathbf{x}_{t+1} = \mathbf{x}_{t} - \eta_t \partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x}),\]</div>
 <p>where <span class="math notranslate nohighlight">\(f(\boldsymbol{\xi}_t, \mathbf{x})\)</span> is the objective
 function with respect to the training example <span class="math notranslate nohighlight">\(\boldsymbol{\xi}_t\)</span>
 drawn from some distribution at step <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is
 the model parameter. Denote by</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-6">
-<span class="eqno">(12.4.7)<a class="headerlink" href="#equation-chapter-optimization-sgd-6" title="Link to this equation">¶</a></span>\[R(\mathbf{x}) = E_{\boldsymbol{\xi}}[f(\boldsymbol{\xi}, \mathbf{x})]\]</div>
+<span class="eqno">(12.4.7)<a class="headerlink" href="#equation-chapter-optimization-sgd-6" title="Permalink to this equation">¶</a></span>\[R(\mathbf{x}) = E_{\boldsymbol{\xi}}[f(\boldsymbol{\xi}, \mathbf{x})]\]</div>
 <p>the expected risk and by <span class="math notranslate nohighlight">\(R^*\)</span> its minimum with regard to
 <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>. Last let <span class="math notranslate nohighlight">\(\mathbf{x}^*\)</span> be the minimizer (we
 assume that it exists within the domain where <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is
@@ -780,12 +780,12 @@ defined). In this case we can track the distance between the current
 parameter <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> and the risk minimizer
 <span class="math notranslate nohighlight">\(\mathbf{x}^*\)</span> and see whether it improves over time:</p>
 <div class="math notranslate nohighlight" id="equation-eq-sgd-xt-1-xstar">
-<span class="eqno">(12.4.8)<a class="headerlink" href="#equation-eq-sgd-xt-1-xstar" title="Link to this equation">¶</a></span>\[\begin{split}\begin{aligned}    &amp;\|\mathbf{x}_{t+1} - \mathbf{x}^*\|^2 \\ =&amp; \|\mathbf{x}_{t} - \eta_t \partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x}) - \mathbf{x}^*\|^2 \\    =&amp; \|\mathbf{x}_{t} - \mathbf{x}^*\|^2 + \eta_t^2 \|\partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x})\|^2 - 2 \eta_t    \left\langle \mathbf{x}_t - \mathbf{x}^*, \partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x})\right\rangle.   \end{aligned}\end{split}\]</div>
+<span class="eqno">(12.4.8)<a class="headerlink" href="#equation-eq-sgd-xt-1-xstar" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{aligned}    &amp;\|\mathbf{x}_{t+1} - \mathbf{x}^*\|^2 \\ =&amp; \|\mathbf{x}_{t} - \eta_t \partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x}) - \mathbf{x}^*\|^2 \\    =&amp; \|\mathbf{x}_{t} - \mathbf{x}^*\|^2 + \eta_t^2 \|\partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x})\|^2 - 2 \eta_t    \left\langle \mathbf{x}_t - \mathbf{x}^*, \partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x})\right\rangle.   \end{aligned}\end{split}\]</div>
 <p>We assume that the <span class="math notranslate nohighlight">\(\ell_2\)</span> norm of stochastic gradient
 <span class="math notranslate nohighlight">\(\partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x})\)</span> is bounded
 by some constant <span class="math notranslate nohighlight">\(L\)</span>, hence we have that</p>
 <div class="math notranslate nohighlight" id="equation-eq-sgd-l">
-<span class="eqno">(12.4.9)<a class="headerlink" href="#equation-eq-sgd-l" title="Link to this equation">¶</a></span>\[\eta_t^2 \|\partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x})\|^2 \leq \eta_t^2 L^2.\]</div>
+<span class="eqno">(12.4.9)<a class="headerlink" href="#equation-eq-sgd-l" title="Permalink to this equation">¶</a></span>\[\eta_t^2 \|\partial_\mathbf{x} f(\boldsymbol{\xi}_t, \mathbf{x})\|^2 \leq \eta_t^2 L^2.\]</div>
 <p>We are mostly interested in how the distance between
 <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x}^*\)</span> changes <em>in expectation</em>.
 In fact, for any specific sequence of steps the distance might well
@@ -795,42 +795,42 @@ function <span class="math notranslate nohighlight">\(f\)</span> it holds that
 <span class="math notranslate nohighlight">\(f(\mathbf{y}) \geq f(\mathbf{x}) + \langle f'(\mathbf{x}), \mathbf{y} - \mathbf{x} \rangle\)</span>
 for all <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, by convexity we have</p>
 <div class="math notranslate nohighlight" id="equation-eq-sgd-f-xi-xstar">
-<span class="eqno">(12.4.10)<a class="headerlink" href="#equation-eq-sgd-f-xi-xstar" title="Link to this equation">¶</a></span>\[f(\boldsymbol{\xi}_t, \mathbf{x}^*) \geq f(\boldsymbol{\xi}_t, \mathbf{x}_t) + \left\langle \mathbf{x}^* - \mathbf{x}_t, \partial_{\mathbf{x}} f(\boldsymbol{\xi}_t, \mathbf{x}_t) \right\rangle.\]</div>
+<span class="eqno">(12.4.10)<a class="headerlink" href="#equation-eq-sgd-f-xi-xstar" title="Permalink to this equation">¶</a></span>\[f(\boldsymbol{\xi}_t, \mathbf{x}^*) \geq f(\boldsymbol{\xi}_t, \mathbf{x}_t) + \left\langle \mathbf{x}^* - \mathbf{x}_t, \partial_{\mathbf{x}} f(\boldsymbol{\xi}_t, \mathbf{x}_t) \right\rangle.\]</div>
 <p>Plugging both inequalities <a class="reference internal" href="#equation-eq-sgd-l">(12.4.9)</a> and
 <a class="reference internal" href="#equation-eq-sgd-f-xi-xstar">(12.4.10)</a> into <a class="reference internal" href="#equation-eq-sgd-xt-1-xstar">(12.4.8)</a> we obtain
 a bound on the distance between parameters at time <span class="math notranslate nohighlight">\(t+1\)</span> as
 follows:</p>
 <div class="math notranslate nohighlight" id="equation-eqref-sgd-xt-diff">
-<span class="eqno">(12.4.11)<a class="headerlink" href="#equation-eqref-sgd-xt-diff" title="Link to this equation">¶</a></span>\[\|\mathbf{x}_{t} - \mathbf{x}^*\|^2 - \|\mathbf{x}_{t+1} - \mathbf{x}^*\|^2 \geq 2 \eta_t (f(\boldsymbol{\xi}_t, \mathbf{x}_t) - f(\boldsymbol{\xi}_t, \mathbf{x}^*)) - \eta_t^2 L^2.\]</div>
+<span class="eqno">(12.4.11)<a class="headerlink" href="#equation-eqref-sgd-xt-diff" title="Permalink to this equation">¶</a></span>\[\|\mathbf{x}_{t} - \mathbf{x}^*\|^2 - \|\mathbf{x}_{t+1} - \mathbf{x}^*\|^2 \geq 2 \eta_t (f(\boldsymbol{\xi}_t, \mathbf{x}_t) - f(\boldsymbol{\xi}_t, \mathbf{x}^*)) - \eta_t^2 L^2.\]</div>
 <p>This means that we make progress as long as the difference between
 current loss and the optimal loss outweighs <span class="math notranslate nohighlight">\(\eta_t L^2/2\)</span>. Since
 this difference is bound to converge to zero it follows that the
 learning rate <span class="math notranslate nohighlight">\(\eta_t\)</span> also needs to <em>vanish</em>.</p>
 <p>Next we take expectations over <a class="reference internal" href="#equation-eqref-sgd-xt-diff">(12.4.11)</a>. This yields</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-7">
-<span class="eqno">(12.4.12)<a class="headerlink" href="#equation-chapter-optimization-sgd-7" title="Link to this equation">¶</a></span>\[E\left[\|\mathbf{x}_{t} - \mathbf{x}^*\|^2\right] - E\left[\|\mathbf{x}_{t+1} - \mathbf{x}^*\|^2\right] \geq 2 \eta_t [E[R(\mathbf{x}_t)] - R^*] -  \eta_t^2 L^2.\]</div>
+<span class="eqno">(12.4.12)<a class="headerlink" href="#equation-chapter-optimization-sgd-7" title="Permalink to this equation">¶</a></span>\[E\left[\|\mathbf{x}_{t} - \mathbf{x}^*\|^2\right] - E\left[\|\mathbf{x}_{t+1} - \mathbf{x}^*\|^2\right] \geq 2 \eta_t [E[R(\mathbf{x}_t)] - R^*] -  \eta_t^2 L^2.\]</div>
 <p>The last step involves summing over the inequalities for
 <span class="math notranslate nohighlight">\(t \in \{1, \ldots, T\}\)</span>. Since the sum telescopes and by dropping
 the lower term we obtain</p>
 <div class="math notranslate nohighlight" id="equation-eq-sgd-x1-xstar">
-<span class="eqno">(12.4.13)<a class="headerlink" href="#equation-eq-sgd-x1-xstar" title="Link to this equation">¶</a></span>\[\|\mathbf{x}_1 - \mathbf{x}^*\|^2 \geq 2 \left (\sum_{t=1}^T   \eta_t \right) [E[R(\mathbf{x}_t)] - R^*] - L^2 \sum_{t=1}^T \eta_t^2.\]</div>
+<span class="eqno">(12.4.13)<a class="headerlink" href="#equation-eq-sgd-x1-xstar" title="Permalink to this equation">¶</a></span>\[\|\mathbf{x}_1 - \mathbf{x}^*\|^2 \geq 2 \left (\sum_{t=1}^T   \eta_t \right) [E[R(\mathbf{x}_t)] - R^*] - L^2 \sum_{t=1}^T \eta_t^2.\]</div>
 <p>Note that we exploited that <span class="math notranslate nohighlight">\(\mathbf{x}_1\)</span> is given and thus the
 expectation can be dropped. Last define</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-8">
-<span class="eqno">(12.4.14)<a class="headerlink" href="#equation-chapter-optimization-sgd-8" title="Link to this equation">¶</a></span>\[\bar{\mathbf{x}} \stackrel{\textrm{def}}{=} \frac{\sum_{t=1}^T \eta_t \mathbf{x}_t}{\sum_{t=1}^T \eta_t}.\]</div>
+<span class="eqno">(12.4.14)<a class="headerlink" href="#equation-chapter-optimization-sgd-8" title="Permalink to this equation">¶</a></span>\[\bar{\mathbf{x}} \stackrel{\textrm{def}}{=} \frac{\sum_{t=1}^T \eta_t \mathbf{x}_t}{\sum_{t=1}^T \eta_t}.\]</div>
 <p>Since</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-9">
-<span class="eqno">(12.4.15)<a class="headerlink" href="#equation-chapter-optimization-sgd-9" title="Link to this equation">¶</a></span>\[E\left(\frac{\sum_{t=1}^T \eta_t R(\mathbf{x}_t)}{\sum_{t=1}^T \eta_t}\right) = \frac{\sum_{t=1}^T \eta_t E[R(\mathbf{x}_t)]}{\sum_{t=1}^T \eta_t} = E[R(\mathbf{x}_t)],\]</div>
+<span class="eqno">(12.4.15)<a class="headerlink" href="#equation-chapter-optimization-sgd-9" title="Permalink to this equation">¶</a></span>\[E\left(\frac{\sum_{t=1}^T \eta_t R(\mathbf{x}_t)}{\sum_{t=1}^T \eta_t}\right) = \frac{\sum_{t=1}^T \eta_t E[R(\mathbf{x}_t)]}{\sum_{t=1}^T \eta_t} = E[R(\mathbf{x}_t)],\]</div>
 <p>by Jensen’s inequality (setting <span class="math notranslate nohighlight">\(i=t\)</span>,
 <span class="math notranslate nohighlight">\(\alpha_i = \eta_t/\sum_{t=1}^T \eta_t\)</span> in
 <a class="reference internal" href="convexity.html#equation-eq-jensens-inequality">(12.2.3)</a>) and convexity of <span class="math notranslate nohighlight">\(R\)</span> it follows
 that <span class="math notranslate nohighlight">\(E[R(\mathbf{x}_t)] \geq E[R(\bar{\mathbf{x}})]\)</span>, thus</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-10">
-<span class="eqno">(12.4.16)<a class="headerlink" href="#equation-chapter-optimization-sgd-10" title="Link to this equation">¶</a></span>\[\sum_{t=1}^T \eta_t E[R(\mathbf{x}_t)] \geq \sum_{t=1}^T \eta_t  E\left[R(\bar{\mathbf{x}})\right].\]</div>
+<span class="eqno">(12.4.16)<a class="headerlink" href="#equation-chapter-optimization-sgd-10" title="Permalink to this equation">¶</a></span>\[\sum_{t=1}^T \eta_t E[R(\mathbf{x}_t)] \geq \sum_{t=1}^T \eta_t  E\left[R(\bar{\mathbf{x}})\right].\]</div>
 <p>Plugging this into the inequality <a class="reference internal" href="#equation-eq-sgd-x1-xstar">(12.4.13)</a> yields the
 bound</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-11">
-<span class="eqno">(12.4.17)<a class="headerlink" href="#equation-chapter-optimization-sgd-11" title="Link to this equation">¶</a></span>\[\left[E[\bar{\mathbf{x}}]\right] - R^* \leq \frac{r^2 + L^2 \sum_{t=1}^T \eta_t^2}{2 \sum_{t=1}^T \eta_t},\]</div>
+<span class="eqno">(12.4.17)<a class="headerlink" href="#equation-chapter-optimization-sgd-11" title="Permalink to this equation">¶</a></span>\[\left[E[\bar{\mathbf{x}}]\right] - R^* \leq \frac{r^2 + L^2 \sum_{t=1}^T \eta_t^2}{2 \sum_{t=1}^T \eta_t},\]</div>
 <p>where
 <span class="math notranslate nohighlight">\(r^2 \stackrel{\textrm{def}}{=} \|\mathbf{x}_1 - \mathbf{x}^*\|^2\)</span>
 is a bound on the distance between the initial choice of parameters and
@@ -846,7 +846,7 @@ a smoothed version of the optimization path. Whenever <span class="math notransl
 <span class="math notranslate nohighlight">\(\mathcal{O}(1/\sqrt{T})\)</span> to the optimal solution.</p>
 </section>
 <section id="stochastic-gradients-and-finite-samples">
-<h2><span class="section-number">12.4.4. </span>Stochastic Gradients and Finite Samples<a class="headerlink" href="#stochastic-gradients-and-finite-samples" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.4.4. </span>Stochastic Gradients and Finite Samples<a class="headerlink" href="#stochastic-gradients-and-finite-samples" title="Permalink to this heading">¶</a></h2>
 <p>So far we have played a bit fast and loose when it comes to talking
 about stochastic gradient descent. We posited that we draw instances
 <span class="math notranslate nohighlight">\(x_i\)</span>, typically with labels <span class="math notranslate nohighlight">\(y_i\)</span> from some distribution
@@ -867,11 +867,11 @@ we are sampling <span class="math notranslate nohighlight">\(n\)</span> observat
 <em>with replacement</em>. The probability of choosing an element <span class="math notranslate nohighlight">\(i\)</span> at
 random is <span class="math notranslate nohighlight">\(1/n\)</span>. Thus to choose it <em>at least</em> once is</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-12">
-<span class="eqno">(12.4.18)<a class="headerlink" href="#equation-chapter-optimization-sgd-12" title="Link to this equation">¶</a></span>\[P(\textrm{choose~} i) = 1 - P(\textrm{omit~} i) = 1 - (1-1/n)^n \approx 1-e^{-1} \approx 0.63.\]</div>
+<span class="eqno">(12.4.18)<a class="headerlink" href="#equation-chapter-optimization-sgd-12" title="Permalink to this equation">¶</a></span>\[P(\textrm{choose~} i) = 1 - P(\textrm{omit~} i) = 1 - (1-1/n)^n \approx 1-e^{-1} \approx 0.63.\]</div>
 <p>A similar reasoning shows that the probability of picking some sample
 (i.e., training example) <em>exactly once</em> is given by</p>
 <div class="math notranslate nohighlight" id="equation-chapter-optimization-sgd-13">
-<span class="eqno">(12.4.19)<a class="headerlink" href="#equation-chapter-optimization-sgd-13" title="Link to this equation">¶</a></span>\[{n \choose 1} \frac{1}{n} \left(1-\frac{1}{n}\right)^{n-1} = \frac{n}{n-1} \left(1-\frac{1}{n}\right)^{n} \approx e^{-1} \approx 0.37.\]</div>
+<span class="eqno">(12.4.19)<a class="headerlink" href="#equation-chapter-optimization-sgd-13" title="Permalink to this equation">¶</a></span>\[{n \choose 1} \frac{1}{n} \left(1-\frac{1}{n}\right)^{n-1} = \frac{n}{n-1} \left(1-\frac{1}{n}\right)^{n} \approx e^{-1} \approx 0.37.\]</div>
 <p>Sampling with replacement leads to an increased variance and decreased
 data efficiency relative to sampling <em>without replacement</em>. Hence, in
 practice we perform the latter (and this is the default choice
@@ -879,7 +879,7 @@ throughout this book). Last note that repeated passes through the
 training dataset traverse it in a <em>different</em> random order.</p>
 </section>
 <section id="summary">
-<h2><span class="section-number">12.4.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.4.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>For convex problems we can prove that for a wide choice of learning
 rates stochastic gradient descent will converge to the optimal
@@ -900,7 +900,7 @@ that require checking might well be exponential.</p></li>
 </ul>
 </section>
 <section id="exercises">
-<h2><span class="section-number">12.4.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">12.4.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Experiment with different learning rate schedules for stochastic
 gradient descent and with different numbers of iterations. In

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="11.4. The Bahdanau Attention Mechanism" href="bahdanau-attention.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,21 +525,20 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="attention-scoring-functions">
-<span id="sec-attention-scoring-functions"></span><h1><span class="section-number">11.3. </span>Attention Scoring Functions<a class="headerlink" href="#attention-scoring-functions" title="Link to this heading">¶</a></h1>
-<p>In <a class="reference internal" href="attention-pooling.html#sec-attention-pooling"><span class="std std-numref">11.2section</span></a>, we used a number of different
+<span id="sec-attention-scoring-functions"></span><h1><span class="section-number">11.3. </span>Attention Scoring Functions<a class="headerlink" href="#attention-scoring-functions" title="Permalink to this heading">¶</a></h1>
+<p>In <a class="reference internal" href="attention-pooling.html#sec-attention-pooling"><span class="std std-numref">Section 11.2</span></a>, we used a number of different
 distance-based kernels, including a Gaussian kernel to model
 interactions between queries and keys. As it turns out, distance
 functions are slightly more expensive to compute than dot products. As
 such, with the softmax operation to ensure nonnegative attention
 weights, much of the work has gone into <em>attention scoring functions</em>
 <span class="math notranslate nohighlight">\(a\)</span> in <a class="reference internal" href="queries-keys-values.html#equation-eq-softmax-attention">(11.1.3)</a> and
-<a class="reference internal" href="#fig-attention-output"><span class="std std-numref">figure11.3.1</span></a> that are simpler to compute.</p>
+<a class="reference internal" href="#fig-attention-output"><span class="std std-numref">Fig. 11.3.1</span></a> that are simpler to compute.</p>
 <figure class="align-default" id="id4">
-<span id="fig-attention-output"></span><img alt="../_images/attention-output.svg" src="../_images/attention-output.svg" />
-<figcaption>
-<p><span class="caption-number">figure11.3.1 </span><span class="caption-text">Computing the output of attention pooling as a weighted average of
+<span id="fig-attention-output"></span><img alt="../_images/attention-output.svg" src="../_images/attention-output.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.3.1 </span><span class="caption-text">Computing the output of attention pooling as a weighted average of
 values, where weights are computed with the attention scoring
-function <span class="math notranslate nohighlight">\(\mathit{a}\)</span> and the softmax operation.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+function <span class="math notranslate nohighlight">\(\mathit{a}\)</span> and the softmax operation.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
@@ -546,11 +548,11 @@ function <span class="math notranslate nohighlight">\(\mathit{a}\)</span> and th
 </pre></div>
 </div>
 <section id="dot-product-attention">
-<h2><span class="section-number">11.3.1. </span>Dot Product Attention<a class="headerlink" href="#dot-product-attention" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.3.1. </span>Dot Product Attention<a class="headerlink" href="#dot-product-attention" title="Permalink to this heading">¶</a></h2>
 <p>Let’s review the attention function (without exponentiation) from the
 Gaussian kernel for a moment:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-attention-mechanisms-and-transformers-attention-scoring-functions-0">
-<span class="eqno">(11.3.1)<a class="headerlink" href="#equation-chapter-attention-mechanisms-and-transformers-attention-scoring-functions-0" title="Link to this equation">¶</a></span>\[a(\mathbf{q}, \mathbf{k}_i) = -\frac{1}{2} \|\mathbf{q} - \mathbf{k}_i\|^2  = \mathbf{q}^\top \mathbf{k}_i -\frac{1}{2} \|\mathbf{k}_i\|^2  -\frac{1}{2} \|\mathbf{q}\|^2.\]</div>
+<span class="eqno">(11.3.1)<a class="headerlink" href="#equation-chapter-attention-mechanisms-and-transformers-attention-scoring-functions-0" title="Permalink to this equation">¶</a></span>\[a(\mathbf{q}, \mathbf{k}_i) = -\frac{1}{2} \|\mathbf{q} - \mathbf{k}_i\|^2  = \mathbf{q}^\top \mathbf{k}_i -\frac{1}{2} \|\mathbf{k}_i\|^2  -\frac{1}{2} \|\mathbf{q}\|^2.\]</div>
 <p>First, note that the final term depends on <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> only. As
 such it is identical for all <span class="math notranslate nohighlight">\((\mathbf{q}, \mathbf{k}_i)\)</span> pairs.
 Normalizing the attention weights to <span class="math notranslate nohighlight">\(1\)</span>, as is done in
@@ -574,28 +576,28 @@ scoring function. That is, we rescale the dot product by
 function that is used, e.g., in Transformers
 <span id="id1">()</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-dot-product-attention">
-<span class="eqno">(11.3.2)<a class="headerlink" href="#equation-eq-dot-product-attention" title="Link to this equation">¶</a></span>\[a(\mathbf{q}, \mathbf{k}_i) = \mathbf{q}^\top \mathbf{k}_i / \sqrt{d}.\]</div>
+<span class="eqno">(11.3.2)<a class="headerlink" href="#equation-eq-dot-product-attention" title="Permalink to this equation">¶</a></span>\[a(\mathbf{q}, \mathbf{k}_i) = \mathbf{q}^\top \mathbf{k}_i / \sqrt{d}.\]</div>
 <p>Note that attention weights <span class="math notranslate nohighlight">\(\alpha\)</span> still need normalizing. We
 can simplify this further via <a class="reference internal" href="queries-keys-values.html#equation-eq-softmax-attention">(11.1.3)</a> by using
 the softmax operation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-attn-scoring-alpha">
-<span class="eqno">(11.3.3)<a class="headerlink" href="#equation-eq-attn-scoring-alpha" title="Link to this equation">¶</a></span>\[\alpha(\mathbf{q}, \mathbf{k}_i) = \mathrm{softmax}(a(\mathbf{q}, \mathbf{k}_i)) = \frac{\exp(\mathbf{q}^\top \mathbf{k}_i / \sqrt{d})}{\sum_{j=1} \exp(\mathbf{q}^\top \mathbf{k}_j / \sqrt{d})}.\]</div>
+<span class="eqno">(11.3.3)<a class="headerlink" href="#equation-eq-attn-scoring-alpha" title="Permalink to this equation">¶</a></span>\[\alpha(\mathbf{q}, \mathbf{k}_i) = \mathrm{softmax}(a(\mathbf{q}, \mathbf{k}_i)) = \frac{\exp(\mathbf{q}^\top \mathbf{k}_i / \sqrt{d})}{\sum_{j=1} \exp(\mathbf{q}^\top \mathbf{k}_j / \sqrt{d})}.\]</div>
 <p>As it turns out, all popular attention mechanisms use the softmax, hence
 we will limit ourselves to that in the remainder of this chapter.</p>
 </section>
 <section id="convenience-functions">
-<h2><span class="section-number">11.3.2. </span>Convenience Functions<a class="headerlink" href="#convenience-functions" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.3.2. </span>Convenience Functions<a class="headerlink" href="#convenience-functions" title="Permalink to this heading">¶</a></h2>
 <p>We need a few functions to make the attention mechanism efficient to
 deploy. This includes tools for dealing with strings of variable lengths
 (common for natural language processing) and tools for efficient
 evaluation on minibatches (batch matrix multiplication).</p>
 <section id="masked-softmax-operation">
-<h3><span class="section-number">11.3.2.1. </span>Masked Softmax Operation<a class="headerlink" href="#masked-softmax-operation" title="Link to this heading">¶</a></h3>
+<h3><span class="section-number">11.3.2.1. </span>Masked Softmax Operation<a class="headerlink" href="#masked-softmax-operation" title="Permalink to this heading">¶</a></h3>
 <p>One of the most popular applications of the attention mechanism is to
 sequence models. Hence we need to be able to deal with sequences of
 different lengths. In some cases, such sequences may end up in the same
 minibatch, necessitating padding with dummy tokens for shorter sequences
-(see <a class="reference internal" href="../chapter_recurrent-modern/machine-translation-and-dataset.html#sec-machine-translation"><span class="std std-numref">10.4section</span></a> for an example). These special
+(see <a class="reference internal" href="../chapter_recurrent-modern/machine-translation-and-dataset.html#sec-machine-translation"><span class="std std-numref">Section 10.4</span></a> for an example). These special
 tokens do not carry meaning. For instance, assume that we have the
 following three sentences:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dive</span>  <span class="n">into</span>  <span class="n">Deep</span>    <span class="n">Learning</span>
@@ -670,17 +672,17 @@ two-dimensional tensor of valid lengths. This yields:</p>
 </div>
 </section>
 <section id="batch-matrix-multiplication">
-<span id="subsec-batch-dot"></span><h3><span class="section-number">11.3.2.2. </span>Batch Matrix Multiplication<a class="headerlink" href="#batch-matrix-multiplication" title="Link to this heading">¶</a></h3>
+<span id="subsec-batch-dot"></span><h3><span class="section-number">11.3.2.2. </span>Batch Matrix Multiplication<a class="headerlink" href="#batch-matrix-multiplication" title="Permalink to this heading">¶</a></h3>
 <p>Another commonly used operation is to multiply batches of matrices by
 one another. This comes in handy when we have minibatches of queries,
 keys, and values. More specifically, assume that</p>
 <div class="math notranslate nohighlight" id="equation-chapter-attention-mechanisms-and-transformers-attention-scoring-functions-1">
-<span class="eqno">(11.3.4)<a class="headerlink" href="#equation-chapter-attention-mechanisms-and-transformers-attention-scoring-functions-1" title="Link to this equation">¶</a></span>\[\begin{split}\mathbf{Q} = [\mathbf{Q}_1, \mathbf{Q}_2, \ldots, \mathbf{Q}_n]  \in \mathbb{R}^{n \times a \times b}, \\
+<span class="eqno">(11.3.4)<a class="headerlink" href="#equation-chapter-attention-mechanisms-and-transformers-attention-scoring-functions-1" title="Permalink to this equation">¶</a></span>\[\begin{split}\mathbf{Q} = [\mathbf{Q}_1, \mathbf{Q}_2, \ldots, \mathbf{Q}_n]  \in \mathbb{R}^{n \times a \times b}, \\
     \mathbf{K} = [\mathbf{K}_1, \mathbf{K}_2, \ldots, \mathbf{K}_n]  \in \mathbb{R}^{n \times b \times c}.\end{split}\]</div>
 <p>Then the batch matrix multiplication (BMM) computes the elementwise
 product</p>
 <div class="math notranslate nohighlight" id="equation-eq-batch-matrix-mul">
-<span class="eqno">(11.3.5)<a class="headerlink" href="#equation-eq-batch-matrix-mul" title="Link to this equation">¶</a></span>\[\textrm{BMM}(\mathbf{Q}, \mathbf{K}) = [\mathbf{Q}_1 \mathbf{K}_1, \mathbf{Q}_2 \mathbf{K}_2, \ldots, \mathbf{Q}_n \mathbf{K}_n] \in \mathbb{R}^{n \times a \times c}.\]</div>
+<span class="eqno">(11.3.5)<a class="headerlink" href="#equation-eq-batch-matrix-mul" title="Permalink to this equation">¶</a></span>\[\textrm{BMM}(\mathbf{Q}, \mathbf{K}) = [\mathbf{Q}_1 \mathbf{K}_1, \mathbf{Q}_2 \mathbf{K}_2, \ldots, \mathbf{Q}_n \mathbf{K}_n] \in \mathbb{R}^{n \times a \times c}.\]</div>
 <p>Let’s see this in action in a deep learning framework.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">K</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -690,7 +692,7 @@ product</p>
 </section>
 </section>
 <section id="scaled-dot-product-attention">
-<h2><span class="section-number">11.3.3. </span>Scaled Dot Product Attention<a class="headerlink" href="#scaled-dot-product-attention" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.3.3. </span>Scaled Dot Product Attention<a class="headerlink" href="#scaled-dot-product-attention" title="Permalink to this heading">¶</a></h2>
 <p>Let’s return to the dot product attention introduced in
 <a class="reference internal" href="#equation-eq-dot-product-attention">(11.3.2)</a>. In general, it requires that both
 the query and the key have the same vector length, say <span class="math notranslate nohighlight">\(d\)</span>, even
@@ -707,7 +709,7 @@ where queries and keys are of length <span class="math notranslate nohighlight">
 <span class="math notranslate nohighlight">\(\mathbf K\in\mathbb R^{m\times d}\)</span>, and values
 <span class="math notranslate nohighlight">\(\mathbf V\in\mathbb R^{m\times v}\)</span> thus can be written as</p>
 <div class="math notranslate nohighlight" id="equation-eq-softmax-qk-v">
-<span class="eqno">(11.3.6)<a class="headerlink" href="#equation-eq-softmax-qk-v" title="Link to this equation">¶</a></span>\[\mathrm{softmax}\left(\frac{\mathbf Q \mathbf K^\top }{\sqrt{d}}\right) \mathbf V \in \mathbb{R}^{n\times v}.\]</div>
+<span class="eqno">(11.3.6)<a class="headerlink" href="#equation-eq-softmax-qk-v" title="Permalink to this equation">¶</a></span>\[\mathrm{softmax}\left(\frac{\mathbf Q \mathbf K^\top }{\sqrt{d}}\right) \mathbf V \in \mathbb{R}^{n\times v}.\]</div>
 <p>Note that when applying this to a minibatch, we need the batch matrix
 multiplication introduced in <a class="reference internal" href="#equation-eq-batch-matrix-mul">(11.3.5)</a>. In the
 following implementation of the scaled dot product attention, we use
@@ -761,11 +763,10 @@ valid length to <span class="math notranslate nohighlight">\(2\)</span> and <spa
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_attention-scoring-functions_401b68_15_0.svg" src="../_images/output_attention-scoring-functions_401b68_15_0.svg" />
-</figure>
+<img alt="../_images/output_attention-scoring-functions_401b68_15_0.svg" src="../_images/output_attention-scoring-functions_401b68_15_0.svg" /></figure>
 </section>
 <section id="additive-attention">
-<span id="subsec-additive-attention"></span><h2><span class="section-number">11.3.4. </span>Additive Attention<a class="headerlink" href="#additive-attention" title="Link to this heading">¶</a></h2>
+<span id="subsec-additive-attention"></span><h2><span class="section-number">11.3.4. </span>Additive Attention<a class="headerlink" href="#additive-attention" title="Permalink to this heading">¶</a></h2>
 <p>When queries <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> and keys <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> are vectors
 of different dimension, we can either use a matrix to address the
 mismatch via <span class="math notranslate nohighlight">\(\mathbf{q}^\top \mathbf{M} \mathbf{k}\)</span>, or we can
@@ -776,7 +777,7 @@ minor computational savings. Given a query
 <span class="math notranslate nohighlight">\(\mathbf{k} \in \mathbb{R}^k\)</span>, the <em>additive attention</em> scoring
 function <span id="id2">()</span> is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-additive-attn">
-<span class="eqno">(11.3.7)<a class="headerlink" href="#equation-eq-additive-attn" title="Link to this equation">¶</a></span>\[a(\mathbf q, \mathbf k) = \mathbf w_v^\top \textrm{tanh}(\mathbf W_q\mathbf q + \mathbf W_k \mathbf k) \in \mathbb{R},\]</div>
+<span class="eqno">(11.3.7)<a class="headerlink" href="#equation-eq-additive-attn" title="Permalink to this equation">¶</a></span>\[a(\mathbf q, \mathbf k) = \mathbf w_v^\top \textrm{tanh}(\mathbf W_q\mathbf q + \mathbf W_k \mathbf k) \in \mathbb{R},\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf W_q\in\mathbb R^{h\times q}\)</span>,
 <span class="math notranslate nohighlight">\(\mathbf W_k\in\mathbb R^{h\times k}\)</span>, and
 <span class="math notranslate nohighlight">\(\mathbf w_v\in\mathbb R^{h}\)</span> are the learnable parameters. This
@@ -838,11 +839,10 @@ only terms within the chosen valid length <span class="math notranslate nohighli
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_attention-scoring-functions_401b68_21_0.svg" src="../_images/output_attention-scoring-functions_401b68_21_0.svg" />
-</figure>
+<img alt="../_images/output_attention-scoring-functions_401b68_21_0.svg" src="../_images/output_attention-scoring-functions_401b68_21_0.svg" /></figure>
 </section>
 <section id="summary">
-<h2><span class="section-number">11.3.5. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.3.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>In this section we introduced the two key attention scoring functions:
 dot product and additive attention. They are effective tools for
 aggregating across sequences of variable length. In particular, the dot
@@ -857,7 +857,7 @@ variants of the attention mechanism. We will dive into this in quite a
 bit more detail as we review Transformers in later sections.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">11.3.6. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">11.3.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Implement distance-based attention by modifying the
 <code class="docutils literal notranslate"><span class="pre">DotProductAttention</span></code> code. Note that you only need the squared

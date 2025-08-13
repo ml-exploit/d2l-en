@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="8.5. Densely Connected Networks (DenseNet)" href="densenet.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -153,11 +154,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -296,7 +298,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -318,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -360,11 +361,12 @@ Show Source
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_linear-classification/index.html">4. Linear Neural Networks for Classification</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression.html">4.1. Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.2. The Base Classification Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.3. Softmax Regression Implementation from Scratch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.4. Concise Implementation of Softmax Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.5. Generalization in Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.6. Environment and Distribution Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/image-classification-dataset.html">4.2. The Image Classification Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/classification.html">4.3. The Base Classification Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-scratch.html">4.4. Softmax Regression Implementation from Scratch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/softmax-regression-concise.html">4.5. Concise Implementation of Softmax Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/generalization-classification.html">4.6. Generalization in Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_linear-classification/environment-and-distribution-shift.html">4.7. Environment and Distribution Shift</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_multilayer-perceptrons/index.html">5. Multilayer Perceptrons</a><ul>
@@ -503,7 +505,8 @@ Show Source
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-intro.html">18.1. What Is Hyperparameter Optimization?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/hyperopt-api.html">18.2. Hyperparameter Optimization API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/rs-async.html">18.3. Asynchronous Random Search</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.4. Asynchronous Successive Halving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-intro.html">18.4. Multi-Fidelity Hyperparameter Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter_hyperparameter-optimization/sh-async.html">18.5. Asynchronous Successive Halving</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../chapter_appendix-tools-for-deep-learning/index.html">19. Appendix: Tools for Deep Learning</a><ul>
@@ -522,7 +525,7 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="residual-networks-resnet-and-resnext">
-<span id="sec-resnet"></span><h1><span class="section-number">8.4. </span>Residual Networks (ResNet) and ResNeXt<a class="headerlink" href="#residual-networks-resnet-and-resnext" title="Link to this heading">¶</a></h1>
+<span id="sec-resnet"></span><h1><span class="section-number">8.4. </span>Residual Networks (ResNet) and ResNeXt<a class="headerlink" href="#residual-networks-resnet-and-resnext" title="Permalink to this heading">¶</a></h1>
 <p>As we design ever deeper networks it becomes imperative to understand
 how adding layers can increase the complexity and expressiveness of the
 network. Even more important is the ability to design networks where
@@ -534,7 +537,7 @@ different. To make some progress we need a bit of mathematics.</p>
 </pre></div>
 </div>
 <section id="function-classes">
-<h2><span class="section-number">8.4.1. </span>Function Classes<a class="headerlink" href="#function-classes" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.4.1. </span>Function Classes<a class="headerlink" href="#function-classes" title="Permalink to this heading">¶</a></h2>
 <p>Consider <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, the class of functions that a specific
 network architecture (together with learning rates and other
 hyperparameter settings) can reach. That is, for all
@@ -548,7 +551,7 @@ try to find some <span class="math notranslate nohighlight">\(f^*_\mathcal{F}\)<
 <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> and labels <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, we might try finding
 it by solving the following optimization problem:</p>
 <div class="math notranslate nohighlight" id="equation-chapter-convolutional-modern-resnet-0">
-<span class="eqno">(8.4.1)<a class="headerlink" href="#equation-chapter-convolutional-modern-resnet-0" title="Link to this equation">¶</a></span>\[f^*_\mathcal{F} \stackrel{\textrm{def}}{=} \mathop{\mathrm{argmin}}_f L(\mathbf{X}, \mathbf{y}, f) \textrm{ subject to } f \in \mathcal{F}.\]</div>
+<span class="eqno">(8.4.1)<a class="headerlink" href="#equation-chapter-convolutional-modern-resnet-0" title="Permalink to this equation">¶</a></span>\[f^*_\mathcal{F} \stackrel{\textrm{def}}{=} \mathop{\mathrm{argmin}}_f L(\mathbf{X}, \mathbf{y}, f) \textrm{ subject to } f \in \mathcal{F}.\]</div>
 <p>We know that regularization
 <span id="id1">()</span> may control
 complexity of <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> and achieve consistency, so a larger
@@ -559,24 +562,23 @@ outcome. In other words, we would expect that <span class="math notranslate nohi
 is “better” than <span class="math notranslate nohighlight">\(f^*_{\mathcal{F}}\)</span>. However, if
 <span class="math notranslate nohighlight">\(\mathcal{F} \not\subseteq \mathcal{F}'\)</span> there is no guarantee
 that this should even happen. In fact, <span class="math notranslate nohighlight">\(f^*_{\mathcal{F}'}\)</span> might
-well be worse. As illustrated by <a class="reference internal" href="#fig-functionclasses"><span class="std std-numref">figure8.4.1</span></a>, for
+well be worse. As illustrated by <a class="reference internal" href="#fig-functionclasses"><span class="std std-numref">Fig. 8.4.1</span></a>, for
 non-nested function classes, a larger function class does not always
 move closer to the “truth” function <span class="math notranslate nohighlight">\(f^*\)</span>. For instance, on the
-left of <a class="reference internal" href="#fig-functionclasses"><span class="std std-numref">figure8.4.1</span></a>, though <span class="math notranslate nohighlight">\(\mathcal{F}_3\)</span> is
+left of <a class="reference internal" href="#fig-functionclasses"><span class="std std-numref">Fig. 8.4.1</span></a>, though <span class="math notranslate nohighlight">\(\mathcal{F}_3\)</span> is
 closer to <span class="math notranslate nohighlight">\(f^*\)</span> than <span class="math notranslate nohighlight">\(\mathcal{F}_1\)</span>, <span class="math notranslate nohighlight">\(\mathcal{F}_6\)</span>
 moves away and there is no guarantee that further increasing the
 complexity can reduce the distance from <span class="math notranslate nohighlight">\(f^*\)</span>. With nested
 function classes where
 <span class="math notranslate nohighlight">\(\mathcal{F}_1 \subseteq \cdots \subseteq \mathcal{F}_6\)</span> on the
-right of <a class="reference internal" href="#fig-functionclasses"><span class="std std-numref">figure8.4.1</span></a>, we can avoid the
+right of <a class="reference internal" href="#fig-functionclasses"><span class="std std-numref">Fig. 8.4.1</span></a>, we can avoid the
 aforementioned issue from the non-nested function classes.</p>
 <figure class="align-default" id="id17">
-<span id="fig-functionclasses"></span><img alt="../_images/functionclasses.svg" src="../_images/functionclasses.svg" />
-<figcaption>
-<p><span class="caption-number">figure8.4.1 </span><span class="caption-text">For non-nested function classes, a larger (indicated by area)
+<span id="fig-functionclasses"></span><img alt="../_images/functionclasses.svg" src="../_images/functionclasses.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.4.1 </span><span class="caption-text">For non-nested function classes, a larger (indicated by area)
 function class does not guarantee we will get closer to the “truth”
 function (<span class="math notranslate nohighlight">\(\mathit{f}^*\)</span>). This does not happen in nested
-function classes.</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+function classes.</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Thus, only if larger function classes contain the smaller ones are we
@@ -607,9 +609,9 @@ residual networks are predated by highway networks
 albeit without the elegant parametrization around the identity function.</p>
 </section>
 <section id="residual-blocks">
-<span id="subsec-residual-blks"></span><h2><span class="section-number">8.4.2. </span>Residual Blocks<a class="headerlink" href="#residual-blocks" title="Link to this heading">¶</a></h2>
+<span id="subsec-residual-blks"></span><h2><span class="section-number">8.4.2. </span>Residual Blocks<a class="headerlink" href="#residual-blocks" title="Permalink to this heading">¶</a></h2>
 <p>Let’s focus on a local part of a neural network, as depicted in
-<a class="reference internal" href="#fig-residual-block"><span class="std std-numref">figure8.4.2</span></a>. Denote the input by <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.
+<a class="reference internal" href="#fig-residual-block"><span class="std std-numref">Fig. 8.4.2</span></a>. Denote the input by <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.
 We assume that <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>, the desired underlying mapping we
 want to obtain by learning, is to be used as input to the activation
 function on the top. On the left, the portion within the dotted-line box
@@ -630,15 +632,14 @@ In fact, the residual block can be thought of as a special case of the
 multi-branch Inception block: it has two branches one of which is the
 identity mapping.</p>
 <figure class="align-default" id="id18">
-<span id="fig-residual-block"></span><img alt="../_images/residual-block.svg" src="../_images/residual-block.svg" />
-<figcaption>
-<p><span class="caption-number">figure8.4.2 </span><span class="caption-text">In a regular block (left), the portion within the dotted-line box
+<span id="fig-residual-block"></span><img alt="../_images/residual-block.svg" src="../_images/residual-block.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.4.2 </span><span class="caption-text">In a regular block (left), the portion within the dotted-line box
 must directly learn the mapping <span class="math notranslate nohighlight">\(\mathit{f}(\mathbf{x})\)</span>. In a
 residual block (right), the portion within the dotted-line box needs
 to learn the residual mapping
 <span class="math notranslate nohighlight">\(\mathit{g}(\mathbf{x}) = \mathit{f}(\mathbf{x}) - \mathbf{x}\)</span>,
 making the identity mapping
-<span class="math notranslate nohighlight">\(\mathit{f}(\mathbf{x}) = \mathbf{x}\)</span> easier to learn.</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+<span class="math notranslate nohighlight">\(\mathit{f}(\mathbf{x}) = \mathbf{x}\)</span> easier to learn.</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>ResNet has VGG’s full <span class="math notranslate nohighlight">\(3\times 3\)</span> convolutional layer design. The
@@ -682,13 +683,12 @@ below.</p>
 the output before applying the ReLU nonlinearity whenever
 <code class="docutils literal notranslate"><span class="pre">use_1x1conv=False</span></code>; and one where we adjust channels and resolution
 by means of a <span class="math notranslate nohighlight">\(1 \times 1\)</span> convolution before adding.
-<a class="reference internal" href="#fig-resnet-block"><span class="std std-numref">figure8.4.3</span></a> illustrates this.</p>
+<a class="reference internal" href="#fig-resnet-block"><span class="std std-numref">Fig. 8.4.3</span></a> illustrates this.</p>
 <figure class="align-default" id="id19">
-<span id="fig-resnet-block"></span><img alt="../_images/resnet-block.svg" src="../_images/resnet-block.svg" />
-<figcaption>
-<p><span class="caption-number">figure8.4.3 </span><span class="caption-text">ResNet block with and without <span class="math notranslate nohighlight">\(1 \times 1\)</span> convolution, which
+<span id="fig-resnet-block"></span><img alt="../_images/resnet-block.svg" src="../_images/resnet-block.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.4.3 </span><span class="caption-text">ResNet block with and without <span class="math notranslate nohighlight">\(1 \times 1\)</span> convolution, which
 transforms the input into the desired shape for the addition
-operation.</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+operation.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Now let’s look at a situation where the input and output are of the same
@@ -715,7 +715,7 @@ dimensionality via <code class="docutils literal notranslate"><span class="pre">
 </div>
 </section>
 <section id="resnet-model">
-<h2><span class="section-number">8.4.3. </span>ResNet Model<a class="headerlink" href="#resnet-model" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.4.3. </span>ResNet Model<a class="headerlink" href="#resnet-model" title="Permalink to this heading">¶</a></h2>
 <p>The first two layers of ResNet are the same as those of the GoogLeNet we
 described before: the <span class="math notranslate nohighlight">\(7\times 7\)</span> convolutional layer with 64
 output channels and a stride of 2 is followed by the <span class="math notranslate nohighlight">\(3\times 3\)</span>
@@ -777,12 +777,11 @@ residual blocks in the module, we can create different ResNet models,
 such as the deeper 152-layer ResNet-152. Although the main architecture
 of ResNet is similar to that of GoogLeNet, ResNet’s structure is simpler
 and easier to modify. All these factors have resulted in the rapid and
-widespread use of ResNet. <a class="reference internal" href="#fig-resnet18"><span class="std std-numref">figure8.4.4</span></a> depicts the full
+widespread use of ResNet. <a class="reference internal" href="#fig-resnet18"><span class="std std-numref">Fig. 8.4.4</span></a> depicts the full
 ResNet-18.</p>
 <figure class="align-default" id="id20">
-<span id="fig-resnet18"></span><img alt="../_images/resnet18-90.svg" src="../_images/resnet18-90.svg" />
-<figcaption>
-<p><span class="caption-number">figure8.4.4 </span><span class="caption-text">The ResNet-18 architecture.</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+<span id="fig-resnet18"></span><img alt="../_images/resnet18-90.svg" src="../_images/resnet18-90.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.4.4 </span><span class="caption-text">The ResNet-18 architecture.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Before training ResNet, let’s observe how the input shape changes across
@@ -809,7 +808,7 @@ point where a global average pooling layer aggregates all features.</p>
 </div>
 </section>
 <section id="training">
-<h2><span class="section-number">8.4.4. </span>Training<a class="headerlink" href="#training" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.4.4. </span>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h2>
 <p>We train ResNet on the Fashion-MNIST dataset, just like before. ResNet
 is quite a powerful and flexible architecture. The plot capturing
 training and validation loss illustrates a significant gap between both
@@ -824,11 +823,10 @@ closing the gap and improving accuracy.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_resnet_a18853_18_0.svg" src="../_images/output_resnet_a18853_18_0.svg" />
-</figure>
+<img alt="../_images/output_resnet_a18853_18_0.svg" src="../_images/output_resnet_a18853_18_0.svg" /></figure>
 </section>
 <section id="resnext">
-<span id="subsec-resnext"></span><h2><span class="section-number">8.4.5. </span>ResNeXt<a class="headerlink" href="#resnext" title="Link to this heading">¶</a></h2>
+<span id="subsec-resnext"></span><h2><span class="section-number">8.4.5. </span>ResNeXt<a class="headerlink" href="#resnext" title="Permalink to this heading">¶</a></h2>
 <p>One of the challenges one encounters in the design of ResNet is the
 trade-off between nonlinearity and dimensionality within a given block.
 That is, we could add more nonlinearity by increasing the number of
@@ -838,23 +836,22 @@ information between blocks. Unfortunately, the latter comes with a
 quadratic penalty since the computational cost of ingesting
 <span class="math notranslate nohighlight">\(c_\textrm{i}\)</span> channels and emitting <span class="math notranslate nohighlight">\(c_\textrm{o}\)</span> channels
 is proportional to <span class="math notranslate nohighlight">\(\mathcal{O}(c_\textrm{i} \cdot c_\textrm{o})\)</span>
-(see our discussion in <a class="reference internal" href="../chapter_convolutional-neural-networks/channels.html#sec-channels"><span class="std std-numref">7.4section</span></a>).</p>
+(see our discussion in <a class="reference internal" href="../chapter_convolutional-neural-networks/channels.html#sec-channels"><span class="std std-numref">Section 7.4</span></a>).</p>
 <p>We can take some inspiration from the Inception block of
-<a class="reference internal" href="googlenet.html#fig-inception"><span class="std std-numref">figure8.2.1</span></a> which has information flowing through the
+<a class="reference internal" href="googlenet.html#fig-inception"><span class="std std-numref">Fig. 8.2.1</span></a> which has information flowing through the
 block in separate groups. Applying the idea of multiple independent
-groups to the ResNet block of <a class="reference internal" href="#fig-resnet-block"><span class="std std-numref">figure8.4.3</span></a> led to the
+groups to the ResNet block of <a class="reference internal" href="#fig-resnet-block"><span class="std std-numref">Fig. 8.4.3</span></a> led to the
 design of ResNeXt <span id="id8">()</span>. Different from
 the smorgasbord of transformations in Inception, ResNeXt adopts the
 <em>same</em> transformation in all branches, thus minimizing the need for
 manual tuning of each branch.</p>
 <figure class="align-default" id="id21">
-<span id="fig-resnext-block"></span><img alt="../_images/resnext-block.svg" src="../_images/resnext-block.svg" />
-<figcaption>
-<p><span class="caption-number">figure8.4.5 </span><span class="caption-text">The ResNeXt block. The use of grouped convolution with
+<span id="fig-resnext-block"></span><img alt="../_images/resnext-block.svg" src="../_images/resnext-block.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.4.5 </span><span class="caption-text">The ResNeXt block. The use of grouped convolution with
 <span class="math notranslate nohighlight">\(\mathit{g}\)</span> groups is <span class="math notranslate nohighlight">\(\mathit{g}\)</span> times faster than a
 dense convolution. It is a bottleneck residual block when the number
 of intermediate channels <span class="math notranslate nohighlight">\(\mathit{b}\)</span> is less than
-<span class="math notranslate nohighlight">\(\mathit{c}\)</span>.</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+<span class="math notranslate nohighlight">\(\mathit{c}\)</span>.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>Breaking up a convolution from <span class="math notranslate nohighlight">\(c_\textrm{i}\)</span> to
@@ -873,16 +870,16 @@ a <span class="math notranslate nohighlight">\(g\)</span> times reduction. In wh
 <span class="math notranslate nohighlight">\(g\)</span>.</p>
 <p>The only challenge in this design is that no information is exchanged
 between the <span class="math notranslate nohighlight">\(g\)</span> groups. The ResNeXt block of
-<a class="reference internal" href="#fig-resnext-block"><span class="std std-numref">figure8.4.5</span></a> amends this in two ways: the grouped
+<a class="reference internal" href="#fig-resnext-block"><span class="std std-numref">Fig. 8.4.5</span></a> amends this in two ways: the grouped
 convolution with a <span class="math notranslate nohighlight">\(3 \times 3\)</span> kernel is sandwiched in between
 two <span class="math notranslate nohighlight">\(1 \times 1\)</span> convolutions. The second one serves double duty
 in changing the number of channels back. The benefit is that we only pay
 the <span class="math notranslate nohighlight">\(\mathcal{O}(c \cdot b)\)</span> cost for <span class="math notranslate nohighlight">\(1 \times 1\)</span> kernels
 and can make do with an <span class="math notranslate nohighlight">\(\mathcal{O}(b^2 / g)\)</span> cost for
 <span class="math notranslate nohighlight">\(3 \times 3\)</span> kernels. Similar to the residual block implementation
-in <a class="reference internal" href="#subsec-residual-blks"><span class="std std-numref">8.4.2section</span></a>, the residual connection is replaced
+in <a class="reference internal" href="#subsec-residual-blks"><span class="std std-numref">Section 8.4.2</span></a>, the residual connection is replaced
 (thus generalized) by a <span class="math notranslate nohighlight">\(1 \times 1\)</span> convolution.</p>
-<p>The right-hand figure in <a class="reference internal" href="#fig-resnext-block"><span class="std std-numref">figure8.4.5</span></a> provides a much
+<p>The right-hand figure in <a class="reference internal" href="#fig-resnext-block"><span class="std std-numref">Fig. 8.4.5</span></a> provides a much
 more concise summary of the resulting network block. It will also play a
 major role in the design of generic modern CNNs in
 <code class="xref std std-numref docutils literal notranslate"><span class="pre">sec_cnn-design</span></code>. Note that the idea of grouped convolutions
@@ -938,7 +935,7 @@ the input and output are of the same shape. Alternatively, setting
 </div>
 </section>
 <section id="summary-and-discussion">
-<h2><span class="section-number">8.4.6. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.4.6. </span>Summary and Discussion<a class="headerlink" href="#summary-and-discussion" title="Permalink to this heading">¶</a></h2>
 <p>Nested function classes are desirable since they allow us to obtain
 strictly <em>more powerful</em> rather than also subtly <em>different</em> function
 classes when adding capacity. One way of accomplishing this is by
@@ -991,10 +988,10 @@ led to the RegNetX/Y models
 <span id="id14">()</span>.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">8.4.7. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">8.4.7. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>What are the major differences between the Inception block in
-<a class="reference internal" href="googlenet.html#fig-inception"><span class="std std-numref">figure8.2.1</span></a> and the residual block? How do they compare
+<a class="reference internal" href="googlenet.html#fig-inception"><span class="std std-numref">Fig. 8.2.1</span></a> and the residual block? How do they compare
 in terms of computation, accuracy, and the classes of functions they
 can describe?</p></li>
 <li><p>Refer to Table 1 in the ResNet paper <span id="id15">()</span>

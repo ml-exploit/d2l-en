@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="../_static/sphinx_materialdesign_theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fontawesome/all.css" type="text/css" />
     <link rel="stylesheet" href="../_static/fonts.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
-    <link rel="stylesheet" type="text/css" href="../_static/d2l.css?v=6319a5cd" />
-    <script src="../_static/documentation_options.js?v=baaebd52"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/d2l.js?v=e720e058"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/d2l.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/d2l.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="18.4. Multi-Fidelity Hyperparameter Optimization" href="sh-intro.html" />
@@ -111,9 +114,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -320,9 +321,7 @@ Show Source
           <!-- Title -->
       <span class="mdl-layout-title">
           <a class="title" href="../index.html">
-              <span class="title-text">
-                  Dive into Deep Learning
-              </span>
+              <img class="logo" src="../_static/logo-with-text.png" alt="Dive into Deep Learning"/>
           </a>
       </span>
     
@@ -526,8 +525,8 @@ Show Source
         <div class="page-content" role="main">
         
   <section id="asynchronous-random-search">
-<span id="sec-rs-async"></span><h1><span class="section-number">18.3. </span>Asynchronous Random Search<a class="headerlink" href="#asynchronous-random-search" title="Link to this heading">¶</a></h1>
-<p>As we have seen in the previous <a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">18.2section</span></a>, we might have
+<span id="sec-rs-async"></span><h1><span class="section-number">18.3. </span>Asynchronous Random Search<a class="headerlink" href="#asynchronous-random-search" title="Permalink to this heading">¶</a></h1>
+<p>As we have seen in the previous <a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">Section 18.2</span></a>, we might have
 to wait hours or even days before random search returns a good
 hyperparameter configuration, because of the expensive evaluation of
 hyperparameter configurations. In practice, we have often access to a
@@ -535,7 +534,7 @@ pool of resources such as multiple GPUs on the same machine or multiple
 machines with a single GPU. This begs the question: <em>How do we
 efficiently distribute random search?</em></p>
 <p>In general, we distinguish between synchronous and asynchronous parallel
-hyperparameter optimization (see <a class="reference internal" href="#distributed-scheduling"><span class="std std-numref">figure18.3.1</span></a>). In
+hyperparameter optimization (see <a class="reference internal" href="#distributed-scheduling"><span class="std std-numref">Fig. 18.3.1</span></a>). In
 the synchronous setting, we wait for all concurrently running trials to
 finish, before we start the next batch. Consider configuration spaces
 that contain hyperparameters such as the number of filters or number of
@@ -543,7 +542,7 @@ layers of a deep neural network. Hyperparameter configurations that
 contain a larger number of layers of filters will naturally take more
 time to finish, and all other trials in the same batch will have to wait
 at synchronisation points (grey area in
-<a class="reference internal" href="#distributed-scheduling"><span class="std std-numref">figure18.3.1</span></a>) before we can continue the
+<a class="reference internal" href="#distributed-scheduling"><span class="std std-numref">Fig. 18.3.1</span></a>) before we can continue the
 optimization process.</p>
 <p>In the asynchronous setting we immediately schedule a new trial as soon
 as resources become available. This will optimally exploit our
@@ -553,18 +552,17 @@ all others, and in particular without exploiting observations from any
 prior evaluation. This means we can trivially parallelize random search
 asynchronously. This is not straight-forward with more sophisticated
 methods that make decision based on previous observations (see
-<a class="reference internal" href="sh-async.html#sec-sh-async"><span class="std std-numref">18.5section</span></a>). While we need access to more resources than
+<a class="reference internal" href="sh-async.html#sec-sh-async"><span class="std std-numref">Section 18.5</span></a>). While we need access to more resources than
 in the sequential setting, asynchronous random search exhibits a linear
 speed-up, in that a certain performance is reached <span class="math notranslate nohighlight">\(K\)</span> times
 faster if <span class="math notranslate nohighlight">\(K\)</span> trials can be run in parallel.</p>
 <figure class="align-default" id="id2">
-<span id="distributed-scheduling"></span><img alt="img/distributed_scheduling.svg" src="img/distributed_scheduling.svg" />
-<figcaption>
-<p><span class="caption-number">figure18.3.1 </span><span class="caption-text">Distributing the hyperparameter optimization process either
+<span id="distributed-scheduling"></span><img alt="img/distributed_scheduling.svg" src="img/distributed_scheduling.svg" /><figcaption>
+<p><span class="caption-number">Fig. 18.3.1 </span><span class="caption-text">Distributing the hyperparameter optimization process either
 synchronously or asynchronously. Compared to the sequential setting,
 we can reduce the overall wall-clock time while keep the total
 compute constant. Synchronous scheduling might lead to idling workers
-in the case of stragglers.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+in the case of stragglers.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>In this notebook, we will look at asynchronous random search that, where
@@ -587,7 +585,7 @@ more about distributed HPO.</p>
 </pre></div>
 </div>
 <section id="objective-function">
-<h2><span class="section-number">18.3.1. </span>Objective Function<a class="headerlink" href="#objective-function" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.3.1. </span>Objective Function<a class="headerlink" href="#objective-function" title="Permalink to this heading">¶</a></h2>
 <p>First, we have to define a new objective function such that it now
 returns the performance back to Syne Tune via the <code class="docutils literal notranslate"><span class="pre">report</span></code> callback.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">hpo_objective_lenet_synetune</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">max_epochs</span><span class="p">):</span>
@@ -609,7 +607,7 @@ returns the performance back to Syne Tune via the <code class="docutils literal 
 imported inside the function definition.</p>
 </section>
 <section id="asynchronous-scheduler">
-<h2><span class="section-number">18.3.2. </span>Asynchronous Scheduler<a class="headerlink" href="#asynchronous-scheduler" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.3.2. </span>Asynchronous Scheduler<a class="headerlink" href="#asynchronous-scheduler" title="Permalink to this heading">¶</a></h2>
 <p>First, we define the number of workers that evaluate trials
 concurrently. We also need to specify how long we want to run random
 search, by defining an upper limit on the total wall-clock time.</p>
@@ -654,7 +652,7 @@ full instance.</p>
 </div>
 <p>We can now create the scheduler for asynchronous random search, which is
 similar in behaviour to our <code class="docutils literal notranslate"><span class="pre">BasicScheduler</span></code> from
-<a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">18.2section</span></a>.</p>
+<a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">Section 18.2</span></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scheduler</span> <span class="o">=</span> <span class="n">RandomSearch</span><span class="p">(</span>
     <span class="n">config_space</span><span class="p">,</span>
     <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;validation_error&quot;</span><span class="p">],</span>
@@ -861,11 +859,10 @@ the results obtained so far and plot the incumbent trajectory.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_rs-async_cdba80_19_0.svg" src="../_images/output_rs-async_cdba80_19_0.svg" />
-</figure>
+<img alt="../_images/output_rs-async_cdba80_19_0.svg" src="../_images/output_rs-async_cdba80_19_0.svg" /></figure>
 </section>
 <section id="visualize-the-asynchronous-optimization-process">
-<h2><span class="section-number">18.3.3. </span>Visualize the Asynchronous Optimization Process<a class="headerlink" href="#visualize-the-asynchronous-optimization-process" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.3.3. </span>Visualize the Asynchronous Optimization Process<a class="headerlink" href="#visualize-the-asynchronous-optimization-process" title="Permalink to this heading">¶</a></h2>
 <p>Below we visualize how the learning curves of every trial (each color in
 the plot represents a trial) evolve during the asynchronous optimization
 process. At any point in time, there are as many trials running
@@ -892,11 +889,10 @@ scheduling.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_rs-async_cdba80_21_1.svg" src="../_images/output_rs-async_cdba80_21_1.svg" />
-</figure>
+<img alt="../_images/output_rs-async_cdba80_21_1.svg" src="../_images/output_rs-async_cdba80_21_1.svg" /></figure>
 </section>
 <section id="summary">
-<h2><span class="section-number">18.3.4. </span>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.3.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
 <p>We can reduce the waiting time for random search substantially by
 distribution trials across parallel resources. In general, we
 distinguish between synchronous scheduling and asynchronous scheduling.
@@ -911,17 +907,17 @@ asynchronously and does not require any change of the actual algorithm,
 other methods require some additional modifications.</p>
 </section>
 <section id="exercises">
-<h2><span class="section-number">18.3.5. </span>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">18.3.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Consider the <code class="docutils literal notranslate"><span class="pre">DropoutMLP</span></code> model implemented in
-<a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html#sec-dropout"><span class="std std-numref">5.6section</span></a>, and used in Exercise 1 of
-<a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">18.2section</span></a>.</p>
+<a class="reference internal" href="../chapter_multilayer-perceptrons/dropout.html#sec-dropout"><span class="std std-numref">Section 5.6</span></a>, and used in Exercise 1 of
+<a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">Section 18.2</span></a>.</p>
 <ol class="arabic simple">
 <li><p>Implement an objective function
 <code class="docutils literal notranslate"><span class="pre">hpo_objective_dropoutmlp_synetune</span></code> to be used with Syne Tune.
 Make sure that your function reports the validation error after
 every epoch.</p></li>
-<li><p>Using the setup of Exercise 1 in <a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">18.2section</span></a>, compare
+<li><p>Using the setup of Exercise 1 in <a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">Section 18.2</span></a>, compare
 random search to Bayesian optimization. If you use SageMaker, feel
 free to use Syne Tune’s benchmarking facilities in order to run
 experiments in parallel. Hint: Bayesian optimization is provided
@@ -945,7 +941,7 @@ and
 <a class="reference external" href="https://syne-tune.readthedocs.io/en/latest/getting_started.html">syne-tune</a>
 sources.</p></li>
 <li><p>Implement the <code class="docutils literal notranslate"><span class="pre">LocalSearcher</span></code> from Exercise 2 in
-<a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">18.2section</span></a> as a new searcher in Syne Tune. Hint: Read
+<a class="reference internal" href="hyperopt-api.html#sec-api-hpo"><span class="std std-numref">Section 18.2</span></a> as a new searcher in Syne Tune. Hint: Read
 <a class="reference external" href="https://syne-tune.readthedocs.io/en/latest/tutorials/developer/README.html">this
 tutorial</a>.
 Alternatively, you may follow this
