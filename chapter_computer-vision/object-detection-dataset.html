@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -537,25 +537,6 @@ bounding boxes for those bananas on the images.</p>
 <h2><span class="section-number">13.6.1. </span>Downloading the Dataset<a class="headerlink" href="#downloading-the-dataset" title="Permalink to this heading">¶</a></h2>
 <p>The banana detection dataset with all the image and csv label files can
 be downloaded directly from the Internet.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
@@ -578,48 +559,6 @@ be downloaded directly from the Internet.</p>
 <code class="docutils literal notranslate"><span class="pre">read_data_bananas</span></code> function below. The dataset includes a csv file
 for object class labels and ground-truth bounding box coordinates at the
 upper-left and lower-right corners.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">read_data_bananas</span><span class="p">(</span><span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read the banana detection dataset images and labels.&quot;&quot;&quot;</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;banana-detection&#39;</span><span class="p">)</span>
-    <span class="n">csv_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;bananas_train&#39;</span> <span class="k">if</span> <span class="n">is_train</span>
-                             <span class="k">else</span> <span class="s1">&#39;bananas_val&#39;</span><span class="p">,</span> <span class="s1">&#39;label.csv&#39;</span><span class="p">)</span>
-    <span class="n">csv_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_fname</span><span class="p">)</span>
-    <span class="n">csv_data</span> <span class="o">=</span> <span class="n">csv_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;img_name&#39;</span><span class="p">)</span>
-    <span class="n">images</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">img_name</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">csv_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;bananas_train&#39;</span> <span class="k">if</span> <span class="n">is_train</span> <span class="k">else</span>
-                         <span class="s1">&#39;bananas_val&#39;</span><span class="p">,</span> <span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)))</span>
-        <span class="c1"># Here `target` contains (class, upper-left x, upper-left y,</span>
-        <span class="c1"># lower-right x, lower-right y), where all the images have the same</span>
-        <span class="c1"># banana class (index 0)</span>
-        <span class="n">targets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">images</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">targets</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">256</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">read_data_bananas</span><span class="p">(</span><span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read the banana detection dataset images and labels.&quot;&quot;&quot;</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;banana-detection&#39;</span><span class="p">)</span>
-    <span class="n">csv_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;bananas_train&#39;</span> <span class="k">if</span> <span class="n">is_train</span>
-                             <span class="k">else</span> <span class="s1">&#39;bananas_val&#39;</span><span class="p">,</span> <span class="s1">&#39;label.csv&#39;</span><span class="p">)</span>
-    <span class="n">csv_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_fname</span><span class="p">)</span>
-    <span class="n">csv_data</span> <span class="o">=</span> <span class="n">csv_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;img_name&#39;</span><span class="p">)</span>
-    <span class="n">images</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">img_name</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">csv_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torchvision</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_image</span><span class="p">(</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;bananas_train&#39;</span> <span class="k">if</span> <span class="n">is_train</span> <span class="k">else</span>
-                         <span class="s1">&#39;bananas_val&#39;</span><span class="p">,</span> <span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)))</span>
-        <span class="c1"># Here `target` contains (class, upper-left x, upper-left y,</span>
-        <span class="c1"># lower-right x, lower-right y), where all the images have the same</span>
-        <span class="c1"># banana class (index 0)</span>
-        <span class="n">targets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">images</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">256</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">read_data_bananas</span><span class="p">(</span><span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read the banana detection dataset images and labels.&quot;&quot;&quot;</span>
@@ -651,39 +590,6 @@ upper-left and lower-right corners.</p>
 the following <code class="docutils literal notranslate"><span class="pre">BananasDataset</span></code> class will allow us to create a
 customized <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> instance for loading the banana detection
 dataset.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">BananasDataset</span><span class="p">(</span><span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A customized dataset to load the banana detection dataset.&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_train</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">read_data_bananas</span><span class="p">(</span><span class="n">is_train</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39; training examples&#39;</span> <span class="k">if</span>
-              <span class="n">is_train</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39; validation examples&#39;</span><span class="p">))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">BananasDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A customized dataset to load the banana detection dataset.&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_train</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">read_data_bananas</span><span class="p">(</span><span class="n">is_train</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39; training examples&#39;</span> <span class="k">if</span>
-              <span class="n">is_train</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39; validation examples&#39;</span><span class="p">))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_banana_data_iter</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="n">dataset</span> <span class="o">=</span> <span class="n">dx</span><span class="o">.</span><span class="n">buffer_from_vector</span><span class="p">(</span><span class="n">read_data_bananas</span><span class="p">(</span><span class="n">is_train</span><span class="p">))</span>
@@ -702,28 +608,6 @@ dataset.</p>
 <p>Finally, we define the <code class="docutils literal notranslate"><span class="pre">load_data_bananas</span></code> function to return two data
 iterator instances for both the training and test sets. For the test
 dataset, there is no need to read it in random order.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_bananas</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the banana detection dataset.&quot;&quot;&quot;</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">BananasDataset</span><span class="p">(</span><span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-                                       <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">val_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">BananasDataset</span><span class="p">(</span><span class="n">is_train</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-                                     <span class="n">batch_size</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">val_iter</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_bananas</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the banana detection dataset.&quot;&quot;&quot;</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">BananasDataset</span><span class="p">(</span><span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-                                             <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">val_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">BananasDataset</span><span class="p">(</span><span class="n">is_train</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-                                           <span class="n">batch_size</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">val_iter</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_data_bananas</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the banana detection dataset.&quot;&quot;&quot;</span>
@@ -752,20 +636,10 @@ box for padding. The remaining four elements of the array are the
 the lower-right corner of the bounding box (the range is between 0 and
 1). For the banana dataset, since there is only one bounding box on each
 image, we have <span class="math notranslate nohighlight">\(m=1\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="n">batch_size</span><span class="p">,</span> <span class="n">edge_size</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">256</span>
-<span class="n">train_iter</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_data_bananas</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
-<span class="n">batch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_iter</span><span class="p">))</span>
-<span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span><span class="p">,</span> <span class="n">edge_size</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">256</span>
 <span class="n">train_iter</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_data_bananas</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
 <span class="n">batch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_iter</span><span class="p">))</span>
 <span class="n">batch</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">banana</span><span class="o">-</span><span class="n">detection</span><span class="o">.</span><span class="n">zip</span> <span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">d2l</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">accelerate</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">banana</span><span class="o">-</span><span class="n">detection</span><span class="o">.</span><span class="n">zip</span><span class="o">...</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">32</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -779,20 +653,6 @@ boxes. We can see that the rotations, sizes, and positions of bananas
 vary across all these images. Of course, this is just a simple
 artificial dataset. In practice, real-world datasets are usually much
 more complicated.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">imgs</span> <span class="o">=</span> <span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">255</span>
-<span class="n">axes</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="mi">10</span><span class="p">]):</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">show_bboxes</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">[</span><span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="n">edge_size</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">imgs</span> <span class="o">=</span> <span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">255</span>
-<span class="n">axes</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="mi">10</span><span class="p">]):</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">show_bboxes</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">[</span><span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="n">edge_size</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">imgs</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 <span class="n">axes</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]):</span>

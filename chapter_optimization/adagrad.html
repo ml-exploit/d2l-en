@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -701,28 +701,6 @@ trajectory of the independent variable is smoother. However, due to the
 cumulative effect of <span class="math notranslate nohighlight">\(\boldsymbol{s}_t\)</span>, the learning rate
 continuously decays, so the independent variable does not move as much
 during later stages of iteration.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensorflow</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
@@ -769,47 +747,6 @@ ensure that parameters converge appropriately.</p>
 <h2><span class="section-number">12.7.4. </span>Implementation from Scratch<a class="headerlink" href="#implementation-from-scratch" title="Permalink to this heading">¶</a></h2>
 <p>Just like the momentum method, Adagrad needs to maintain a state
 variable of the same shape as the parameters.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">init_adagrad_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">):</span>
-    <span class="n">s_w</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-    <span class="n">s_b</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">s_w</span><span class="p">,</span> <span class="n">s_b</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">adagrad</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
-    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-6</span>
-    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
-        <span class="n">s</span><span class="p">[:]</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
-        <span class="n">p</span><span class="p">[:]</span> <span class="o">-=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">init_adagrad_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">):</span>
-    <span class="n">s_w</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-    <span class="n">s_b</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">s_w</span><span class="p">,</span> <span class="n">s_b</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">adagrad</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
-    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-6</span>
-    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
-        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-            <span class="n">s</span><span class="p">[:]</span> <span class="o">+=</span> <span class="n">torch</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
-            <span class="n">p</span><span class="p">[:]</span> <span class="o">-=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">init_adagrad_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">):</span>
-    <span class="n">s_w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-    <span class="n">s_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">s_w</span><span class="p">,</span> <span class="n">s_b</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">adagrad</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">grads</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
-    <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-6</span>
-    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">grads</span><span class="p">):</span>
-        <span class="n">s</span><span class="p">[:]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
-        <span class="n">p</span><span class="p">[:]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">g</span> <span class="o">/</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_adagrad_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">):</span>
     <span class="n">s_w</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
     <span class="n">s_b</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -824,19 +761,13 @@ variable of the same shape as the parameters.</p>
 </div>
 <p>Compared to the experiment in <a class="reference internal" href="minibatch-sgd.html#sec-minibatch-sgd"><span class="std std-numref">Section 12.5</span></a> we use a
 larger learning rate to train the model.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="n">data_iter</span><span class="p">,</span> <span class="n">feature_dim</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_data_ch11</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_ch11</span><span class="p">(</span><span class="n">adagrad</span><span class="p">,</span> <span class="n">init_adagrad_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">),</span>
-               <span class="p">{</span><span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">feature_dim</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_iter</span><span class="p">,</span> <span class="n">feature_dim</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_data_ch11</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">valid_iter</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_data_ch11</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">train_ch11</span><span class="p">(</span><span class="n">adagrad</span><span class="p">,</span> <span class="n">init_adagrad_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">),</span>
                <span class="p">{</span><span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">,</span> <span class="n">feature_dim</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.242</span><span class="p">,</span> <span class="mf">0.011</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.242</span><span class="p">,</span> <span class="mf">0.010</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -846,20 +777,6 @@ larger learning rate to train the model.</p>
 <h2><span class="section-number">12.7.5. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Permalink to this heading">¶</a></h2>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> instance of the algorithm <code class="docutils literal notranslate"><span class="pre">adagrad</span></code>, we can
 invoke the Adagrad algorithm in Gluon.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="s1">&#39;adagrad&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adagrad</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adagrad</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span> <span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adagrad</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">)</span>
 </pre></div>

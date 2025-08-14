@@ -20,31 +20,6 @@ tasks.
 
 .. code:: python
 
-   #@tab mxnet
-   from d2l import mxnet as d2l
-   from mxnet import np, npx
-   import os
-
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   from d2l import torch as d2l
-   import torch
-   from torch import nn
-   import os
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     import os
     import mlx.core as mx
     from mlx import nn
@@ -138,17 +113,6 @@ specified embedding file has to be downloaded if it was not yet.
 
     glove_6b50d = TokenEmbedding('glove.6b.50d')
 
-
-.. raw:: latex
-
-   \diilbookstyleoutputcell
-
-.. parsed-literal::
-    :class: output
-
-    Downloading ../data/glove.6B.50d.zip from http://d2l-data.s3-accelerate.amazonaws.com/glove.6B.50d.zip...
-
-
 Output the vocabulary size. The vocabulary contains 400000 words
 (tokens) and a special unknown token.
 
@@ -211,35 +175,6 @@ Similar to :numref:`subsec_apply-word-embed`, in order to find
 semantically similar words for an input word based on cosine
 similarities between word vectors, we implement the following ``knn``
 (:math:`k`-nearest neighbors) function.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   def knn(W, x, k):
-       # Add 1e-9 for numerical stability
-       cos = np.dot(W, x.reshape(-1,)) / (
-           np.sqrt(np.sum(W * W, axis=1) + 1e-9) * np.sqrt((x * x).sum()))
-       topk = npx.topk(cos, k=k, ret_typ='indices')
-       return topk, [cos[int(i)] for i in topk]
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   def knn(W, x, k):
-       # Add 1e-9 for numerical stability
-       cos = torch.mv(W, x.reshape(-1,)) / (
-           torch.sqrt(torch.sum(W * W, axis=1) + 1e-9) *
-           torch.sqrt((x * x).sum()))
-       _, topk = torch.topk(cos, k=k)
-       return topk, [cos[int(i)] for i in topk]
 
 .. raw:: latex
 

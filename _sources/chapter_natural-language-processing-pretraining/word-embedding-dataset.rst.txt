@@ -20,34 +20,6 @@ iterated over during training.
 
 .. code:: python
 
-   #@tab mxnet
-   import collections
-   from d2l import mxnet as d2l
-   import math
-   from mxnet import gluon, np
-   import os
-   import random
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   import collections
-   from d2l import torch as d2l
-   import math
-   import torch
-   import os
-   import random
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     import math
     import os
     import random
@@ -224,7 +196,7 @@ For individual tokens, the sampling rate of the high-frequency word
 .. parsed-literal::
     :class: output
 
-    '"the"的数量：之前=50770, 之后=2010'
+    '"the"的数量：之前=50770, 之后=2079'
 
 
 
@@ -273,7 +245,7 @@ After subsampling, we map tokens to their indices for the corpus.
 .. parsed-literal::
     :class: output
 
-    [[], [3228, 710, 4060, 27], [3922, 1922, 4743]]
+    [[], [3228, 710, 1773], [993, 3922, 6079, 1922, 4743]]
 
 
 
@@ -336,14 +308,14 @@ print all the center words and their context words.
     :class: output
 
     dataset [[0, 1, 2, 3, 4, 5, 6], [7, 8, 9]]
-    center: 0 has context: [1]
+    center: 0 has context: [1, 2]
     center: 1 has context: [0, 2]
-    center: 2 has context: [0, 1, 3, 4]
+    center: 2 has context: [1, 3]
     center: 3 has context: [1, 2, 4, 5]
-    center: 4 has context: [3, 5]
+    center: 4 has context: [2, 3, 5, 6]
     center: 5 has context: [4, 6]
-    center: 6 has context: [4, 5]
-    center: 7 has context: [8, 9]
+    center: 6 has context: [5]
+    center: 7 has context: [8]
     center: 8 has context: [7, 9]
     center: 9 has context: [7, 8]
 
@@ -371,7 +343,7 @@ words in the dataset.
 .. parsed-literal::
     :class: output
 
-    '# center-context pairs: 1500529'
+    '# center-context pairs: 1500748'
 
 
 
@@ -432,7 +404,7 @@ For example, we can draw 10 random variables :math:`X` among indices 1,
 .. parsed-literal::
     :class: output
 
-    [1, 1, 3, 2, 3, 3, 3, 3, 1, 3]
+    [2, 1, 1, 2, 3, 3, 3, 2, 1, 2]
 
 
 
@@ -565,72 +537,6 @@ Putting It All Together
 
 Last, we define the ``load_data_ptb`` function that reads the PTB
 dataset and returns the data iterator and the vocabulary.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   #@save
-   def load_data_ptb(batch_size, max_window_size, num_noise_words):
-       """Download the PTB dataset and then load it into memory."""
-       sentences = read_ptb()
-       vocab = d2l.Vocab(sentences, min_freq=10)
-       subsampled, counter = subsample(sentences, vocab)
-       corpus = [vocab[line] for line in subsampled]
-       all_centers, all_contexts = get_centers_and_contexts(
-           corpus, max_window_size)
-       all_negatives = get_negatives(
-           all_contexts, vocab, counter, num_noise_words)
-       dataset = gluon.data.ArrayDataset(
-           all_centers, all_contexts, all_negatives)
-       data_iter = gluon.data.DataLoader(
-           dataset, batch_size, shuffle=True,batchify_fn=batchify,
-           num_workers=d2l.get_dataloader_workers())
-       return data_iter, vocab
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   #@save
-   def load_data_ptb(batch_size, max_window_size, num_noise_words):
-       """Download the PTB dataset and then load it into memory."""
-       num_workers = d2l.get_dataloader_workers()
-       sentences = read_ptb()
-       vocab = d2l.Vocab(sentences, min_freq=10)
-       subsampled, counter = subsample(sentences, vocab)
-       corpus = [vocab[line] for line in subsampled]
-       all_centers, all_contexts = get_centers_and_contexts(
-           corpus, max_window_size)
-       all_negatives = get_negatives(
-           all_contexts, vocab, counter, num_noise_words)
-
-       class PTBDataset(torch.utils.data.Dataset):
-           def __init__(self, centers, contexts, negatives):
-               assert len(centers) == len(contexts) == len(negatives)
-               self.centers = centers
-               self.contexts = contexts
-               self.negatives = negatives
-
-           def __getitem__(self, index):
-               return (self.centers[index], self.contexts[index],
-                       self.negatives[index])
-
-           def __len__(self):
-               return len(self.centers)
-
-       dataset = PTBDataset(all_centers, all_contexts, all_negatives)
-
-       data_iter = torch.utils.data.DataLoader(dataset, batch_size, shuffle=True,
-                                         collate_fn=batchify,
-                                         num_workers=num_workers)
-       return data_iter, vocab
 
 .. raw:: latex
 

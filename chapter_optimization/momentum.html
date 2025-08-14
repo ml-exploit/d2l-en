@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -608,49 +608,6 @@ stretching it out in the <span class="math notranslate nohighlight">\(x_1\)</spa
 <em>very</em> flat in the direction of <span class="math notranslate nohighlight">\(x_1\)</span>. Let’s see what happens when
 we perform gradient descent as before on this new function. We pick a
 learning rate of <span class="math notranslate nohighlight">\(0.4\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-
-<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.4</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">f_2d</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">gd_2d</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_trace_2d</span><span class="p">(</span><span class="n">f_2d</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">train_2d</span><span class="p">(</span><span class="n">gd_2d</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-
-<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.4</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">f_2d</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">gd_2d</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_trace_2d</span><span class="p">(</span><span class="n">f_2d</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">train_2d</span><span class="p">(</span><span class="n">gd_2d</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensorflow</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
-
-<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.4</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">f_2d</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">gd_2d</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_trace_2d</span><span class="p">(</span><span class="n">f_2d</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">train_2d</span><span class="p">(</span><span class="n">gd_2d</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.optimizers</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
@@ -757,16 +714,6 @@ descent or stochastic gradient descent we take a step of size
 potentially much better behaved descent direction. These are two
 benefits in one. To illustrate how weighting behaves for different
 choices of <span class="math notranslate nohighlight">\(\beta\)</span> consider the diagram below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
-<span class="n">betas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">beta</span> <span class="ow">in</span> <span class="n">betas</span><span class="p">:</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">numpy</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span> <span class="o">**</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;beta = </span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
 <span class="n">betas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">beta</span> <span class="ow">in</span> <span class="n">betas</span><span class="p">:</span>
@@ -798,36 +745,6 @@ variables <code class="docutils literal notranslate"><span class="pre">states</s
     <span class="k">return</span> <span class="p">(</span><span class="n">v_w</span><span class="p">,</span> <span class="n">v_b</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">init_momentum_states</span><span class="p">(</span><span class="n">features_dim</span><span class="p">):</span>
-    <span class="n">v_w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">features_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-    <span class="n">v_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">v_w</span><span class="p">,</span> <span class="n">v_b</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">sgd_momentum</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
-        <span class="n">v</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;momentum&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span>
-        <span class="n">p</span><span class="p">[:]</span> <span class="o">-=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">sgd_momentum</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
-        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-            <span class="n">v</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;momentum&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span>
-            <span class="n">p</span><span class="p">[:]</span> <span class="o">-=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">sgd_momentum</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">grads</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">grads</span><span class="p">):</span>
-            <span class="n">v</span><span class="p">[:]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;momentum&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">g</span><span class="p">)</span>
-            <span class="n">p</span><span class="p">[:]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;lr&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sgd_momentum</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">,</span> <span class="n">grads</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">grads</span><span class="p">):</span>
         <span class="n">v</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;momentum&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">g</span>
@@ -835,16 +752,6 @@ variables <code class="docutils literal notranslate"><span class="pre">states</s
 </pre></div>
 </div>
 <p>Let’s see how this works in practice.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train_momentum</span><span class="p">(</span><span class="n">lr</span><span class="p">,</span> <span class="n">momentum</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">train_ch11</span><span class="p">(</span><span class="n">sgd_momentum</span><span class="p">,</span> <span class="n">init_momentum_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">),</span>
-                   <span class="p">{</span><span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="n">lr</span><span class="p">,</span> <span class="s1">&#39;momentum&#39;</span><span class="p">:</span> <span class="n">momentum</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span>
-                   <span class="n">feature_dim</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">)</span>
-
-<span class="n">data_iter</span><span class="p">,</span> <span class="n">feature_dim</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_data_ch11</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">train_momentum</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_momentum</span><span class="p">(</span><span class="n">lr</span><span class="p">,</span> <span class="n">momentum</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
     <span class="n">d2l</span><span class="o">.</span><span class="n">train_ch11</span><span class="p">(</span><span class="n">sgd_momentum</span><span class="p">,</span> <span class="n">init_momentum_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">),</span>
                    <span class="p">{</span><span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="n">lr</span><span class="p">,</span> <span class="s1">&#39;momentum&#39;</span><span class="p">:</span> <span class="n">momentum</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">,</span>
@@ -859,7 +766,7 @@ variables <code class="docutils literal notranslate"><span class="pre">states</s
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_momentum_589405_15_1.svg" src="../_images/output_momentum_589405_15_1.svg" /></figure>
+<img alt="../_images/output_momentum_589405_14_1.svg" src="../_images/output_momentum_589405_14_1.svg" /></figure>
 <p>When we increase the momentum hyperparameter <code class="docutils literal notranslate"><span class="pre">momentum</span></code> to 0.9, it
 amounts to a significantly larger effective sample size of
 <span class="math notranslate nohighlight">\(\frac{1}{1 - 0.9} = 10\)</span>. We reduce the learning rate slightly to
@@ -871,7 +778,7 @@ amounts to a significantly larger effective sample size of
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_momentum_589405_17_1.svg" src="../_images/output_momentum_589405_17_1.svg" /></figure>
+<img alt="../_images/output_momentum_589405_16_1.svg" src="../_images/output_momentum_589405_16_1.svg" /></figure>
 <p>Reducing the learning rate further addresses any issue of non-smooth
 optimization problems. Setting it to <span class="math notranslate nohighlight">\(0.005\)</span> yields good
 convergence properties.</p>
@@ -882,29 +789,13 @@ convergence properties.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_momentum_589405_19_1.svg" src="../_images/output_momentum_589405_19_1.svg" /></figure>
+<img alt="../_images/output_momentum_589405_18_1.svg" src="../_images/output_momentum_589405_18_1.svg" /></figure>
 </section>
 <section id="concise-implementation">
 <h3><span class="section-number">12.6.2.2. </span>Concise Implementation<a class="headerlink" href="#concise-implementation" title="Permalink to this heading">¶</a></h3>
 <p>There is very little to do in Gluon since the standard <code class="docutils literal notranslate"><span class="pre">sgd</span></code> solver
 already had momentum built in. Setting matching parameters yields a very
 similar trajectory.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="s1">&#39;sgd&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span> <span class="s1">&#39;momentum&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span>
-                       <span class="n">data_iter</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span> <span class="s1">&#39;momentum&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span> <span class="s1">&#39;momentum&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span>
-                       <span class="n">data_iter</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span> <span class="s1">&#39;momentum&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">)</span>
 </pre></div>
@@ -913,7 +804,7 @@ similar trajectory.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_momentum_589405_21_1.svg" src="../_images/output_momentum_589405_21_1.svg" /></figure>
+<img alt="../_images/output_momentum_589405_20_1.svg" src="../_images/output_momentum_589405_20_1.svg" /></figure>
 </section>
 </section>
 <section id="theoretical-analysis">
@@ -986,17 +877,6 @@ an exponential rate since after <span class="math notranslate nohighlight">\(t\)
 convergence improves initially as we increase the learning rate
 <span class="math notranslate nohighlight">\(\eta\)</span> until <span class="math notranslate nohighlight">\(\eta \lambda = 1\)</span>. Beyond that things diverge
 and for <span class="math notranslate nohighlight">\(\eta \lambda &gt; 2\)</span> the optimization problem diverges.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="n">lambdas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
-<span class="n">eta</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">lam</span> <span class="ow">in</span> <span class="n">lambdas</span><span class="p">:</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">numpy</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">lam</span><span class="p">)</span> <span class="o">**</span> <span class="n">t</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;lambda = </span><span class="si">{</span><span class="n">lam</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lambdas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
 <span class="n">eta</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -1008,7 +888,7 @@ and for <span class="math notranslate nohighlight">\(\eta \lambda &gt; 2\)</span
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_momentum_589405_23_0.svg" src="../_images/output_momentum_589405_23_0.svg" /></figure>
+<img alt="../_images/output_momentum_589405_22_0.svg" src="../_images/output_momentum_589405_22_0.svg" /></figure>
 <p>To analyze convergence in the case of momentum we begin by rewriting the
 update equations in terms of two scalars: one for <span class="math notranslate nohighlight">\(x\)</span> and one for
 velocity <span class="math notranslate nohighlight">\(v\)</span>. This yields:</p>

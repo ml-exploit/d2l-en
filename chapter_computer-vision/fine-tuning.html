@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -594,25 +594,6 @@ We will fine-tune a ResNet model on a small dataset, which was
 pretrained on the ImageNet dataset. This small dataset consists of
 thousands of images with and without hot dogs. We will use the
 fine-tuned model to recognize hot dogs from images.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet.gluon</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">albumentations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">A</span>
@@ -640,23 +621,8 @@ corresponding class.</p>
 <span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;hotdog&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">hotdog</span><span class="o">.</span><span class="n">zip</span> <span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">d2l</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">accelerate</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">hotdog</span><span class="o">.</span><span class="n">zip</span><span class="o">...</span>
-</pre></div>
-</div>
 <p>We create two instances to read all the image files in the training and
 testing datasets, respectively.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">train_imgs</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">ImageFolderDataset</span><span class="p">(</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">))</span>
-<span class="n">test_imgs</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">ImageFolderDataset</span><span class="p">(</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">train_imgs</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">))</span>
-<span class="n">test_imgs</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">dx</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_images_from_folder</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">))</span>
     <span class="o">.</span><span class="n">rename_key</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">)</span>
@@ -685,12 +651,6 @@ y (标签) 类型: &lt;class &#39;numpy.ndarray&#39;&gt;, 值: 0
 </div>
 <p>The first 8 positive examples and the last 8 negative images are shown
 below. As you can see, the images vary in size and aspect ratio.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="n">hotdogs</span> <span class="o">=</span> <span class="p">[</span><span class="n">train_imgs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span>
-<span class="n">not_hotdogs</span> <span class="o">=</span> <span class="p">[</span><span class="n">train_imgs</span><span class="p">[</span><span class="o">-</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">hotdogs</span> <span class="o">+</span> <span class="n">not_hotdogs</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.4</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hotdogs</span> <span class="o">=</span> <span class="p">[</span><span class="n">train_dataset</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span>
 <span class="n">not_hotdogs</span> <span class="o">=</span> <span class="p">[</span><span class="n">train_dataset</span><span class="p">[</span><span class="o">-</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="s2">&quot;X&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)]</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">hotdogs</span> <span class="o">+</span> <span class="n">not_hotdogs</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.4</span><span class="p">);</span>
@@ -708,44 +668,6 @@ height and width of an image to 256 pixels, and then crop a central
 channel by channel. Concretely, the mean value of a channel is
 subtracted from each value of that channel and then the result is
 divided by the standard deviation of that channel.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1"># Specify the means and standard deviations of the three RGB channels to</span>
-<span class="c1"># standardize each channel</span>
-<span class="n">normalize</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span>
-    <span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
-
-<span class="n">train_augs</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomResizedCrop</span><span class="p">(</span><span class="mi">224</span><span class="p">),</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomFlipLeftRight</span><span class="p">(),</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
-    <span class="n">normalize</span><span class="p">])</span>
-
-<span class="n">test_augs</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Resize</span><span class="p">(</span><span class="mi">256</span><span class="p">),</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">CenterCrop</span><span class="p">(</span><span class="mi">224</span><span class="p">),</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
-    <span class="n">normalize</span><span class="p">])</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1"># Specify the means and standard deviations of the three RGB channels to</span>
-<span class="c1"># standardize each channel</span>
-<span class="n">normalize</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span>
-    <span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
-
-<span class="n">train_augs</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomResizedCrop</span><span class="p">(</span><span class="mi">224</span><span class="p">),</span>
-    <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomHorizontalFlip</span><span class="p">(),</span>
-    <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
-    <span class="n">normalize</span><span class="p">])</span>
-
-<span class="n">test_augs</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Resize</span><span class="p">([</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">]),</span>
-    <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">CenterCrop</span><span class="p">(</span><span class="mi">224</span><span class="p">),</span>
-    <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
-    <span class="n">normalize</span><span class="p">])</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the means and standard deviations of the three RGB channels to</span>
 <span class="c1"># standardize each channel</span>
 <span class="n">normalize</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span>
@@ -771,20 +693,8 @@ divided by the standard deviation of that channel.</p>
 source model. Here, we specify <code class="docutils literal notranslate"><span class="pre">pretrained=True</span></code> to automatically
 download the pretrained model parameters. If this model is used for the
 first time, Internet connection is required for download.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">pretrained_net</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">resnet18_v2</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">pretrained_net</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">resnet18</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loading weights from HuggingFace (https://huggingface.co/mlx-vision/resnet18-mlxim)</span>
 <span class="n">pretrained_net</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="s2">&quot;resnet18&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">pretrained_net</span><span class="o">.</span><span class="n">output</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_net</span><span class="o">.</span><span class="n">fc</span>
@@ -809,28 +719,13 @@ the output layer are randomly initialized and generally require a larger
 learning rate to be learned from scratch. Letting the base learning rate
 be <span class="math notranslate nohighlight">\(\eta\)</span>, a learning rate of <span class="math notranslate nohighlight">\(10\eta\)</span> will be used to
 iterate the model parameters in the output layer.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">finetune_net</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">resnet18_v2</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">finetune_net</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="n">pretrained_net</span><span class="o">.</span><span class="n">features</span>
-<span class="n">finetune_net</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">())</span>
-<span class="c1"># The model parameters in the output layer will be iterated using a learning</span>
-<span class="c1"># rate ten times greater</span>
-<span class="n">finetune_net</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s1">&#39;lr_mult&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">finetune_net</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">resnet18</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">finetune_net</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">finetune_net</span><span class="o">.</span><span class="n">fc</span><span class="o">.</span><span class="n">in_features</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">xavier_uniform_</span><span class="p">(</span><span class="n">finetune_net</span><span class="o">.</span><span class="n">fc</span><span class="o">.</span><span class="n">weight</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">finetune_net</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="s2">&quot;resnet18&quot;</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">init_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">glorot_uniform</span><span class="p">()</span>
 <span class="n">init_fn</span><span class="p">(</span><span class="n">finetune_net</span><span class="o">.</span><span class="n">fc</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">0.0640211</span><span class="p">,</span> <span class="mf">0.0963696</span><span class="p">,</span> <span class="mf">0.0691823</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mf">0.10138</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0660146</span><span class="p">,</span> <span class="mf">0.10369</span><span class="p">],</span>
-       <span class="p">[</span><span class="o">-</span><span class="mf">0.0541353</span><span class="p">,</span> <span class="mf">0.0181194</span><span class="p">,</span> <span class="mf">0.0959341</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10743</span><span class="p">,</span> <span class="mf">0.105315</span><span class="p">,</span> <span class="mf">0.0906907</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.00977603</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0811494</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0325737</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mf">0.0512224</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0480075</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0975347</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.0292623</span><span class="p">,</span> <span class="mf">0.026238</span><span class="p">,</span> <span class="mf">0.0556498</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0857315</span><span class="p">,</span> <span class="mf">0.0923511</span><span class="p">,</span> <span class="mf">0.0124245</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -838,49 +733,6 @@ iterate the model parameters in the output layer.</p>
 <h3><span class="section-number">13.2.2.3. </span>Fine-Tuning the Model<a class="headerlink" href="#fine-tuning-the-model" title="Permalink to this heading">¶</a></h3>
 <p>First, we define a training function <code class="docutils literal notranslate"><span class="pre">train_fine_tuning</span></code> that uses
 fine-tuning so it can be called multiple times.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train_fine_tuning</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
-        <span class="n">train_imgs</span><span class="o">.</span><span class="n">transform_first</span><span class="p">(</span><span class="n">train_augs</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">test_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
-        <span class="n">test_imgs</span><span class="o">.</span><span class="n">transform_first</span><span class="p">(</span><span class="n">test_augs</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">)</span>
-    <span class="n">devices</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">()</span>
-    <span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span><span class="o">.</span><span class="n">reset_ctx</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span>
-    <span class="n">net</span><span class="o">.</span><span class="n">hybridize</span><span class="p">()</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">SoftmaxCrossEntropyLoss</span><span class="p">()</span>
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">(),</span> <span class="s1">&#39;sgd&#39;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="s1">&#39;wd&#39;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">})</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span>
-                   <span class="n">devices</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1"># If `param_group=True`, the model parameters in the output layer will be</span>
-<span class="c1"># updated using a learning rate ten times greater</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train_fine_tuning</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                      <span class="n">param_group</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">),</span> <span class="n">transform</span><span class="o">=</span><span class="n">train_augs</span><span class="p">),</span>
-        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">test_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">),</span> <span class="n">transform</span><span class="o">=</span><span class="n">test_augs</span><span class="p">),</span>
-        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
-    <span class="n">devices</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">()</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">param_group</span><span class="p">:</span>
-        <span class="n">params_1x</span> <span class="o">=</span> <span class="p">[</span><span class="n">param</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()</span>
-             <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;fc.weight&quot;</span><span class="p">,</span> <span class="s2">&quot;fc.bias&quot;</span><span class="p">]]</span>
-        <span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">([{</span><span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="n">params_1x</span><span class="p">},</span>
-                                   <span class="p">{</span><span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="n">net</span><span class="o">.</span><span class="n">fc</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
-                                    <span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="mi">10</span><span class="p">}],</span>
-                                <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
-                                  <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span>
-                   <span class="n">devices</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># If `param_group=True`, the model parameters in the output layer will be</span>
 <span class="c1"># updated using a learning rate ten times greater</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">train_fine_tuning</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
@@ -931,48 +783,28 @@ fine-tuning so it can be called multiple times.</p>
 the model parameters obtained via pretraining. Based on the previous
 settings, we will train the output layer parameters of the target model
 from scratch using a learning rate ten times greater.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">train_fine_tuning</span><span class="p">(</span><span class="n">finetune_net</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">train_fine_tuning</span><span class="p">(</span><span class="n">finetune_net</span><span class="p">,</span> <span class="mf">5e-5</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_fine_tuning</span><span class="p">(</span><span class="n">finetune_net</span><span class="p">,</span> <span class="mf">5e-5</span><span class="p">,</span> <span class="n">param_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.222</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.917</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.924</span>
-<span class="mf">187.6</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.222</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.922</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.916</span>
+<span class="mf">194.1</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_fine-tuning_548337_19_1.svg" src="../_images/output_fine-tuning_548337_19_1.svg" /></figure>
+<img alt="../_images/output_fine-tuning_548337_18_1.svg" src="../_images/output_fine-tuning_548337_18_1.svg" /></figure>
 <p>For comparison, we define an identical model, but initialize all of its
 model parameters to random values. Since the entire model needs to be
 trained from scratch, we can use a larger learning rate.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">scratch_net</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">resnet18_v2</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">scratch_net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">())</span>
-<span class="n">train_fine_tuning</span><span class="p">(</span><span class="n">scratch_net</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">scratch_net</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">resnet18</span><span class="p">()</span>
-<span class="n">scratch_net</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">scratch_net</span><span class="o">.</span><span class="n">fc</span><span class="o">.</span><span class="n">in_features</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">train_fine_tuning</span><span class="p">(</span><span class="n">scratch_net</span><span class="p">,</span> <span class="mf">5e-4</span><span class="p">,</span> <span class="n">param_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scratch_net</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="s2">&quot;resnet18&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">train_fine_tuning</span><span class="p">(</span><span class="n">scratch_net</span><span class="p">,</span> <span class="mf">5e-4</span><span class="p">,</span> <span class="n">param_group</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.356</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.848</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.797</span>
-<span class="mf">198.4</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.377</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.838</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.815</span>
+<span class="mf">195.0</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_fine-tuning_548337_21_1.svg" src="../_images/output_fine-tuning_548337_21_1.svg" /></figure>
+<img alt="../_images/output_fine-tuning_548337_20_1.svg" src="../_images/output_fine-tuning_548337_20_1.svg" /></figure>
 <p>As we can see, the fine-tuned model tends to perform better for the same
 epoch because its initial parameter values are more effective.</p>
 </section>
@@ -1004,33 +836,10 @@ in accuracy?</p></li>
 those of the source model and do <em>not</em> update them during training.
 How does the accuracy of the model change? You can use the following
 code.</p></li>
-</ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">finetune_net</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s1">&#39;grad_req&#39;</span><span class="p">,</span> <span class="s1">&#39;null&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">finetune_net</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
-    <span class="n">param</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="4">
 <li><p>In fact, there is a “hotdog” class in the <code class="docutils literal notranslate"><span class="pre">ImageNet</span></code> dataset. Its
 corresponding weight parameter in the output layer can be obtained
 via the following code. How can we leverage this weight parameter?</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">weight</span> <span class="o">=</span> <span class="n">pretrained_net</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">weight</span>
-<span class="n">hotdog_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">(),</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">713</span><span class="p">]</span>
-<span class="n">hotdog_w</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">weight</span> <span class="o">=</span> <span class="n">pretrained_net</span><span class="o">.</span><span class="n">fc</span><span class="o">.</span><span class="n">weight</span>
-<span class="n">hotdog_w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">934</span><span class="p">]</span>
-<span class="n">hotdog_w</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
 </section>
 </section>
 

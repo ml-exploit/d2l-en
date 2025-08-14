@@ -80,85 +80,6 @@ following implementation.
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   from mxnet import np, npx
-   npx.set_np()
-
-   def init_adadelta_states(feature_dim):
-       s_w, s_b = d2l.zeros((feature_dim, 1)), d2l.zeros(1)
-       delta_w, delta_b = d2l.zeros((feature_dim, 1)), d2l.zeros(1)
-       return ((s_w, delta_w), (s_b, delta_b))
-
-   def adadelta(params, states, hyperparams):
-       rho, eps = hyperparams['rho'], 1e-5
-       for p, (s, delta) in zip(params, states):
-           # In-place updates via [:]
-           s[:] = rho * s + (1 - rho) * np.square(p.grad)
-           g = (np.sqrt(delta + eps) / np.sqrt(s + eps)) * p.grad
-           p[:] -= g
-           delta[:] = rho * delta + (1 - rho) * g * g
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   import torch
-
-   def init_adadelta_states(feature_dim):
-       s_w, s_b = d2l.zeros((feature_dim, 1)), d2l.zeros(1)
-       delta_w, delta_b = d2l.zeros((feature_dim, 1)), d2l.zeros(1)
-       return ((s_w, delta_w), (s_b, delta_b))
-
-   def adadelta(params, states, hyperparams):
-       rho, eps = hyperparams['rho'], 1e-5
-       for p, (s, delta) in zip(params, states):
-           with torch.no_grad():
-               # In-place updates via [:]
-               s[:] = rho * s + (1 - rho) * torch.square(p.grad)
-               g = (torch.sqrt(delta + eps) / torch.sqrt(s + eps)) * p.grad
-               p[:] -= g
-               delta[:] = rho * delta + (1 - rho) * g * g
-           p.grad.data.zero_()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   %matplotlib inline
-   from d2l import tensorflow as d2l
-   import tensorflow as tf
-
-   def init_adadelta_states(feature_dim):
-       s_w = tf.Variable(d2l.zeros((feature_dim, 1)))
-       s_b = tf.Variable(d2l.zeros(1))
-       delta_w = tf.Variable(d2l.zeros((feature_dim, 1)))
-       delta_b = tf.Variable(d2l.zeros(1))
-       return ((s_w, delta_w), (s_b, delta_b))
-
-   def adadelta(params, grads, states, hyperparams):
-       rho, eps = hyperparams['rho'], 1e-5
-       for p, (s, delta), grad in zip(params, states, grads):
-           s[:].assign(rho * s + (1 - rho) * tf.math.square(grad))
-           g = (tf.math.sqrt(delta + eps) / tf.math.sqrt(s + eps)) * grad
-           p[:].assign(p - g)
-           delta[:].assign(rho * delta + (1 - rho) * g * g)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     %matplotlib inline
     import mlx.core as mx
     import mlx.optimizers as optim
@@ -188,17 +109,6 @@ behavior.
 
 .. code:: python
 
-   #@tab mxnet,pytorch,tensorflow
-   data_iter, feature_dim = d2l.get_data_ch11(batch_size=10)
-   d2l.train_ch11(adadelta, init_adadelta_states(feature_dim),
-                  {'rho': 0.9}, data_iter, feature_dim);
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     data_iter, feature_dim = d2l.get_data_ch11(batch_size=10)
     valid_iter, _ = d2l.get_data_ch11(batch_size=10)
     d2l.train_ch11(adadelta, init_adadelta_states(feature_dim),
@@ -212,7 +122,7 @@ behavior.
 .. parsed-literal::
     :class: output
 
-    loss: 0.242, 0.013 sec/epoch
+    loss: 0.242, 0.012 sec/epoch
 
 
 
@@ -222,37 +132,6 @@ behavior.
 For a concise implementation we simply use the Adadelta algorithm from
 high-level APIs. This yields the following one-liner for a much more
 compact invocation.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   d2l.train_concise_ch11('adadelta', {'rho': 0.9}, data_iter)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   trainer = torch.optim.Adadelta
-   d2l.train_concise_ch11(trainer, {'rho': 0.9}, data_iter)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   # adadelta is not converging at default learning rate
-   # but it is converging at lr = 5.0
-   trainer = tf.keras.optimizers.Adadelta
-   d2l.train_concise_ch11(trainer, {'learning_rate':5.0, 'rho': 0.9}, data_iter)
 
 .. raw:: latex
 
@@ -271,7 +150,7 @@ compact invocation.
 .. parsed-literal::
     :class: output
 
-    loss: 0.243, 0.012 sec/epoch
+    loss: 0.243, 0.011 sec/epoch
 
 
 

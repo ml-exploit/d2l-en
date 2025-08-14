@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -578,70 +578,6 @@ maintain numerical stability.</p>
 <p>Adadelta needs to maintain two state variables for each variable,
 <span class="math notranslate nohighlight">\(\mathbf{s}_t\)</span> and <span class="math notranslate nohighlight">\(\Delta\mathbf{x}_t\)</span>. This yields the
 following implementation.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">init_adadelta_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">):</span>
-    <span class="n">s_w</span><span class="p">,</span> <span class="n">s_b</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">delta_w</span><span class="p">,</span> <span class="n">delta_b</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">((</span><span class="n">s_w</span><span class="p">,</span> <span class="n">delta_w</span><span class="p">),</span> <span class="p">(</span><span class="n">s_b</span><span class="p">,</span> <span class="n">delta_b</span><span class="p">))</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">adadelta</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
-    <span class="n">rho</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">],</span> <span class="mf">1e-5</span>
-    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">delta</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
-        <span class="c1"># In-place updates via [:]</span>
-        <span class="n">s</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">s</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
-        <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span>
-        <span class="n">p</span><span class="p">[:]</span> <span class="o">-=</span> <span class="n">g</span>
-        <span class="n">delta</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">delta</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">g</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">init_adadelta_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">):</span>
-    <span class="n">s_w</span><span class="p">,</span> <span class="n">s_b</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">delta_w</span><span class="p">,</span> <span class="n">delta_b</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">((</span><span class="n">s_w</span><span class="p">,</span> <span class="n">delta_w</span><span class="p">),</span> <span class="p">(</span><span class="n">s_b</span><span class="p">,</span> <span class="n">delta_b</span><span class="p">))</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">adadelta</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
-    <span class="n">rho</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">],</span> <span class="mf">1e-5</span>
-    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">delta</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
-        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-            <span class="c1"># In-place updates via [:]</span>
-            <span class="n">s</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">s</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
-            <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span>
-            <span class="n">p</span><span class="p">[:]</span> <span class="o">-=</span> <span class="n">g</span>
-            <span class="n">delta</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">delta</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">g</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensorflow</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">init_adadelta_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">):</span>
-    <span class="n">s_w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-    <span class="n">s_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">delta_w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">feature_dim</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-    <span class="n">delta_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-    <span class="k">return</span> <span class="p">((</span><span class="n">s_w</span><span class="p">,</span> <span class="n">delta_w</span><span class="p">),</span> <span class="p">(</span><span class="n">s_b</span><span class="p">,</span> <span class="n">delta_b</span><span class="p">))</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">adadelta</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">grads</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">hyperparams</span><span class="p">):</span>
-    <span class="n">rho</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="n">hyperparams</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">],</span> <span class="mf">1e-5</span>
-    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">delta</span><span class="p">),</span> <span class="n">grad</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">states</span><span class="p">,</span> <span class="n">grads</span><span class="p">):</span>
-        <span class="n">s</span><span class="p">[:]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">s</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">grad</span><span class="p">))</span>
-        <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span> <span class="o">/</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span> <span class="o">*</span> <span class="n">grad</span>
-        <span class="n">p</span><span class="p">[:]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">g</span><span class="p">)</span>
-        <span class="n">delta</span><span class="p">[:]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">delta</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">rho</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="n">g</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.optimizers</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
@@ -665,19 +601,13 @@ following implementation.</p>
 <p>Choosing <span class="math notranslate nohighlight">\(\rho = 0.9\)</span> amounts to a half-life time of 10 for each
 parameter update. This tends to work quite well. We get the following
 behavior.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="n">data_iter</span><span class="p">,</span> <span class="n">feature_dim</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_data_ch11</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_ch11</span><span class="p">(</span><span class="n">adadelta</span><span class="p">,</span> <span class="n">init_adadelta_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">),</span>
-               <span class="p">{</span><span class="s1">&#39;rho&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">feature_dim</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_iter</span><span class="p">,</span> <span class="n">feature_dim</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_data_ch11</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">valid_iter</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_data_ch11</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">train_ch11</span><span class="p">(</span><span class="n">adadelta</span><span class="p">,</span> <span class="n">init_adadelta_states</span><span class="p">(</span><span class="n">feature_dim</span><span class="p">),</span>
                <span class="p">{</span><span class="s1">&#39;rho&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">,</span> <span class="n">feature_dim</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.242</span><span class="p">,</span> <span class="mf">0.013</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.242</span><span class="p">,</span> <span class="mf">0.012</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -685,27 +615,11 @@ behavior.</p>
 <p>For a concise implementation we simply use the Adadelta algorithm from
 high-level APIs. This yields the following one-liner for a much more
 compact invocation.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="s1">&#39;adadelta&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;rho&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adadelta</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;rho&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="c1"># adadelta is not converging at default learning rate</span>
-<span class="c1"># but it is converging at lr = 5.0</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adadelta</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span><span class="mf">5.0</span><span class="p">,</span> <span class="s1">&#39;rho&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">AdaDelta</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;rho&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.243</span><span class="p">,</span> <span class="mf">0.012</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.243</span><span class="p">,</span> <span class="mf">0.011</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
 </pre></div>
 </div>
 <figure class="align-default">

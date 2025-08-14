@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -542,22 +542,6 @@ we use a smaller corpus WikiText-2
 <a class="reference internal" href="word-embedding-dataset.html#sec-word2vec-data"><span class="std std-numref">Section 14.3</span></a>, WikiText-2 (i) retains the original
 punctuation, making it suitable for next sentence prediction; (ii)
 retains the original case and numbers; (iii) is over twice larger.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
@@ -572,24 +556,6 @@ with at least two sentences are retained. To split sentences, we only
 use the period as the delimiter for simplicity. We leave discussions of
 more complex sentence splitting techniques in the exercises at the end
 of this section.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="c1">#@save</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">DATA_HUB</span><span class="p">[</span><span class="s1">&#39;wikitext-2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;https://s3.amazonaws.com/research.metamind.io/wikitext/&#39;</span>
-    <span class="s1">&#39;wikitext-2-v1.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;3c914d17d80b1459be871a5039ac23e752a53cbe&#39;</span><span class="p">)</span>
-
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">_read_wiki</span><span class="p">(</span><span class="n">data_dir</span><span class="p">):</span>
-    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;wiki.train.tokens&#39;</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-    <span class="c1"># Uppercase letters are converted to lowercase ones</span>
-    <span class="n">paragraphs</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; . &#39;</span><span class="p">)</span>
-                  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; . &#39;</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">]</span>
-    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">paragraphs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">paragraphs</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">DATA_HUB</span><span class="p">[</span><span class="s1">&#39;wikitext-2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s1">&#39;https://huggingface.co/datasets/Salesforce/wikitext/resolve/main/wikitext-2-v1/&#39;</span>
@@ -731,65 +697,6 @@ BERT. Before that, we still need to define a helper function
 Its argument <code class="docutils literal notranslate"><span class="pre">examples</span></code> contain the outputs from the helper functions
 <code class="docutils literal notranslate"><span class="pre">_get_nsp_data_from_paragraph</span></code> and <code class="docutils literal notranslate"><span class="pre">_get_mlm_data_from_tokens</span></code> for
 the two pretraining tasks.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">_pad_bert_inputs</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
-    <span class="n">max_num_mlm_preds</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">max_len</span> <span class="o">*</span> <span class="mf">0.15</span><span class="p">)</span>
-    <span class="n">all_token_ids</span><span class="p">,</span> <span class="n">all_segments</span><span class="p">,</span> <span class="n">valid_lens</span><span class="p">,</span>  <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="n">all_pred_positions</span><span class="p">,</span> <span class="n">all_mlm_weights</span><span class="p">,</span> <span class="n">all_mlm_labels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="n">nsp_labels</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">token_ids</span><span class="p">,</span> <span class="n">pred_positions</span><span class="p">,</span> <span class="n">mlm_pred_label_ids</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span>
-         <span class="n">is_next</span><span class="p">)</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">:</span>
-        <span class="n">all_token_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">token_ids</span> <span class="o">+</span> <span class="p">[</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">]]</span> <span class="o">*</span> <span class="p">(</span>
-            <span class="n">max_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">token_ids</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">))</span>
-        <span class="n">all_segments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">segments</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-            <span class="n">max_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">))</span>
-        <span class="c1"># `valid_lens` excludes count of &#39;&lt;pad&gt;&#39; tokens</span>
-        <span class="n">valid_lens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">token_ids</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">))</span>
-        <span class="n">all_pred_positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pred_positions</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-            <span class="n">max_num_mlm_preds</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_positions</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">))</span>
-        <span class="c1"># Predictions of padded tokens will be filtered out in the loss via</span>
-        <span class="c1"># multiplication of 0 weights</span>
-        <span class="n">all_mlm_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">mlm_pred_label_ids</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-                <span class="n">max_num_mlm_preds</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_positions</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">))</span>
-        <span class="n">all_mlm_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mlm_pred_label_ids</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-            <span class="n">max_num_mlm_preds</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">mlm_pred_label_ids</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">))</span>
-        <span class="n">nsp_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">is_next</span><span class="p">))</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">all_token_ids</span><span class="p">,</span> <span class="n">all_segments</span><span class="p">,</span> <span class="n">valid_lens</span><span class="p">,</span> <span class="n">all_pred_positions</span><span class="p">,</span>
-            <span class="n">all_mlm_weights</span><span class="p">,</span> <span class="n">all_mlm_labels</span><span class="p">,</span> <span class="n">nsp_labels</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">_pad_bert_inputs</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
-    <span class="n">max_num_mlm_preds</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">max_len</span> <span class="o">*</span> <span class="mf">0.15</span><span class="p">)</span>
-    <span class="n">all_token_ids</span><span class="p">,</span> <span class="n">all_segments</span><span class="p">,</span> <span class="n">valid_lens</span><span class="p">,</span>  <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="n">all_pred_positions</span><span class="p">,</span> <span class="n">all_mlm_weights</span><span class="p">,</span> <span class="n">all_mlm_labels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="n">nsp_labels</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">token_ids</span><span class="p">,</span> <span class="n">pred_positions</span><span class="p">,</span> <span class="n">mlm_pred_label_ids</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span>
-         <span class="n">is_next</span><span class="p">)</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">:</span>
-        <span class="n">all_token_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">token_ids</span> <span class="o">+</span> <span class="p">[</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">]]</span> <span class="o">*</span> <span class="p">(</span>
-            <span class="n">max_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">token_ids</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span>
-        <span class="n">all_segments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">segments</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-            <span class="n">max_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span>
-        <span class="c1"># `valid_lens` excludes count of &#39;&lt;pad&gt;&#39; tokens</span>
-        <span class="n">valid_lens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">token_ids</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
-        <span class="n">all_pred_positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">pred_positions</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-            <span class="n">max_num_mlm_preds</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_positions</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span>
-        <span class="c1"># Predictions of padded tokens will be filtered out in the loss via</span>
-        <span class="c1"># multiplication of 0 weights</span>
-        <span class="n">all_mlm_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">mlm_pred_label_ids</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-                <span class="n">max_num_mlm_preds</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_positions</span><span class="p">)),</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
-        <span class="n">all_mlm_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">mlm_pred_label_ids</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
-            <span class="n">max_num_mlm_preds</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">mlm_pred_label_ids</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span>
-        <span class="n">nsp_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">is_next</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">all_token_ids</span><span class="p">,</span> <span class="n">all_segments</span><span class="p">,</span> <span class="n">valid_lens</span><span class="p">,</span> <span class="n">all_pred_positions</span><span class="p">,</span>
-            <span class="n">all_mlm_weights</span><span class="p">,</span> <span class="n">all_mlm_labels</span><span class="p">,</span> <span class="n">nsp_labels</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">_pad_bert_inputs</span><span class="p">(</span><span class="n">examples</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
     <span class="n">max_num_mlm_preds</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">max_len</span> <span class="o">*</span> <span class="mf">0.15</span><span class="p">)</span>
@@ -832,82 +739,6 @@ WordPiece is a slight modification of the original byte pair encoding
 algorithm in <a class="reference internal" href="subword-embedding.html#subsec-byte-pair-encoding"><span class="std std-numref">Section 14.6.2</span></a>. For simplicity, we
 use the <code class="docutils literal notranslate"><span class="pre">d2l.tokenize</span></code> function for tokenization. Infrequent tokens
 that appear less than five times are filtered out.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">_WikiTextDataset</span><span class="p">(</span><span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paragraphs</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
-        <span class="c1"># Input `paragraphs[i]` is a list of sentence strings representing a</span>
-        <span class="c1"># paragraph; while output `paragraphs[i]` is a list of sentences</span>
-        <span class="c1"># representing a paragraph, where each sentence is a list of tokens</span>
-        <span class="n">paragraphs</span> <span class="o">=</span> <span class="p">[</span><span class="n">d2l</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span>
-            <span class="n">paragraph</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s1">&#39;word&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">]</span>
-        <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">sentence</span> <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">paragraphs</span>
-                     <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">paragraph</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Vocab</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">min_freq</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">reserved_tokens</span><span class="o">=</span><span class="p">[</span>
-            <span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;mask&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;cls&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;sep&gt;&#39;</span><span class="p">])</span>
-        <span class="c1"># Get data for the next sentence prediction task</span>
-        <span class="n">examples</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">:</span>
-            <span class="n">examples</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_get_nsp_data_from_paragraph</span><span class="p">(</span>
-                <span class="n">paragraph</span><span class="p">,</span> <span class="n">paragraphs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">,</span> <span class="n">max_len</span><span class="p">))</span>
-        <span class="c1"># Get data for the masked language model task</span>
-        <span class="n">examples</span> <span class="o">=</span> <span class="p">[(</span><span class="n">_get_mlm_data_from_tokens</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
-                      <span class="o">+</span> <span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">is_next</span><span class="p">))</span>
-                     <span class="k">for</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">is_next</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">]</span>
-        <span class="c1"># Pad inputs</span>
-        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all_token_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_segments</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_lens</span><span class="p">,</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">all_pred_positions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_mlm_weights</span><span class="p">,</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">all_mlm_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nsp_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">_pad_bert_inputs</span><span class="p">(</span>
-            <span class="n">examples</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all_token_ids</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_segments</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">valid_lens</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_pred_positions</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">all_mlm_weights</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_mlm_labels</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">nsp_labels</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all_token_ids</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">_WikiTextDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paragraphs</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
-        <span class="c1"># Input `paragraphs[i]` is a list of sentence strings representing a</span>
-        <span class="c1"># paragraph; while output `paragraphs[i]` is a list of sentences</span>
-        <span class="c1"># representing a paragraph, where each sentence is a list of tokens</span>
-        <span class="n">paragraphs</span> <span class="o">=</span> <span class="p">[</span><span class="n">d2l</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span>
-            <span class="n">paragraph</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s1">&#39;word&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">]</span>
-        <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">sentence</span> <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">paragraphs</span>
-                     <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">paragraph</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Vocab</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">min_freq</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">reserved_tokens</span><span class="o">=</span><span class="p">[</span>
-            <span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;mask&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;cls&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;sep&gt;&#39;</span><span class="p">])</span>
-        <span class="c1"># Get data for the next sentence prediction task</span>
-        <span class="n">examples</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">:</span>
-            <span class="n">examples</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">_get_nsp_data_from_paragraph</span><span class="p">(</span>
-                <span class="n">paragraph</span><span class="p">,</span> <span class="n">paragraphs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">,</span> <span class="n">max_len</span><span class="p">))</span>
-        <span class="c1"># Get data for the masked language model task</span>
-        <span class="n">examples</span> <span class="o">=</span> <span class="p">[(</span><span class="n">_get_mlm_data_from_tokens</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
-                      <span class="o">+</span> <span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">is_next</span><span class="p">))</span>
-                     <span class="k">for</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">is_next</span> <span class="ow">in</span> <span class="n">examples</span><span class="p">]</span>
-        <span class="c1"># Pad inputs</span>
-        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all_token_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_segments</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_lens</span><span class="p">,</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">all_pred_positions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_mlm_weights</span><span class="p">,</span>
-         <span class="bp">self</span><span class="o">.</span><span class="n">all_mlm_labels</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nsp_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">_pad_bert_inputs</span><span class="p">(</span>
-            <span class="n">examples</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all_token_ids</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_segments</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">valid_lens</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_pred_positions</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">all_mlm_weights</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_mlm_labels</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">nsp_labels</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all_token_ids</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">_WikiTextDataset</span><span class="p">():</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paragraphs</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
@@ -948,32 +779,6 @@ that appear less than five times are filtered out.</p>
 <p>By using the <code class="docutils literal notranslate"><span class="pre">_read_wiki</span></code> function and the <code class="docutils literal notranslate"><span class="pre">_WikiTextDataset</span></code> class,
 we define the following <code class="docutils literal notranslate"><span class="pre">load_data_wiki</span></code> to download and WikiText-2
 dataset and generate pretraining examples from it.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_wiki</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the WikiText-2 dataset.&quot;&quot;&quot;</span>
-    <span class="n">num_workers</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">()</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;wikitext-2&#39;</span><span class="p">,</span> <span class="s1">&#39;wikitext-2&#39;</span><span class="p">)</span>
-    <span class="n">paragraphs</span> <span class="o">=</span> <span class="n">_read_wiki</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-    <span class="n">train_set</span> <span class="o">=</span> <span class="n">_WikiTextDataset</span><span class="p">(</span><span class="n">paragraphs</span><span class="p">,</span> <span class="n">max_len</span><span class="p">)</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                       <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">train_set</span><span class="o">.</span><span class="n">vocab</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_wiki</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the WikiText-2 dataset.&quot;&quot;&quot;</span>
-    <span class="n">num_workers</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">()</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;wikitext-2&#39;</span><span class="p">,</span> <span class="s1">&#39;wikitext-2&#39;</span><span class="p">)</span>
-    <span class="n">paragraphs</span> <span class="o">=</span> <span class="n">_read_wiki</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
-    <span class="n">train_set</span> <span class="o">=</span> <span class="n">_WikiTextDataset</span><span class="p">(</span><span class="n">paragraphs</span><span class="p">,</span> <span class="n">max_len</span><span class="p">)</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span>
-                                        <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">train_set</span><span class="o">.</span><span class="n">vocab</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">MLXDataLoader</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">drop_last</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -1032,18 +837,6 @@ sequence to be 64, we print out the shapes of a minibatch of BERT
 pretraining examples. Note that in each BERT input sequence, <span class="math notranslate nohighlight">\(10\)</span>
 (<span class="math notranslate nohighlight">\(64 \times 0.15\)</span>) positions are predicted for the masked language
 modeling task.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">64</span>
-<span class="n">train_iter</span><span class="p">,</span> <span class="n">vocab</span> <span class="o">=</span> <span class="n">load_data_wiki</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="n">tokens_X</span><span class="p">,</span> <span class="n">segments_X</span><span class="p">,</span> <span class="n">valid_lens_x</span><span class="p">,</span> <span class="n">pred_positions_X</span><span class="p">,</span> <span class="n">mlm_weights_X</span><span class="p">,</span>
-     <span class="n">mlm_Y</span><span class="p">,</span> <span class="n">nsp_y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">train_iter</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">tokens_X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">segments_X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">valid_lens_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
-          <span class="n">pred_positions_X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mlm_weights_X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mlm_Y</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
-          <span class="n">nsp_y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="k">break</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">64</span>
 <span class="n">train_iter</span><span class="p">,</span> <span class="n">num_batches</span><span class="p">,</span> <span class="n">vocab</span> <span class="o">=</span> <span class="n">load_data_wiki</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span><span class="p">)</span>
 

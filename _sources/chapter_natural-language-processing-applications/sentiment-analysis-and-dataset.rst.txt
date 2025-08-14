@@ -31,30 +31,6 @@ indicating different sentiment polarities.
 
 .. code:: python
 
-   #@tab mxnet
-   from d2l import mxnet as d2l
-   from mxnet import np, npx
-   import os
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   from d2l import torch as d2l
-   import torch
-   from torch import nn
-   import os
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     import math
     import os
     import mlx.core as mx
@@ -193,34 +169,6 @@ examples are returned.
 
 .. code:: python
 
-   #@tab mxnet
-   train_iter = d2l.load_array((train_features, train_data[1]), 64)
-
-   for X, y in train_iter:
-       print('X:', X.shape, ', y:', y.shape)
-       break
-   print('# batches:', len(train_iter))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   train_iter = d2l.load_array((train_features, torch.tensor(train_data[1])), 64)
-
-   for X, y in train_iter:
-       print('X:', X.shape, ', y:', y.shape)
-       break
-   print('# batches:', len(train_iter))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     train_iter = d2l.load_array((train_features,
         mx.array(train_data[1])), 64)
     
@@ -248,58 +196,6 @@ Putting It All Together
 Last, we wrap up the above steps into the ``load_data_imdb`` function.
 It returns training and test data iterators and the vocabulary of the
 IMDb review dataset.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   #@save
-   def load_data_imdb(batch_size, num_steps=500):
-       """Return data iterators and the vocabulary of the IMDb review dataset."""
-       data_dir = d2l.download_extract('aclImdb', 'aclImdb')
-       train_data = read_imdb(data_dir, True)
-       test_data = read_imdb(data_dir, False)
-       train_tokens = d2l.tokenize(train_data[0], token='word')
-       test_tokens = d2l.tokenize(test_data[0], token='word')
-       vocab = d2l.Vocab(train_tokens, min_freq=5)
-       train_features = np.array([d2l.truncate_pad(
-           vocab[line], num_steps, vocab['<pad>']) for line in train_tokens])
-       test_features = np.array([d2l.truncate_pad(
-           vocab[line], num_steps, vocab['<pad>']) for line in test_tokens])
-       train_iter = d2l.load_array((train_features, train_data[1]), batch_size)
-       test_iter = d2l.load_array((test_features, test_data[1]), batch_size,
-                                  is_train=False)
-       return train_iter, test_iter, vocab
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   #@save
-   def load_data_imdb(batch_size, num_steps=500):
-       """Return data iterators and the vocabulary of the IMDb review dataset."""
-       data_dir = d2l.download_extract('aclImdb', 'aclImdb')
-       train_data = read_imdb(data_dir, True)
-       test_data = read_imdb(data_dir, False)
-       train_tokens = d2l.tokenize(train_data[0], token='word')
-       test_tokens = d2l.tokenize(test_data[0], token='word')
-       vocab = d2l.Vocab(train_tokens, min_freq=5)
-       train_features = torch.tensor([d2l.truncate_pad(
-           vocab[line], num_steps, vocab['<pad>']) for line in train_tokens])
-       test_features = torch.tensor([d2l.truncate_pad(
-           vocab[line], num_steps, vocab['<pad>']) for line in test_tokens])
-       train_iter = d2l.load_array((train_features, torch.tensor(train_data[1])),
-                                   batch_size)
-       test_iter = d2l.load_array((test_features, torch.tensor(test_data[1])),
-                                  batch_size,
-                                  is_train=False)
-       return train_iter, test_iter, vocab
 
 .. raw:: latex
 

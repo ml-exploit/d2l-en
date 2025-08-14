@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -664,7 +664,7 @@ value to <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
 <span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.3341822624206543</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.3288869857788086</span>
 </pre></div>
 </div>
 <p>A faster strategy is to perform column-wise assignment.</p>
@@ -675,7 +675,7 @@ value to <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
 <span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.0008111000061035156</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.0008697509765625</span>
 </pre></div>
 </div>
 <p>Last, the most effective manner is to perform the entire operation in
@@ -697,7 +697,7 @@ of the operations is.</p>
       <span class="sa">f</span><span class="s1">&#39;column </span><span class="si">{</span><span class="n">gigaflops</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, full </span><span class="si">{</span><span class="n">gigaflops</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">performance</span> <span class="ow">in</span> <span class="n">Gigaflops</span><span class="p">:</span> <span class="n">element</span> <span class="mf">5.985</span><span class="p">,</span> <span class="n">column</span> <span class="mf">2465.787</span><span class="p">,</span> <span class="n">full</span> <span class="mf">7.578</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">performance</span> <span class="ow">in</span> <span class="n">Gigaflops</span><span class="p">:</span> <span class="n">element</span> <span class="mf">6.081</span><span class="p">,</span> <span class="n">column</span> <span class="mf">2299.509</span><span class="p">,</span> <span class="n">full</span> <span class="mf">7.543</span>
 </pre></div>
 </div>
 </section>
@@ -748,7 +748,7 @@ of 64 columns at a time.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;performance in Gigaflops: block </span><span class="si">{</span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">timer</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">performance</span> <span class="ow">in</span> <span class="n">Gigaflops</span><span class="p">:</span> <span class="n">block</span> <span class="mf">36314.320</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">performance</span> <span class="ow">in</span> <span class="n">Gigaflops</span><span class="p">:</span> <span class="n">block</span> <span class="mf">31300.776</span>
 </pre></div>
 </div>
 <p>As we can see, the computation on the minibatch is essentially as
@@ -860,7 +860,7 @@ progress stalls.</p>
 <span class="n">gd_res</span> <span class="o">=</span> <span class="n">train_sgd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.254</span><span class="p">,</span> <span class="mf">0.012</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.246</span><span class="p">,</span> <span class="mf">0.006</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -879,7 +879,7 @@ single observations one at a time.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sgd_res</span> <span class="o">=</span> <span class="n">train_sgd</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.243</span><span class="p">,</span> <span class="mf">0.074</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.243</span><span class="p">,</span> <span class="mf">0.069</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -891,7 +891,7 @@ time for batch gradient descent.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mini1_res</span> <span class="o">=</span> <span class="n">train_sgd</span><span class="p">(</span><span class="mf">.4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.243</span><span class="p">,</span> <span class="mf">0.002</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.243</span><span class="p">,</span> <span class="mf">0.001</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -975,7 +975,7 @@ will use this throughout the current chapter.</p>
 <span class="n">train_concise_ch11</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">},</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">valid_iter</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.243</span><span class="p">,</span> <span class="mf">0.009</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">:</span> <span class="mf">0.243</span><span class="p">,</span> <span class="mf">0.008</span> <span class="n">sec</span><span class="o">/</span><span class="n">epoch</span>
 </pre></div>
 </div>
 <figure class="align-default">

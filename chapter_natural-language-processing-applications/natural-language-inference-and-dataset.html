@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -587,37 +587,6 @@ benchmark dataset.</p>
 over 500000 labeled English sentence pairs
 <span id="id1">()</span>. We download and store the
 extracted SNLI dataset in the path <code class="docutils literal notranslate"><span class="pre">../data/snli_1.0</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-
-<span class="c1">#@save</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">DATA_HUB</span><span class="p">[</span><span class="s1">&#39;SNLI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;https://nlp.stanford.edu/projects/snli/snli_1.0.zip&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;9fcde07509c7e87ec61c640c1b2753d9041758e4&#39;</span><span class="p">)</span>
-
-<span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;SNLI&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-
-<span class="c1">#@save</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">DATA_HUB</span><span class="p">[</span><span class="s1">&#39;SNLI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;https://nlp.stanford.edu/projects/snli/snli_1.0.zip&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;9fcde07509c7e87ec61c640c1b2753d9041758e4&#39;</span><span class="p">)</span>
-
-<span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;SNLI&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
@@ -629,9 +598,6 @@ extracted SNLI dataset in the path <code class="docutils literal notranslate"><s
     <span class="s1">&#39;9fcde07509c7e87ec61c640c1b2753d9041758e4&#39;</span><span class="p">)</span>
 
 <span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;SNLI&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">snli_1</span><span class="mf">.0</span><span class="o">.</span><span class="n">zip</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">nlp</span><span class="o">.</span><span class="n">stanford</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">snli</span><span class="o">/</span><span class="n">snli_1</span><span class="mf">.0</span><span class="o">.</span><span class="n">zip</span><span class="o">...</span>
 </pre></div>
 </div>
 <section id="reading-the-dataset">
@@ -707,66 +673,6 @@ special tokens “&lt;pad&gt;” will be appended to shorter sequences until the
 length becomes <code class="docutils literal notranslate"><span class="pre">num_steps</span></code>. By implementing the <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>
 function, we can arbitrarily access the premise, hypothesis, and label
 with the index <code class="docutils literal notranslate"><span class="pre">idx</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">SNLIDataset</span><span class="p">(</span><span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A customized dataset to load the SNLI dataset.&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">vocab</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">num_steps</span> <span class="o">=</span> <span class="n">num_steps</span>
-        <span class="n">all_premise_tokens</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">all_hypothesis_tokens</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">vocab</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Vocab</span><span class="p">(</span><span class="n">all_premise_tokens</span> <span class="o">+</span> <span class="n">all_hypothesis_tokens</span><span class="p">,</span>
-                                   <span class="n">min_freq</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">reserved_tokens</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">])</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span> <span class="o">=</span> <span class="n">vocab</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">premises</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pad</span><span class="p">(</span><span class="n">all_premise_tokens</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">hypotheses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pad</span><span class="p">(</span><span class="n">all_hypothesis_tokens</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">premises</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; examples&#39;</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_pad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">d2l</span><span class="o">.</span><span class="n">truncate_pad</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="n">line</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">])</span>
-                         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">premises</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">hypotheses</span><span class="p">[</span><span class="n">idx</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">premises</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">SNLIDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A customized dataset to load the SNLI dataset.&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">vocab</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">num_steps</span> <span class="o">=</span> <span class="n">num_steps</span>
-        <span class="n">all_premise_tokens</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">all_hypothesis_tokens</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="k">if</span> <span class="n">vocab</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Vocab</span><span class="p">(</span><span class="n">all_premise_tokens</span> <span class="o">+</span> <span class="n">all_hypothesis_tokens</span><span class="p">,</span>
-                                   <span class="n">min_freq</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">reserved_tokens</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">])</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span> <span class="o">=</span> <span class="n">vocab</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">premises</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pad</span><span class="p">(</span><span class="n">all_premise_tokens</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">hypotheses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pad</span><span class="p">(</span><span class="n">all_hypothesis_tokens</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">premises</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; examples&#39;</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_pad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">d2l</span><span class="o">.</span><span class="n">truncate_pad</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="n">line</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="s1">&#39;&lt;pad&gt;&#39;</span><span class="p">])</span>
-                         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">premises</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">hypotheses</span><span class="p">[</span><span class="n">idx</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">premises</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">SNLIDataset</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A customized dataset to load the SNLI dataset.&quot;&quot;&quot;</span>
@@ -855,61 +761,6 @@ training set. It is noteworthy that we must use the vocabulary
 constructed from the training set as that of the testing set. As a
 result, any new token from the testing set will be unknown to the model
 trained on the training set.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_snli</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download the SNLI dataset and return data iterators and vocabulary.&quot;&quot;&quot;</span>
-    <span class="n">num_workers</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">()</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;SNLI&#39;</span><span class="p">)</span>
-    <span class="n">train_data</span> <span class="o">=</span> <span class="n">read_snli</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-    <span class="n">test_data</span> <span class="o">=</span> <span class="n">read_snli</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-    <span class="n">train_set</span> <span class="o">=</span> <span class="n">SNLIDataset</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">)</span>
-    <span class="n">test_set</span> <span class="o">=</span> <span class="n">SNLIDataset</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">train_set</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                       <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="n">test_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                      <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">train_set</span><span class="o">.</span><span class="n">vocab</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_snli</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download the SNLI dataset and return data iterators and vocabulary.&quot;&quot;&quot;</span>
-    <span class="n">num_workers</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">()</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;SNLI&#39;</span><span class="p">)</span>
-    <span class="n">train_data</span> <span class="o">=</span> <span class="n">read_snli</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-    <span class="n">test_data</span> <span class="o">=</span> <span class="n">read_snli</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-    <span class="n">train_set</span> <span class="o">=</span> <span class="n">SNLIDataset</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">)</span>
-    <span class="n">test_set</span> <span class="o">=</span> <span class="n">SNLIDataset</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">train_set</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span>
-                                             <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                             <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="n">test_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span>
-                                            <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                            <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">train_set</span><span class="o">.</span><span class="n">vocab</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_snli</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download the SNLI dataset and return data iterators and vocabulary.&quot;&quot;&quot;</span>
-    <span class="n">num_workers</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">()</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;SNLI&#39;</span><span class="p">)</span>
-    <span class="n">train_data</span> <span class="o">=</span> <span class="n">read_snli</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-    <span class="n">test_data</span> <span class="o">=</span> <span class="n">read_snli</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-    <span class="n">train_set</span> <span class="o">=</span> <span class="n">SNLIDataset</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">)</span>
-    <span class="n">test_set</span> <span class="o">=</span> <span class="n">SNLIDataset</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">,</span> <span class="n">train_set</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span>
-                                             <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                             <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="n">test_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span>
-                                            <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                            <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">train_set</span><span class="o">.</span><span class="n">vocab</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_data_snli</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download the SNLI dataset and return data iterators and vocabulary.&quot;&quot;&quot;</span>

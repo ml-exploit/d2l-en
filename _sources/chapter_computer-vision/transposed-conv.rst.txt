@@ -28,30 +28,6 @@ for reversing downsampling operations by the convolution.
 
 .. code:: python
 
-   #@tab mxnet
-   from mxnet import np, npx, init
-   from mxnet.gluon import nn
-   from d2l import mxnet as d2l
-
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   import torch
-   from torch import nn
-   from d2l import torch as d2l
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     import mlx.core as mx
     import mlx.nn as nn
     from d2l import mlx as d2l
@@ -148,30 +124,6 @@ results.
 
 .. code:: python
 
-   #@tab mxnet
-   X, K = X.reshape(1, 1, 2, 2), K.reshape(1, 1, 2, 2)
-   tconv = nn.Conv2DTranspose(1, kernel_size=2)
-   tconv.initialize(init.Constant(K))
-   tconv(X)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   X, K = X.reshape(1, 1, 2, 2), K.reshape(1, 1, 2, 2)
-   tconv = nn.ConvTranspose2d(1, 1, kernel_size=2, bias=False)
-   tconv.weight.data = K
-   tconv(X)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     # the input format for MLX (nn.ConvTranspose2d) is NHWC
     X, K = X.reshape(1, 2, 2, 1), K.reshape(1, 2, 2, 1)
     tconv = nn.ConvTranspose2d(1, 1, kernel_size=2, bias=False)
@@ -215,28 +167,6 @@ the transposed convolution output.
 
 .. code:: python
 
-   #@tab mxnet
-   tconv = nn.Conv2DTranspose(1, kernel_size=2, padding=1)
-   tconv.initialize(init.Constant(K))
-   tconv(X)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   tconv = nn.ConvTranspose2d(1, 1, kernel_size=2, padding=1, bias=False)
-   tconv.weight.data = K
-   tconv(X)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     tconv = nn.ConvTranspose2d(1, 1, kernel_size=2, padding=1, bias=False)
     tconv.weight = K
     tconv(X)
@@ -273,28 +203,6 @@ output tensor in :numref:`fig_trans_conv_stride2`.
 
 The following code snippet can validate the transposed convolution
 output for stride of 2 in :numref:`fig_trans_conv_stride2`.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   tconv = nn.Conv2DTranspose(1, kernel_size=2, strides=2)
-   tconv.initialize(init.Constant(K))
-   tconv(X)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   tconv = nn.ConvTranspose2d(1, 1, kernel_size=2, stride=2, bias=False)
-   tconv.weight.data = K
-   tconv(X)
 
 .. raw:: latex
 
@@ -356,32 +264,6 @@ example.
 
 .. code:: python
 
-   #@tab mxnet
-   X = np.random.uniform(size=(1, 10, 16, 16))
-   conv = nn.Conv2D(20, kernel_size=5, padding=2, strides=3)
-   tconv = nn.Conv2DTranspose(10, kernel_size=5, padding=2, strides=3)
-   conv.initialize()
-   tconv.initialize()
-   tconv(conv(X)).shape == X.shape
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   X = torch.rand(size=(1, 10, 16, 16))
-   conv = nn.Conv2d(10, 20, kernel_size=5, padding=2, stride=3)
-   tconv = nn.ConvTranspose2d(20, 10, kernel_size=5, padding=2, stride=3)
-   tconv(conv(X)).shape == X.shape
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     # for MLX, the image format is NHWC
     X = mx.random.normal(shape=(1, 16, 16, 10))
     conv = nn.Conv2d(10, 20, kernel_size=5, padding=2, stride=3)
@@ -420,18 +302,6 @@ use the ``corr2d`` function to compute the convolution output ``Y``.
 
 .. code:: python
 
-   #@tab mxnet,pytorch
-   X = d2l.arange(9.0).reshape(3, 3)
-   K = d2l.tensor([[1.0, 2.0], [3.0, 4.0]])
-   Y = d2l.corr2d(X, K)
-   Y
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     X = mx.arange(9.0).reshape(3, 3)
     K = mx.array([[1.0, 2.0], [3.0, 4.0]])
     Y = d2l.corr2d(X, K)
@@ -456,22 +326,6 @@ Next, we rewrite the convolution kernel ``K`` as a sparse weight matrix
 ``W`` containing a lot of zeros. The shape of the weight matrix is
 (:math:`4`, :math:`9`), where the non-zero elements come from the
 convolution kernel ``K``.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet,pytorch
-   def kernel2matrix(K):
-       k, W = d2l.zeros(5), d2l.zeros((4, 9))
-       k[:2], k[3:5] = K[0, :], K[1, :]
-       W[0, :5], W[1, 1:6], W[2, 3:8], W[3, 4:] = k, k, k, k
-       return W
-
-   W = kernel2matrix(K)
-   W
 
 .. raw:: latex
 

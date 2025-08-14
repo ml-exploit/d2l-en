@@ -71,60 +71,10 @@ past 40 time steps for various choices of :math:`\gamma`.
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   import math
-   from mxnet import np, npx
-
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   from d2l import torch as d2l
-   import torch
-   import math
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   from d2l import tensorflow as d2l
-   import tensorflow as tf
-   import math
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     import math
     import mlx.core as mx
     import mlx.optimizers as optim
     from d2l import mlx as d2l
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet,pytorch,tensorflow
-   d2l.set_figsize()
-   gammas = [0.95, 0.9, 0.8, 0.7]
-   for gamma in gammas:
-       x = d2l.numpy(d2l.arange(40))
-       d2l.plt.plot(x, (1-gamma) * gamma ** x, label=f'gamma = {gamma:.2f}')
-   d2l.plt.xlabel('time');
 
 .. raw:: latex
 
@@ -141,7 +91,7 @@ past 40 time steps for various choices of :math:`\gamma`.
 
 
 
-.. figure:: output_rmsprop_88e24e_3_0.svg
+.. figure:: output_rmsprop_88e24e_2_0.svg
 
 
 Implementation from Scratch
@@ -187,7 +137,7 @@ happen with RMSProp.
 
 
 
-.. figure:: output_rmsprop_88e24e_5_1.svg
+.. figure:: output_rmsprop_88e24e_4_1.svg
 
 
 Next, we implement RMSProp to be used in a deep network. This is equally
@@ -199,75 +149,10 @@ straightforward.
 
 .. code:: python
 
-   #@tab mxnet,pytorch
-   def init_rmsprop_states(feature_dim):
-       s_w = d2l.zeros((feature_dim, 1))
-       s_b = d2l.zeros(1)
-       return (s_w, s_b)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   def init_rmsprop_states(feature_dim):
-       s_w = tf.Variable(d2l.zeros((feature_dim, 1)))
-       s_b = tf.Variable(d2l.zeros(1))
-       return (s_w, s_b)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     def init_rmsprop_states(feature_dim):
         s_w = mx.zeros((feature_dim, 1))
         s_b = mx.zeros(1)
         return (s_w, s_b)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   def rmsprop(params, states, hyperparams):
-       gamma, eps = hyperparams['gamma'], 1e-6
-       for p, s in zip(params, states):
-           s[:] = gamma * s + (1 - gamma) * np.square(p.grad)
-           p[:] -= hyperparams['lr'] * p.grad / np.sqrt(s + eps)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   def rmsprop(params, states, hyperparams):
-       gamma, eps = hyperparams['gamma'], 1e-6
-       for p, s in zip(params, states):
-           with torch.no_grad():
-               s[:] = gamma * s + (1 - gamma) * torch.square(p.grad)
-               p[:] -= hyperparams['lr'] * p.grad / torch.sqrt(s + eps)
-           p.grad.data.zero_()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   def rmsprop(params, grads, states, hyperparams):
-       gamma, eps = hyperparams['gamma'], 1e-6
-       for p, s, g in zip(params, states, grads):
-           s[:].assign(gamma * s + (1 - gamma) * tf.math.square(g))
-           p[:].assign(p - hyperparams['lr'] * g / tf.math.sqrt(s + eps))
 
 .. raw:: latex
 
@@ -292,17 +177,6 @@ gradient.
 
 .. code:: python
 
-   #@tab mxnet,pytorch,tensorflow
-   data_iter, feature_dim = d2l.get_data_ch11(batch_size=10)
-   d2l.train_ch11(rmsprop, init_rmsprop_states(feature_dim),
-                  {'lr': 0.01, 'gamma': 0.9}, data_iter, feature_dim);
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     data_iter, feature_dim = d2l.get_data_ch11(batch_size=10)
     valid_iter, _ = d2l.get_data_ch11(batch_size=10)
     d2l.train_ch11(rmsprop, init_rmsprop_states(feature_dim),
@@ -316,11 +190,11 @@ gradient.
 .. parsed-literal::
     :class: output
 
-    loss: 0.242, 0.012 sec/epoch
+    loss: 0.242, 0.011 sec/epoch
 
 
 
-.. figure:: output_rmsprop_88e24e_11_1.svg
+.. figure:: output_rmsprop_88e24e_9_1.svg
 
 
 Concise Implementation
@@ -330,38 +204,6 @@ Since RMSProp is a rather popular algorithm it is also available in the
 ``Trainer`` instance. All we need to do is instantiate it using an
 algorithm named ``rmsprop``, assigning :math:`\gamma` to the parameter
 ``gamma1``.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   d2l.train_concise_ch11('rmsprop', {'learning_rate': 0.01, 'gamma1': 0.9},
-                          data_iter)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   trainer = torch.optim.RMSprop
-   d2l.train_concise_ch11(trainer, {'lr': 0.01, 'alpha': 0.9},
-                          data_iter)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   trainer = tf.keras.optimizers.RMSprop
-   d2l.train_concise_ch11(trainer, {'learning_rate': 0.01, 'rho': 0.9},
-                          data_iter)
 
 .. raw:: latex
 
@@ -381,11 +223,11 @@ algorithm named ``rmsprop``, assigning :math:`\gamma` to the parameter
 .. parsed-literal::
     :class: output
 
-    loss: 0.242, 0.011 sec/epoch
+    loss: 0.242, 0.010 sec/epoch
 
 
 
-.. figure:: output_rmsprop_88e24e_13_1.svg
+.. figure:: output_rmsprop_88e24e_11_1.svg
 
 
 Summary

@@ -67,42 +67,6 @@ simple function to observe how :math:`x` changes.
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   from mxnet import np, npx
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   import numpy as np
-   import torch
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   %matplotlib inline
-   from d2l import tensorflow as d2l
-   import numpy as np
-   import tensorflow as tf
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     %matplotlib inline
     import mlx.core as mx
     import numpy as np
@@ -154,22 +118,6 @@ optimal solution.
 
 
 The progress of optimizing over :math:`x` can be plotted as follows.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet,pytorch,tensorflow
-   def show_trace(results, f):
-       n = max(abs(min(results)), abs(max(results)))
-       f_line = d2l.arange(-n, n, 0.01)
-       d2l.set_figsize()
-       d2l.plot([f_line, results], [[f(x) for x in f_line], [
-           f(x) for x in results]], 'x', 'f(x)', fmts=['-', '-o'])
-
-   show_trace(results, f)
 
 .. raw:: latex
 
@@ -276,23 +224,6 @@ minimum.
 
 .. code:: python
 
-   #@tab mxnet,pytorch,tensorflow
-   c = d2l.tensor(0.15 * np.pi)
-
-   def f(x):  # Objective function
-       return x * d2l.cos(c * x)
-
-   def f_grad(x):  # Gradient of the objective function
-       return d2l.cos(c * x) - c * x * d2l.sin(c * x)
-
-   show_trace(gd(2, f_grad), f)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     c = mx.array(0.15 * np.pi)
     
     def f(x):  # Objective function
@@ -386,41 +317,6 @@ helper visualizes the trajectory of :math:`\mathbf{x}`.
 
 .. code:: python
 
-   #@tab mxnet
-   def show_trace_2d(f, results):  #@save
-       """Show the trace of 2D variables during optimization."""
-       d2l.set_figsize()
-       d2l.plt.plot(*zip(*results), '-o', color='#ff7f0e')
-       x1, x2 = d2l.meshgrid(d2l.arange(-55, 1, 1),
-                           d2l.arange(-30, 1, 1))
-       x1, x2 = x1.asnumpy()*0.1, x2.asnumpy()*0.1
-       d2l.plt.contour(x1, x2, f(x1, x2), colors='#1f77b4')
-       d2l.plt.xlabel('x1')
-       d2l.plt.ylabel('x2')
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   def show_trace_2d(f, results):  #@save
-       """Show the trace of 2D variables during optimization."""
-       d2l.set_figsize()
-       d2l.plt.plot(*zip(*results), '-o', color='#ff7f0e')
-       x1, x2 = d2l.meshgrid(d2l.arange(-5.5, 1.0, 0.1),
-                             d2l.arange(-3.0, 1.0, 0.1))
-       d2l.plt.contour(x1, x2, f(x1, x2), colors='#1f77b4')
-       d2l.plt.xlabel('x1')
-       d2l.plt.ylabel('x2')
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     def show_trace_2d(f, results):  #@save
         """Show the trace of 2D variables during optimization."""
         d2l.set_figsize()
@@ -467,7 +363,7 @@ after 20 steps the value of :math:`\mathbf{x}` approaches its minimum at
 
 
 
-.. figure:: output_gd_9cd2d2_18_1.svg
+.. figure:: output_gd_9cd2d2_17_1.svg
 
 
 Adaptive Methods
@@ -538,35 +434,6 @@ iterations.
 
 .. code:: python
 
-   #@tab mxnet,pytorch,tensorflow
-   c = d2l.tensor(0.5)
-
-   def f(x):  # Objective function
-       return d2l.cosh(c * x)
-
-   def f_grad(x):  # Gradient of the objective function
-       return c * d2l.sinh(c * x)
-
-   def f_hess(x):  # Hessian of the objective function
-       return c**2 * d2l.cosh(c * x)
-
-   def newton(eta=1):
-       x = 10.0
-       results = [x]
-       for i in range(10):
-           x -= eta * f_grad(x) / f_hess(x)
-           results.append(float(x))
-       print('epoch 10, x:', x)
-       return results
-
-   show_trace(newton(), f)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     c = mx.array(0.5)
     
     def f(x):  # Objective function
@@ -601,7 +468,7 @@ iterations.
 
 
 
-.. figure:: output_gd_9cd2d2_20_1.svg
+.. figure:: output_gd_9cd2d2_19_1.svg
 
 
 Now let’s consider a *nonconvex* function, such as
@@ -610,26 +477,6 @@ that in Newton’s method we end up dividing by the Hessian. This means
 that if the second derivative is *negative* we may walk into the
 direction of *increasing* the value of :math:`f`. That is a fatal flaw
 of the algorithm. Let’s see what happens in practice.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet,pytorch,tensorflow
-   c = d2l.tensor(0.15 * np.pi)
-
-   def f(x):  # Objective function
-       return x * d2l.cos(c * x)
-
-   def f_grad(x):  # Gradient of the objective function
-       return d2l.cos(c * x) - c * x * d2l.sin(c * x)
-
-   def f_hess(x):  # Hessian of the objective function
-       return - 2 * c * d2l.sin(c * x) - x * c**2 * d2l.cos(c * x)
-
-   show_trace(newton(), f)
 
 .. raw:: latex
 
@@ -662,7 +509,7 @@ of the algorithm. Let’s see what happens in practice.
 
 
 
-.. figure:: output_gd_9cd2d2_22_1.svg
+.. figure:: output_gd_9cd2d2_21_1.svg
 
 
 This went spectacularly wrong. How can we fix it? One way would be to
@@ -694,7 +541,7 @@ quite an efficient algorithm.
 
 
 
-.. figure:: output_gd_9cd2d2_24_1.svg
+.. figure:: output_gd_9cd2d2_23_1.svg
 
 
 Convergence Analysis

@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -552,30 +552,6 @@ error. However, the goal of deep learning (or more broadly, statistical
 inference) is to reduce the generalization error. To accomplish the
 latter we need to pay attention to overfitting in addition to using the
 optimization algorithm to reduce the training error.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits</span><span class="w"> </span><span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits</span><span class="w"> </span><span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensorflow</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits</span><span class="w"> </span><span class="kn">import</span> <span class="n">mplot3d</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -591,14 +567,6 @@ on the entire population of data. Below we define two functions: the
 risk function <code class="docutils literal notranslate"><span class="pre">f</span></code> and the empirical risk function <code class="docutils literal notranslate"><span class="pre">g</span></code>. Suppose that
 we have only a finite amount of training data. As a result, here <code class="docutils literal notranslate"><span class="pre">g</span></code>
 is less smooth than <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">d2l</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">d2l</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">mx</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
 
@@ -609,18 +577,6 @@ is less smooth than <code class="docutils literal notranslate"><span class="pre"
 <p>The graph below illustrates that the minimum of the empirical risk on a
 training dataset may be at a different location from the minimum of the
 risk (generalization error).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">annotate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">xytext</span><span class="p">):</span>  <span class="c1">#@save</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">xy</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="n">xytext</span><span class="p">,</span>
-                           <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">))</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">((</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">))</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)],</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;risk&#39;</span><span class="p">)</span>
-<span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;min of</span><span class="se">\n</span><span class="s1">empirical risk&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">))</span>
-<span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;min of risk&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.05</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">annotate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">xytext</span><span class="p">):</span>  <span class="c1">#@save</span>
     <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">xy</span><span class="p">,</span> <span class="n">xytext</span><span class="o">=</span><span class="n">xytext</span><span class="p">,</span>
                            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">))</span>
@@ -662,13 +618,6 @@ global minimum.</p>
 <span class="eqno">(12.1.1)<a class="headerlink" href="#equation-chapter-optimization-optimization-intro-0" title="Permalink to this equation">¶</a></span>\[f(x) = x \cdot \textrm{cos}(\pi x) \textrm{ for } -1.0 \leq x \leq 2.0,\]</div>
 <p>we can approximate the local minimum and global minimum of this
 function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="p">],</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
-<span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;local minimum&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.77</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">))</span>
-<span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;global minimum&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.95</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="p">],</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
 <span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;local minimum&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.77</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">))</span>
@@ -696,12 +645,6 @@ function vanish but which is neither a global nor a local minimum.
 Consider the function <span class="math notranslate nohighlight">\(f(x) = x^3\)</span>. Its first and second
 derivative vanish for <span class="math notranslate nohighlight">\(x=0\)</span>. Optimization might stall at this
 point, even though it is not a minimum.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
-<span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;saddle point&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.52</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
 <span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;saddle point&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.52</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">))</span>
@@ -715,39 +658,6 @@ It has its saddle point at <span class="math notranslate nohighlight">\((0, 0)\)
 respect to <span class="math notranslate nohighlight">\(y\)</span> and a minimum with respect to <span class="math notranslate nohighlight">\(x\)</span>. Moreover,
 it <em>looks</em> like a saddle, which is where this mathematical property got
 its name.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span> <span class="n">d2l</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_wireframe</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">(),</span> <span class="n">z</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">(),</span>
-                  <span class="o">**</span><span class="p">{</span><span class="s1">&#39;rstride&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;cstride&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;rx&#39;</span><span class="p">)</span>
-<span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch, tensorflow</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span> <span class="n">d2l</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_wireframe</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;rstride&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;cstride&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;rx&#39;</span><span class="p">)</span>
-<span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
     <span class="n">mx</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span> <span class="n">mx</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span>
@@ -803,12 +713,6 @@ Consequently, optimization will get stuck for a long time before we make
 progress. This turns out to be one of the reasons that training deep
 learning models was quite tricky prior to the introduction of the ReLU
 activation function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch,tensorflow</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">d2l</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)],</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
-<span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;vanishing gradient&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">mx</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)],</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
 <span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;vanishing gradient&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>

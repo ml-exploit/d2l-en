@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -575,23 +575,6 @@ which of the two dogs a pixel belongs to.</p></li>
 <p>On of the most important semantic segmentation dataset is <a class="reference external" href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/">Pascal
 VOC2012</a>. In the
 following, we will take a look at this dataset.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">albumentations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">A</span>
@@ -610,9 +593,6 @@ download the file. The extracted dataset is located at
 <span class="n">voc_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;voc2012&#39;</span><span class="p">,</span> <span class="s1">&#39;VOCdevkit/VOC2012&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">VOCtrainval_11</span><span class="o">-</span><span class="n">May</span><span class="o">-</span><span class="mf">2012.</span><span class="n">tar</span> <span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">d2l</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">accelerate</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">VOCtrainval_11</span><span class="o">-</span><span class="n">May</span><span class="o">-</span><span class="mf">2012.</span><span class="n">tar</span><span class="o">...</span>
-</pre></div>
-</div>
 <p>After entering the path <code class="docutils literal notranslate"><span class="pre">../data/VOCdevkit/VOC2012</span></code>, we can see the
 different components of the dataset. The <code class="docutils literal notranslate"><span class="pre">ImageSets/Segmentation</span></code> path
 contains text files that specify training and test samples, while the
@@ -622,45 +602,6 @@ image format, with the same size as its labeled input image. Besides,
 pixels with the same color in any label image belong to the same
 semantic class. The following defines the <code class="docutils literal notranslate"><span class="pre">read_voc_images</span></code> function
 to read all the input images and labels into the memory.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read all VOC feature and label images.&quot;&quot;&quot;</span>
-    <span class="n">txt_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="s1">&#39;ImageSets&#39;</span><span class="p">,</span> <span class="s1">&#39;Segmentation&#39;</span><span class="p">,</span>
-                             <span class="s1">&#39;train.txt&#39;</span> <span class="k">if</span> <span class="n">is_train</span> <span class="k">else</span> <span class="s1">&#39;val.txt&#39;</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">txt_fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">images</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">features</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
-        <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-            <span class="n">voc_dir</span><span class="p">,</span> <span class="s1">&#39;JPEGImages&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s1">.jpg&#39;</span><span class="p">)))</span>
-        <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-            <span class="n">voc_dir</span><span class="p">,</span> <span class="s1">&#39;SegmentationClass&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">)))</span>
-    <span class="k">return</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span>
-
-<span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read all VOC feature and label images.&quot;&quot;&quot;</span>
-    <span class="n">txt_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="s1">&#39;ImageSets&#39;</span><span class="p">,</span> <span class="s1">&#39;Segmentation&#39;</span><span class="p">,</span>
-                             <span class="s1">&#39;train.txt&#39;</span> <span class="k">if</span> <span class="n">is_train</span> <span class="k">else</span> <span class="s1">&#39;val.txt&#39;</span><span class="p">)</span>
-    <span class="n">mode</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">ImageReadMode</span><span class="o">.</span><span class="n">RGB</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">txt_fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">images</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">features</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
-        <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torchvision</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_image</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-            <span class="n">voc_dir</span><span class="p">,</span> <span class="s1">&#39;JPEGImages&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s1">.jpg&#39;</span><span class="p">)))</span>
-        <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torchvision</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read_image</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-            <span class="n">voc_dir</span><span class="p">,</span> <span class="s1">&#39;SegmentationClass&#39;</span> <span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">),</span> <span class="n">mode</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span>
-
-<span class="n">train_features</span><span class="p">,</span> <span class="n">train_labels</span> <span class="o">=</span> <span class="n">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read all VOC feature and label images.&quot;&quot;&quot;</span>
@@ -687,19 +628,6 @@ to read all the input images and labels into the memory.</p>
 <p>We draw the first five input images and their labels. In the label
 images, white and black represent borders and background, respectively,
 while the other colors correspond to different classes.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">imgs</span> <span class="o">=</span> <span class="n">train_features</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">train_labels</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">imgs</span> <span class="o">=</span> <span class="n">train_features</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">train_labels</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
-<span class="n">imgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">imgs</span><span class="p">]</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">imgs</span> <span class="o">=</span> <span class="n">train_features</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="n">train_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
@@ -730,44 +658,6 @@ index for each pixel in a label. We define the <code class="docutils literal not
 function to build the mapping from the above RGB color values to class
 indices, and the <code class="docutils literal notranslate"><span class="pre">voc_label_indices</span></code> function to map any RGB values to
 their class indices in this Pascal VOC2012 dataset.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">voc_colormap2label</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build the mapping from RGB to class indices for VOC labels.&quot;&quot;&quot;</span>
-    <span class="n">colormap2label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">256</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">colormap</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">VOC_COLORMAP</span><span class="p">):</span>
-        <span class="n">colormap2label</span><span class="p">[</span>
-            <span class="p">(</span><span class="n">colormap</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">+</span> <span class="n">colormap</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">+</span> <span class="n">colormap</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
-    <span class="k">return</span> <span class="n">colormap2label</span>
-
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">voc_label_indices</span><span class="p">(</span><span class="n">colormap</span><span class="p">,</span> <span class="n">colormap2label</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Map any RGB values in VOC labels to their class indices.&quot;&quot;&quot;</span>
-    <span class="n">colormap</span> <span class="o">=</span> <span class="n">colormap</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="p">((</span><span class="n">colormap</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">+</span> <span class="n">colormap</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">256</span>
-           <span class="o">+</span> <span class="n">colormap</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">colormap2label</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">voc_colormap2label</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build the mapping from RGB to class indices for VOC labels.&quot;&quot;&quot;</span>
-    <span class="n">colormap2label</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">256</span> <span class="o">**</span> <span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">colormap</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">VOC_COLORMAP</span><span class="p">):</span>
-        <span class="n">colormap2label</span><span class="p">[</span>
-            <span class="p">(</span><span class="n">colormap</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">+</span> <span class="n">colormap</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">+</span> <span class="n">colormap</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
-    <span class="k">return</span> <span class="n">colormap2label</span>
-
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">voc_label_indices</span><span class="p">(</span><span class="n">colormap</span><span class="p">,</span> <span class="n">colormap2label</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Map any RGB values in VOC labels to their class indices.&quot;&quot;&quot;</span>
-    <span class="n">colormap</span> <span class="o">=</span> <span class="n">colormap</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="p">((</span><span class="n">colormap</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">+</span> <span class="n">colormap</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">256</span>
-           <span class="o">+</span> <span class="n">colormap</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">colormap2label</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">voc_colormap2label</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Build the mapping from RGB to class indices for VOC labels.&quot;&quot;&quot;</span>
@@ -817,26 +707,6 @@ inaccurate, especially for segmented regions with different classes. To
 avoid this issue, we crop the image to a <em>fixed</em> shape instead of
 rescaling. Specifically, using random cropping from image augmentation,
 we crop the same area of the input image and the label.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">voc_rand_crop</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Randomly crop both feature and label images.&quot;&quot;&quot;</span>
-    <span class="n">feature</span><span class="p">,</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">random_crop</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">fixed_crop</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="o">*</span><span class="n">rect</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">feature</span><span class="p">,</span> <span class="n">label</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">voc_rand_crop</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Randomly crop both feature and label images.&quot;&quot;&quot;</span>
-    <span class="n">rect</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomCrop</span><span class="o">.</span><span class="n">get_params</span><span class="p">(</span>
-        <span class="n">feature</span><span class="p">,</span> <span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">))</span>
-    <span class="n">feature</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="o">*</span><span class="n">rect</span><span class="p">)</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="o">*</span><span class="n">rect</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">feature</span><span class="p">,</span> <span class="n">label</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">voc_rand_crop</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Randomly crop both feature and label images.&quot;&quot;&quot;</span>
@@ -847,22 +717,6 @@ we crop the same area of the input image and the label.</p>
     <span class="k">return</span> <span class="n">cropped_feature</span><span class="p">,</span> <span class="n">cropped_label</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">imgs</span> <span class="o">+=</span> <span class="n">voc_rand_crop</span><span class="p">(</span><span class="n">train_features</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">train_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">imgs</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">imgs</span> <span class="o">+=</span> <span class="n">voc_rand_crop</span><span class="p">(</span><span class="n">train_features</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">train_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-
-<span class="n">imgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">imgs</span><span class="p">]</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">imgs</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">imgs</span> <span class="o">+=</span> <span class="n">voc_rand_crop</span><span class="p">(</span><span class="n">train_features</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">train_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
@@ -871,7 +725,7 @@ we crop the same area of the input image and the label.</p>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_semantic-segmentation-and-dataset_354524_17_0.png" src="../_images/output_semantic-segmentation-and-dataset_354524_17_0.png" />
+<img alt="../_images/output_semantic-segmentation-and-dataset_354524_16_0.png" src="../_images/output_semantic-segmentation-and-dataset_354524_16_0.png" />
 </figure>
 </section>
 <section id="custom-semantic-segmentation-dataset-class">
@@ -885,72 +739,6 @@ smaller size than the output size of random cropping, these examples are
 filtered out by a custom <code class="docutils literal notranslate"><span class="pre">filter</span></code> function. In addition, we also
 define the <code class="docutils literal notranslate"><span class="pre">normalize_image</span></code> function to standardize the values of the
 three RGB channels of input images.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">VOCSegDataset</span><span class="p">(</span><span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A customized dataset to load the VOC dataset.&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_train</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span> <span class="n">voc_dir</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rgb_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rgb_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">crop_size</span> <span class="o">=</span> <span class="n">crop_size</span>
-        <span class="n">features</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">normalize_image</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
-                         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">features</span><span class="p">)]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">colormap2label</span> <span class="o">=</span> <span class="n">voc_colormap2label</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; examples&#39;</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">normalize_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb_mean</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">rgb_std</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgs</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">img</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">imgs</span> <span class="k">if</span> <span class="p">(</span>
-            <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crop_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span>
-            <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crop_size</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="n">feature</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">voc_rand_crop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                                       <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">crop_size</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">feature</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-                <span class="n">voc_label_indices</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">colormap2label</span><span class="p">))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">VOCSegDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A customized dataset to load the VOC dataset.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_train</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span> <span class="n">voc_dir</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span>
-            <span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">crop_size</span> <span class="o">=</span> <span class="n">crop_size</span>
-        <span class="n">features</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">normalize_image</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
-                         <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">features</span><span class="p">)]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">colormap2label</span> <span class="o">=</span> <span class="n">voc_colormap2label</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; examples&#39;</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">normalize_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgs</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">img</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">imgs</span> <span class="k">if</span> <span class="p">(</span>
-            <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crop_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span>
-            <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crop_size</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
-        <span class="n">feature</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">voc_rand_crop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                                       <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">crop_size</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">voc_label_indices</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">colormap2label</span><span class="p">))</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">features</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">VOCSegDataset</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A customized dataset to load the VOC dataset.&quot;&quot;&quot;</span>
@@ -1005,28 +793,6 @@ training set and test set.</p>
 training set. Let’s print the shape of the first minibatch. Different
 from in image classification or object detection, labels here are
 three-dimensional tensors.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
-<span class="n">train_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">voc_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                   <span class="n">last_batch</span><span class="o">=</span><span class="s1">&#39;discard&#39;</span><span class="p">,</span>
-                                   <span class="n">num_workers</span><span class="o">=</span><span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">())</span>
-<span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="ow">in</span> <span class="n">train_iter</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="k">break</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>
-<span class="n">train_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">voc_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                    <span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                    <span class="n">num_workers</span><span class="o">=</span><span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">())</span>
-<span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="ow">in</span> <span class="n">train_iter</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="k">break</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_voc_data_iter</span><span class="p">(</span><span class="n">voc_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">drop_last</span><span class="p">:</span>
@@ -1074,38 +840,6 @@ three-dimensional tensors.</p>
 <p>Finally, we define the following <code class="docutils literal notranslate"><span class="pre">load_data_voc</span></code> function to download
 and read the Pascal VOC2012 semantic segmentation dataset. It returns
 data iterators for both the training and test datasets.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_voc</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the VOC semantic segmentation dataset.&quot;&quot;&quot;</span>
-    <span class="n">voc_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;voc2012&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-        <span class="s1">&#39;VOCdevkit&#39;</span><span class="p">,</span> <span class="s1">&#39;VOC2012&#39;</span><span class="p">))</span>
-    <span class="n">num_workers</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">()</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
-        <span class="n">VOCSegDataset</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span> <span class="n">voc_dir</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">,</span>
-        <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">last_batch</span><span class="o">=</span><span class="s1">&#39;discard&#39;</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="n">test_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
-        <span class="n">VOCSegDataset</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span> <span class="n">voc_dir</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">,</span>
-        <span class="n">last_batch</span><span class="o">=</span><span class="s1">&#39;discard&#39;</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_voc</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the VOC semantic segmentation dataset.&quot;&quot;&quot;</span>
-    <span class="n">voc_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;voc2012&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-        <span class="s1">&#39;VOCdevkit&#39;</span><span class="p">,</span> <span class="s1">&#39;VOC2012&#39;</span><span class="p">))</span>
-    <span class="n">num_workers</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">()</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
-        <span class="n">VOCSegDataset</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span> <span class="n">voc_dir</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">,</span>
-        <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="n">test_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
-        <span class="n">VOCSegDataset</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">,</span> <span class="n">voc_dir</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">,</span>
-        <span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_data_voc</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load the VOC semantic segmentation dataset.&quot;&quot;&quot;</span>

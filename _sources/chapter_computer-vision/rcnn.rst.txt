@@ -152,33 +152,6 @@ layer. Suppose that the height and width of the CNN-extracted features
 
 .. code:: python
 
-   #@tab mxnet
-   from mxnet import np, npx
-
-   npx.set_np()
-
-   X = np.arange(16).reshape(1, 1, 4, 4)
-   X
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   import torch
-   import torchvision
-
-   X = torch.arange(16.).reshape(1, 1, 4, 4)
-   X
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     import mlx.core as mx
     import mlx.nn as nn
     
@@ -214,24 +187,6 @@ upper-left and lower-right corners.
 
 .. code:: python
 
-   #@tab mxnet
-   rois = np.array([[0, 0, 0, 20, 20], [0, 0, 10, 30, 30]])
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   rois = torch.Tensor([[0, 0, 0, 20, 20], [0, 0, 10, 30, 30]])
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     rois = mx.array([[0, 0, 0, 20, 20], [0, 0, 10, 30, 30]])
 
 Because the height and width of ``X`` are :math:`1/10` of the height and
@@ -242,24 +197,6 @@ argument. Then the two regions of interest are marked on ``X`` as
 in the :math:`2\times 2` region of interest pooling, each region of
 interest is divided into a grid of sub-windows to further extract
 features of the same shape :math:`2\times 2`.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   npx.roi_pooling(X, rois, pooled_size=(2, 2), spatial_scale=0.1)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   torchvision.ops.roi_pool(X, rois, output_size=(2, 2), spatial_scale=0.1)
 
 .. raw:: latex
 

@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -757,17 +757,11 @@ on the SNLI dataset. We begin by reading the dataset.</p>
 <p>We download and read the SNLI dataset using the function defined in
 <a class="reference internal" href="natural-language-inference-and-dataset.html#sec-natural-language-inference-and-dataset"><span class="std std-numref">Section 15.3</span></a>. The batch size
 and sequence length are set to <span class="math notranslate nohighlight">\(256\)</span> and <span class="math notranslate nohighlight">\(50\)</span>, respectively.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">50</span>
-<span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_snli</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">50</span>
 <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_snli</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">snli_1</span><span class="mf">.0</span><span class="o">.</span><span class="n">zip</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">nlp</span><span class="o">.</span><span class="n">stanford</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">snli</span><span class="o">/</span><span class="n">snli_1</span><span class="mf">.0</span><span class="o">.</span><span class="n">zip</span><span class="o">...</span>
-<span class="n">read</span> <span class="mi">549367</span> <span class="n">examples</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read</span> <span class="mi">549367</span> <span class="n">examples</span>
 <span class="n">read</span> <span class="mi">9824</span> <span class="n">examples</span>
 </pre></div>
 </div>
@@ -788,9 +782,6 @@ to initialize vectors of input tokens.</p>
 <span class="n">net</span><span class="o">.</span><span class="n">embedding</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">embeds</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">glove</span><span class="mf">.6</span><span class="n">B</span><span class="mf">.100</span><span class="n">d</span><span class="o">.</span><span class="n">zip</span> <span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">d2l</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">accelerate</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">glove</span><span class="mf">.6</span><span class="n">B</span><span class="mf">.100</span><span class="n">d</span><span class="o">.</span><span class="n">zip</span><span class="o">...</span>
-</pre></div>
-</div>
 </section>
 <section id="id2">
 <h3><span class="section-number">15.4.2.3. </span>Training and Evaluating the Model<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
@@ -798,6 +789,7 @@ to initialize vectors of input tokens.</p>
 that takes single inputs such as text sequences (or images), we define a
 <code class="docutils literal notranslate"><span class="pre">split_batch_multi_inputs</span></code> function to take multiple inputs such as
 premises and hypotheses in minibatches.</p>
+<p>Now we can train and evaluate the model on the SNLI dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_num_batch</span><span class="p">(</span><span class="nb">iter</span><span class="p">):</span>
     <span class="n">num_batches</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">:</span>
@@ -812,12 +804,12 @@ premises and hypotheses in minibatches.</p>
 <span class="n">d2l</span><span class="o">.</span><span class="n">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">num_batches</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.521</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.793</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.820</span>
-<span class="mf">8937.1</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.531</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.789</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.816</span>
+<span class="mf">11071.0</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_natural-language-inference-attention_8a1ec8_17_1.svg" src="../_images/output_natural-language-inference-attention_8a1ec8_17_1.svg" /></figure>
+<img alt="../_images/output_natural-language-inference-attention_8a1ec8_18_1.svg" src="../_images/output_natural-language-inference-attention_8a1ec8_18_1.svg" /></figure>
 </section>
 <section id="using-the-model">
 <h3><span class="section-number">15.4.2.4. </span>Using the Model<a class="headerlink" href="#using-the-model" title="Permalink to this heading">¶</a></h3>
@@ -843,7 +835,7 @@ result for a sample pair of sentences.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">predict_snli</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;he&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;bad&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.17206</span><span class="p">,</span> <span class="mf">0.90324</span><span class="p">,</span> <span class="mf">0.53246</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output</span><span class="p">:</span> <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.545903</span><span class="p">,</span> <span class="mf">0.306881</span><span class="p">,</span> <span class="mf">0.130977</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;contradiction&#39;</span>

@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -534,24 +534,6 @@ Specifically, we will take the skip-gram model in
 with the dataset for pretraining the word embedding model: the original
 format of the data will be transformed into minibatches that can be
 iterated over during training.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
@@ -662,7 +644,7 @@ will lead to training speedup.</p>
 <span class="n">compare_counts</span><span class="p">(</span><span class="s1">&#39;the&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;&quot;the&quot;的数量：之前=50770, 之后=2010&#39;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;&quot;the&quot;的数量：之前=50770, 之后=2079&#39;</span>
 </pre></div>
 </div>
 <p>In contrast, low-frequency words “join” are completely kept.</p>
@@ -677,7 +659,7 @@ will lead to training speedup.</p>
 <span class="n">corpus</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[],</span> <span class="p">[</span><span class="mi">3228</span><span class="p">,</span> <span class="mi">710</span><span class="p">,</span> <span class="mi">4060</span><span class="p">,</span> <span class="mi">27</span><span class="p">],</span> <span class="p">[</span><span class="mi">3922</span><span class="p">,</span> <span class="mi">1922</span><span class="p">,</span> <span class="mi">4743</span><span class="p">]]</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[],</span> <span class="p">[</span><span class="mi">3228</span><span class="p">,</span> <span class="mi">710</span><span class="p">,</span> <span class="mi">1773</span><span class="p">],</span> <span class="p">[</span><span class="mi">993</span><span class="p">,</span> <span class="mi">3922</span><span class="p">,</span> <span class="mi">6079</span><span class="p">,</span> <span class="mi">1922</span><span class="p">,</span> <span class="mi">4743</span><span class="p">]]</span>
 </pre></div>
 </div>
 </section>
@@ -719,14 +701,14 @@ print all the center words and their context words.</p>
 </pre></div>
 </div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
-<span class="n">center</span><span class="p">:</span> <span class="mi">0</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">center</span><span class="p">:</span> <span class="mi">0</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">center</span><span class="p">:</span> <span class="mi">1</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">center</span><span class="p">:</span> <span class="mi">2</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">center</span><span class="p">:</span> <span class="mi">2</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">center</span><span class="p">:</span> <span class="mi">3</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">center</span><span class="p">:</span> <span class="mi">4</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">center</span><span class="p">:</span> <span class="mi">4</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">center</span><span class="p">:</span> <span class="mi">5</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="n">center</span><span class="p">:</span> <span class="mi">6</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">center</span><span class="p">:</span> <span class="mi">7</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">center</span><span class="p">:</span> <span class="mi">6</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">center</span><span class="p">:</span> <span class="mi">7</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">]</span>
 <span class="n">center</span><span class="p">:</span> <span class="mi">8</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 <span class="n">center</span><span class="p">:</span> <span class="mi">9</span> <span class="n">has</span> <span class="n">context</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 </pre></div>
@@ -738,7 +720,7 @@ words in the dataset.</p>
 <span class="sa">f</span><span class="s1">&#39;# center-context pairs: </span><span class="si">{</span><span class="nb">sum</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">contexts</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">contexts</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">all_contexts</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;# center-context pairs: 1500529&#39;</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;# center-context pairs: 1500748&#39;</span>
 </pre></div>
 </div>
 </section>
@@ -776,7 +758,7 @@ distribution is passed via the argument <code class="docutils literal notranslat
 <span class="p">[</span><span class="n">generator</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>For a pair of center word and context word, we randomly sample <code class="docutils literal notranslate"><span class="pre">K</span></code> (5
@@ -876,62 +858,6 @@ training, such as including the mask variable.</p>
 <h2><span class="section-number">14.3.6. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">¶</a></h2>
 <p>Last, we define the <code class="docutils literal notranslate"><span class="pre">load_data_ptb</span></code> function that reads the PTB
 dataset and returns the data iterator and the vocabulary.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_ptb</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_window_size</span><span class="p">,</span> <span class="n">num_noise_words</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download the PTB dataset and then load it into memory.&quot;&quot;&quot;</span>
-    <span class="n">sentences</span> <span class="o">=</span> <span class="n">read_ptb</span><span class="p">()</span>
-    <span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Vocab</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">min_freq</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">subsampled</span><span class="p">,</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">subsample</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">vocab</span><span class="p">)</span>
-    <span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">vocab</span><span class="p">[</span><span class="n">line</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">subsampled</span><span class="p">]</span>
-    <span class="n">all_centers</span><span class="p">,</span> <span class="n">all_contexts</span> <span class="o">=</span> <span class="n">get_centers_and_contexts</span><span class="p">(</span>
-        <span class="n">corpus</span><span class="p">,</span> <span class="n">max_window_size</span><span class="p">)</span>
-    <span class="n">all_negatives</span> <span class="o">=</span> <span class="n">get_negatives</span><span class="p">(</span>
-        <span class="n">all_contexts</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">num_noise_words</span><span class="p">)</span>
-    <span class="n">dataset</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">ArrayDataset</span><span class="p">(</span>
-        <span class="n">all_centers</span><span class="p">,</span> <span class="n">all_contexts</span><span class="p">,</span> <span class="n">all_negatives</span><span class="p">)</span>
-    <span class="n">data_iter</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
-        <span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">batchify_fn</span><span class="o">=</span><span class="n">batchify</span><span class="p">,</span>
-        <span class="n">num_workers</span><span class="o">=</span><span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">vocab</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_data_ptb</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_window_size</span><span class="p">,</span> <span class="n">num_noise_words</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download the PTB dataset and then load it into memory.&quot;&quot;&quot;</span>
-    <span class="n">num_workers</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">()</span>
-    <span class="n">sentences</span> <span class="o">=</span> <span class="n">read_ptb</span><span class="p">()</span>
-    <span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Vocab</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">min_freq</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">subsampled</span><span class="p">,</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">subsample</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">vocab</span><span class="p">)</span>
-    <span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">vocab</span><span class="p">[</span><span class="n">line</span><span class="p">]</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">subsampled</span><span class="p">]</span>
-    <span class="n">all_centers</span><span class="p">,</span> <span class="n">all_contexts</span> <span class="o">=</span> <span class="n">get_centers_and_contexts</span><span class="p">(</span>
-        <span class="n">corpus</span><span class="p">,</span> <span class="n">max_window_size</span><span class="p">)</span>
-    <span class="n">all_negatives</span> <span class="o">=</span> <span class="n">get_negatives</span><span class="p">(</span>
-        <span class="n">all_contexts</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">num_noise_words</span><span class="p">)</span>
-
-    <span class="k">class</span><span class="w"> </span><span class="nc">PTBDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
-        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">centers</span><span class="p">,</span> <span class="n">contexts</span><span class="p">,</span> <span class="n">negatives</span><span class="p">):</span>
-            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">centers</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">contexts</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">negatives</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">centers</span> <span class="o">=</span> <span class="n">centers</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">contexts</span> <span class="o">=</span> <span class="n">contexts</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">negatives</span> <span class="o">=</span> <span class="n">negatives</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">centers</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">contexts</span><span class="p">[</span><span class="n">index</span><span class="p">],</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">negatives</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
-
-        <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">centers</span><span class="p">)</span>
-
-    <span class="n">dataset</span> <span class="o">=</span> <span class="n">PTBDataset</span><span class="p">(</span><span class="n">all_centers</span><span class="p">,</span> <span class="n">all_contexts</span><span class="p">,</span> <span class="n">all_negatives</span><span class="p">)</span>
-
-    <span class="n">data_iter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                      <span class="n">collate_fn</span><span class="o">=</span><span class="n">batchify</span><span class="p">,</span>
-                                      <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">data_iter</span><span class="p">,</span> <span class="n">vocab</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_data_ptb</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_window_size</span><span class="p">,</span> <span class="n">num_noise_words</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Download the PTB dataset and then load it into memory.&quot;&quot;&quot;</span>

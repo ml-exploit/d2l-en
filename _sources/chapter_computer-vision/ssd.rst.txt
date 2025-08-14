@@ -679,8 +679,8 @@ omitted here.
 .. parsed-literal::
     :class: output
 
-    class err 3.21e-03, bbox mae 3.18e-03
-    112.9 examples/sec
+    class err 3.21e-03, bbox mae 3.07e-03
+    112.4 examples/sec
 
 
 

@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -538,24 +538,6 @@ achieved by the transposed convolutional layer introduced in
 and the input image have a one-to-one correspondence in pixel level: the
 channel dimension at any output pixel holds the classification results
 for the input pixel at the same spatial position.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet.gluon</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">albumentations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">A</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
@@ -589,16 +571,6 @@ extract image features and denote the model instance as
 <code class="docutils literal notranslate"><span class="pre">pretrained_net</span></code>. The last few layers of this model include a global
 average pooling layer and a fully connected layer: they are not needed
 in the fully convolutional network.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">pretrained_net</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">model_zoo</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">resnet18_v2</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">pretrained_net</span><span class="o">.</span><span class="n">features</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:],</span> <span class="n">pretrained_net</span><span class="o">.</span><span class="n">output</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">pretrained_net</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">resnet18</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">pretrained_net</span><span class="o">.</span><span class="n">children</span><span class="p">())[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_net</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="s2">&quot;resnet18&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="p">[(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">pretrained_net</span><span class="o">.</span><span class="n">children</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;layer4&quot;</span><span class="p">,</span> <span class="s2">&quot;avgpool&quot;</span><span class="p">,</span> <span class="s2">&quot;fc&quot;</span><span class="p">]]</span>
 </pre></div>
@@ -632,16 +604,6 @@ in the fully convolutional network.</p>
 copies all the pretrained layers in the ResNet-18 except for the final
 global average pooling layer and the fully connected layer that are
 closest to the output.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">HybridSequential</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">pretrained_net</span><span class="o">.</span><span class="n">features</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]:</span>
-    <span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="n">pretrained_net</span><span class="o">.</span><span class="n">children</span><span class="p">())[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pretrained_net_layers</span> <span class="o">=</span> <span class="p">[</span><span class="n">layer</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">pretrained_net</span><span class="o">.</span><span class="n">children</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
 <span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">pretrained_net_layers</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
@@ -649,16 +611,6 @@ closest to the output.</p>
 <p>Given an input with height and width of 320 and 480 respectively, the
 forward propagation of <code class="docutils literal notranslate"><span class="pre">net</span></code> reduces the input height and width to
 1/32 of the original, namely 10 and 15.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>
-<span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">480</span><span class="p">))</span>
-<span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
@@ -680,20 +632,6 @@ general, we can see that for stride <span class="math notranslate nohighlight">\
 (assuming <span class="math notranslate nohighlight">\(s/2\)</span> is an integer), and the height and width of the
 kernel <span class="math notranslate nohighlight">\(2s\)</span>, the transposed convolution will increase the height
 and width of the input by <span class="math notranslate nohighlight">\(s\)</span> times.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">21</span>
-<span class="n">net</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-        <span class="n">nn</span><span class="o">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span>
-            <span class="n">num_classes</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">32</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">21</span>
-<span class="n">net</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;final_conv&#39;</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">net</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s1">&#39;transpose_conv&#39;</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span>
-                                    <span class="n">kernel_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_classes</span> <span class="o">=</span> <span class="mi">21</span>
 <span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
     <span class="o">*</span><span class="n">pretrained_net_layers</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
@@ -726,39 +664,6 @@ transposed convolutional layer with the kernel constructed by the
 following <code class="docutils literal notranslate"><span class="pre">bilinear_kernel</span></code> function. Due to space limitations, we
 only provide the implementation of the <code class="docutils literal notranslate"><span class="pre">bilinear_kernel</span></code> function
 below without discussions on its algorithm design.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">bilinear_kernel</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
-    <span class="n">factor</span> <span class="o">=</span> <span class="p">(</span><span class="n">kernel_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-    <span class="k">if</span> <span class="n">kernel_size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">center</span> <span class="o">=</span> <span class="n">factor</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">center</span> <span class="o">=</span> <span class="n">factor</span> <span class="o">-</span> <span class="mf">0.5</span>
-    <span class="n">og</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">kernel_size</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-          <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">kernel_size</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">filt</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">og</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span> <span class="o">/</span> <span class="n">factor</span><span class="p">)</span> <span class="o">*</span> \
-           <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">og</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span> <span class="o">/</span> <span class="n">factor</span><span class="p">)</span>
-    <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">))</span>
-    <span class="n">weight</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">in_channels</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="n">out_channels</span><span class="p">),</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">filt</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">bilinear_kernel</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
-    <span class="n">factor</span> <span class="o">=</span> <span class="p">(</span><span class="n">kernel_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-    <span class="k">if</span> <span class="n">kernel_size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">center</span> <span class="o">=</span> <span class="n">factor</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">center</span> <span class="o">=</span> <span class="n">factor</span> <span class="o">-</span> <span class="mf">0.5</span>
-    <span class="n">og</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">kernel_size</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-          <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">kernel_size</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">filt</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">og</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span> <span class="o">/</span> <span class="n">factor</span><span class="p">)</span> <span class="o">*</span> \
-           <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">og</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span> <span class="o">/</span> <span class="n">factor</span><span class="p">)</span>
-    <span class="n">weight</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span>
-                          <span class="n">kernel_size</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">))</span>
-    <span class="n">weight</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">in_channels</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="n">out_channels</span><span class="p">),</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">filt</span>
-    <span class="k">return</span> <span class="n">weight</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bilinear_kernel</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
     <span class="n">factor</span> <span class="o">=</span> <span class="p">(</span><span class="n">kernel_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
     <span class="k">if</span> <span class="n">kernel_size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -779,17 +684,6 @@ below without discussions on its algorithm design.</p>
 implemented by a transposed convolutional layer. We construct a
 transposed convolutional layer that doubles the height and weight, and
 initialize its kernel with the <code class="docutils literal notranslate"><span class="pre">bilinear_kernel</span></code> function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">conv_trans</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">conv_trans</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Constant</span><span class="p">(</span><span class="n">bilinear_kernel</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">conv_trans</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-                                <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">conv_trans</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy_</span><span class="p">(</span><span class="n">bilinear_kernel</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conv_trans</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                  <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># (3, 4, 4, 3) for mlx, (3,3,4,4) for pytorch</span>
@@ -803,20 +697,6 @@ initialize its kernel with the <code class="docutils literal notranslate"><span 
 <p>Read the image <code class="docutils literal notranslate"><span class="pre">X</span></code> and assign the upsampling output to <code class="docutils literal notranslate"><span class="pre">Y</span></code>. In order
 to print the image, we need to adjust the position of the channel
 dimension.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../img/catdog.jpg&#39;</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">conv_trans</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">out_img</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;../img/catdog.jpg&#39;</span><span class="p">))</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">conv_trans</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">out_img</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;../img/catdog.jpg&#39;</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span><span class="c1"># H W C</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">conv_trans</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -832,22 +712,6 @@ height and width of the image by a factor of two. Except for the
 different scales in coordinates, the image scaled up by bilinear
 interpolation and the original image printed in <a class="reference internal" href="bounding-box.html#sec-bbox"><span class="std std-numref">Section 13.3</span></a>
 look the same.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;input image shape:&#39;</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">());</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;output image shape:&#39;</span><span class="p">,</span> <span class="n">out_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">out_img</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">());</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;input image shape:&#39;</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;output image shape:&#39;</span><span class="p">,</span> <span class="n">out_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">out_img</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;input image shape:&#39;</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
@@ -864,17 +728,6 @@ look the same.</p>
 <p>In a fully convolutional network, we initialize the transposed
 convolutional layer with upsampling of bilinear interpolation. For the
 <span class="math notranslate nohighlight">\(1\times 1\)</span> convolutional layer, we use Xavier initialization.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">bilinear_kernel</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
-<span class="n">net</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Constant</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
-<span class="n">net</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">bilinear_kernel</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
-<span class="n">net</span><span class="o">.</span><span class="n">transpose_conv</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy_</span><span class="p">(</span><span class="n">W</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">bilinear_kernel</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
 <span class="n">mx</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
 <span class="n">net</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -1150,11 +1003,6 @@ convolutional layer with upsampling of bilinear interpolation. For the
 <a class="reference internal" href="semantic-segmentation-and-dataset.html#sec-semantic-segmentation"><span class="std std-numref">Section 13.9</span></a>. The output image shape of random
 cropping is specified as <span class="math notranslate nohighlight">\(320\times 480\)</span>: both the height and
 width are divisible by <span class="math notranslate nohighlight">\(32\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="n">batch_size</span><span class="p">,</span> <span class="n">crop_size</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
-<span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_voc</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span><span class="p">,</span> <span class="n">crop_size</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
 <span class="n">train_iter</span><span class="p">,</span> <span class="n">num_train_batches</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">num_test_batches</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_voc</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">)</span>
 </pre></div>
@@ -1173,32 +1021,14 @@ the output channel of the transposed convolutional layer to predict the
 class for each pixel, the channel dimension is specified in the loss
 calculation. In addition, the accuracy is calculated based on
 correctness of the predicted class for all the pixels.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">num_epochs</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">wd</span><span class="p">,</span> <span class="n">devices</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">()</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">SoftmaxCrossEntropyLoss</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">()</span><span class="o">.</span><span class="n">reset_ctx</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">(),</span> <span class="s1">&#39;sgd&#39;</span><span class="p">,</span>
-                        <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="n">lr</span><span class="p">,</span> <span class="s1">&#39;wd&#39;</span><span class="p">:</span> <span class="n">wd</span><span class="p">})</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">devices</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">loss</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">num_epochs</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">wd</span><span class="p">,</span> <span class="n">devices</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">()</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="n">wd</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">devices</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">cross_entropy</span>
 <span class="n">num_epochs</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">wd</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">1e-3</span>
 <span class="n">trainer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="n">wd</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">num_train_batches</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="n">nan</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">111812.876</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.729</span>
-<span class="mf">32.9</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="n">nan</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">111892.825</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.728</span>
+<span class="mf">33.1</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -1209,21 +1039,6 @@ correctness of the predicted class for all the pixels.</p>
 <p>When predicting, we need to standardize the input image in each channel
 and transform the image into the four-dimensional input format required
 by the CNN.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">test_iter</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">normalize_image</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">pred</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">as_in_ctx</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">pred</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">test_iter</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">normalize_image</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">pred</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">pred</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
     <span class="n">transform</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span>
             <span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">])</span>
@@ -1237,20 +1052,6 @@ by the CNN.</p>
 </div>
 <p>To visualize the predicted class of each pixel, we map the predicted
 class back to its label color in the dataset.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">label2image</span><span class="p">(</span><span class="n">pred</span><span class="p">):</span>
-    <span class="n">colormap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">VOC_COLORMAP</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">colormap</span><span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="p">:]</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">label2image</span><span class="p">(</span><span class="n">pred</span><span class="p">):</span>
-    <span class="n">colormap</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">VOC_COLORMAP</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">colormap</span><span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="p">:]</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">label2image</span><span class="p">(</span><span class="n">pred</span><span class="p">):</span>
     <span class="n">colormap</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">VOC_COLORMAP</span><span class="p">)</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">mx</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
@@ -1273,32 +1074,6 @@ to predict the class.</p>
 <span class="math notranslate nohighlight">\(320\times480\)</span> area for prediction starting from the upper-left
 corner of an image. For these test images, we print their cropped areas,
 prediction results, and ground-truth row by row.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">voc_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;voc2012&#39;</span><span class="p">,</span> <span class="s1">&#39;VOCdevkit/VOC2012&#39;</span><span class="p">)</span>
-<span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">imgs</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">crop_rect</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mi">320</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">fixed_crop</span><span class="p">(</span><span class="n">test_images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">crop_rect</span><span class="p">)</span>
-    <span class="n">pred</span> <span class="o">=</span> <span class="n">label2image</span><span class="p">(</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
-    <span class="n">imgs</span> <span class="o">+=</span> <span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">fixed_crop</span><span class="p">(</span><span class="n">test_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">crop_rect</span><span class="p">)]</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">imgs</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">imgs</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">3</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">voc_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;voc2012&#39;</span><span class="p">,</span> <span class="s1">&#39;VOCdevkit/VOC2012&#39;</span><span class="p">)</span>
-<span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">imgs</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">crop_rect</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span><span class="n">test_images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">crop_rect</span><span class="p">)</span>
-    <span class="n">pred</span> <span class="o">=</span> <span class="n">label2image</span><span class="p">(</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
-    <span class="n">imgs</span> <span class="o">+=</span> <span class="p">[</span><span class="n">X</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">pred</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),</span>
-             <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">crop</span><span class="p">(</span>
-                 <span class="n">test_labels</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">crop_rect</span><span class="p">)</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">imgs</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">imgs</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">imgs</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">3</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">voc_dir</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">download_extract</span><span class="p">(</span><span class="s1">&#39;voc2012&#39;</span><span class="p">,</span> <span class="s1">&#39;VOCdevkit/VOC2012&#39;</span><span class="p">)</span>
 <span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">read_voc_images</span><span class="p">(</span><span class="n">voc_dir</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">n</span><span class="p">,</span> <span class="n">imgs</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[]</span>

@@ -311,16 +311,6 @@ and sequence length are set to :math:`256` and :math:`50`, respectively.
 
 .. code:: python
 
-   #@tab mxnet,pytorch
-   batch_size, num_steps = 256, 50
-   train_iter, test_iter, vocab = d2l.load_data_snli(batch_size, num_steps)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     batch_size, num_steps = 256, 50
     train_iter, test_iter, vocab = d2l.load_data_snli(batch_size, num_steps)
 
@@ -332,7 +322,6 @@ and sequence length are set to :math:`256` and :math:`50`, respectively.
 .. parsed-literal::
     :class: output
 
-    Downloading ../data/snli_1.0.zip from https://nlp.stanford.edu/projects/snli/snli_1.0.zip...
     read 549367 examples
     read 9824 examples
 
@@ -360,17 +349,6 @@ to initialize vectors of input tokens.
     embeds = glove_embedding[vocab.idx_to_token]
     net.embedding.weight = mx.array(embeds)
 
-
-.. raw:: latex
-
-   \diilbookstyleoutputcell
-
-.. parsed-literal::
-    :class: output
-
-    Downloading ../data/glove.6B.100d.zip from http://d2l-data.s3-accelerate.amazonaws.com/glove.6B.100d.zip...
-
-
 Training and Evaluating the Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -378,6 +356,8 @@ In contrast to the ``split_batch`` function in :numref:`sec_multi_gpu`
 that takes single inputs such as text sequences (or images), we define a
 ``split_batch_multi_inputs`` function to take multiple inputs such as
 premises and hypotheses in minibatches.
+
+Now we can train and evaluate the model on the SNLI dataset.
 
 .. raw:: latex
 
@@ -406,12 +386,12 @@ premises and hypotheses in minibatches.
 .. parsed-literal::
     :class: output
 
-    loss 0.521, train acc 0.793, test acc 0.820
-    8937.1 examples/sec 
+    loss 0.531, train acc 0.789, test acc 0.816
+    11071.0 examples/sec 
 
 
 
-.. figure:: output_natural-language-inference-attention_8a1ec8_17_1.svg
+.. figure:: output_natural-language-inference-attention_8a1ec8_18_1.svg
 
 
 Using the Model
@@ -459,7 +439,7 @@ result for a sample pair of sentences.
 .. parsed-literal::
     :class: output
 
-    output: array([[-1.17206, 0.90324, 0.53246]], dtype=float32)
+    output: array([[-0.545903, 0.306881, 0.130977]], dtype=float32)
 
 
 

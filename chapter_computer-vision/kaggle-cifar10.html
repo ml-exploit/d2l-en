@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -610,9 +610,6 @@ need to set the following <code class="docutils literal notranslate"><span class
     <span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;../data/cifar-10/&#39;</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">kaggle_cifar10_tiny</span><span class="o">.</span><span class="n">zip</span> <span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">d2l</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">accelerate</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kaggle_cifar10_tiny</span><span class="o">.</span><span class="n">zip</span><span class="o">...</span>
-</pre></div>
-</div>
 </section>
 <section id="organizing-the-dataset">
 <h3><span class="section-number">13.13.1.2. </span>Organizing the Dataset<a class="headerlink" href="#organizing-the-dataset" title="Permalink to this heading">¶</a></h3>
@@ -736,7 +733,6 @@ Below lists some of these operations that you can tweak.</p>
 <p>During testing, we only perform standardization on images so as to
 remove randomness in the evaluation results.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transform_test</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="c1"># 标准化图像的每个通道</span>
     <span class="n">A</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="p">(</span><span class="mf">0.4914</span><span class="p">,</span> <span class="mf">0.4822</span><span class="p">,</span> <span class="mf">0.4465</span><span class="p">),</span> <span class="n">std</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2023</span><span class="p">,</span> <span class="mf">0.1994</span><span class="p">,</span> <span class="mf">0.2010</span><span class="p">)),</span>
 <span class="p">])</span>
 </pre></div>
@@ -902,8 +898,8 @@ we only train 20 epochs here.</p>
       <span class="n">lr_decay</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="n">loss</span> <span class="mf">0.515</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.847</span><span class="p">,</span> <span class="n">valid</span> <span class="n">acc</span> <span class="mf">0.362</span>
-<span class="mf">2065.3</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="n">loss</span> <span class="mf">0.514</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.837</span><span class="p">,</span> <span class="n">valid</span> <span class="n">acc</span> <span class="mf">0.412</span>
+<span class="mf">2194.1</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -931,8 +927,8 @@ classify the testing set.</p>
 <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;submission.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="n">loss</span> <span class="mf">0.528</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.835</span>
-<span class="mf">2001.1</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="n">loss</span> <span class="mf">0.436</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.862</span>
+<span class="mf">1216.3</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
 <figure class="align-default">

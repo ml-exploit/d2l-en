@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -554,9 +554,6 @@ sentiment analysis.</span><a class="headerlink" href="#id3" title="Permalink to 
 <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_imdb</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">aclImdb_v1</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">d2l</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">accelerate</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">aclImdb_v1</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span><span class="o">...</span>
-</pre></div>
-</div>
 <section id="one-dimensional-convolutions">
 <h2><span class="section-number">15.2.1. </span>One-Dimensional Convolutions<a class="headerlink" href="#one-dimensional-convolutions" title="Permalink to this heading">¶</a></h2>
 <p>Before introducing the model, let’s see how a one-dimensional
@@ -762,9 +759,6 @@ trained in <code class="docutils literal notranslate"><span class="pre">embeddin
 <span class="n">net</span><span class="o">.</span><span class="n">constant_embedding</span><span class="o">.</span><span class="n">freeze</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">glove</span><span class="mf">.6</span><span class="n">B</span><span class="mf">.100</span><span class="n">d</span><span class="o">.</span><span class="n">zip</span> <span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">d2l</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">accelerate</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">glove</span><span class="mf">.6</span><span class="n">B</span><span class="mf">.100</span><span class="n">d</span><span class="o">.</span><span class="n">zip</span><span class="o">...</span>
-</pre></div>
-</div>
 <div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Embedding</span><span class="p">(</span><span class="mi">49346</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -786,8 +780,8 @@ trained in <code class="docutils literal notranslate"><span class="pre">embeddin
 <span class="n">d2l</span><span class="o">.</span><span class="n">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">num_batches</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.054</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.983</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.850</span>
-<span class="mf">2164.8</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.052</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.985</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.861</span>
+<span class="mf">2152.0</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
 <figure class="align-default">

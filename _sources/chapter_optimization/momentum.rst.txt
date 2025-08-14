@@ -109,64 +109,6 @@ learning rate of :math:`0.4`.
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   from mxnet import np, npx
-   npx.set_np()
-
-   eta = 0.4
-   def f_2d(x1, x2):
-       return 0.1 * x1 ** 2 + 2 * x2 ** 2
-   def gd_2d(x1, x2, s1, s2):
-       return (x1 - eta * 0.2 * x1, x2 - eta * 4 * x2, 0, 0)
-
-   d2l.show_trace_2d(f_2d, d2l.train_2d(gd_2d))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   import torch
-
-   eta = 0.4
-   def f_2d(x1, x2):
-       return 0.1 * x1 ** 2 + 2 * x2 ** 2
-   def gd_2d(x1, x2, s1, s2):
-       return (x1 - eta * 0.2 * x1, x2 - eta * 4 * x2, 0, 0)
-
-   d2l.show_trace_2d(f_2d, d2l.train_2d(gd_2d))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   %matplotlib inline
-   from d2l import tensorflow as d2l
-   import tensorflow as tf
-
-   eta = 0.4
-   def f_2d(x1, x2):
-       return 0.1 * x1 ** 2 + 2 * x2 ** 2
-   def gd_2d(x1, x2, s1, s2):
-       return (x1 - eta * 0.2 * x1, x2 - eta * 4 * x2, 0, 0)
-
-   d2l.show_trace_2d(f_2d, d2l.train_2d(gd_2d))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     %matplotlib inline
     import mlx.core as mx
     import mlx.optimizers as optim
@@ -342,21 +284,6 @@ choices of :math:`\beta` consider the diagram below.
 
 .. code:: python
 
-   #@tab mxnet,pytorch,tensorflow
-   d2l.set_figsize()
-   betas = [0.95, 0.9, 0.6, 0]
-   for beta in betas:
-       x = d2l.numpy(d2l.arange(40))
-       d2l.plt.plot(x, beta ** x, label=f'beta = {beta:.2f}')
-   d2l.plt.xlabel('time')
-   d2l.plt.legend();
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     d2l.set_figsize()
     betas = [0.95, 0.9, 0.6, 0]
     for beta in betas:
@@ -403,77 +330,12 @@ variables ``states``.
 
 .. code:: python
 
-   #@tab tensorflow
-   def init_momentum_states(features_dim):
-       v_w = tf.Variable(d2l.zeros((features_dim, 1)))
-       v_b = tf.Variable(d2l.zeros(1))
-       return (v_w, v_b)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   def sgd_momentum(params, states, hyperparams):
-       for p, v in zip(params, states):
-           v[:] = hyperparams['momentum'] * v + p.grad
-           p[:] -= hyperparams['lr'] * v
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   def sgd_momentum(params, states, hyperparams):
-       for p, v in zip(params, states):
-           with torch.no_grad():
-               v[:] = hyperparams['momentum'] * v + p.grad
-               p[:] -= hyperparams['lr'] * v
-           p.grad.data.zero_()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   def sgd_momentum(params, grads, states, hyperparams):
-       for p, v, g in zip(params, states, grads):
-               v[:].assign(hyperparams['momentum'] * v + g)
-               p[:].assign(p - hyperparams['lr'] * v)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     def sgd_momentum(params, states, hyperparams, grads):
         for p, v, g in zip(params, states, grads):
             v[:] = hyperparams['momentum'] * v + g
             p[:] -= hyperparams['lr'] * v
 
 Let’s see how this works in practice.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet,pytorch,tensorflow
-   def train_momentum(lr, momentum, num_epochs=2):
-       d2l.train_ch11(sgd_momentum, init_momentum_states(feature_dim),
-                      {'lr': lr, 'momentum': momentum}, data_iter,
-                      feature_dim, num_epochs)
-
-   data_iter, feature_dim = d2l.get_data_ch11(batch_size=10)
-   train_momentum(0.02, 0.5)
 
 .. raw:: latex
 
@@ -502,7 +364,7 @@ Let’s see how this works in practice.
 
 
 
-.. figure:: output_momentum_589405_15_1.svg
+.. figure:: output_momentum_589405_14_1.svg
 
 
 When we increase the momentum hyperparameter ``momentum`` to 0.9, it
@@ -530,7 +392,7 @@ amounts to a significantly larger effective sample size of
 
 
 
-.. figure:: output_momentum_589405_17_1.svg
+.. figure:: output_momentum_589405_16_1.svg
 
 
 Reducing the learning rate further addresses any issue of non-smooth
@@ -557,7 +419,7 @@ convergence properties.
 
 
 
-.. figure:: output_momentum_589405_19_1.svg
+.. figure:: output_momentum_589405_18_1.svg
 
 
 Concise Implementation
@@ -566,37 +428,6 @@ Concise Implementation
 There is very little to do in Gluon since the standard ``sgd`` solver
 already had momentum built in. Setting matching parameters yields a very
 similar trajectory.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   d2l.train_concise_ch11('sgd', {'learning_rate': 0.005, 'momentum': 0.9},
-                          data_iter)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   trainer = torch.optim.SGD
-   d2l.train_concise_ch11(trainer, {'lr': 0.005, 'momentum': 0.9}, data_iter)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   trainer = tf.keras.optimizers.SGD
-   d2l.train_concise_ch11(trainer, {'learning_rate': 0.005, 'momentum': 0.9},
-                          data_iter)
 
 .. raw:: latex
 
@@ -619,7 +450,7 @@ similar trajectory.
 
 
 
-.. figure:: output_momentum_589405_21_1.svg
+.. figure:: output_momentum_589405_20_1.svg
 
 
 Theoretical Analysis
@@ -712,22 +543,6 @@ and for :math:`\eta \lambda > 2` the optimization problem diverges.
 
 .. code:: python
 
-   #@tab mxnet,pytorch,tensorflow
-   lambdas = [0.1, 1, 10, 19]
-   eta = 0.1
-   d2l.set_figsize((6, 4))
-   for lam in lambdas:
-       t = d2l.numpy(d2l.arange(20))
-       d2l.plt.plot(t, (1 - eta * lam) ** t, label=f'lambda = {lam:.2f}')
-   d2l.plt.xlabel('time')
-   d2l.plt.legend();
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     lambdas = [0.1, 1, 10, 19]
     eta = 0.1
     d2l.set_figsize((6, 4))
@@ -739,7 +554,7 @@ and for :math:`\eta \lambda > 2` the optimization problem diverges.
 
 
 
-.. figure:: output_momentum_589405_23_0.svg
+.. figure:: output_momentum_589405_22_0.svg
 
 
 To analyze convergence in the case of momentum we begin by rewriting the

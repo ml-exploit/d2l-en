@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -541,20 +541,6 @@ CNN layers, we can use another type of CNN layers that can increase
 section, we will introduce <em>transposed convolution</em>, which is also
 called <em>fractionally-strided convolution</em> <span id="id1">()</span>,
 for reversing downsampling operations by the convolution.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span><span class="p">,</span> <span class="n">init</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet.gluon</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mlx</span> <span class="k">as</span> <span class="n">d2l</span>
@@ -617,20 +603,6 @@ transposed convolution operation.</p>
 <p>Alternatively, when the input <code class="docutils literal notranslate"><span class="pre">X</span></code> and kernel <code class="docutils literal notranslate"><span class="pre">K</span></code> are both
 four-dimensional tensors, we can use high-level APIs to obtain the same
 results.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">K</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">tconv</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Constant</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
-<span class="n">tconv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">K</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">tconv</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">K</span>
-<span class="n">tconv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the input format for MLX (nn.ConvTranspose2d) is NHWC</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">K</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -657,18 +629,6 @@ input, it is applied to output in the transposed convolution. For
 example, when specifying the padding number on either side of the height
 and width as 1, the first and last rows and columns will be removed from
 the transposed convolution output.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">tconv</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Constant</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
-<span class="n">tconv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">tconv</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">K</span>
-<span class="n">tconv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">tconv</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">K</span>
 <span class="n">tconv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -692,18 +652,6 @@ computation.</span><a class="headerlink" href="#id3" title="Permalink to this im
 </figure>
 <p>The following code snippet can validate the transposed convolution
 output for stride of 2 in <a class="reference internal" href="#fig-trans-conv-stride2"><span class="std std-numref">Fig. 13.10.2</span></a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">tconv</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Constant</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
-<span class="n">tconv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">tconv</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">K</span>
-<span class="n">tconv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">tconv</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">K</span>
 <span class="n">tconv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -740,22 +688,6 @@ as <span class="math notranslate nohighlight">\(f\)</span> except for the number
 of channels in <span class="math notranslate nohighlight">\(\mathsf{X}\)</span>, then <span class="math notranslate nohighlight">\(g(Y)\)</span> will have the same
 shape as <span class="math notranslate nohighlight">\(\mathsf{X}\)</span>. This can be illustrated in the following
 example.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
-<span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2DTranspose</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">conv</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
-<span class="n">tconv</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
-<span class="n">tconv</span><span class="p">(</span><span class="n">conv</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
-<span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">tconv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">tconv</span><span class="p">(</span><span class="n">conv</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># for MLX, the image format is NHWC</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -774,13 +706,6 @@ explain, let’s first see how to implement convolutions using matrix
 multiplications. In the example below, we define a <span class="math notranslate nohighlight">\(3\times 3\)</span>
 input <code class="docutils literal notranslate"><span class="pre">X</span></code> and a <span class="math notranslate nohighlight">\(2\times 2\)</span> convolution kernel <code class="docutils literal notranslate"><span class="pre">K</span></code>, and then
 use the <code class="docutils literal notranslate"><span class="pre">corr2d</span></code> function to compute the convolution output <code class="docutils literal notranslate"><span class="pre">Y</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">9.0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]])</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">corr2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
-<span class="n">Y</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">9.0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">K</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]])</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">corr2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
@@ -795,17 +720,6 @@ use the <code class="docutils literal notranslate"><span class="pre">corr2d</spa
 <code class="docutils literal notranslate"><span class="pre">W</span></code> containing a lot of zeros. The shape of the weight matrix is
 (<span class="math notranslate nohighlight">\(4\)</span>, <span class="math notranslate nohighlight">\(9\)</span>), where the non-zero elements come from the
 convolution kernel <code class="docutils literal notranslate"><span class="pre">K</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">kernel2matrix</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
-    <span class="n">k</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-    <span class="n">k</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">k</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">K</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
-    <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">8</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">:]</span> <span class="o">=</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span>
-    <span class="k">return</span> <span class="n">W</span>
-
-<span class="n">W</span> <span class="o">=</span> <span class="n">kernel2matrix</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
-<span class="n">W</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kernel2matrix</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
     <span class="n">k</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">mx</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
     <span class="n">k</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">k</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">K</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>

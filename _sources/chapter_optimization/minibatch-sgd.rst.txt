@@ -178,7 +178,7 @@ value to :math:`\mathbf{A}`.
 .. parsed-literal::
     :class: output
 
-    0.3341822624206543
+    0.3288869857788086
 
 
 
@@ -206,7 +206,7 @@ A faster strategy is to perform column-wise assignment.
 .. parsed-literal::
     :class: output
 
-    0.0008111000061035156
+    0.0008697509765625
 
 
 
@@ -243,7 +243,7 @@ of the operations is.
 .. parsed-literal::
     :class: output
 
-    performance in Gigaflops: element 5.985, column 2465.787, full 7.578
+    performance in Gigaflops: element 6.081, column 2299.509, full 7.543
 
 
 .. _sec_minibatches:
@@ -314,7 +314,7 @@ of 64 columns at a time.
 .. parsed-literal::
     :class: output
 
-    performance in Gigaflops: block 36314.320
+    performance in Gigaflops: block 31300.776
 
 
 As we can see, the computation on the minibatch is essentially as
@@ -459,7 +459,7 @@ progress stalls.
 .. parsed-literal::
     :class: output
 
-    loss: 0.254, 0.012 sec/epoch
+    loss: 0.246, 0.006 sec/epoch
 
 
 
@@ -494,7 +494,7 @@ single observations one at a time.
 .. parsed-literal::
     :class: output
 
-    loss: 0.243, 0.074 sec/epoch
+    loss: 0.243, 0.069 sec/epoch
 
 
 
@@ -522,7 +522,7 @@ time for batch gradient descent.
 .. parsed-literal::
     :class: output
 
-    loss: 0.243, 0.002 sec/epoch
+    loss: 0.243, 0.001 sec/epoch
 
 
 
@@ -653,7 +653,7 @@ Using Gluon to repeat the last experiment shows identical behavior.
 .. parsed-literal::
     :class: output
 
-    loss: 0.243, 0.009 sec/epoch
+    loss: 0.243, 0.008 sec/epoch
 
 
 

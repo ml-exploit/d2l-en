@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -541,23 +541,6 @@ and color to reduce a model’s sensitivity to color. It is probably true
 that image augmentation was indispensable for the success of AlexNet at
 that time. In this section we will discuss this widely used technique in
 computer vision.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">autograd</span><span class="p">,</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet.gluon</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">albumentations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">A</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
@@ -572,12 +555,6 @@ computer vision.</p>
 <h2><span class="section-number">13.1.1. </span>Common Image Augmentation Methods<a class="headerlink" href="#common-image-augmentation-methods" title="Permalink to this heading">¶</a></h2>
 <p>In our investigation of common image augmentation methods, we will use
 the following <span class="math notranslate nohighlight">\(400\times 500\)</span> image an example.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../img/cat1.jpg&#39;</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">());</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
 <span class="n">img</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;../img/cat1.jpg&#39;</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">);</span>
@@ -590,12 +567,6 @@ make it easier for us to observe the effect of image augmentation, next
 we define an auxiliary function <code class="docutils literal notranslate"><span class="pre">apply</span></code>. This function runs the image
 augmentation method <code class="docutils literal notranslate"><span class="pre">aug</span></code> multiple times on the input image <code class="docutils literal notranslate"><span class="pre">img</span></code>
 and shows all the results.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">aug</span><span class="p">,</span> <span class="n">num_rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_cols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">):</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">aug</span><span class="p">(</span><span class="n">img</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_rows</span> <span class="o">*</span> <span class="n">num_cols</span><span class="p">)]</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">num_rows</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">aug</span><span class="p">,</span> <span class="n">num_rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_cols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">):</span>
     <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">aug</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">))[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_rows</span> <span class="o">*</span> <span class="n">num_cols</span><span class="p">)]</span>
     <span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">num_rows</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
@@ -603,32 +574,16 @@ and shows all the results.</p>
 </div>
 <section id="flipping-and-cropping">
 <h3><span class="section-number">13.1.1.1. </span>Flipping and Cropping<a class="headerlink" href="#flipping-and-cropping" title="Permalink to this heading">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomFlipLeftRight</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomHorizontalFlip</span><span class="p">())</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">HorizontalFlip</span><span class="p">())</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_image-augmentation_5ce40d_8_0.svg" src="../_images/output_image-augmentation_5ce40d_8_0.svg" /></figure>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomFlipTopBottom</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomVerticalFlip</span><span class="p">())</span>
-</pre></div>
-</div>
+<img alt="../_images/output_image-augmentation_5ce40d_7_0.svg" src="../_images/output_image-augmentation_5ce40d_7_0.svg" /></figure>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">VerticalFlip</span><span class="p">())</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_image-augmentation_5ce40d_10_0.svg" src="../_images/output_image-augmentation_5ce40d_10_0.svg" /></figure>
+<img alt="../_images/output_image-augmentation_5ce40d_8_0.svg" src="../_images/output_image-augmentation_5ce40d_8_0.svg" /></figure>
 <p>In the example image we used, the cat is in the middle of the image, but
 this may not be the case in general. In <a class="reference internal" href="../chapter_convolutional-neural-networks/pooling.html#sec-pooling"><span class="std std-numref">Section 7.5</span></a>, we
 explained that the pooling layer can reduce the sensitivity of a
@@ -644,25 +599,13 @@ scaled to 200 pixels. Unless otherwise specified, the random number
 between <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> in this section refers to a continuous
 value obtained by random and uniform sampling from the interval
 <span class="math notranslate nohighlight">\([a, b]\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">shape_aug</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomResizedCrop</span><span class="p">(</span>
-    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ratio</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">shape_aug</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">shape_aug</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomResizedCrop</span><span class="p">(</span>
-    <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ratio</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">shape_aug</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shape_aug</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">RandomResizedCrop</span><span class="p">(</span>
     <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ratio</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">shape_aug</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_image-augmentation_5ce40d_12_0.svg" src="../_images/output_image-augmentation_5ce40d_12_0.svg" /></figure>
+<img alt="../_images/output_image-augmentation_5ce40d_10_0.svg" src="../_images/output_image-augmentation_5ce40d_10_0.svg" /></figure>
 </section>
 <section id="changing-colors">
 <h3><span class="section-number">13.1.1.2. </span>Changing Colors<a class="headerlink" href="#changing-colors" title="Permalink to this heading">¶</a></h3>
@@ -671,84 +614,42 @@ aspects of the image color: brightness, contrast, saturation, and hue.
 In the example below, we randomly change the brightness of the image to
 a value between 50% (<span class="math notranslate nohighlight">\(1-0.5\)</span>) and 150% (<span class="math notranslate nohighlight">\(1+0.5\)</span>) of the
 original image.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomBrightness</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ColorJitter</span><span class="p">(</span>
-    <span class="n">brightness</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">contrast</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">ColorJitter</span><span class="p">(</span>
     <span class="n">brightness</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">contrast</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/output_image-augmentation_5ce40d_12_0.svg" src="../_images/output_image-augmentation_5ce40d_12_0.svg" /></figure>
+<p>Similarly, we can randomly change the hue of the image.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">ColorJitter</span><span class="p">(</span>
+    <span class="n">brightness</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">contrast</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
 </pre></div>
 </div>
 <figure class="align-default">
 <img alt="../_images/output_image-augmentation_5ce40d_14_0.svg" src="../_images/output_image-augmentation_5ce40d_14_0.svg" /></figure>
-<p>Similarly, we can randomly change the hue of the image.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomHue</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ColorJitter</span><span class="p">(</span>
-    <span class="n">brightness</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">contrast</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">ColorJitter</span><span class="p">(</span>
-    <span class="n">brightness</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">contrast</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../_images/output_image-augmentation_5ce40d_16_0.svg" src="../_images/output_image-augmentation_5ce40d_16_0.svg" /></figure>
 <p>We can also create a <code class="docutils literal notranslate"><span class="pre">RandomColorJitter</span></code> instance and set how to
 randomly change the <code class="docutils literal notranslate"><span class="pre">brightness</span></code>, <code class="docutils literal notranslate"><span class="pre">contrast</span></code>, <code class="docutils literal notranslate"><span class="pre">saturation</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">hue</span></code> of the image at the same time.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">color_aug</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomColorJitter</span><span class="p">(</span>
-    <span class="n">brightness</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">contrast</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">color_aug</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">color_aug</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ColorJitter</span><span class="p">(</span>
-    <span class="n">brightness</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">contrast</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">color_aug</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">color_aug</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">ColorJitter</span><span class="p">(</span>
     <span class="n">brightness</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">contrast</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">saturation</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">color_aug</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_image-augmentation_5ce40d_18_0.svg" src="../_images/output_image-augmentation_5ce40d_18_0.svg" /></figure>
+<img alt="../_images/output_image-augmentation_5ce40d_16_0.svg" src="../_images/output_image-augmentation_5ce40d_16_0.svg" /></figure>
 </section>
 <section id="combining-multiple-image-augmentation-methods">
 <h3><span class="section-number">13.1.1.3. </span>Combining Multiple Image Augmentation Methods<a class="headerlink" href="#combining-multiple-image-augmentation-methods" title="Permalink to this heading">¶</a></h3>
 <p>In practice, we will combine multiple image augmentation methods. For
 example, we can combine the different image augmentation methods defined
 above and apply them to each image via a <code class="docutils literal notranslate"><span class="pre">Compose</span></code> instance.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">augs</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomFlipLeftRight</span><span class="p">(),</span> <span class="n">color_aug</span><span class="p">,</span> <span class="n">shape_aug</span><span class="p">])</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">augs</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">augs</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomHorizontalFlip</span><span class="p">(),</span> <span class="n">color_aug</span><span class="p">,</span> <span class="n">shape_aug</span><span class="p">])</span>
-<span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">augs</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">augs</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
     <span class="n">A</span><span class="o">.</span><span class="n">HorizontalFlip</span><span class="p">(),</span> <span class="n">color_aug</span><span class="p">,</span> <span class="n">shape_aug</span><span class="p">])</span>
 <span class="n">apply</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">augs</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_image-augmentation_5ce40d_20_0.svg" src="../_images/output_image-augmentation_5ce40d_20_0.svg" /></figure>
+<img alt="../_images/output_image-augmentation_5ce40d_18_0.svg" src="../_images/output_image-augmentation_5ce40d_18_0.svg" /></figure>
 </section>
 </section>
 <section id="training-with-image-augmentation">
@@ -759,27 +660,12 @@ is because the position and size of the objects in the Fashion-MNIST
 dataset have been normalized, while the color and size of the objects in
 the CIFAR-10 dataset have more significant differences. The first 32
 training images in the CIFAR-10 dataset are shown below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">(</span><span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span>
-    <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">32</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">);</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">all_images</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s2">&quot;../data&quot;</span><span class="p">,</span>
-                                          <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">([</span><span class="n">all_images</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">)],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">);</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_images</span> <span class="o">=</span> <span class="n">dx</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_cifar10</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s2">&quot;../data&quot;</span><span class="p">)</span>
 <span class="n">d2l</span><span class="o">.</span><span class="n">show_images</span><span class="p">([</span><span class="n">all_images</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;image&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">)],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span>Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz 162.6MiB (3.3MiB/s)
-Computing hash of ../data/cifar-10-python.tar.gz |████████████████████████████████████████| 162.6MiB / 162.6MiB (456.4MiB/s)
-</pre></div>
-</div>
 <figure class="align-default">
-<img alt="../_images/output_image-augmentation_5ce40d_22_1.svg" src="../_images/output_image-augmentation_5ce40d_22_1.svg" /></figure>
+<img alt="../_images/output_image-augmentation_5ce40d_20_0.svg" src="../_images/output_image-augmentation_5ce40d_20_0.svg" /></figure>
 <p>In order to obtain definitive results during prediction, we usually only
 apply image augmentation to training examples, and do not use image
 augmentation with random operations during prediction. Here we only use
@@ -788,46 +674,11 @@ the simplest random left-right flipping method. In addition, we use a
 required by the deep learning framework, i.e., 32-bit floating point
 numbers between 0 and 1 with the shape of (batch size, number of
 channels, height, width).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">train_augs</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomFlipLeftRight</span><span class="p">(),</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()])</span>
-
-<span class="n">test_augs</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-    <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()])</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">train_augs</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-     <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">RandomHorizontalFlip</span><span class="p">(),</span>
-     <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()])</span>
-
-<span class="n">test_augs</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
-     <span class="n">torchvision</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">()])</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_augs</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
     <span class="n">A</span><span class="o">.</span><span class="n">HorizontalFlip</span><span class="p">()</span>
 <span class="p">])</span>
 
 <span class="n">test_augs</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">Compose</span><span class="p">([])</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_cifar10</span><span class="p">(</span><span class="n">is_train</span><span class="p">,</span> <span class="n">augs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
-        <span class="n">gluon</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vision</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">train</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span><span class="o">.</span><span class="n">transform_first</span><span class="p">(</span><span class="n">augs</span><span class="p">),</span>
-        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="n">is_train</span><span class="p">,</span>
-        <span class="n">num_workers</span><span class="o">=</span><span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">load_cifar10</span><span class="p">(</span><span class="n">is_train</span><span class="p">,</span> <span class="n">augs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
-    <span class="n">dataset</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">CIFAR10</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s2">&quot;../data&quot;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="n">is_train</span><span class="p">,</span>
-                                           <span class="n">transform</span><span class="o">=</span><span class="n">augs</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-                    <span class="n">shuffle</span><span class="o">=</span><span class="n">is_train</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">d2l</span><span class="o">.</span><span class="n">get_dataloader_workers</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">dataloader</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_cifar10</span><span class="p">(</span><span class="n">is_train</span><span class="p">,</span> <span class="n">augs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
@@ -859,48 +710,6 @@ channels, height, width).</p>
 dataset. Recall the introduction to multi-GPU training in
 <code class="xref std std-numref docutils literal notranslate"><span class="pre">sec_multi_gpu_concise</span></code>. In the following, we define a
 function to train and evaluate the model using multiple GPUs.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train_batch_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span>
-                     <span class="n">split_f</span><span class="o">=</span><span class="n">d2l</span><span class="o">.</span><span class="n">split_batch</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Train for a minibatch with multiple GPUs (defined in Chapter 13).&quot;&quot;&quot;</span>
-    <span class="n">X_shards</span><span class="p">,</span> <span class="n">y_shards</span> <span class="o">=</span> <span class="n">split_f</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">devices</span><span class="p">)</span>
-    <span class="k">with</span> <span class="n">autograd</span><span class="o">.</span><span class="n">record</span><span class="p">():</span>
-        <span class="n">pred_shards</span> <span class="o">=</span> <span class="p">[</span><span class="n">net</span><span class="p">(</span><span class="n">X_shard</span><span class="p">)</span> <span class="k">for</span> <span class="n">X_shard</span> <span class="ow">in</span> <span class="n">X_shards</span><span class="p">]</span>
-        <span class="n">ls</span> <span class="o">=</span> <span class="p">[</span><span class="n">loss</span><span class="p">(</span><span class="n">pred_shard</span><span class="p">,</span> <span class="n">y_shard</span><span class="p">)</span> <span class="k">for</span> <span class="n">pred_shard</span><span class="p">,</span> <span class="n">y_shard</span>
-              <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pred_shards</span><span class="p">,</span> <span class="n">y_shards</span><span class="p">)]</span>
-    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
-        <span class="n">l</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-    <span class="c1"># The `True` flag allows parameters with stale gradients, which is useful</span>
-    <span class="c1"># later (e.g., in fine-tuning BERT)</span>
-    <span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ignore_stale_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">train_loss_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">])</span>
-    <span class="n">train_acc_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">pred_shard</span><span class="p">,</span> <span class="n">y_shard</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">pred_shard</span><span class="p">,</span> <span class="n">y_shard</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pred_shards</span><span class="p">,</span> <span class="n">y_shards</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">train_loss_sum</span><span class="p">,</span> <span class="n">train_acc_sum</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train_batch_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">devices</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Train for a minibatch with multiple GPUs (defined in Chapter 13).&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-        <span class="c1"># Required for BERT fine-tuning (to be covered later)</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">net</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-    <span class="n">trainer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-    <span class="n">pred</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-    <span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="n">train_loss_sum</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    <span class="n">train_acc_sum</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">train_loss_sum</span><span class="p">,</span> <span class="n">train_acc_sum</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">train_batch_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">train_step</span><span class="p">,</span> <span class="n">trainer</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Mini-batch training with multiple GPUs&quot;&quot;&quot;</span>
@@ -912,67 +721,6 @@ function to train and evaluate the model using multiple GPUs.</p>
     <span class="n">train_loss_sum</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
     <span class="n">train_acc_sum</span> <span class="o">=</span> <span class="n">acc</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">train_loss_sum</span><span class="p">,</span> <span class="n">train_acc_sum</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span>
-               <span class="n">devices</span><span class="o">=</span><span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">(),</span> <span class="n">split_f</span><span class="o">=</span><span class="n">d2l</span><span class="o">.</span><span class="n">split_batch</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Train a model with multiple GPUs (defined in Chapter 13).&quot;&quot;&quot;</span>
-    <span class="n">timer</span><span class="p">,</span> <span class="n">num_batches</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Timer</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_iter</span><span class="p">)</span>
-    <span class="n">animator</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Animator</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;epoch&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                            <span class="n">legend</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;train loss&#39;</span><span class="p">,</span> <span class="s1">&#39;train acc&#39;</span><span class="p">,</span> <span class="s1">&#39;test acc&#39;</span><span class="p">])</span>
-    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
-        <span class="c1"># Sum of training loss, sum of training accuracy, no. of examples,</span>
-        <span class="c1"># no. of predictions</span>
-        <span class="n">metric</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Accumulator</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_iter</span><span class="p">):</span>
-            <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-            <span class="n">l</span><span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">train_batch_ch13</span><span class="p">(</span>
-                <span class="n">net</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span> <span class="n">split_f</span><span class="p">)</span>
-            <span class="n">metric</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-            <span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">num_batches</span> <span class="o">//</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="n">num_batches</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">animator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_batches</span><span class="p">,</span>
-                             <span class="p">(</span><span class="n">metric</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">metric</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">metric</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
-                              <span class="kc">None</span><span class="p">))</span>
-        <span class="n">test_acc</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">evaluate_accuracy_gpus</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">split_f</span><span class="p">)</span>
-        <span class="n">animator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;loss </span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">metric</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, train acc &#39;</span>
-          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, test acc </span><span class="si">{</span><span class="n">test_acc</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">num_epochs</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">timer</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> examples/sec on &#39;</span>
-          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span>
-               <span class="n">devices</span><span class="o">=</span><span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">()):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Train a model with multiple GPUs (defined in Chapter 13).&quot;&quot;&quot;</span>
-    <span class="n">timer</span><span class="p">,</span> <span class="n">num_batches</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Timer</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_iter</span><span class="p">)</span>
-    <span class="n">animator</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Animator</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;epoch&#39;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                            <span class="n">legend</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;train loss&#39;</span><span class="p">,</span> <span class="s1">&#39;train acc&#39;</span><span class="p">,</span> <span class="s1">&#39;test acc&#39;</span><span class="p">])</span>
-    <span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">device_ids</span><span class="o">=</span><span class="n">devices</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
-        <span class="c1"># Sum of training loss, sum of training accuracy, no. of examples,</span>
-        <span class="c1"># no. of predictions</span>
-        <span class="n">metric</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Accumulator</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_iter</span><span class="p">):</span>
-            <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-            <span class="n">l</span><span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">train_batch_ch13</span><span class="p">(</span>
-                <span class="n">net</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">devices</span><span class="p">)</span>
-            <span class="n">metric</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">labels</span><span class="o">.</span><span class="n">numel</span><span class="p">())</span>
-            <span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="n">num_batches</span> <span class="o">//</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="n">num_batches</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">animator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_batches</span><span class="p">,</span>
-                             <span class="p">(</span><span class="n">metric</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">metric</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">metric</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
-                              <span class="kc">None</span><span class="p">))</span>
-        <span class="n">test_acc</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">evaluate_accuracy_gpu</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">)</span>
-        <span class="n">animator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">test_acc</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;loss </span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">metric</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, train acc &#39;</span>
-          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, test acc </span><span class="si">{</span><span class="n">test_acc</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">num_epochs</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">timer</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> examples/sec on &#39;</span>
-          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
@@ -1019,32 +767,6 @@ model with image augmentation. This function gets all available GPUs,
 uses Adam as the optimization algorithm, applies image augmentation to
 the training dataset, and finally calls the <code class="docutils literal notranslate"><span class="pre">train_ch13</span></code> function just
 defined to train and evaluate the model.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">batch_size</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span> <span class="n">net</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">(),</span> <span class="n">d2l</span><span class="o">.</span><span class="n">resnet18</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">devices</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">train_with_data_aug</span><span class="p">(</span><span class="n">train_augs</span><span class="p">,</span> <span class="n">test_augs</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">load_cifar10</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">train_augs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
-    <span class="n">test_iter</span> <span class="o">=</span> <span class="n">load_cifar10</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">test_augs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">SoftmaxCrossEntropyLoss</span><span class="p">()</span>
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">(),</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
-                            <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="n">lr</span><span class="p">})</span>
-    <span class="n">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">devices</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">batch_size</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span> <span class="n">net</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">(),</span> <span class="n">d2l</span><span class="o">.</span><span class="n">resnet18</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">net</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">init_cnn</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">train_with_data_aug</span><span class="p">(</span><span class="n">train_augs</span><span class="p">,</span> <span class="n">test_augs</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
-    <span class="n">train_iter</span> <span class="o">=</span> <span class="n">load_cifar10</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">train_augs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
-    <span class="n">test_iter</span> <span class="o">=</span> <span class="n">load_cifar10</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">test_augs</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
-    <span class="n">net</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_iter</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">train_ch13</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">devices</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span><span class="p">,</span> <span class="n">net</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">resnet18</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">init_model_weights</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
@@ -1089,12 +811,12 @@ left-right flipping.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_with_data_aug</span><span class="p">(</span><span class="n">train_augs</span><span class="p">,</span> <span class="n">test_augs</span><span class="p">,</span> <span class="n">net</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.492</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.830</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.716</span>
-<span class="mf">5998.5</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span> <span class="mf">0.502</span><span class="p">,</span> <span class="n">train</span> <span class="n">acc</span> <span class="mf">0.826</span><span class="p">,</span> <span class="n">test</span> <span class="n">acc</span> <span class="mf">0.664</span>
+<span class="mf">4865.2</span> <span class="n">examples</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_image-augmentation_5ce40d_34_1.svg" src="../_images/output_image-augmentation_5ce40d_34_1.svg" /></figure>
+<img alt="../_images/output_image-augmentation_5ce40d_30_1.svg" src="../_images/output_image-augmentation_5ce40d_30_1.svg" /></figure>
 </section>
 </section>
 <section id="summary">

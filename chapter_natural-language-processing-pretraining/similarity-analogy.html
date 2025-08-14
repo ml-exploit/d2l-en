@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -534,21 +534,6 @@ which will be covered later in <a class="reference internal" href="../chapter_na
 semantics of pretrained word vectors from large corpora in a
 straightforward way, let’s apply them in the word similarity and analogy
 tasks.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mlx</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
@@ -624,9 +609,6 @@ specified embedding file has to be downloaded if it was not yet.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">glove_6b50d</span> <span class="o">=</span> <span class="n">TokenEmbedding</span><span class="p">(</span><span class="s1">&#39;glove.6b.50d&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">glove</span><span class="mf">.6</span><span class="n">B</span><span class="mf">.50</span><span class="n">d</span><span class="o">.</span><span class="n">zip</span> <span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">d2l</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">s3</span><span class="o">-</span><span class="n">accelerate</span><span class="o">.</span><span class="n">amazonaws</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">glove</span><span class="mf">.6</span><span class="n">B</span><span class="mf">.50</span><span class="n">d</span><span class="o">.</span><span class="n">zip</span><span class="o">...</span>
-</pre></div>
-</div>
 <p>Output the vocabulary size. The vocabulary contains 400000 words
 (tokens) and a special unknown token.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">glove_6b50d</span><span class="p">)</span>
@@ -653,25 +635,6 @@ applying them in the following word similarity and analogy tasks.</p>
 semantically similar words for an input word based on cosine
 similarities between word vectors, we implement the following <code class="docutils literal notranslate"><span class="pre">knn</span></code>
 (<span class="math notranslate nohighlight">\(k\)</span>-nearest neighbors) function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">knn</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="c1"># Add 1e-9 for numerical stability</span>
-    <span class="n">cos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,))</span> <span class="o">/</span> <span class="p">(</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">W</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
-    <span class="n">topk</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">cos</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">ret_typ</span><span class="o">=</span><span class="s1">&#39;indices&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">topk</span><span class="p">,</span> <span class="p">[</span><span class="n">cos</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topk</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">knn</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="c1"># Add 1e-9 for numerical stability</span>
-    <span class="n">cos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,))</span> <span class="o">/</span> <span class="p">(</span>
-        <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">W</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span> <span class="o">*</span>
-        <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">topk</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">cos</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">topk</span><span class="p">,</span> <span class="p">[</span><span class="n">cos</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topk</span><span class="p">]</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">knn</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="c1"># Add 1e-9 for numerical stability</span>
     <span class="n">cos</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span>

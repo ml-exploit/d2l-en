@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -530,19 +530,6 @@ Show Source
 pretraining examples generated from the WikiText-2 dataset in
 <a class="reference internal" href="bert-dataset.html#sec-bert-dataset"><span class="std std-numref">Section 14.9</span></a>, we will pretrain BERT on the WikiText-2
 dataset in this section.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">autograd</span><span class="p">,</span> <span class="n">gluon</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.optimizers</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mlx</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
@@ -553,16 +540,8 @@ dataset in this section.</p>
 examples for masked language modeling and next sentence prediction. The
 batch size is 512 and the maximum length of a BERT input sequence is 64.
 Note that in the original BERT model, the maximum length is 512.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">64</span>
-<span class="n">train_iter</span><span class="p">,</span> <span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_wiki</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">64</span>
 <span class="n">train_iter</span><span class="p">,</span> <span class="n">num_batches</span><span class="p">,</span> <span class="n">vocab</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_wiki</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_len</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloading</span> <span class="o">../</span><span class="n">data</span><span class="o">/</span><span class="n">train</span><span class="o">-</span><span class="mi">00000</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mf">00001.</span><span class="n">parquet</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">huggingface</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">datasets</span><span class="o">/</span><span class="n">Salesforce</span><span class="o">/</span><span class="n">wikitext</span><span class="o">/</span><span class="n">resolve</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">wikitext</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">v1</span><span class="o">/</span><span class="n">train</span><span class="o">-</span><span class="mi">00000</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mf">00001.</span><span class="n">parquet</span><span class="o">...</span>
 </pre></div>
 </div>
 <section id="id1">
@@ -577,21 +556,6 @@ units and 16 self-attention heads. Notably, the former has 110 million
 parameters while the latter has 340 million parameters. For
 demonstration with ease, we define a small BERT, using 2 layers, 128
 hidden units, and 2 self-attention heads.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="n">net</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">BERTModel</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="n">num_hiddens</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">ffn_num_hiddens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
-                    <span class="n">num_heads</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_blks</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">devices</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">()</span>
-<span class="n">net</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">init</span><span class="o">.</span><span class="n">Xavier</span><span class="p">(),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">devices</span><span class="p">)</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">SoftmaxCELoss</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="n">net</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">BERTModel</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="n">num_hiddens</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
-                    <span class="n">ffn_num_hiddens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_blks</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">devices</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">try_all_gpus</span><span class="p">()</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">BERTModel</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="n">num_hiddens</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">ffn_num_input</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
                     <span class="n">ffn_num_hiddens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                     <span class="n">num_blks</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">hid_in_features</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
@@ -606,58 +570,6 @@ function computes the loss for both the masked language modeling and
 next sentence prediction tasks. Note that the final loss of BERT
 pretraining is just the sum of both the masked language modeling loss
 and the next sentence prediction loss.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">_get_batch_loss_bert</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">tokens_X_shards</span><span class="p">,</span>
-                         <span class="n">segments_X_shards</span><span class="p">,</span> <span class="n">valid_lens_x_shards</span><span class="p">,</span>
-                         <span class="n">pred_positions_X_shards</span><span class="p">,</span> <span class="n">mlm_weights_X_shards</span><span class="p">,</span>
-                         <span class="n">mlm_Y_shards</span><span class="p">,</span> <span class="n">nsp_y_shards</span><span class="p">):</span>
-    <span class="n">mlm_ls</span><span class="p">,</span> <span class="n">nsp_ls</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">tokens_X_shard</span><span class="p">,</span> <span class="n">segments_X_shard</span><span class="p">,</span> <span class="n">valid_lens_x_shard</span><span class="p">,</span>
-         <span class="n">pred_positions_X_shard</span><span class="p">,</span> <span class="n">mlm_weights_X_shard</span><span class="p">,</span> <span class="n">mlm_Y_shard</span><span class="p">,</span>
-         <span class="n">nsp_y_shard</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
-        <span class="n">tokens_X_shards</span><span class="p">,</span> <span class="n">segments_X_shards</span><span class="p">,</span> <span class="n">valid_lens_x_shards</span><span class="p">,</span>
-        <span class="n">pred_positions_X_shards</span><span class="p">,</span> <span class="n">mlm_weights_X_shards</span><span class="p">,</span> <span class="n">mlm_Y_shards</span><span class="p">,</span>
-        <span class="n">nsp_y_shards</span><span class="p">):</span>
-        <span class="c1"># Forward pass</span>
-        <span class="n">_</span><span class="p">,</span> <span class="n">mlm_Y_hat</span><span class="p">,</span> <span class="n">nsp_Y_hat</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span>
-            <span class="n">tokens_X_shard</span><span class="p">,</span> <span class="n">segments_X_shard</span><span class="p">,</span> <span class="n">valid_lens_x_shard</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-            <span class="n">pred_positions_X_shard</span><span class="p">)</span>
-        <span class="c1"># Compute masked language model loss</span>
-        <span class="n">mlm_l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span>
-            <span class="n">mlm_Y_hat</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">)),</span> <span class="n">mlm_Y_shard</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-            <span class="n">mlm_weights_X_shard</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
-        <span class="n">mlm_l</span> <span class="o">=</span> <span class="n">mlm_l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">mlm_weights_X_shard</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">)</span>
-        <span class="c1"># Compute next sentence prediction loss</span>
-        <span class="n">nsp_l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">nsp_Y_hat</span><span class="p">,</span> <span class="n">nsp_y_shard</span><span class="p">)</span>
-        <span class="n">nsp_l</span> <span class="o">=</span> <span class="n">nsp_l</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-        <span class="n">mlm_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mlm_l</span><span class="p">)</span>
-        <span class="n">nsp_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nsp_l</span><span class="p">)</span>
-        <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mlm_l</span> <span class="o">+</span> <span class="n">nsp_l</span><span class="p">)</span>
-        <span class="n">npx</span><span class="o">.</span><span class="n">waitall</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">mlm_ls</span><span class="p">,</span> <span class="n">nsp_ls</span><span class="p">,</span> <span class="n">ls</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="c1">#@save</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">_get_batch_loss_bert</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">tokens_X</span><span class="p">,</span>
-                         <span class="n">segments_X</span><span class="p">,</span> <span class="n">valid_lens_x</span><span class="p">,</span>
-                         <span class="n">pred_positions_X</span><span class="p">,</span> <span class="n">mlm_weights_X</span><span class="p">,</span>
-                         <span class="n">mlm_Y</span><span class="p">,</span> <span class="n">nsp_y</span><span class="p">):</span>
-    <span class="c1"># Forward pass</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">mlm_Y_hat</span><span class="p">,</span> <span class="n">nsp_Y_hat</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">tokens_X</span><span class="p">,</span> <span class="n">segments_X</span><span class="p">,</span>
-                                  <span class="n">valid_lens_x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-                                  <span class="n">pred_positions_X</span><span class="p">)</span>
-    <span class="c1"># Compute masked language model loss</span>
-    <span class="n">mlm_l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">mlm_Y_hat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">),</span> <span class="n">mlm_Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span>\
-    <span class="n">mlm_weights_X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">mlm_l</span> <span class="o">=</span> <span class="n">mlm_l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">mlm_weights_X</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">)</span>
-    <span class="c1"># Compute next sentence prediction loss</span>
-    <span class="n">nsp_l</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">nsp_Y_hat</span><span class="p">,</span> <span class="n">nsp_y</span><span class="p">)</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="n">mlm_l</span> <span class="o">+</span> <span class="n">nsp_l</span>
-    <span class="k">return</span> <span class="n">mlm_l</span><span class="p">,</span> <span class="n">nsp_l</span><span class="p">,</span> <span class="n">l</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@save</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">_get_batch_loss_bert</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">tokens_X</span><span class="p">,</span>
                          <span class="n">segments_X</span><span class="p">,</span> <span class="n">valid_lens_x</span><span class="p">,</span>
@@ -688,92 +600,6 @@ long. Instead of specifying the number of epochs for training as in the
 <code class="docutils literal notranslate"><span class="pre">train_ch13</span></code> function (see <a class="reference internal" href="../chapter_computer-vision/image-augmentation.html#sec-image-augmentation"><span class="std std-numref">Section 13.1</span></a>), the
 input <code class="docutils literal notranslate"><span class="pre">num_steps</span></code> of the following function specifies the number of
 iteration steps for training.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train_bert</span><span class="p">(</span><span class="n">train_iter</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">):</span>
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">gluon</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">collect_params</span><span class="p">(),</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
-                            <span class="p">{</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">})</span>
-    <span class="n">step</span><span class="p">,</span> <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span>
-    <span class="n">animator</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Animator</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span>
-                            <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mlm&#39;</span><span class="p">,</span> <span class="s1">&#39;nsp&#39;</span><span class="p">])</span>
-    <span class="c1"># Sum of masked language modeling losses, sum of next sentence prediction</span>
-    <span class="c1"># losses, no. of sentence pairs, count</span>
-    <span class="n">metric</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Accumulator</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">num_steps_reached</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">while</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">num_steps</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">num_steps_reached</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">train_iter</span><span class="p">:</span>
-            <span class="p">(</span><span class="n">tokens_X_shards</span><span class="p">,</span> <span class="n">segments_X_shards</span><span class="p">,</span> <span class="n">valid_lens_x_shards</span><span class="p">,</span>
-             <span class="n">pred_positions_X_shards</span><span class="p">,</span> <span class="n">mlm_weights_X_shards</span><span class="p">,</span>
-             <span class="n">mlm_Y_shards</span><span class="p">,</span> <span class="n">nsp_y_shards</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">gluon</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">split_and_load</span><span class="p">(</span>
-                <span class="n">elem</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span> <span class="n">even_split</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">]</span>
-            <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-            <span class="k">with</span> <span class="n">autograd</span><span class="o">.</span><span class="n">record</span><span class="p">():</span>
-                <span class="n">mlm_ls</span><span class="p">,</span> <span class="n">nsp_ls</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="n">_get_batch_loss_bert</span><span class="p">(</span>
-                    <span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">tokens_X_shards</span><span class="p">,</span> <span class="n">segments_X_shards</span><span class="p">,</span>
-                    <span class="n">valid_lens_x_shards</span><span class="p">,</span> <span class="n">pred_positions_X_shards</span><span class="p">,</span>
-                    <span class="n">mlm_weights_X_shards</span><span class="p">,</span> <span class="n">mlm_Y_shards</span><span class="p">,</span> <span class="n">nsp_y_shards</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
-                <span class="n">l</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-            <span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">mlm_l_mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">mlm_ls</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">mlm_ls</span><span class="p">)</span>
-            <span class="n">nsp_l_mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">nsp_ls</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">nsp_ls</span><span class="p">)</span>
-            <span class="n">metric</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">mlm_l_mean</span><span class="p">,</span> <span class="n">nsp_l_mean</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-            <span class="n">animator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">step</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-                         <span class="p">(</span><span class="n">metric</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">metric</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
-            <span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="n">num_steps</span><span class="p">:</span>
-                <span class="n">num_steps_reached</span> <span class="o">=</span> <span class="kc">True</span>
-                <span class="k">break</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MLM loss </span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, &#39;</span>
-          <span class="sa">f</span><span class="s1">&#39;NSP loss </span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">timer</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> sentence pairs/sec on &#39;</span>
-          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">train_bert</span><span class="p">(</span><span class="n">train_iter</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">):</span>
-    <span class="n">net</span><span class="p">(</span><span class="o">*</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_iter</span><span class="p">))[:</span><span class="mi">4</span><span class="p">])</span>
-    <span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">device_ids</span><span class="o">=</span><span class="n">devices</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-    <span class="n">step</span><span class="p">,</span> <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span>
-    <span class="n">animator</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Animator</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span>
-                            <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mlm&#39;</span><span class="p">,</span> <span class="s1">&#39;nsp&#39;</span><span class="p">])</span>
-    <span class="c1"># Sum of masked language modeling losses, sum of next sentence prediction</span>
-    <span class="c1"># losses, no. of sentence pairs, count</span>
-    <span class="n">metric</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Accumulator</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">num_steps_reached</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">while</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">num_steps</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">num_steps_reached</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">tokens_X</span><span class="p">,</span> <span class="n">segments_X</span><span class="p">,</span> <span class="n">valid_lens_x</span><span class="p">,</span> <span class="n">pred_positions_X</span><span class="p">,</span>\
-            <span class="n">mlm_weights_X</span><span class="p">,</span> <span class="n">mlm_Y</span><span class="p">,</span> <span class="n">nsp_y</span> <span class="ow">in</span> <span class="n">train_iter</span><span class="p">:</span>
-            <span class="n">tokens_X</span> <span class="o">=</span> <span class="n">tokens_X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">segments_X</span> <span class="o">=</span> <span class="n">segments_X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">valid_lens_x</span> <span class="o">=</span> <span class="n">valid_lens_x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">pred_positions_X</span> <span class="o">=</span> <span class="n">pred_positions_X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">mlm_weights_X</span> <span class="o">=</span> <span class="n">mlm_weights_X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">mlm_Y</span><span class="p">,</span> <span class="n">nsp_y</span> <span class="o">=</span> <span class="n">mlm_Y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">nsp_y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">trainer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-            <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-            <span class="n">mlm_l</span><span class="p">,</span> <span class="n">nsp_l</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">_get_batch_loss_bert</span><span class="p">(</span>
-                <span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">tokens_X</span><span class="p">,</span> <span class="n">segments_X</span><span class="p">,</span> <span class="n">valid_lens_x</span><span class="p">,</span>
-                <span class="n">pred_positions_X</span><span class="p">,</span> <span class="n">mlm_weights_X</span><span class="p">,</span> <span class="n">mlm_Y</span><span class="p">,</span> <span class="n">nsp_y</span><span class="p">)</span>
-            <span class="n">l</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-            <span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-            <span class="n">metric</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">mlm_l</span><span class="p">,</span> <span class="n">nsp_l</span><span class="p">,</span> <span class="n">tokens_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-            <span class="n">animator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">step</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-                         <span class="p">(</span><span class="n">metric</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">metric</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
-            <span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="n">num_steps</span><span class="p">:</span>
-                <span class="n">num_steps_reached</span> <span class="o">=</span> <span class="kc">True</span>
-                <span class="k">break</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MLM loss </span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, &#39;</span>
-          <span class="sa">f</span><span class="s1">&#39;NSP loss </span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">metric</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">metric</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">timer</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> sentence pairs/sec on &#39;</span>
-          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_bert</span><span class="p">(</span><span class="n">train_iter</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">):</span>
     <span class="n">trainer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
     <span class="n">step</span><span class="p">,</span> <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">Timer</span><span class="p">()</span>
@@ -827,15 +653,11 @@ iteration steps for training.</p>
 </div>
 <p>We can plot both the masked language modeling loss and the next sentence
 prediction loss during BERT pretraining.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet,pytorch</span>
-<span class="n">train_bert</span><span class="p">(</span><span class="n">train_iter</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="n">devices</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_bert</span><span class="p">(</span><span class="n">train_iter</span><span class="p">,</span> <span class="n">net</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MLM</span> <span class="n">loss</span> <span class="mf">6.082</span><span class="p">,</span> <span class="n">NSP</span> <span class="n">loss</span> <span class="mf">0.700</span>
-<span class="mf">5600.7</span> <span class="n">sentence</span> <span class="n">pairs</span><span class="o">/</span><span class="n">sec</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MLM</span> <span class="n">loss</span> <span class="mf">6.081</span><span class="p">,</span> <span class="n">NSP</span> <span class="n">loss</span> <span class="mf">0.699</span>
+<span class="mf">5713.9</span> <span class="n">sentence</span> <span class="n">pairs</span><span class="o">/</span><span class="n">sec</span>
 </pre></div>
 </div>
 <figure class="align-default">
@@ -847,27 +669,6 @@ prediction loss during BERT pretraining.</p>
 pairs, or any token in them. The following function returns the BERT
 (<code class="docutils literal notranslate"><span class="pre">net</span></code>) representations for all tokens in <code class="docutils literal notranslate"><span class="pre">tokens_a</span></code> and
 <code class="docutils literal notranslate"><span class="pre">tokens_b</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_bert_encoding</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">tokens_a</span><span class="p">,</span> <span class="n">tokens_b</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">tokens</span><span class="p">,</span> <span class="n">segments</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_tokens_and_segments</span><span class="p">(</span><span class="n">tokens_a</span><span class="p">,</span> <span class="n">tokens_b</span><span class="p">)</span>
-    <span class="n">token_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="n">tokens</span><span class="p">],</span> <span class="n">ctx</span><span class="o">=</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                               <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">segments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">valid_len</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">),</span> <span class="n">ctx</span><span class="o">=</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">encoded_X</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">token_ids</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">valid_len</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">encoded_X</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_bert_encoding</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">tokens_a</span><span class="p">,</span> <span class="n">tokens_b</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">tokens</span><span class="p">,</span> <span class="n">segments</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_tokens_and_segments</span><span class="p">(</span><span class="n">tokens_a</span><span class="p">,</span> <span class="n">tokens_b</span><span class="p">)</span>
-    <span class="n">token_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="n">tokens</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">segments</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">valid_len</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">encoded_X</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">token_ids</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">valid_len</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">encoded_X</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_bert_encoding</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">tokens_a</span><span class="p">,</span> <span class="n">tokens_b</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">tokens</span><span class="p">,</span> <span class="n">segments</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">get_tokens_and_segments</span><span class="p">(</span><span class="n">tokens_a</span><span class="p">,</span> <span class="n">tokens_b</span><span class="p">)</span>
     <span class="n">token_ids</span> <span class="o">=</span> <span class="n">mx</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="n">tokens</span><span class="p">])[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
@@ -894,7 +695,7 @@ the token.</p>
 <span class="n">encoded_text</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">encoded_text_cls</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">encoded_text_crane</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.750546</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.732056</span><span class="p">,</span> <span class="mf">2.08622</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">))</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">array</span><span class="p">([</span><span class="mf">0.109139</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0253232</span><span class="p">,</span> <span class="mf">0.867328</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Now consider a sentence pair “a crane driver came” and “he just left”.
@@ -912,7 +713,9 @@ context-sensitive.</p>
 <span class="n">encoded_pair</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">encoded_pair_cls</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">encoded_pair_crane</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.705484</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.668324</span><span class="p">,</span> <span class="mf">2.06351</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">))</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+ <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="mf">0.100949</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0350644</span><span class="p">,</span> <span class="mf">0.892001</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>In <a class="reference internal" href="../chapter_natural-language-processing-applications/index.html#chap-nlp-app"><span class="std std-numref">Section 15</span></a>, we will fine-tune a pretrained BERT model

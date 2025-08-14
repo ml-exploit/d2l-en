@@ -40,45 +40,6 @@ optimization algorithm to reduce the training error.
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   from mpl_toolkits import mplot3d
-   from mxnet import np, npx
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   import numpy as np
-   from mpl_toolkits import mplot3d
-   import torch
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   %matplotlib inline
-   from d2l import tensorflow as d2l
-   import numpy as np
-   from mpl_toolkits import mplot3d
-   import tensorflow as tf
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     %matplotlib inline
     import mlx.core as mx
     import numpy as np
@@ -100,19 +61,6 @@ is less smooth than ``f``.
 
 .. code:: python
 
-   #@tab mxnet,pytorch,tensorflow
-   def f(x):
-       return x * d2l.cos(np.pi * x)
-
-   def g(x):
-       return f(x) + 0.2 * d2l.cos(5 * np.pi * x)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     def f(x):
         return x * mx.cos(np.pi * x)
     
@@ -122,23 +70,6 @@ is less smooth than ``f``.
 The graph below illustrates that the minimum of the empirical risk on a
 training dataset may be at a different location from the minimum of the
 risk (generalization error).
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet,pytorch,tensorflow
-   def annotate(text, xy, xytext):  #@save
-       d2l.plt.gca().annotate(text, xy=xy, xytext=xytext,
-                              arrowprops=dict(arrowstyle='->'))
-
-   x = d2l.arange(0.5, 1.5, 0.01)
-   d2l.set_figsize((4.5, 2.5))
-   d2l.plot(x, [f(x), g(x)], 'x', 'risk')
-   annotate('min of\nempirical risk', (1.0, -1.2), (0.5, -1.1))
-   annotate('min of risk', (1.1, -1.05), (0.95, -0.5))
 
 .. raw:: latex
 
@@ -201,18 +132,6 @@ function.
 
 .. code:: python
 
-   #@tab mxnet,pytorch,tensorflow
-   x = d2l.arange(-1.0, 2.0, 0.01)
-   d2l.plot(x, [f(x), ], 'x', 'f(x)')
-   annotate('local minimum', (-0.3, -0.25), (-0.77, -1.0))
-   annotate('global minimum', (1.1, -0.95), (0.6, 0.8))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     x = mx.arange(-1.0, 2.0, 0.01)
     d2l.plot(x, [f(x), ], 'x', 'f(x)')
     annotate('local minimum', (-0.3, -0.25), (-0.77, -1.0))
@@ -250,17 +169,6 @@ point, even though it is not a minimum.
 
 .. code:: python
 
-   #@tab mxnet,pytorch,tensorflow
-   x = d2l.arange(-2.0, 2.0, 0.01)
-   d2l.plot(x, [x**3], 'x', 'f(x)')
-   annotate('saddle point', (0, -0.2), (-0.52, -5.0))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     x = mx.arange(-2.0, 2.0, 0.01)
     d2l.plot(x, [x**3], 'x', 'f(x)')
     annotate('saddle point', (0, -0.2), (-0.52, -5.0))
@@ -276,49 +184,6 @@ It has its saddle point at :math:`(0, 0)`. This is a maximum with
 respect to :math:`y` and a minimum with respect to :math:`x`. Moreover,
 it *looks* like a saddle, which is where this mathematical property got
 its name.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   x, y = d2l.meshgrid(
-       d2l.linspace(-1.0, 1.0, 101), d2l.linspace(-1.0, 1.0, 101))
-   z = x**2 - y**2
-
-   ax = d2l.plt.figure().add_subplot(111, projection='3d')
-   ax.plot_wireframe(x.asnumpy(), y.asnumpy(), z.asnumpy(),
-                     **{'rstride': 10, 'cstride': 10})
-   ax.plot([0], [0], [0], 'rx')
-   ticks = [-1, 0, 1]
-   d2l.plt.xticks(ticks)
-   d2l.plt.yticks(ticks)
-   ax.set_zticks(ticks)
-   d2l.plt.xlabel('x')
-   d2l.plt.ylabel('y');
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch, tensorflow
-   x, y = d2l.meshgrid(
-       d2l.linspace(-1.0, 1.0, 101), d2l.linspace(-1.0, 1.0, 101))
-   z = x**2 - y**2
-
-   ax = d2l.plt.figure().add_subplot(111, projection='3d')
-   ax.plot_wireframe(x, y, z, **{'rstride': 10, 'cstride': 10})
-   ax.plot([0], [0], [0], 'rx')
-   ticks = [-1, 0, 1]
-   d2l.plt.xticks(ticks)
-   d2l.plt.yticks(ticks)
-   ax.set_zticks(ticks)
-   d2l.plt.xlabel('x')
-   d2l.plt.ylabel('y');
 
 .. raw:: latex
 
@@ -384,17 +249,6 @@ Consequently, optimization will get stuck for a long time before we make
 progress. This turns out to be one of the reasons that training deep
 learning models was quite tricky prior to the introduction of the ReLU
 activation function.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet,pytorch,tensorflow
-   x = d2l.arange(-2.0, 5.0, 0.01)
-   d2l.plot(x, [d2l.tanh(x)], 'x', 'f(x)')
-   annotate('vanishing gradient', (4, 1), (2, 0.0))
 
 .. raw:: latex
 

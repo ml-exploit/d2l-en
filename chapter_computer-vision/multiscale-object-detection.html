@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -550,28 +550,6 @@ can sample fewer regions.</p>
 <p>To demonstrate how to generate anchor boxes at multiple scales, let’s
 read an image. Its height and width are 561 and 728 pixels,
 respectively.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">image</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-
-<span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../img/catdog.jpg&#39;</span><span class="p">)</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">w</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-
-<span class="n">img</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../img/catdog.jpg&#39;</span><span class="p">)</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">w</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -605,28 +583,6 @@ map <code class="docutils literal notranslate"><span class="pre">fmap_w</span></
 any input image. Centered on these uniformly sampled pixels, anchor
 boxes of scale <code class="docutils literal notranslate"><span class="pre">s</span></code> (assuming the length of the list <code class="docutils literal notranslate"><span class="pre">s</span></code> is 1) and
 different aspect ratios (<code class="docutils literal notranslate"><span class="pre">ratios</span></code>) will be generated.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">display_anchors</span><span class="p">(</span><span class="n">fmap_w</span><span class="p">,</span> <span class="n">fmap_h</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
-    <span class="c1"># Values on the first two dimensions do not affect the output</span>
-    <span class="n">fmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fmap_h</span><span class="p">,</span> <span class="n">fmap_w</span><span class="p">))</span>
-    <span class="n">anchors</span> <span class="o">=</span> <span class="n">npx</span><span class="o">.</span><span class="n">multibox_prior</span><span class="p">(</span><span class="n">fmap</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-    <span class="n">bbox_scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">show_bboxes</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">())</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span>
-                    <span class="n">anchors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">bbox_scale</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">display_anchors</span><span class="p">(</span><span class="n">fmap_w</span><span class="p">,</span> <span class="n">fmap_h</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
-    <span class="c1"># Values on the first two dimensions do not affect the output</span>
-    <span class="n">fmap</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fmap_h</span><span class="p">,</span> <span class="n">fmap_w</span><span class="p">))</span>
-    <span class="n">anchors</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">multibox_prior</span><span class="p">(</span><span class="n">fmap</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-    <span class="n">bbox_scale</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">tensor</span><span class="p">((</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-    <span class="n">d2l</span><span class="o">.</span><span class="n">show_bboxes</span><span class="p">(</span><span class="n">d2l</span><span class="o">.</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span>
-                    <span class="n">anchors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">bbox_scale</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_anchors</span><span class="p">(</span><span class="n">fmap_w</span><span class="p">,</span> <span class="n">fmap_h</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
     <span class="n">d2l</span><span class="o">.</span><span class="n">set_figsize</span><span class="p">()</span>
     <span class="c1"># Values on the first two dimensions do not affect the output</span>

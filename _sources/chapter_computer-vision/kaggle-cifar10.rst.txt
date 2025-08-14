@@ -110,17 +110,6 @@ need to set the following ``demo`` variable to ``False``.
     else:
         data_dir = '../data/cifar-10/'
 
-
-.. raw:: latex
-
-   \diilbookstyleoutputcell
-
-.. parsed-literal::
-    :class: output
-
-    Downloading ../data/kaggle_cifar10_tiny.zip from http://d2l-data.s3-accelerate.amazonaws.com/kaggle_cifar10_tiny.zip...
-
-
 Organizing the Dataset
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -294,7 +283,6 @@ remove randomness in the evaluation results.
 .. code:: python
 
     transform_test = A.Compose([
-        # 标准化图像的每个通道
         A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
     ])
 
@@ -496,8 +484,8 @@ we only train 20 epochs here.
 .. parsed-literal::
     :class: output
 
-    train loss 0.515, train acc 0.847, valid acc 0.362
-    2065.3 examples/sec
+    train loss 0.514, train acc 0.837, valid acc 0.412
+    2194.1 examples/sec
 
 
 
@@ -541,8 +529,8 @@ classify the testing set.
 .. parsed-literal::
     :class: output
 
-    train loss 0.528, train acc 0.835
-    2001.1 examples/sec
+    train loss 0.436, train acc 0.862
+    1216.3 examples/sec
 
 
 

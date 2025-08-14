@@ -88,35 +88,6 @@ fine-tuned model to recognize hot dogs from images.
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   from mxnet import gluon, init, np, npx
-   from mxnet.gluon import nn
-   import os
-
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   from torch import nn
-   import torch
-   import torchvision
-   import os
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     %matplotlib inline
     import os
     import albumentations as A
@@ -151,41 +122,8 @@ corresponding class.
     
     data_dir = d2l.download_extract('hotdog')
 
-
-.. raw:: latex
-
-   \diilbookstyleoutputcell
-
-.. parsed-literal::
-    :class: output
-
-    Downloading ../data/hotdog.zip from http://d2l-data.s3-accelerate.amazonaws.com/hotdog.zip...
-
-
 We create two instances to read all the image files in the training and
 testing datasets, respectively.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   train_imgs = gluon.data.vision.ImageFolderDataset(
-       os.path.join(data_dir, 'train'))
-   test_imgs = gluon.data.vision.ImageFolderDataset(
-       os.path.join(data_dir, 'test'))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   train_imgs = torchvision.datasets.ImageFolder(os.path.join(data_dir, 'train'))
-   test_imgs = torchvision.datasets.ImageFolder(os.path.join(data_dir, 'test'))
 
 .. raw:: latex
 
@@ -235,17 +173,6 @@ below. As you can see, the images vary in size and aspect ratio.
 
 .. code:: python
 
-   #@tab mxnet,pytorch
-   hotdogs = [train_imgs[i][0] for i in range(8)]
-   not_hotdogs = [train_imgs[-i - 1][0] for i in range(8)]
-   d2l.show_images(hotdogs + not_hotdogs, 2, 8, scale=1.4);
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     hotdogs = [train_dataset[i]["X"] for i in range(8)]
     not_hotdogs = [train_dataset[-i - 1]["X"] for i in range(8)]
     d2l.show_images(hotdogs + not_hotdogs, 2, 8, scale=1.4);
@@ -264,54 +191,6 @@ height and width of an image to 256 pixels, and then crop a central
 channel by channel. Concretely, the mean value of a channel is
 subtracted from each value of that channel and then the result is
 divided by the standard deviation of that channel.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   # Specify the means and standard deviations of the three RGB channels to
-   # standardize each channel
-   normalize = gluon.data.vision.transforms.Normalize(
-       [0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-
-   train_augs = gluon.data.vision.transforms.Compose([
-       gluon.data.vision.transforms.RandomResizedCrop(224),
-       gluon.data.vision.transforms.RandomFlipLeftRight(),
-       gluon.data.vision.transforms.ToTensor(),
-       normalize])
-
-   test_augs = gluon.data.vision.transforms.Compose([
-       gluon.data.vision.transforms.Resize(256),
-       gluon.data.vision.transforms.CenterCrop(224),
-       gluon.data.vision.transforms.ToTensor(),
-       normalize])
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   # Specify the means and standard deviations of the three RGB channels to
-   # standardize each channel
-   normalize = torchvision.transforms.Normalize(
-       [0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-
-   train_augs = torchvision.transforms.Compose([
-       torchvision.transforms.RandomResizedCrop(224),
-       torchvision.transforms.RandomHorizontalFlip(),
-       torchvision.transforms.ToTensor(),
-       normalize])
-
-   test_augs = torchvision.transforms.Compose([
-       torchvision.transforms.Resize([256, 256]),
-       torchvision.transforms.CenterCrop(224),
-       torchvision.transforms.ToTensor(),
-       normalize])
 
 .. raw:: latex
 
@@ -350,35 +229,8 @@ first time, Internet connection is required for download.
 
 .. code:: python
 
-   #@tab mxnet
-   pretrained_net = gluon.model_zoo.vision.resnet18_v2(pretrained=True)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   pretrained_net = torchvision.models.resnet18(pretrained=True)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     # loading weights from HuggingFace (https://huggingface.co/mlx-vision/resnet18-mlxim)
     pretrained_net = create_model("resnet18")
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   pretrained_net.output
 
 .. raw:: latex
 
@@ -426,31 +278,6 @@ iterate the model parameters in the output layer.
 
 .. code:: python
 
-   #@tab mxnet
-   finetune_net = gluon.model_zoo.vision.resnet18_v2(classes=2)
-   finetune_net.features = pretrained_net.features
-   finetune_net.output.initialize(init.Xavier())
-   # The model parameters in the output layer will be iterated using a learning
-   # rate ten times greater
-   finetune_net.output.collect_params().setattr('lr_mult', 10)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   finetune_net = torchvision.models.resnet18(pretrained=True)
-   finetune_net.fc = nn.Linear(finetune_net.fc.in_features, 2)
-   nn.init.xavier_uniform_(finetune_net.fc.weight);
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     finetune_net = create_model("resnet18", num_classes=2)
     init_fn = nn.init.glorot_uniform()
     init_fn(finetune_net.fc.weight)
@@ -465,8 +292,8 @@ iterate the model parameters in the output layer.
 .. parsed-literal::
     :class: output
 
-    array([[0.0640211, 0.0963696, 0.0691823, ..., 0.10138, -0.0660146, 0.10369],
-           [-0.0541353, 0.0181194, 0.0959341, ..., -0.10743, 0.105315, 0.0906907]], dtype=float32)
+    array([[-0.00977603, -0.0811494, -0.0325737, ..., 0.0512224, -0.0480075, -0.0975347],
+           [0.0292623, 0.026238, 0.0556498, ..., -0.0857315, 0.0923511, 0.0124245]], dtype=float32)
 
 
 
@@ -475,59 +302,6 @@ Fine-Tuning the Model
 
 First, we define a training function ``train_fine_tuning`` that uses
 fine-tuning so it can be called multiple times.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   def train_fine_tuning(net, learning_rate, batch_size=128, num_epochs=5):
-       train_iter = gluon.data.DataLoader(
-           train_imgs.transform_first(train_augs), batch_size, shuffle=True)
-       test_iter = gluon.data.DataLoader(
-           test_imgs.transform_first(test_augs), batch_size)
-       devices = d2l.try_all_gpus()
-       net.collect_params().reset_ctx(devices)
-       net.hybridize()
-       loss = gluon.loss.SoftmaxCrossEntropyLoss()
-       trainer = gluon.Trainer(net.collect_params(), 'sgd', {
-           'learning_rate': learning_rate, 'wd': 0.001})
-       d2l.train_ch13(net, train_iter, test_iter, loss, trainer, num_epochs,
-                      devices)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   # If `param_group=True`, the model parameters in the output layer will be
-   # updated using a learning rate ten times greater
-   def train_fine_tuning(net, learning_rate, batch_size=128, num_epochs=5,
-                         param_group=True):
-       train_iter = torch.utils.data.DataLoader(torchvision.datasets.ImageFolder(
-           os.path.join(data_dir, 'train'), transform=train_augs),
-           batch_size=batch_size, shuffle=True)
-       test_iter = torch.utils.data.DataLoader(torchvision.datasets.ImageFolder(
-           os.path.join(data_dir, 'test'), transform=test_augs),
-           batch_size=batch_size)
-       devices = d2l.try_all_gpus()
-       loss = nn.CrossEntropyLoss(reduction="none")
-       if param_group:
-           params_1x = [param for name, param in net.named_parameters()
-                if name not in ["fc.weight", "fc.bias"]]
-           trainer = torch.optim.SGD([{'params': params_1x},
-                                      {'params': net.fc.parameters(),
-                                       'lr': learning_rate * 10}],
-                                   lr=learning_rate, weight_decay=0.001)
-       else:
-           trainer = torch.optim.SGD(net.parameters(), lr=learning_rate,
-                                     weight_decay=0.001)    
-       d2l.train_ch13(net, train_iter, test_iter, loss, trainer, num_epochs,
-                      devices)
 
 .. raw:: latex
 
@@ -591,24 +365,6 @@ from scratch using a learning rate ten times greater.
 
 .. code:: python
 
-   #@tab mxnet
-   train_fine_tuning(finetune_net, 0.01)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   train_fine_tuning(finetune_net, 5e-5)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     train_fine_tuning(finetune_net, 5e-5, param_group=False)
 
 
@@ -619,39 +375,17 @@ from scratch using a learning rate ten times greater.
 .. parsed-literal::
     :class: output
 
-    loss 0.222, train acc 0.917, test acc 0.924
-    187.6 examples/sec 
+    loss 0.222, train acc 0.922, test acc 0.916
+    194.1 examples/sec 
 
 
 
-.. figure:: output_fine-tuning_548337_19_1.svg
+.. figure:: output_fine-tuning_548337_18_1.svg
 
 
 For comparison, we define an identical model, but initialize all of its
 model parameters to random values. Since the entire model needs to be
 trained from scratch, we can use a larger learning rate.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   scratch_net = gluon.model_zoo.vision.resnet18_v2(classes=2)
-   scratch_net.initialize(init=init.Xavier())
-   train_fine_tuning(scratch_net, 0.1)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   scratch_net = torchvision.models.resnet18()
-   scratch_net.fc = nn.Linear(scratch_net.fc.in_features, 2)
-   train_fine_tuning(scratch_net, 5e-4, param_group=False)
 
 .. raw:: latex
 
@@ -670,12 +404,12 @@ trained from scratch, we can use a larger learning rate.
 .. parsed-literal::
     :class: output
 
-    loss 0.356, train acc 0.848, test acc 0.797
-    198.4 examples/sec 
+    loss 0.377, train acc 0.838, test acc 0.815
+    195.0 examples/sec 
 
 
 
-.. figure:: output_fine-tuning_548337_21_1.svg
+.. figure:: output_fine-tuning_548337_20_1.svg
 
 
 As we can see, the fine-tuned model tends to perform better for the same
@@ -708,47 +442,6 @@ Exercises
    How does the accuracy of the model change? You can use the following
    code.
 
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   finetune_net.features.collect_params().setattr('grad_req', 'null')
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   for param in finetune_net.parameters():
-       param.requires_grad = False
-
 4. In fact, there is a “hotdog” class in the ``ImageNet`` dataset. Its
    corresponding weight parameter in the output layer can be obtained
    via the following code. How can we leverage this weight parameter?
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   weight = pretrained_net.output.weight
-   hotdog_w = np.split(weight.data(), 1000, axis=0)[713]
-   hotdog_w.shape
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   weight = pretrained_net.fc.weight
-   hotdog_w = torch.split(weight.data, 1, dim=0)[934]
-   hotdog_w.shape

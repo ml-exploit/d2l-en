@@ -75,7 +75,7 @@ Show Source
           
               <a  class="mdl-navigation__link" href="###_ALTERNATE_VERSION_BASE_LINK_###">
                   <i class="fas fa-book"></i>
-                  ###_ALTERNATE_VERSION_###
+                  MLX
               </a>
           
               <a  class="mdl-navigation__link" href="###_CURRENT_VERSION_BASE_LINK_###/d2l-en.pdf">
@@ -531,28 +531,6 @@ training procedure, however, without explaining why it works. To shed
 some light on it, we just described the basic principles of gradient
 descent in <a class="reference internal" href="gd.html#sec-gd"><span class="std std-numref">Section 12.3</span></a>. In this section, we go on to discuss
 <em>stochastic gradient descent</em> in greater detail.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">mxnet</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mxnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">np</span><span class="p">,</span> <span class="n">npx</span>
-<span class="n">npx</span><span class="o">.</span><span class="n">set_np</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">d2l</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensorflow</span> <span class="k">as</span> <span class="n">d2l</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mlx.core</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mx</span>
@@ -604,36 +582,6 @@ stochastic gradient descent.</p>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x1</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x2</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab mxnet</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">sgd</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">f_grad</span><span class="p">):</span>
-    <span class="n">g1</span><span class="p">,</span> <span class="n">g2</span> <span class="o">=</span> <span class="n">f_grad</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
-    <span class="c1"># Simulate noisy gradient</span>
-    <span class="n">g1</span> <span class="o">+=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
-    <span class="n">g2</span> <span class="o">+=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
-    <span class="n">eta_t</span> <span class="o">=</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">lr</span><span class="p">()</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">g1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">g2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab pytorch</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">sgd</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">f_grad</span><span class="p">):</span>
-    <span class="n">g1</span><span class="p">,</span> <span class="n">g2</span> <span class="o">=</span> <span class="n">f_grad</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
-    <span class="c1"># Simulate noisy gradient</span>
-    <span class="n">g1</span> <span class="o">+=</span> <span class="n">torch</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,))</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-    <span class="n">g2</span> <span class="o">+=</span> <span class="n">torch</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,))</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-    <span class="n">eta_t</span> <span class="o">=</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">lr</span><span class="p">()</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">g1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">g2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#@tab tensorflow</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">sgd</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">f_grad</span><span class="p">):</span>
-    <span class="n">g1</span><span class="p">,</span> <span class="n">g2</span> <span class="o">=</span> <span class="n">f_grad</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
-    <span class="c1"># Simulate noisy gradient</span>
-    <span class="n">g1</span> <span class="o">+=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">g2</span> <span class="o">+=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">eta_t</span> <span class="o">=</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">lr</span><span class="p">()</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">g1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">eta_t</span> <span class="o">*</span> <span class="n">g2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sgd</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">f_grad</span><span class="p">):</span>
     <span class="n">g1</span><span class="p">,</span> <span class="n">g2</span> <span class="o">=</span> <span class="n">f_grad</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
     <span class="c1"># Simulate noisy gradient</span>
@@ -651,11 +599,11 @@ stochastic gradient descent.</p>
 <span class="n">d2l</span><span class="o">.</span><span class="n">show_trace_2d</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">train_2d</span><span class="p">(</span><span class="n">sgd</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">f_grad</span><span class="o">=</span><span class="n">f_grad</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epoch</span> <span class="mi">50</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.226452</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.119619</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epoch</span> <span class="mi">50</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.169916</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="mf">0.216402</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_sgd_0425f7_6_1.svg" src="../_images/output_sgd_0425f7_6_1.svg" /></figure>
+<img alt="../_images/output_sgd_0425f7_5_1.svg" src="../_images/output_sgd_0425f7_5_1.svg" /></figure>
 <p>As we can see, the trajectory of the variables in the stochastic
 gradient descent is much more noisy than the one we observed in gradient
 descent in <a class="reference internal" href="gd.html#sec-gd"><span class="std std-numref">Section 12.3</span></a>. This is due to the stochastic nature of
@@ -711,11 +659,11 @@ this rate is well behaved.</p>
 <span class="n">d2l</span><span class="o">.</span><span class="n">show_trace_2d</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">train_2d</span><span class="p">(</span><span class="n">sgd</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">f_grad</span><span class="o">=</span><span class="n">f_grad</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epoch</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.874176</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.048605</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epoch</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.786625</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.054956</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_sgd_0425f7_8_1.svg" src="../_images/output_sgd_0425f7_8_1.svg" /></figure>
+<img alt="../_images/output_sgd_0425f7_7_1.svg" src="../_images/output_sgd_0425f7_7_1.svg" /></figure>
 <p>As expected, the variance in the parameters is significantly reduced.
 However, this comes at the expense of failing to converge to the optimal
 solution <span class="math notranslate nohighlight">\(\mathbf{x} = (0, 0)\)</span>. Even after 1000 iteration steps
@@ -735,11 +683,11 @@ steps.</p>
 <span class="n">d2l</span><span class="o">.</span><span class="n">show_trace_2d</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">d2l</span><span class="o">.</span><span class="n">train_2d</span><span class="p">(</span><span class="n">sgd</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">f_grad</span><span class="o">=</span><span class="n">f_grad</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epoch</span> <span class="mi">50</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span> <span class="mf">0.205997</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.052413</span>
+<div class="output highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">epoch</span> <span class="mi">50</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.101411</span><span class="p">,</span> <span class="n">x2</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.160576</span>
 </pre></div>
 </div>
 <figure class="align-default">
-<img alt="../_images/output_sgd_0425f7_10_1.svg" src="../_images/output_sgd_0425f7_10_1.svg" /></figure>
+<img alt="../_images/output_sgd_0425f7_9_1.svg" src="../_images/output_sgd_0425f7_9_1.svg" /></figure>
 <p>There exist many more choices for how to set the learning rate. For
 instance, we could start with a small rate, then rapidly ramp up and
 then decrease it again, albeit more slowly. We could even alternate

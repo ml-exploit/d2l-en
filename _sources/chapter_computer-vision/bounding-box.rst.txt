@@ -33,58 +33,12 @@ methods for object detection. We will begin with an introduction to
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   from mxnet import image, npx, np
-
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   import torch
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   %matplotlib inline
-   from d2l import tensorflow as d2l
-   import tensorflow as tf
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     import mlx.core as mx
     from d2l import mlx as d2l
 
 We will load the sample image to be used in this section. We can see
 that there is a dog on the left side of the image and a cat on the
 right. They are the two major objects in this image.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   d2l.set_figsize()
-   img = image.imread('../img/catdog.jpg').asnumpy()
-   d2l.plt.imshow(img);
 
 .. raw:: latex
 

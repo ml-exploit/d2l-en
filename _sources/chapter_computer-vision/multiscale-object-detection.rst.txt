@@ -42,38 +42,6 @@ respectively.
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   from mxnet import image, np, npx
-
-   npx.set_np()
-
-   img = image.imread('../img/catdog.jpg')
-   h, w = img.shape[:2]
-   h, w
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   import torch
-
-   img = d2l.plt.imread('../img/catdog.jpg')
-   h, w = img.shape[:2]
-   h, w
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     %matplotlib inline
     import mlx.core as mx
     import numpy as np
@@ -119,38 +87,6 @@ map ``fmap_w`` and ``fmap_h``, respectively, the following function will
 any input image. Centered on these uniformly sampled pixels, anchor
 boxes of scale ``s`` (assuming the length of the list ``s`` is 1) and
 different aspect ratios (``ratios``) will be generated.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   def display_anchors(fmap_w, fmap_h, s):
-       d2l.set_figsize()
-       # Values on the first two dimensions do not affect the output
-       fmap = np.zeros((1, 10, fmap_h, fmap_w))
-       anchors = npx.multibox_prior(fmap, sizes=s, ratios=[1, 2, 0.5])
-       bbox_scale = np.array((w, h, w, h))
-       d2l.show_bboxes(d2l.plt.imshow(img.asnumpy()).axes,
-                       anchors[0] * bbox_scale)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   def display_anchors(fmap_w, fmap_h, s):
-       d2l.set_figsize()
-       # Values on the first two dimensions do not affect the output
-       fmap = d2l.zeros((1, 10, fmap_h, fmap_w))
-       anchors = d2l.multibox_prior(fmap, sizes=s, ratios=[1, 2, 0.5])
-       bbox_scale = d2l.tensor((w, h, w, h))
-       d2l.show_bboxes(d2l.plt.imshow(img).axes,
-                       anchors[0] * bbox_scale)
 
 .. raw:: latex
 

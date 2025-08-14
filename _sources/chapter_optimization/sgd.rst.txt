@@ -17,43 +17,6 @@ descent in :numref:`sec_gd`. In this section, we go on to discuss
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   import math
-   from mxnet import np, npx
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   import math
-   import torch
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   %matplotlib inline
-   from d2l import tensorflow as d2l
-   import math
-   import tensorflow as tf
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     %matplotlib inline
     import math
     import mlx.core as mx
@@ -123,51 +86,6 @@ stochastic gradient descent.
 
 .. code:: python
 
-   #@tab mxnet
-   def sgd(x1, x2, s1, s2, f_grad):
-       g1, g2 = f_grad(x1, x2)
-       # Simulate noisy gradient
-       g1 += d2l.normal(0.0, 1, (1,))
-       g2 += d2l.normal(0.0, 1, (1,))
-       eta_t = eta * lr()
-       return (x1 - eta_t * g1, x2 - eta_t * g2, 0, 0)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   def sgd(x1, x2, s1, s2, f_grad):
-       g1, g2 = f_grad(x1, x2)
-       # Simulate noisy gradient
-       g1 += torch.normal(0.0, 1, (1,)).item()
-       g2 += torch.normal(0.0, 1, (1,)).item()
-       eta_t = eta * lr()
-       return (x1 - eta_t * g1, x2 - eta_t * g2, 0, 0)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   def sgd(x1, x2, s1, s2, f_grad):
-       g1, g2 = f_grad(x1, x2)
-       # Simulate noisy gradient
-       g1 += d2l.normal([1], 0.0, 1)
-       g2 += d2l.normal([1], 0.0, 1)
-       eta_t = eta * lr()
-       return (x1 - eta_t * g1, x2 - eta_t * g2, 0, 0)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     def sgd(x1, x2, s1, s2, f_grad):
         g1, g2 = f_grad(x1, x2)
         # Simulate noisy gradient
@@ -197,11 +115,11 @@ stochastic gradient descent.
 .. parsed-literal::
     :class: output
 
-    epoch 50, x1: -0.226452, x2: -0.119619
+    epoch 50, x1: -0.169916, x2: 0.216402
 
 
 
-.. figure:: output_sgd_0425f7_6_1.svg
+.. figure:: output_sgd_0425f7_5_1.svg
 
 
 As we can see, the trajectory of the variables in the stochastic
@@ -280,11 +198,11 @@ Let’s see what the exponential decay looks like in practice.
 .. parsed-literal::
     :class: output
 
-    epoch 1000, x1: -0.874176, x2: -0.048605
+    epoch 1000, x1: -0.786625, x2: -0.054956
 
 
 
-.. figure:: output_sgd_0425f7_8_1.svg
+.. figure:: output_sgd_0425f7_7_1.svg
 
 
 As expected, the variance in the parameters is significantly reduced.
@@ -320,11 +238,11 @@ steps.
 .. parsed-literal::
     :class: output
 
-    epoch 50, x1: 0.205997, x2: -0.052413
+    epoch 50, x1: -0.101411, x2: -0.160576
 
 
 
-.. figure:: output_sgd_0425f7_10_1.svg
+.. figure:: output_sgd_0425f7_9_1.svg
 
 
 There exist many more choices for how to set the learning rate. For

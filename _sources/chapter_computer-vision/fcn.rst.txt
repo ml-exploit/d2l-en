@@ -24,34 +24,6 @@ for the input pixel at the same spatial position.
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   from mxnet import gluon, image, init, np, npx
-   from mxnet.gluon import nn
-
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   import torch
-   import torchvision
-   from torch import nn
-   from torch.nn import functional as F
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     %matplotlib inline
     import albumentations as A
     import mlx.core as mx
@@ -88,26 +60,6 @@ extract image features and denote the model instance as
 ``pretrained_net``. The last few layers of this model include a global
 average pooling layer and a fully connected layer: they are not needed
 in the fully convolutional network.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   pretrained_net = gluon.model_zoo.vision.resnet18_v2(pretrained=True)
-   pretrained_net.features[-3:], pretrained_net.output
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   pretrained_net = torchvision.models.resnet18(pretrained=True)
-   list(pretrained_net.children())[-3:]
 
 .. raw:: latex
 
@@ -165,52 +117,12 @@ closest to the output.
 
 .. code:: python
 
-   #@tab mxnet
-   net = nn.HybridSequential()
-   for layer in pretrained_net.features[:-2]:
-       net.add(layer)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   net = nn.Sequential(*list(pretrained_net.children())[:-2])
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     pretrained_net_layers = [layer for name, layer in pretrained_net.children().items()]
     net = nn.Sequential(*pretrained_net_layers[:-2])
 
 Given an input with height and width of 320 and 480 respectively, the
 forward propagation of ``net`` reduces the input height and width to
 1/32 of the original, namely 10 and 15.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   X = np.random.uniform(size=(1, 3, 320, 480))
-   net(X).shape
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   X = torch.rand(size=(1, 3, 320, 480))
-   net(X).shape
 
 .. raw:: latex
 
@@ -249,30 +161,6 @@ general, we can see that for stride :math:`s`, padding :math:`s/2`
 (assuming :math:`s/2` is an integer), and the height and width of the
 kernel :math:`2s`, the transposed convolution will increase the height
 and width of the input by :math:`s` times.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   num_classes = 21
-   net.add(nn.Conv2D(num_classes, kernel_size=1),
-           nn.Conv2DTranspose(
-               num_classes, kernel_size=64, padding=16, strides=32))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   num_classes = 21
-   net.add_module('final_conv', nn.Conv2d(512, num_classes, kernel_size=1))
-   net.add_module('transpose_conv', nn.ConvTranspose2d(num_classes, num_classes,
-                                       kernel_size=64, padding=16, stride=32))
 
 .. raw:: latex
 
@@ -320,49 +208,6 @@ below without discussions on its algorithm design.
 
 .. code:: python
 
-   #@tab mxnet
-   def bilinear_kernel(in_channels, out_channels, kernel_size):
-       factor = (kernel_size + 1) // 2
-       if kernel_size % 2 == 1:
-           center = factor - 1
-       else:
-           center = factor - 0.5
-       og = (np.arange(kernel_size).reshape(-1, 1),
-             np.arange(kernel_size).reshape(1, -1))
-       filt = (1 - np.abs(og[0] - center) / factor) * \
-              (1 - np.abs(og[1] - center) / factor)
-       weight = np.zeros((in_channels, out_channels, kernel_size, kernel_size))
-       weight[range(in_channels), range(out_channels), :, :] = filt
-       return np.array(weight)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   def bilinear_kernel(in_channels, out_channels, kernel_size):
-       factor = (kernel_size + 1) // 2
-       if kernel_size % 2 == 1:
-           center = factor - 1
-       else:
-           center = factor - 0.5
-       og = (torch.arange(kernel_size).reshape(-1, 1),
-             torch.arange(kernel_size).reshape(1, -1))
-       filt = (1 - torch.abs(og[0] - center) / factor) * \
-              (1 - torch.abs(og[1] - center) / factor)
-       weight = torch.zeros((in_channels, out_channels,
-                             kernel_size, kernel_size))
-       weight[range(in_channels), range(out_channels), :, :] = filt
-       return weight
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     def bilinear_kernel(in_channels, out_channels, kernel_size):
         factor = (kernel_size + 1) // 2
         if kernel_size % 2 == 1:
@@ -382,27 +227,6 @@ Let’s experiment with upsampling of bilinear interpolation that is
 implemented by a transposed convolutional layer. We construct a
 transposed convolutional layer that doubles the height and weight, and
 initialize its kernel with the ``bilinear_kernel`` function.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   conv_trans = nn.Conv2DTranspose(3, kernel_size=4, padding=1, strides=2)
-   conv_trans.initialize(init.Constant(bilinear_kernel(3, 3, 4)))
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   conv_trans = nn.ConvTranspose2d(3, 3, kernel_size=4, padding=1, stride=2,
-                                   bias=False)
-   conv_trans.weight.data.copy_(bilinear_kernel(3, 3, 4));
 
 .. raw:: latex
 
@@ -430,30 +254,6 @@ initialize its kernel with the ``bilinear_kernel`` function.
 Read the image ``X`` and assign the upsampling output to ``Y``. In order
 to print the image, we need to adjust the position of the channel
 dimension.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   img = image.imread('../img/catdog.jpg')
-   X = np.expand_dims(img.astype('float32').transpose(2, 0, 1), axis=0) / 255
-   Y = conv_trans(X)
-   out_img = Y[0].transpose(1, 2, 0)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   img = torchvision.transforms.ToTensor()(d2l.Image.open('../img/catdog.jpg'))
-   X = img.unsqueeze(0)
-   Y = conv_trans(X)
-   out_img = Y[0].permute(1, 2, 0).detach()
 
 .. raw:: latex
 
@@ -490,32 +290,6 @@ look the same.
 
 .. code:: python
 
-   #@tab mxnet
-   d2l.set_figsize()
-   print('input image shape:', img.shape)
-   d2l.plt.imshow(img.asnumpy());
-   print('output image shape:', out_img.shape)
-   d2l.plt.imshow(out_img.asnumpy());
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   d2l.set_figsize()
-   print('input image shape:', img.permute(1, 2, 0).shape)
-   d2l.plt.imshow(img.permute(1, 2, 0));
-   print('output image shape:', out_img.shape)
-   d2l.plt.imshow(out_img);
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     d2l.set_figsize()
     print('input image shape:', img.shape)
     d2l.plt.imshow(img);
@@ -541,27 +315,6 @@ look the same.
 In a fully convolutional network, we initialize the transposed
 convolutional layer with upsampling of bilinear interpolation. For the
 :math:`1\times 1` convolutional layer, we use Xavier initialization.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   W = bilinear_kernel(num_classes, num_classes, 64)
-   net[-1].initialize(init.Constant(W))
-   net[-2].initialize(init=init.Xavier())
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   W = bilinear_kernel(num_classes, num_classes, 64)
-   net.transpose_conv.weight.data.copy_(W);
 
 .. raw:: latex
 
@@ -858,16 +611,6 @@ width are divisible by :math:`32`.
 
 .. code:: python
 
-   #@tab mxnet,pytorch
-   batch_size, crop_size = 32, (320, 480)
-   train_iter, test_iter = d2l.load_data_voc(batch_size, crop_size)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     batch_size, crop_size = 32, (320, 480)
     train_iter, num_train_batches, test_iter, num_test_batches = d2l.load_data_voc(batch_size, crop_size)
 
@@ -900,34 +643,6 @@ correctness of the predicted class for all the pixels.
 
 .. code:: python
 
-   #@tab mxnet
-   num_epochs, lr, wd, devices = 5, 0.1, 1e-3, d2l.try_all_gpus()
-   loss = gluon.loss.SoftmaxCrossEntropyLoss(axis=1)
-   net.collect_params().reset_ctx(devices)
-   trainer = gluon.Trainer(net.collect_params(), 'sgd',
-                           {'learning_rate': lr, 'wd': wd})
-   d2l.train_ch13(net, train_iter, test_iter, loss, trainer, num_epochs, devices)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   def loss(inputs, targets):
-       return F.cross_entropy(inputs, targets, reduction='none').mean(1).mean(1)
-
-   num_epochs, lr, wd, devices = 5, 0.001, 1e-3, d2l.try_all_gpus()
-   trainer = torch.optim.SGD(net.parameters(), lr=lr, weight_decay=wd)
-   d2l.train_ch13(net, train_iter, test_iter, loss, trainer, num_epochs, devices)
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     loss = losses.cross_entropy
     num_epochs, lr, wd = 5, 0.001, 1e-3
     trainer = optim.SGD(learning_rate=lr, weight_decay=wd)
@@ -941,8 +656,8 @@ correctness of the predicted class for all the pixels.
 .. parsed-literal::
     :class: output
 
-    loss nan, train acc 111812.876, test acc 0.729
-    32.9 examples/sec 
+    loss nan, train acc 111892.825, test acc 0.728
+    33.1 examples/sec 
 
 
 
@@ -962,31 +677,6 @@ by the CNN.
 
 .. code:: python
 
-   #@tab mxnet
-   def predict(img):
-       X = test_iter._dataset.normalize_image(img)
-       X = np.expand_dims(X.transpose(2, 0, 1), axis=0)
-       pred = net(X.as_in_ctx(devices[0])).argmax(axis=1)
-       return pred.reshape(pred.shape[1], pred.shape[2])
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   def predict(img):
-       X = test_iter.dataset.normalize_image(img).unsqueeze(0)
-       pred = net(X.to(devices[0])).argmax(dim=1)
-       return pred.reshape(pred.shape[1], pred.shape[2])
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     def predict(img):
         transform = A.Normalize(
                 mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
@@ -999,30 +689,6 @@ by the CNN.
 
 To visualize the predicted class of each pixel, we map the predicted
 class back to its label color in the dataset.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   def label2image(pred):
-       colormap = np.array(d2l.VOC_COLORMAP, ctx=devices[0], dtype='uint8')
-       X = pred.astype('int32')
-       return colormap[X, :]
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   def label2image(pred):
-       colormap = torch.tensor(d2l.VOC_COLORMAP, device=devices[0])
-       X = pred.long()
-       return colormap[X, :]
 
 .. raw:: latex
 
@@ -1052,42 +718,6 @@ For simplicity, we only read a few larger test images, and crop a
 :math:`320\times480` area for prediction starting from the upper-left
 corner of an image. For these test images, we print their cropped areas,
 prediction results, and ground-truth row by row.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet
-   voc_dir = d2l.download_extract('voc2012', 'VOCdevkit/VOC2012')
-   test_images, test_labels = d2l.read_voc_images(voc_dir, False)
-   n, imgs = 4, []
-   for i in range(n):
-       crop_rect = (0, 0, 480, 320)
-       X = image.fixed_crop(test_images[i], *crop_rect)
-       pred = label2image(predict(X))
-       imgs += [X, pred, image.fixed_crop(test_labels[i], *crop_rect)]
-   d2l.show_images(imgs[::3] + imgs[1::3] + imgs[2::3], 3, n, scale=2);
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   voc_dir = d2l.download_extract('voc2012', 'VOCdevkit/VOC2012')
-   test_images, test_labels = d2l.read_voc_images(voc_dir, False)
-   n, imgs = 4, []
-   for i in range(n):
-       crop_rect = (0, 0, 320, 480)
-       X = torchvision.transforms.functional.crop(test_images[i], *crop_rect)
-       pred = label2image(predict(X))
-       imgs += [X.permute(1,2,0), pred.cpu(),
-                torchvision.transforms.functional.crop(
-                    test_labels[i], *crop_rect).permute(1,2,0)]
-   d2l.show_images(imgs[::3] + imgs[1::3] + imgs[2::3], 3, n, scale=2);
 
 .. raw:: latex
 

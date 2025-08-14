@@ -21,45 +21,6 @@ lead to exciting new optimization variants such as
 
 .. code:: python
 
-   #@tab mxnet
-   %matplotlib inline
-   from d2l import mxnet as d2l
-   from mpl_toolkits import mplot3d
-   from mxnet import np, npx
-   npx.set_np()
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab pytorch
-   %matplotlib inline
-   from d2l import torch as d2l
-   import numpy as np
-   from mpl_toolkits import mplot3d
-   import torch
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab tensorflow
-   %matplotlib inline
-   from d2l import tensorflow as d2l
-   import numpy as np
-   from mpl_toolkits import mplot3d
-   import tensorflow as tf
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
     %matplotlib inline
     import mlx.core as mx
     import numpy as np
@@ -155,23 +116,6 @@ have
 To illustrate this let’s plot a few functions and check which ones
 satisfy the requirement. Below we define a few functions, both convex
 and nonconvex.
-
-.. raw:: latex
-
-   \diilbookstyleinputcell
-
-.. code:: python
-
-   #@tab mxnet,pytorch,tensorflow
-   f = lambda x: 0.5 * x**2  # Convex
-   g = lambda x: d2l.cos(np.pi * x)  # Nonconvex
-   h = lambda x: d2l.exp(0.5 * x)  # Convex
-
-   x, segment = d2l.arange(-2, 2, 0.01), d2l.tensor([-1.5, 1])
-   d2l.use_svg_display()
-   _, axes = d2l.plt.subplots(1, 3, figsize=(9, 3))
-   for ax, func in zip(axes, [f, g, h]):
-       d2l.plot([x, segment], [func(x), func(segment)], axes=ax)
 
 .. raw:: latex
 
